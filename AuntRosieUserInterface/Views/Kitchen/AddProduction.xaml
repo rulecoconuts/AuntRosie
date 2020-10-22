@@ -1,0 +1,128 @@
+﻿<Page x:Class="AuntRosieUserInterface.Views.Kitchen.AddProduction"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AuntRosieUserInterface.Views.Kitchen"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Event">
+
+    <Page.Resources>
+        <Style x:Key="font_style" TargetType="TextBlock">
+
+            <Setter Property="FontFamily"
+                    Value="Fonts/Roboto-Light.ttf #Roboto"/>
+
+            <Setter Property="VerticalAlignment"
+                    Value="Center"/>
+
+            <Setter Property="HorizontalAlignment"
+                    Value="Left"/>
+
+            <Setter Property="Foreground"
+                    Value="#000"/>
+
+            <Setter Property="FontSize"
+                    Value="15"/>
+
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="219*"/>
+            <ColumnDefinition Width="581*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--// Background Color //-->
+
+        <Grid Background="Black" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="381*"/>
+                <RowDefinition Height="220*"/>
+            </Grid.RowDefinitions>
+
+            <!--// Background Image //-->
+
+            <Grid x:Name="BG" Grid.RowSpan="2" >
+
+                <Grid.Background>
+
+                    <ImageBrush x:Name="img_bg"
+                                ImageSource="/Images/Bakery Image.jpg"
+                                Stretch="Fill"/>
+
+                </Grid.Background>
+                <Frame x:Name="HomeScreen"/>
+            </Grid>
+
+            <!--// Navigation Panel //-->
+
+            <Grid   x:Name="inventoryIn_pnl"
+                    HorizontalAlignment="Left"
+                    Width="565"
+                    Background="#FFEAEAEA"
+                    Margin="225,0,0,0" Grid.RowSpan="2">
+
+            </Grid>
+            <Label Content="Record Production" Panel.ZIndex="5" Width="210" Height="50" FontSize="22" FontWeight="Bold" Margin="382,10,208,320"/>
+
+            <StackPanel x:Name="inventoryInScreen" Margin="246,10,306,52" Background="White" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
+
+                <Label x:Name="lblProduct" 
+                       Content="Choose Product Item: " 
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Top" 
+                       Margin="0,130,11,0" 
+                       RenderTransformOrigin="-0.325,-14.385" 
+                       Width="208"
+                       FontSize="20"/>
+
+                <Label x:Name="lblProductionDate" 
+                       Content="Production Date: " 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top" 
+                       Margin="70,30,0,0" 
+                       RenderTransformOrigin="-0.325,-14.385" 
+                       Width="167"
+                       FontSize="20"/>
+
+                <Label x:Name="lblQuantity" 
+                       Content="Quantity: " 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top" 
+                       Margin="132,30,0,0" 
+                       RenderTransformOrigin="-0.325,-14.385" 
+                       Width="105"
+                       FontSize="20"/>
+
+            </StackPanel>
+
+            <StackPanel x:Name="inventoryInput" Margin="494,10,34,52" Background="White" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
+                <ComboBox x:Name="cmbProducts" Height="30" Margin="10,135,52,0" SelectedIndex="0">
+                    <ComboBoxItem>Steak Pie (1KG Family Size)</ComboBoxItem>
+                    <ComboBoxItem>Steak Pie (Single Serving)</ComboBoxItem>
+                </ComboBox>
+                <DatePicker Margin="10,40,29,0" SelectedDate="2020-10-21"/>
+                <TextBox x:Name="txtNutrition" Height="30" Margin="10,35,158,0"/>
+
+            </StackPanel>
+
+
+
+            <StackPanel x:Name="spSubmit" Margin="246,10.333,34,52" Background="White" RenderTransformOrigin="0.491,0.497" Grid.Row="1">
+                <Button x:Name="btnAddProduct" 
+                        Content="Add Production" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" 
+                        Height="30"
+                        Width="342" 
+                        Margin="100,25,0,0"
+                        Click="CreateProduction_Click" FontSize="16"/>
+
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Page>

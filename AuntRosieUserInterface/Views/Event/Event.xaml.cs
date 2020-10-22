@@ -1,0 +1,73 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace AuntRosieUserInterface.Views.Event
+{
+    /// <summary>
+    /// Interaction logic for Event.xaml
+    /// </summary>
+    public partial class Event : Page
+    {
+        public Event()
+        {
+            InitializeComponent();
+        }
+
+        //Member Variables
+        private bool openCreateEvent;
+        private bool openSales;
+
+        private void OpenSales_Click(object sender, RoutedEventArgs e)
+        {
+            if (!openSales)
+            {
+                HomeScreen.Content = new Sales();
+                openSales = true;
+
+                btnCreateEvent.IsEnabled = false;
+            } else
+            {
+                HomeScreen.Content = "";
+
+                openSales = false;
+                btnCreateEvent.IsEnabled = true;
+            }
+        }
+
+        /// <summary>
+        /// Opens the create event page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenCreateEvent_Click(object sender, RoutedEventArgs e)
+        {
+            if (!openCreateEvent)
+            {
+                //Opens the Create Event page
+                HomeScreen.Content = new CreateEvent();
+
+                openCreateEvent = true;
+
+                btnAddProduct.IsEnabled = false;
+            }
+            else
+            {
+                HomeScreen.Content = "";
+                openCreateEvent = false;
+                btnAddProduct.IsEnabled = true;
+            }
+        }
+    }
+}
