@@ -29,54 +29,55 @@
         </Style>
     </Page.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="219*"/>
-            <ColumnDefinition Width="581*"/>
-        </Grid.ColumnDefinitions>
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="219*"/>
+                <ColumnDefinition Width="581*"/>
+            </Grid.ColumnDefinitions>
 
-        <!--// Background Color //-->
+            <!--// Background Color //-->
 
-        <Grid Background="Black" Grid.ColumnSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="381*"/>
-                <RowDefinition Height="220*"/>
-            </Grid.RowDefinitions>
+            <Grid Background="Black" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="381*"/>
+                    <RowDefinition Height="220*"/>
+                </Grid.RowDefinitions>
 
-            <!--// Background Image //-->
+                <!--// Background Image //-->
 
-            <Grid x:Name="BG" Grid.RowSpan="2" >
+                <Grid x:Name="BG" Grid.RowSpan="2" >
 
-                <Grid.Background>
+                    <Grid.Background>
 
-                    <ImageBrush x:Name="img_bg"
+                        <ImageBrush x:Name="img_bg"
                                 ImageSource="/Images/Bakery Image.jpg"
                                 Stretch="Fill"/>
 
-                </Grid.Background>
-                <Frame x:Name="HomeScreen"/>
-            </Grid>
+                    </Grid.Background>
+                    <Frame x:Name="HomeScreen"/>
+                </Grid>
 
-            <!--// Navigation Panel //-->
+                <!--// Navigation Panel //-->
 
-            <Grid   x:Name="inventoryIn_pnl"
+                <Grid   x:Name="inventoryIn_pnl"
                     HorizontalAlignment="Left"
                     Width="565"
                     Background="#FFCAC4C4"
                     Margin="225,0,0,0" Grid.RowSpan="2">
-                <TextBox Margin="270,203,71,364"/>
-            </Grid>
+                    <TextBox Margin="270,203,71,364"/>
+                </Grid>
 
-            <StackPanel x:Name="inventoryInScreen" Margin="246,10,306,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
+                <StackPanel x:Name="inventoryInScreen" Margin="246,10,296.667,52.333" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
                         >
-                <StackPanel.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFA48874" Offset="0.322"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </StackPanel.Background>
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA48874" Offset="0.322"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
 
-                <Label x:Name="lblChoose" 
+                    <Label x:Name="lblChoose" 
                        Content="Choose Product: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -85,7 +86,7 @@
                        Width="178"
                        FontSize="20"/>
 
-                <Label x:Name="lblProductType" 
+                    <Label x:Name="lblProductType" 
                        Content="Type: " 
                        HorizontalAlignment="Right" 
                        VerticalAlignment="Top" 
@@ -94,7 +95,7 @@
                        Width="92"
                        FontSize="20"/>
 
-                <Label x:Name="lblServingSize" 
+                    <Label x:Name="lblServingSize" 
                        Content="Serving Size: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -103,7 +104,7 @@
                        Width="146"
                        FontSize="20"/>
 
-                <Label x:Name="lblNutrition" 
+                    <Label x:Name="lblNutrition" 
                        Content="Nutrition Info: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -112,7 +113,7 @@
                        Width="146"
                        FontSize="20"/>
 
-                <Label x:Name="lblPrice" 
+                    <Label x:Name="lblPrice" 
                        Content="Price: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -121,7 +122,7 @@
                        Width="97"
                        FontSize="20"/>
 
-                <Label x:Name="lblIngredientsList" 
+                    <Label x:Name="lblIngredientsList" 
                        Content="Select Ingredients: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -130,54 +131,55 @@
                        Width="178"
                        FontSize="20"/>
 
-            </StackPanel>
+                </StackPanel>
 
-            <StackPanel x:Name="inventoryInput" Margin="494,10,34,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
+                <StackPanel x:Name="inventoryInput" Margin="492,10,33.667,52.333" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
 
-                <StackPanel.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFA48874" Offset="0.322"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </StackPanel.Background>
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA48874" Offset="0.322"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
 
-                <ComboBox x:Name="cmbProducts" BorderThickness="3" Height="30" Margin="10,50,52,0" SelectionChanged="cmbProducts_SelectionChanged" ToolTip="Choose the product to edit"/>
+                    <ComboBox x:Name="cmbProducts" BorderThickness="3" Height="30" Margin="10,50,52,0" SelectionChanged="cmbProducts_SelectionChanged" ToolTip="Choose the product to edit"/>
 
-                <ComboBox x:Name="cmbProductType" BorderThickness="3" Height="30" Margin="10,5,52,0" ToolTip="Edit the type of product">
-                    <ComboBoxItem>Homemade Pie</ComboBoxItem>
-                    <ComboBoxItem>Preserves</ComboBoxItem>
-                </ComboBox>
-                <TextBox x:Name="txtServingSize" BorderThickness="3" Height="30" Margin="10,5,164,0" ToolTip="Enter the serving size"/>
-                <RadioButton x:Name="radPounds" BorderThickness="3" Margin="8,5,15,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137" ToolTip="Select for serving size metric (Pounds)">Pounds (LBS)</RadioButton>
-                <RadioButton x:Name="radKilos" BorderThickness="3" Margin="8,0,0,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" Content="Kilos (KG)" ToolTip="Select for serving size metric (Kilos)"/>
-                <RadioButton x:Name="radLitres" BorderThickness="3" Margin="8,0,0,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" ToolTip="Select for serving size metric (Litres)">Litres (L)</RadioButton>
-                <TextBox x:Name="txtNutrition" BorderThickness="3" Height="50" Margin="10,10,52,0" ToolTip="Edit the nutrition information"/>
-                <TextBox x:Name="txtPrice" Height="30" BorderThickness="3" Margin="10,5,164,0" ToolTip="Edit the price"/>
+                    <ComboBox x:Name="cmbProductType" BorderThickness="3" Height="30" Margin="10,5,52,0" ToolTip="Edit the type of product">
+                        <ComboBoxItem>Homemade Pie</ComboBoxItem>
+                        <ComboBoxItem>Preserves</ComboBoxItem>
+                    </ComboBox>
+                    <TextBox x:Name="txtServingSize" BorderThickness="3" Height="30" Margin="10,5,164,0" ToolTip="Enter the serving size"/>
+                    <RadioButton x:Name="radPounds" BorderThickness="3" Margin="8,5,15,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137" ToolTip="Select for serving size metric (Pounds)">Pounds (LBS)</RadioButton>
+                    <RadioButton x:Name="radKilos" BorderThickness="3" Margin="8,0,0,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" Content="Kilos (KG)" ToolTip="Select for serving size metric (Kilos)"/>
+                    <RadioButton x:Name="radLitres" BorderThickness="3" Margin="8,0,0,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" ToolTip="Select for serving size metric (Litres)">Litres (L)</RadioButton>
+                    <TextBox x:Name="txtNutrition" BorderThickness="3" Height="50" Margin="10,10,52,0" ToolTip="Edit the nutrition information"/>
+                    <TextBox x:Name="txtPrice" Height="30" BorderThickness="3" Margin="10,5,164,0" ToolTip="Edit the price"/>
 
-                <ListBox x:Name="lstIngredients" Height="153"
+                    <ListBox x:Name="lstIngredients" Height="153"
                          Margin="10,5,36,0" SelectionMode="Multiple"
                          ToolTip="Edit the ingredients per product"
                          BorderThickness="3"/>
 
-            </StackPanel>
+                </StackPanel>
 
 
 
-            <StackPanel x:Name="spSubmit" Margin="246,99.333,34,52" RenderTransformOrigin="0.491,0.497" Grid.Row="1">
+                <StackPanel x:Name="spSubmit" Margin="246,338.333,33.667,52.333" RenderTransformOrigin="0.491,0.497" Grid.Row="1">
 
-                <Button x:Name="btnCommitChanges" 
+                    <Button x:Name="btnCommitChanges" 
                         Content="Commit Changes" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
                         Height="30"
                         Width="120" 
-                        Margin="190,15,0,0"
+                        Margin="190,130,0,0"
                         Click="CommitChange_Click"
                         ToolTip="Submits the new changes per product"
                         Background="Beige"/>
 
-            </StackPanel>
-        </Grid>
+                </StackPanel>
+            </Grid>
 
-    </Grid>
+        </Grid>
+    </Viewbox>
 </Page>

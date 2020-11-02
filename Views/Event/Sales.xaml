@@ -29,55 +29,56 @@
         </Style>
     </Page.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="219*"/>
-            <ColumnDefinition Width="581*"/>
-        </Grid.ColumnDefinitions>
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="219*"/>
+                <ColumnDefinition Width="581*"/>
+            </Grid.ColumnDefinitions>
 
-        <!--// Background Color //-->
+            <!--// Background Color //-->
 
-        <Grid Background="Black" Grid.ColumnSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="381*"/>
-                <RowDefinition Height="220*"/>
-            </Grid.RowDefinitions>
+            <Grid Background="Black" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="381*"/>
+                    <RowDefinition Height="220*"/>
+                </Grid.RowDefinitions>
 
-            <!--// Background Image //-->
+                <!--// Background Image //-->
 
-            <Grid x:Name="BG" Grid.RowSpan="2" >
+                <Grid x:Name="BG" Grid.RowSpan="2" >
 
-                <Grid.Background>
+                    <Grid.Background>
 
-                    <ImageBrush x:Name="img_bg"
+                        <ImageBrush x:Name="img_bg"
                                 ImageSource="/Images/Bakery Image.jpg"
                                 Stretch="Fill"/>
 
-                </Grid.Background>
-                <Frame x:Name="HomeScreen"/>
-            </Grid>
+                    </Grid.Background>
+                    <Frame x:Name="HomeScreen"/>
+                </Grid>
 
-            <!--// Navigation Panel //-->
+                <!--// Navigation Panel //-->
 
-            <Grid   x:Name="inventoryIn_pnl"
+                <Grid   x:Name="inventoryIn_pnl"
                     HorizontalAlignment="Left"
                     Width="565"
                     Background="#FFCAC4C4"
                     Margin="225,0,0,0" Grid.RowSpan="2">
-                <TextBox Margin="270,203,71,364"/>
-            </Grid>
+                    <TextBox Margin="270,203,71,364"/>
+                </Grid>
 
-            <StackPanel x:Name="Labels" Margin="246,10,306,52"  RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
+                <StackPanel x:Name="Labels" Margin="246,10,306,52"  RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
                         >
-                <StackPanel.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFA48874" Offset="0.322"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </StackPanel.Background>
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA48874" Offset="0.322"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
 
 
-                <Label x:Name="lblChoose" 
+                    <Label x:Name="lblChoose" 
                        Content="Choose Customer:" 
                        HorizontalAlignment="Right" 
                        VerticalAlignment="Top" 
@@ -86,7 +87,7 @@
                        Width="182"
                        FontSize="20"/>
 
-                <Label x:Name="lblProducts" 
+                    <Label x:Name="lblProducts" 
                        Content="Choose Products: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -95,7 +96,7 @@
                        Width="166"
                        FontSize="20"/>
 
-                <Label x:Name="lblQuantity" 
+                    <Label x:Name="lblQuantity" 
                        Content="Quantity: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -108,7 +109,7 @@
 
 
 
-                <Label x:Name="lblCart" 
+                    <Label x:Name="lblCart" 
                        Content="Cart: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -117,7 +118,7 @@
                        Width="55"
                        FontSize="20"/>
 
-                <Label x:Name="lblPaymentMethod" 
+                    <Label x:Name="lblPaymentMethod" 
                        Content="Payment Method: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -126,7 +127,7 @@
                        Width="166"
                        FontSize="20"/>
 
-                <Label x:Name="lblSubtotal" 
+                    <Label x:Name="lblSubtotal" 
                        Content="Subtotal: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -135,7 +136,7 @@
                        Width="89"
                        FontSize="20" Height="33"/>
 
-                <Label x:Name="lblTax" 
+                    <Label x:Name="lblTax" 
                        Content="Total Sales Tax: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -144,7 +145,7 @@
                        Width="141"
                        FontSize="20" Height="33"/>
 
-                <Label x:Name="lblTotal" 
+                    <Label x:Name="lblTotal" 
                        Content="Total Tender: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -152,29 +153,29 @@
                        RenderTransformOrigin="-0.325,-14.385" 
                        Width="123"
                        FontSize="20" Height="33"/>
-            </StackPanel>
+                </StackPanel>
 
-            <!-- Inputs for new location -->
+                <!-- Inputs for new location -->
 
 
-            <StackPanel x:Name="Inputs" Margin="494,10,25,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
+                <StackPanel x:Name="Inputs" Margin="494,10,25,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
 
-                <StackPanel.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFA48874" Offset="0.322"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </StackPanel.Background>
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA48874" Offset="0.322"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
 
-                <ComboBox x:Name="cmbCustomer" Margin="10,25,41.333,0"
+                    <ComboBox x:Name="cmbCustomer" Margin="10,25,41.333,0"
                           Height="34"
                           BorderThickness="3" ToolTip="Select customer for the transaction"></ComboBox>
 
-                <ComboBox x:Name="cmbProducts" Margin="10,15,41.333,0"
+                    <ComboBox x:Name="cmbProducts" Margin="10,15,41.333,0"
                           Height="34"
                           BorderThickness="3" ToolTip="Select the product"></ComboBox>
 
-                <TextBox x:Name="txtQuantity"
+                    <TextBox x:Name="txtQuantity"
                          BorderThickness="3"
                          Margin="10, 6,0,0"
                          Height="30"
@@ -182,9 +183,9 @@
                          HorizontalAlignment="Left"
                          ToolTip="Enter the quantity per product">
 
-                </TextBox>
+                    </TextBox>
 
-                <Button x:Name="btnAddCart"
+                    <Button x:Name="btnAddCart"
                           Content="Add To Cart"
                         BorderThickness="3"
                           Height="30" Margin="10,15,181.333,0"
@@ -194,24 +195,24 @@
                         ToolTip="Adds the product with quantity to cart"
                           />
 
-                <ListView x:Name="lstCart" Margin="10,35,41.333,0"
+                    <ListView x:Name="lstCart" Margin="10,35,41.333,0"
                           Height="88"
                           BorderThickness="3"
                           ToolTip="Shows each product chosen in cart"
                           ></ListView>
 
-                <ComboBox x:Name="cmbPaymentMethod"
+                    <ComboBox x:Name="cmbPaymentMethod"
                           Margin="10,10,0,0"
                           BorderThickness="3"
                           Width="90"
                           HorizontalAlignment="Left" 
                           ToolTip="Select a payment method">
-                    <ComboBoxItem>Cash</ComboBoxItem>
-                    <ComboBoxItem>Credit</ComboBoxItem>
-                    <ComboBoxItem>Debit</ComboBoxItem>
-                </ComboBox>
+                        <ComboBoxItem>Cash</ComboBoxItem>
+                        <ComboBoxItem>Credit</ComboBoxItem>
+                        <ComboBoxItem>Debit</ComboBoxItem>
+                    </ComboBox>
 
-                <Label x:Name="lblSalesSubtotal"
+                    <Label x:Name="lblSalesSubtotal"
                        
                        Content="15.23" 
                        HorizontalAlignment="Left" 
@@ -221,7 +222,7 @@
                        Width="90"
                        FontSize="20" Height="32" ToolTip="Subtotal before tax"/>
 
-                <Label x:Name="lblTotalSalesTax"
+                    <Label x:Name="lblTotalSalesTax"
                        
                        Content="3.47" 
                        HorizontalAlignment="Left" 
@@ -231,7 +232,7 @@
                        Width="90"
                        FontSize="20" Height="33" ToolTip="Total Sales Tax"/>
 
-                <Label x:Name="lblSalesTotal"
+                    <Label x:Name="lblSalesTotal"
                        
                        Content="$18.70" 
                        HorizontalAlignment="Left" 
@@ -242,10 +243,10 @@
                        FontSize="20" Height="33" ToolTip="Total including Sales Tax and Subtotal"/>
 
 
-            </StackPanel>
+                </StackPanel>
 
-            <StackPanel x:Name="spSubmit" Margin="637,102.333,25,52" RenderTransformOrigin="0.491,0.497" Grid.Row="1">
-                <Button x:Name="btnCheckOut" 
+                <StackPanel x:Name="spSubmit" Margin="637,102.333,25,52" RenderTransformOrigin="0.491,0.497" Grid.Row="1">
+                    <Button x:Name="btnCheckOut" 
                         Content="Check Out" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
@@ -256,52 +257,52 @@
                         ToolTip="Processes the order"
                         Background="Beige"/>
 
-            </StackPanel>
+                </StackPanel>
 
-            <StackPanel Margin="736,236,40,59.667">
-                <Button x:Name="btnRemoveItem" Click="RemoveItem_Click" Background="{x:Null}" BorderBrush="{x:Null}" Height="26" Margin="0,0,0,0">
-                    <Image Source="/Images/Close.png"
+                <StackPanel Margin="736,236,40,59.667">
+                    <Button x:Name="btnRemoveItem" Click="RemoveItem_Click" Background="{x:Null}" BorderBrush="{x:Null}" Height="26" Margin="0,0,0,0">
+                        <Image Source="/Images/Close.png"
                                        Stretch="Uniform" Height="20" Width="20"
                            HorizontalAlignment="Left"
                            ToolTip="Click to remove a selected item from the cart"
                            />
-                </Button>
-            </StackPanel>
+                    </Button>
+                </StackPanel>
 
-            <!-- 10-->
-            <StackPanel x:Name="sp_CreateCustomer"
+                <!-- 10-->
+                <StackPanel x:Name="sp_CreateCustomer"
                         Orientation="Horizontal"
-                        Margin="246,10,25,52" Grid.RowSpan="2"
+                        Margin="238,10,24.667,52.333" Grid.RowSpan="2"
                          OpacityMask="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}">
-                <StackPanel.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFA48874" Offset="0.322"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </StackPanel.Background>
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA48874" Offset="0.322"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
 
 
-                <Button x:Name="btnCloseScreen" Click="CloseCustomerCreate_Click" Background="{x:Null}" BorderBrush="{x:Null}" Height="60" Margin="470,-460,0,0">
-                    <Image Source="/Images/Close.png"
+                    <Button x:Name="btnCloseScreen" Click="CloseCustomerCreate_Click" Background="{x:Null}" BorderBrush="{x:Null}" Height="60" Margin="470,-460,0,0">
+                        <Image Source="/Images/Close.png"
                                        Stretch="Uniform" Height="52" Width="65"
                            HorizontalAlignment="Left"
                            ToolTip="Closes the customer create screen"
                            />
-                </Button>
+                    </Button>
 
-                <Label x:Name="lblSupplierHeader" Height="39"
+                    <Label x:Name="lblSupplierHeader" Height="39"
                        Content="Please enter customer information below:"
                        HorizontalAlignment="Center" Margin="-480,-250,56.333,0"
                        FontSize="20" Width="402" FontWeight="Bold"
                        ></Label>
 
-                <Label Content="Customer First Name:"
+                    <Label Content="Customer First Name:"
                        Width="200"
                        Height="35"
                        Margin="-780,200,0,251"
                        FontSize="20"/>
 
-                <TextBox x:Name="txtCustomerFirstName"
+                    <TextBox x:Name="txtCustomerFirstName"
                          TextAlignment="Center"
                          BorderThickness="3"
                          VerticalAlignment="Center"
@@ -312,15 +313,15 @@
                         ToolTip="Enter the first name of the customer"
                          Margin="-300,-45,56.333,0">
 
-                </TextBox>
+                    </TextBox>
 
-                <Label Content="Customer Last Name:"
+                    <Label Content="Customer Last Name:"
                        Width="200"
                        Height="35"
                        Margin="-776,35,0,0"
                        FontSize="20"/>
 
-                <TextBox x:Name="txtCustomerLastName"
+                    <TextBox x:Name="txtCustomerLastName"
                          TextAlignment="Center"
                          BorderThickness="3"
                          VerticalAlignment="Center"
@@ -331,15 +332,15 @@
                          ToolTip="Enter the last name of the customer"
                          Margin="-300,40,56.333,0">
 
-                </TextBox>
+                    </TextBox>
 
-                <Label Content="Phone Number:"
+                    <Label Content="Phone Number:"
                        Width="155"
                        Height="35"
                        Margin="-741,120,0,0"
                        FontSize="20"/>
 
-                <TextBox x:Name="txtPhoneNumber"
+                    <TextBox x:Name="txtPhoneNumber"
                          TextAlignment="Center"
                          BorderThickness="3"
                          VerticalAlignment="Center"
@@ -351,7 +352,7 @@
                          Margin="-300,125,56.333,0"
                     />
 
-                <Button x:Name="btnCreateCustomer"
+                    <Button x:Name="btnCreateCustomer"
                         Content="Submit Customer"
                         Width="100"
                         Height="50"
@@ -359,14 +360,14 @@
                         Click="SubmitCustomer_Click"
                         ToolTip="Click to add new customer to the customer list"
                         Background="Beige"></Button>
-            </StackPanel>
+                </StackPanel>
 
-            <StackPanel x:Name="sp_CreationPanel"
+                <StackPanel x:Name="sp_CreationPanel"
                         Width="300"
                         Height="40"
                         Margin="250,170,250,0" Grid.Row="1">
 
-                <Button x:Name="btnCreate"
+                    <Button x:Name="btnCreate"
                         BorderThickness="3"
                           Content="Create Customer"
                           Height="30" Margin="0,5,170,0"
@@ -375,9 +376,10 @@
                         Click="CreateCustomer_Click"
                         ToolTip="Opens the create customer window"
                           />
-            </StackPanel>
+                </StackPanel>
+
+            </Grid>
 
         </Grid>
-
-    </Grid>
+    </Viewbox>
 </Page>

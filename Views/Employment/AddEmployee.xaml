@@ -29,55 +29,56 @@
         </Style>
     </Page.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="219*"/>
-            <ColumnDefinition Width="581*"/>
-        </Grid.ColumnDefinitions>
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="219*"/>
+                <ColumnDefinition Width="581*"/>
+            </Grid.ColumnDefinitions>
 
-        <!--// Background Color //-->
+            <!--// Background Color //-->
 
-        <Grid Background="Black" Grid.ColumnSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="381*"/>
-                <RowDefinition Height="220*"/>
-            </Grid.RowDefinitions>
+            <Grid Background="Black" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="381*"/>
+                    <RowDefinition Height="220*"/>
+                </Grid.RowDefinitions>
 
-            <!--// Background Image //-->
+                <!--// Background Image //-->
 
-            <Grid x:Name="BG" Grid.RowSpan="2" >
+                <Grid x:Name="BG" Grid.RowSpan="2" >
 
-                <Grid.Background>
+                    <Grid.Background>
 
-                    <ImageBrush x:Name="img_bg"
+                        <ImageBrush x:Name="img_bg"
                                 ImageSource="/Images/Bakery Image.jpg"
                                 Stretch="Fill"/>
 
-                </Grid.Background>
-                <Frame x:Name="HomeScreen"/>
-            </Grid>
+                    </Grid.Background>
+                    <Frame x:Name="HomeScreen"/>
+                </Grid>
 
-            <!--// Navigation Panel //-->
+                <!--// Navigation Panel //-->
 
-            <Grid   x:Name="inventoryIn_pnl"
+                <Grid   x:Name="inventoryIn_pnl"
                     HorizontalAlignment="Left"
                     Width="565"
                     Background="#FFCAC4C4"
                     Margin="225,0,0,0" Grid.RowSpan="2">
-                <TextBox Margin="270,203,71,364"/>
-            </Grid>
+                    <TextBox Margin="270,203,71,364"/>
+                </Grid>
 
-            <StackPanel x:Name="inventoryInScreen" Margin="246,10,306,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
+                <StackPanel x:Name="inventoryInScreen" Margin="246,10,306,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
                         >
 
-                <StackPanel.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFA48874" Offset="0.322"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </StackPanel.Background>
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA48874" Offset="0.322"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
 
-                <Label x:Name="lblName" 
+                    <Label x:Name="lblName" 
                        Content="Enter Name: " 
                        HorizontalAlignment="Right" 
                        VerticalAlignment="Top" 
@@ -86,7 +87,7 @@
                        Width="134"
                        FontSize="20"/>
 
-                <Label x:Name="lblAddress" 
+                    <Label x:Name="lblAddress" 
                        Content="Address: " 
                        HorizontalAlignment="Right" 
                        VerticalAlignment="Top" 
@@ -95,7 +96,7 @@
                        Width="100"
                        FontSize="20"/>
 
-                <Label x:Name="lblType" 
+                    <Label x:Name="lblType" 
                        Content="Type: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -104,7 +105,7 @@
                        Width="60"
                        FontSize="20"/>
 
-                <Label x:Name="lblRole" 
+                    <Label x:Name="lblRole" 
                        Content="Work Position: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -114,7 +115,7 @@
                        FontSize="20"/>
 
 
-                <Label x:Name="lblEmploymentDate" 
+                    <Label x:Name="lblEmploymentDate" 
                        Content="Date: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -123,7 +124,7 @@
                        Width="60"
                        FontSize="20"/>
 
-                <Label x:Name="lblEmployeeSalary" 
+                    <Label x:Name="lblEmployeeSalary" 
                        Content="Salary: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -132,39 +133,39 @@
                        Width="71"
                        FontSize="20"/>
 
-            </StackPanel>
+                </StackPanel>
 
-            <StackPanel x:Name="inventoryInput" Margin="494,10,34,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
+                <StackPanel x:Name="inventoryInput" Margin="492,10,34,52.333" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
 
-                <StackPanel.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFA48874" Offset="0.322"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </StackPanel.Background>
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA48874" Offset="0.322"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
 
-                <TextBox x:Name="txtEmployeeName" Height="30" Margin="10,85,52,0"
+                    <TextBox x:Name="txtEmployeeName" Height="30" Margin="10,85,52,0"
                          BorderThickness="3" ToolTip="Enter name of new employee"
                          />
-                <TextBox x:Name="txtEmployeeAddress" Height="30" Margin="10,26,52,0"
+                    <TextBox x:Name="txtEmployeeAddress" Height="30" Margin="10,26,52,0"
                          ToolTip="Enter address of new employee"
                          BorderThickness="3"/>
-                <ComboBox x:Name="cmbProducts" Height="30" Margin="10,17,52,0" BorderThickness="3" SelectionChanged="cmbProducts_SelectionChanged"
+                    <ComboBox x:Name="cmbProducts" Height="30" Margin="10,17,52,0" BorderThickness="3" SelectionChanged="cmbProducts_SelectionChanged"
                           ToolTip="Enter type of employee">
-                    <ComboBoxItem>Full-Time</ComboBoxItem>
-                    <ComboBoxItem>Part-Time</ComboBoxItem>
-                </ComboBox>
-                <TextBox x:Name="txtEmployeeRole" Height="30" Margin="10,17,52,0" BorderThickness="3" ToolTip="Enter the position of the new employee"/>
-                <TextBox x:Name="txtEmployeeDate" Height="30" Margin="10,45,154,0" BorderThickness="3" ToolTip="Enter the date of employment"/>
-                <TextBox x:Name="txtSalary" Height="30" Margin="10,16,154,0" BorderThickness="3" ToolTip="Enter the pay rate"/>
+                        <ComboBoxItem>Full-Time</ComboBoxItem>
+                        <ComboBoxItem>Part-Time</ComboBoxItem>
+                    </ComboBox>
+                    <TextBox x:Name="txtEmployeeRole" Height="30" Margin="10,17,52,0" BorderThickness="3" ToolTip="Enter the position of the new employee"/>
+                    <TextBox x:Name="txtEmployeeDate" Height="30" Margin="10,45,154,0" BorderThickness="3" ToolTip="Enter the date of employment"/>
+                    <TextBox x:Name="txtSalary" Height="30" Margin="10,16,154,0" BorderThickness="3" ToolTip="Enter the pay rate"/>
 
-            </StackPanel>
+                </StackPanel>
 
 
 
-            <StackPanel x:Name="spSubmit" Margin="246,61.333,34,52"  RenderTransformOrigin="0.491,0.497" Grid.Row="1">
+                <StackPanel x:Name="spSubmit" Margin="246,61.333,34,52"  RenderTransformOrigin="0.491,0.497" Grid.Row="1">
 
-                <Button x:Name="btnAddEmployee" 
+                    <Button x:Name="btnAddEmployee" 
                         Content="Add Employee" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
@@ -175,19 +176,20 @@
                         ToolTip="Creates the new employee"
                         Background="Beige"/>
 
-            </StackPanel>
+                </StackPanel>
 
-            <StackPanel x:Name="sp_Header"
+                <StackPanel x:Name="sp_Header"
                         Width="500"
                         Margin="258,10,42,306.667" RenderTransformOrigin="0.495,0.21">
-                <Label x:Name="lblHeader"
+                    <Label x:Name="lblHeader"
                        Content="Employee Registration Form:"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="20" Height="52" Margin="119,15,10,0"
                        BorderThickness="4" Width="371" FontWeight="Bold"/>
-            </StackPanel>
-        </Grid>
+                </StackPanel>
+            </Grid>
 
-    </Grid>
+        </Grid>
+    </Viewbox>
 </Page>
