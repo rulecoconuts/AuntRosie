@@ -122,14 +122,14 @@
                         <GradientStop Color="White" Offset="1"/>
                     </LinearGradientBrush>
                 </StackPanel.Background>
-                
-                <TextBox x:Name="txtProductName" Height="30" Margin="10,100,52,0" BorderThickness="3"/>
-                <ComboBox x:Name="cmbProductType" Height="30" Margin="10,20,52,0" BorderThickness="3">
+
+                <TextBox x:Name="txtProductName" Height="30" Margin="10,100,52,0" BorderThickness="3" ToolTip="Enter the name of the new product"/>
+                <ComboBox x:Name="cmbProductType" Height="30" Margin="10,20,52,0" BorderThickness="3" ToolTip="Select the type of product">
                     <ComboBoxItem>Homemade Pie</ComboBoxItem>
                     <ComboBoxItem>Preserves</ComboBoxItem>
                 </ComboBox>
-                <TextBox x:Name="txtServingSize" Height="30" Margin="10,20,164,0" BorderThickness="3"/>
-                <ComboBox Margin="10,30,164,0" SelectedIndex="0">
+                <TextBox x:Name="txtServingSize" Height="30" Margin="10,20,164,0" BorderThickness="3" ToolTip="Select the serving size"/>
+                <ComboBox Margin="10,30,164,0" SelectedIndex="0" ToolTip="Select the unit per serving size">
                     <ComboBoxItem>Piece</ComboBoxItem>
                     <ComboBoxItem>Ounce (oz)</ComboBoxItem>
                     <ComboBoxItem>Slice</ComboBoxItem>
@@ -147,7 +147,8 @@
                         Height="30"
                         Width="256" 
                         Margin="149,15,0,0"
-                        Click="CreateProduct_Click" FontSize="16"/>
+                        Click="CreateProduct_Click" FontSize="16"
+                        ToolTip="Opens the packages and sizes window"/>
 
             </StackPanel>
 

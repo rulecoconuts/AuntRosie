@@ -143,9 +143,9 @@
                     </LinearGradientBrush>
                 </StackPanel.Background>
 
-                <ListBox x:Name="lstEmployeeList" BorderThickness="3" Height="211" SelectionChanged="lstEmployeeList_SelectionChanged" Margin="10,19,29,0"></ListBox>
+                <ListBox x:Name="lstEmployeeList" BorderThickness="3" Height="211" SelectionChanged="lstEmployeeList_SelectionChanged" Margin="10,19,29,0" ToolTip="Choose an employee to edit"></ListBox>
                 <TextBox x:Name="txtEmployeeName" Height="30" Margin="10,10,29,0"
-                         BorderThickness="3"/>
+                         BorderThickness="3" ToolTip="Edit name of employee"/>
                 <ComboBox x:Name="cmbType" Height="30" Margin="10,8,29,0" SelectionChanged="cmbProducts_SelectionChanged"
                           BorderThickness="3">
                     <ComboBoxItem>Full-Time</ComboBoxItem>

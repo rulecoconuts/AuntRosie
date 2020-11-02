@@ -93,13 +93,15 @@ namespace AuntRosieUserInterface.Views.Event
         /// <param name="e"></param>
         private void SubmitCustomer_Click(object sender, RoutedEventArgs e)
         {
-            string newCustomer = txtCustomerName.Text;
+            string newCustomer = txtCustomerFirstName.Text + " " + txtCustomerLastName.Text;
+
 
             cmbCustomer.Items.Add(newCustomer);
             sp_CreateCustomer.Visibility = Visibility.Hidden;
 
             btnCreate.IsEnabled = true;
-            txtCustomerName.Text = "";
+            txtCustomerFirstName.Text = "";
+            txtCustomerLastName.Text = "";
             txtPhoneNumber.Text = "";
         }
 
@@ -113,11 +115,26 @@ namespace AuntRosieUserInterface.Views.Event
             //Hide the screen and clear the values
             sp_CreateCustomer.Visibility = Visibility.Hidden;
             btnCreate.IsEnabled = true;
-            txtCustomerName.Text = "";
+            txtCustomerFirstName.Text = "";
+            txtCustomerLastName.Text = "";
             txtPhoneNumber.Text = "";
             isCreateOpen = false;
         }
 
-       
+        /// <summary>
+        /// Removes unwanted item from cart
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RemoveItem_Click(object sender, RoutedEventArgs e)
+        {
+
+            if(lstCart.SelectedIndex >= 0)
+            {
+                lstCart.Items.RemoveAt(lstCart.SelectedIndex);
+            }
+        }
+
+
     }
 }

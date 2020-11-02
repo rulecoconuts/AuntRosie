@@ -98,6 +98,7 @@
                     x:Name="cmbSortBy"
                     Background="#FE2E2E" BorderBrush="Red" Margin="60,0,35,0"
                          BorderThickness="2"
+                         ToolTip="Select Category to Sort By"
                     >
 
                     <ComboBoxItem>Alphabet: A-Z</ComboBoxItem>
@@ -149,19 +150,19 @@
                 </StackPanel.Background>
 
                 <ListBox x:Name="lstIngredients"
-                         Height="165" Margin="10,30,52,7" BorderThickness="3"/>
+                         Height="165" Margin="10,30,52,7" BorderThickness="3" ToolTip="Select an Ingredient"/>
                 <TextBox x:Name="txtQuantity" Height="30" Margin="10,0,164,0"
-                         BorderThickness="3"/>
-                <RadioButton x:Name="radPounds" Margin="8,5,15,0" BorderThickness="3" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137">Pounds (LBS)</RadioButton>
-                <RadioButton x:Name="radKilos" Margin="8,0,0,0" BorderThickness="3" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" Content="Kilos (KG)"/>
-                <RadioButton x:Name="radLitres" Margin="8,0,0,0" BorderThickness="3" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152">Litres (L)</RadioButton>
+                         BorderThickness="3" ToolTip="Enter the amount of required"/>
+                <RadioButton x:Name="radPounds" Margin="8,5,15,0" BorderThickness="3" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137" ToolTip="Select for Pounds (LBS)">Pounds (LBS)</RadioButton>
+                <RadioButton x:Name="radKilos" Margin="8,0,0,0" BorderThickness="3" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" Content="Kilos (KG)" ToolTip="Select for Kilos (KG)"/>
+                <RadioButton x:Name="radLitres" Margin="8,0,0,0" BorderThickness="3" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" ToolTip="Select for Litres (L)">Litres (L)</RadioButton>
 
                 <ListBox x:Name="lstCart" Margin="10,20,52,0" Height="100"
-                         BorderThickness="3"/>
+                         BorderThickness="3" ToolTip="Shows the chosen ingredients"/>
 
 
                 <TextBox x:Name="txtEmployee" Height="30" Margin="10, 10, 52, 0"
-                         BorderThickness="3"/>
+                         BorderThickness="3" ToolTip="Verify Name of Employee"/>
 
             </StackPanel>
 
@@ -177,6 +178,7 @@
                         Margin="190,25,0,0"
                         Click="TakeOut_Click"
                         Background="Beige"
+                        ToolTip="Processes the order to remove inventory"
                         />
 
             </StackPanel>

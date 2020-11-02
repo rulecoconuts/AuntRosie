@@ -99,6 +99,7 @@
                     x:Name="cmbExpired"
                     Background="#FE2E2E" BorderBrush="Red" Margin="60,0,35,0"
                          BorderThickness="2"
+                    ToolTip="Sorts the ingredients as required"
                     >
 
                     <ComboBoxItem>Alphabet: A-Z</ComboBoxItem>
@@ -124,6 +125,7 @@
                          Margin="30"
                          Width="200"
                          Height="400"
+                         ToolTip="Shows ingredients that are expired"
                          />
             </StackPanel>
 
@@ -138,6 +140,7 @@
                         Width="140" 
                         Margin="180,25,0,0"
                         Background="Beige"
+                        ToolTip="Clears expired items"
                         />
 
             </StackPanel>

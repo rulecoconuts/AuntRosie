@@ -122,7 +122,7 @@ namespace AuntRosieUserInterface.Views.Event
         /// <param name="e"></param>
         private void CreateNewHelper_Click(object sender, RoutedEventArgs e)
         {
-            cmbHelpers.Items.Add(txtHelperName.Text);
+            cmbHelpers.Items.Add(txtHelperFirstName.Text + " " + txtHelperLastName.Text);
 
             btnNewHelper.IsEnabled = true;
 
@@ -139,10 +139,10 @@ namespace AuntRosieUserInterface.Views.Event
             sp_CreateLocation.Visibility = Visibility.Hidden;
 
             btnNewLocation.IsEnabled = true;
-            txtLocationName.Text = "Location Name";
-            txtProvince.Text = "Province";
-            txtCity.Text = "City";
-            txtStreet.Text = "Street Name";
+            txtLocationName.Text = "";
+            txtProvince.Text = "";
+            txtCity.Text = "";
+            txtStreet.Text = "";
         }
 
         /// <summary>
@@ -156,9 +156,24 @@ namespace AuntRosieUserInterface.Views.Event
             sp_CreateHelper.Visibility = Visibility.Hidden;
 
             //Reset values
-            txtHelperName.Text = "Helper Name";
-            txtHelperPhone.Text = "Phone Number";
-            txtHelperAddress.Text = "Address";
+            txtHelperFirstName.Text = "";
+            txtHelperLastName.Text = "";
+            txtHelperPhone.Text = "";
+            txtHelperAddress.Text = "";
+        }
+
+        /// <summary>
+        /// Removes a selected helper
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RemoveHelper_Click(object sender, RoutedEventArgs e)
+        {
+            if(lstHelpersList.SelectedIndex >= 0)
+            {
+                lstHelpersList.Items.RemoveAt(lstHelpersList.SelectedIndex);
+            }
+            
         }
     }
 }

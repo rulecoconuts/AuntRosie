@@ -144,16 +144,19 @@
                 </StackPanel.Background>
 
                 <TextBox x:Name="txtEmployeeName" Height="30" Margin="10,85,52,0"
-                         BorderThickness="3"/>
+                         BorderThickness="3" ToolTip="Enter name of new employee"
+                         />
                 <TextBox x:Name="txtEmployeeAddress" Height="30" Margin="10,26,52,0"
+                         ToolTip="Enter address of new employee"
                          BorderThickness="3"/>
-                <ComboBox x:Name="cmbProducts" Height="30" Margin="10,17,52,0" BorderThickness="3" SelectionChanged="cmbProducts_SelectionChanged">
+                <ComboBox x:Name="cmbProducts" Height="30" Margin="10,17,52,0" BorderThickness="3" SelectionChanged="cmbProducts_SelectionChanged"
+                          ToolTip="Enter type of employee">
                     <ComboBoxItem>Full-Time</ComboBoxItem>
                     <ComboBoxItem>Part-Time</ComboBoxItem>
                 </ComboBox>
-                <TextBox x:Name="txtEmployeeRole" Height="30" Margin="10,17,52,0" BorderThickness="3"/>
-                <TextBox x:Name="txtEmployeeDate" Height="30" Margin="10,45,154,0" BorderThickness="3"/>
-                <TextBox x:Name="txtSalary" Height="30" Margin="10,16,154,0" BorderThickness="3"/>
+                <TextBox x:Name="txtEmployeeRole" Height="30" Margin="10,17,52,0" BorderThickness="3" ToolTip="Enter the position of the new employee"/>
+                <TextBox x:Name="txtEmployeeDate" Height="30" Margin="10,45,154,0" BorderThickness="3" ToolTip="Enter the date of employment"/>
+                <TextBox x:Name="txtSalary" Height="30" Margin="10,16,154,0" BorderThickness="3" ToolTip="Enter the pay rate"/>
 
             </StackPanel>
 
@@ -169,6 +172,7 @@
                         Width="120" 
                         Margin="190,25,0,0"
                         Click="AddEmployee_Click"
+                        ToolTip="Creates the new employee"
                         Background="Beige"/>
 
             </StackPanel>

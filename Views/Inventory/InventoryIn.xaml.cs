@@ -71,7 +71,8 @@ namespace AuntRosieUserInterface.Views.Inventory
             //Clear textboxes
             txtSupplierName.Text = "";
             txtPhoneNumber.Text = "";
-            txtContactPerson.Text = "";
+            txtContactFirstName.Text = "";
+            txtContactLastName.Text = "";
             txtAddress.Text = "";
         }
 

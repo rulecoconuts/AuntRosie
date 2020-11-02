@@ -141,21 +141,22 @@
                     </LinearGradientBrush>
                 </StackPanel.Background>
 
-                <ComboBox x:Name="cmbProducts" BorderThickness="3" Height="30" Margin="10,50,52,0" SelectionChanged="cmbProducts_SelectionChanged"/>
+                <ComboBox x:Name="cmbProducts" BorderThickness="3" Height="30" Margin="10,50,52,0" SelectionChanged="cmbProducts_SelectionChanged" ToolTip="Choose the product to edit"/>
 
-                <ComboBox x:Name="cmbProductType" BorderThickness="3" Height="30" Margin="10,5,52,0">
+                <ComboBox x:Name="cmbProductType" BorderThickness="3" Height="30" Margin="10,5,52,0" ToolTip="Edit the type of product">
                     <ComboBoxItem>Homemade Pie</ComboBoxItem>
                     <ComboBoxItem>Preserves</ComboBoxItem>
                 </ComboBox>
-                <TextBox x:Name="txtServingSize" BorderThickness="3" Height="30" Margin="10,5,164,0"/>
-                <RadioButton x:Name="radPounds" BorderThickness="3" Margin="8,5,15,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137">Pounds (LBS)</RadioButton>
-                <RadioButton x:Name="radKilos" BorderThickness="3" Margin="8,0,0,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" Content="Kilos (KG)"/>
-                <RadioButton x:Name="radLitres" BorderThickness="3" Margin="8,0,0,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152">Litres (L)</RadioButton>
-                <TextBox x:Name="txtNutrition" BorderThickness="3" Height="50" Margin="10,10,52,0"/>
-                <TextBox x:Name="txtPrice" Height="30" BorderThickness="3" Margin="10,5,164,0"/>
+                <TextBox x:Name="txtServingSize" BorderThickness="3" Height="30" Margin="10,5,164,0" ToolTip="Enter the serving size"/>
+                <RadioButton x:Name="radPounds" BorderThickness="3" Margin="8,5,15,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137" ToolTip="Select for serving size metric (Pounds)">Pounds (LBS)</RadioButton>
+                <RadioButton x:Name="radKilos" BorderThickness="3" Margin="8,0,0,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" Content="Kilos (KG)" ToolTip="Select for serving size metric (Kilos)"/>
+                <RadioButton x:Name="radLitres" BorderThickness="3" Margin="8,0,0,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" ToolTip="Select for serving size metric (Litres)">Litres (L)</RadioButton>
+                <TextBox x:Name="txtNutrition" BorderThickness="3" Height="50" Margin="10,10,52,0" ToolTip="Edit the nutrition information"/>
+                <TextBox x:Name="txtPrice" Height="30" BorderThickness="3" Margin="10,5,164,0" ToolTip="Edit the price"/>
 
                 <ListBox x:Name="lstIngredients" Height="153"
                          Margin="10,5,36,0" SelectionMode="Multiple"
+                         ToolTip="Edit the ingredients per product"
                          BorderThickness="3"/>
 
             </StackPanel>
@@ -172,6 +173,7 @@
                         Width="120" 
                         Margin="190,15,0,0"
                         Click="CommitChange_Click"
+                        ToolTip="Submits the new changes per product"
                         Background="Beige"/>
 
             </StackPanel>

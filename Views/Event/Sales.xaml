@@ -166,20 +166,21 @@
                     </LinearGradientBrush>
                 </StackPanel.Background>
 
-                <ComboBox x:Name="cmbCustomer" Margin="10,25,27.333,0"
+                <ComboBox x:Name="cmbCustomer" Margin="10,25,41.333,0"
                           Height="34"
-                          BorderThickness="3"></ComboBox>
+                          BorderThickness="3" ToolTip="Select customer for the transaction"></ComboBox>
 
-                <ComboBox x:Name="cmbProducts" Margin="10,15,27.333,0"
+                <ComboBox x:Name="cmbProducts" Margin="10,15,41.333,0"
                           Height="34"
-                          BorderThickness="3"></ComboBox>
+                          BorderThickness="3" ToolTip="Select the product"></ComboBox>
 
                 <TextBox x:Name="txtQuantity"
                          BorderThickness="3"
                          Margin="10, 6,0,0"
                          Height="30"
                          Width="90"
-                         HorizontalAlignment="Left">
+                         HorizontalAlignment="Left"
+                         ToolTip="Enter the quantity per product">
 
                 </TextBox>
 
@@ -190,18 +191,21 @@
                           FontSize="15"
                         Background="White"
                         Click="AddToCart_Click"
+                        ToolTip="Adds the product with quantity to cart"
                           />
 
-                <ListView x:Name="lstCart" Margin="10,35,27.333,0"
+                <ListView x:Name="lstCart" Margin="10,35,41.333,0"
                           Height="88"
                           BorderThickness="3"
+                          ToolTip="Shows each product chosen in cart"
                           ></ListView>
 
                 <ComboBox x:Name="cmbPaymentMethod"
                           Margin="10,10,0,0"
                           BorderThickness="3"
                           Width="90"
-                          HorizontalAlignment="Left" >
+                          HorizontalAlignment="Left" 
+                          ToolTip="Select a payment method">
                     <ComboBoxItem>Cash</ComboBoxItem>
                     <ComboBoxItem>Credit</ComboBoxItem>
                     <ComboBoxItem>Debit</ComboBoxItem>
@@ -215,7 +219,7 @@
                        Margin="10,15,0,0" 
                        RenderTransformOrigin="-0.325,-14.385" 
                        Width="90"
-                       FontSize="20" Height="32"/>
+                       FontSize="20" Height="32" ToolTip="Subtotal before tax"/>
 
                 <Label x:Name="lblTotalSalesTax"
                        
@@ -225,7 +229,7 @@
                        Margin="10,0,0,0" 
                        RenderTransformOrigin="-0.325,-14.385" 
                        Width="90"
-                       FontSize="20" Height="33"/>
+                       FontSize="20" Height="33" ToolTip="Total Sales Tax"/>
 
                 <Label x:Name="lblSalesTotal"
                        
@@ -235,7 +239,7 @@
                        Margin="10,0,0,0" 
                        RenderTransformOrigin="-0.325,-14.385" 
                        Width="90"
-                       FontSize="20" Height="33"/>
+                       FontSize="20" Height="33" ToolTip="Total including Sales Tax and Subtotal"/>
 
 
             </StackPanel>
@@ -249,8 +253,19 @@
                         Width="120" 
                         Margin="0,15,0,0"
                         Click="CheckOut_Click"
+                        ToolTip="Processes the order"
                         Background="Beige"/>
 
+            </StackPanel>
+
+            <StackPanel Margin="736,236,40,59.667">
+                <Button x:Name="btnRemoveItem" Click="RemoveItem_Click" Background="{x:Null}" BorderBrush="{x:Null}" Height="26" Margin="0,0,0,0">
+                    <Image Source="/Images/Close.png"
+                                       Stretch="Uniform" Height="20" Width="20"
+                           HorizontalAlignment="Left"
+                           ToolTip="Click to remove a selected item from the cart"
+                           />
+                </Button>
             </StackPanel>
 
             <!-- 10-->
@@ -270,6 +285,7 @@
                     <Image Source="/Images/Close.png"
                                        Stretch="Uniform" Height="52" Width="65"
                            HorizontalAlignment="Left"
+                           ToolTip="Closes the customer create screen"
                            />
                 </Button>
 
@@ -279,37 +295,60 @@
                        FontSize="20" Width="402" FontWeight="Bold"
                        ></Label>
 
-                <Label Content="Customer Name:"
-                       Width="161"
+                <Label Content="Customer First Name:"
+                       Width="200"
                        Height="35"
-                       Margin="-750,235,0,251"
+                       Margin="-780,200,0,251"
                        FontSize="20"/>
 
-                <TextBox x:Name="txtCustomerName"
+                <TextBox x:Name="txtCustomerFirstName"
+                         TextAlignment="Center"
                          BorderThickness="3"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="20"
+                         FontSize="15"
                          Width="194"
                          Height="40"
-                         Margin="-300,0,56.333,0">
+                        ToolTip="Enter the first name of the customer"
+                         Margin="-300,-45,56.333,0">
+
+                </TextBox>
+
+                <Label Content="Customer Last Name:"
+                       Width="200"
+                       Height="35"
+                       Margin="-776,35,0,0"
+                       FontSize="20"/>
+
+                <TextBox x:Name="txtCustomerLastName"
+                         TextAlignment="Center"
+                         BorderThickness="3"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         FontSize="15"
+                         Width="194"
+                         Height="40"
+                         ToolTip="Enter the last name of the customer"
+                         Margin="-300,40,56.333,0">
 
                 </TextBox>
 
                 <Label Content="Phone Number:"
                        Width="155"
                        Height="35"
-                       Margin="-741,285,0,204"
+                       Margin="-741,120,0,0"
                        FontSize="20"/>
 
                 <TextBox x:Name="txtPhoneNumber"
+                         TextAlignment="Center"
                          BorderThickness="3"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="20"
+                         FontSize="15"
                          Width="194"
                          Height="40"
-                         Margin="-300,100,56.333,0"
+                         ToolTip="Enter the phone numebr of the customer"
+                         Margin="-300,125,56.333,0"
                     />
 
                 <Button x:Name="btnCreateCustomer"
@@ -318,6 +357,7 @@
                         Height="50"
                         Margin="-530,320,0,0"
                         Click="SubmitCustomer_Click"
+                        ToolTip="Click to add new customer to the customer list"
                         Background="Beige"></Button>
             </StackPanel>
 
@@ -333,6 +373,7 @@
                           FontSize="15"
                         Background="#F75D59"
                         Click="CreateCustomer_Click"
+                        ToolTip="Opens the create customer window"
                           />
             </StackPanel>
 

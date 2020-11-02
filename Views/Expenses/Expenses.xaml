@@ -8,6 +8,28 @@
       d:DesignHeight="580" d:DesignWidth="800"
       Title="Event">
 
+    <Page.Resources>
+        <Style TargetType="ToolTip" x:Key="tt">
+            <Setter Property="PlacementRectangle" Value="120,10,0,0"/>
+            <Setter Property="HorizontalOffset" Value="30"/>
+            <Setter Property="VerticalOffset" Value="6"/>
+            <Setter Property="HasDropShadow" Value="True"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Placement" Value="Bottom"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="Background" Value="#FE2E2E"/>
+            <Setter Property="ToolTipService.InitialShowDelay" Value="100"/>
+
+        </Style>
+    </Page.Resources>
+
     <Grid>
 
         <!--// Background Color //-->

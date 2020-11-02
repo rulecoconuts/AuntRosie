@@ -149,27 +149,32 @@
                     </LinearGradientBrush>
                 </StackPanel.Background>
                 <ComboBox x:Name="cmbLocations" Height="30" Margin="10,75,52,0"
-                          BorderThickness="3"/>
+                          BorderThickness="3"
+                          ToolTip="Shows the available locations"/>
                 <ComboBox x:Name="cmbHelpers" Margin="10,29,52,0"
                           Height="30"
                           BorderThickness="3"
-                          ></ComboBox>
+                          ToolTip="Shows the available helpers"></ComboBox>
                 <TextBox x:Name="txtRole" Height="30" Margin="10,5,52,0"
-                         BorderThickness="3"/>
+                         BorderThickness="3"
+                         ToolTip="Enter the role for the helper"/>
                 <Button x:Name="btnSubmitHelper"
                         BorderThickness="3"
                           Content="Submit Helper"
                           Height="30" Margin="10,8,143,0"
                           FontSize="15"
                         Background="White"
+                        ToolTip="Adds the helper to list for the event"
                         Click="SubmitNewHelper_Click"
                           />
                 <ListView x:Name="lstHelpersList" Height="58" Margin="10,19,52,0"
-                          BorderThickness="3"/>
+                          BorderThickness="3" ToolTip="Shows the list of helpers for the event"/>
                 <TextBox x:Name="txtEventName" Height="30" Margin="10,34,52,0"
-                         BorderThickness="3"/>
+                         BorderThickness="3"
+                         ToolTip="Enter the event name"/>
                 <DatePicker x:Name="txtEventDate" Height="30" Margin="10,8,52,0"
-                         BorderThickness="3" SelectedDate="2020-10-21"/>
+                         BorderThickness="3" SelectedDate="2020-10-21"
+                            ToolTip="Select the date for the event"/>
 
             </StackPanel>
 
@@ -185,6 +190,7 @@
                         Width="120" 
                         Margin="190,5,0,0"
                         Click="CreateEvent_Click"
+                        ToolTip="Creates the event"
                         Background="Beige"/>
 
             </StackPanel>
@@ -198,6 +204,16 @@
                        VerticalAlignment="Center"
                        FontSize="20" Height="52" Margin="34,0,10,0"
                        BorderThickness="4" Width="456" FontWeight="Bold"/>
+            </StackPanel>
+
+            <StackPanel Margin="713,266,34,62.667">
+                <Button x:Name="btnRemoveHelper" Click="RemoveHelper_Click" Background="{x:Null}" BorderBrush="{x:Null}" Height="26" Margin="0,0,27.333,0">
+                    <Image Source="/Images/Close.png"
+                                       Stretch="Uniform" Height="20" Width="20"
+                           HorizontalAlignment="Left"
+                           ToolTip="Removes a helper from the helper list"
+                           />
+                </Button>
             </StackPanel>
 
             <!--  10-->
@@ -217,6 +233,7 @@
                     <Image Source="/Images/Close.png"
                                        Stretch="Uniform" Height="52" Width="65"
                            HorizontalAlignment="Left"
+                           ToolTip="Closes the create location window"
                            />
                 </Button>
 
@@ -238,10 +255,11 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="20"
+                         FontSize="15"
                          Width="192"
                          Height="32"
                          Margin="-350, -75,0,0"
+                         ToolTip="Enter the location name"
                     />
 
                 <Label Content="Province:"
@@ -255,10 +273,11 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="20"
+                         FontSize="15"
                          Width="194"
                          Height="34"
                           Margin="-347,25,0,0"
+                         ToolTip="Enter the province of the location"
                     />
 
                 <Label Content="City:"
@@ -272,10 +291,11 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="20"
+                         FontSize="15"
                          Width="194"
                          Height="34"
                          Margin="-345,125,0,0"
+                         ToolTip="Enter the city of the location"
                     />
 
                 <Label Content="Street:"
@@ -289,10 +309,11 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="20"
+                         FontSize="15"
                          Width="194"
                          Height="34"
                          Margin="-345,225,0,0"
+                         ToolTip="Enter the street of the location"
                     />
 
                 <Button x:Name="btnCreateNewLocation"
@@ -301,7 +322,8 @@
                         Width="120"
                         Margin="-530,400,0,0"
                         Click="CreateNewLocation_Click"
-                        Background="Beige"/>
+                        Background="Beige"
+                        ToolTip="Adds the new location to the location list"/>
             </StackPanel>
 
             <!--  10-->
@@ -321,6 +343,7 @@
                     <Image Source="/Images/Close.png"
                                        Stretch="Uniform" Height="52" Width="65"
                            HorizontalAlignment="Left"
+                           ToolTip="Closes the helper creation window"
                            />
                 </Button>
 
@@ -331,27 +354,46 @@
                        FontSize="20" Height="52" Margin="-490,-275,10,0"
                        BorderThickness="4" Width="456" FontWeight="Bold"/>
 
-                <Label Content="Helper Name:"
-                       Width="136"
+                <Label Content="Helper First Name:"
+                       Width="180"
                        Height="35"
-                       Margin="-720,-55,0,0"
+                       Margin="-755,-100,0,0"
                        FontSize="20"/>
 
-                <TextBox x:Name="txtHelperName"
+                <TextBox x:Name="txtHelperFirstName"
                          BorderThickness="3"
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="20"
+                         FontSize="15"
                          Width="192"
                          Height="34"
-                         Margin="-350,-50,0,0"
+                         Margin="-350,-90,0,0"
+                        ToolTip="Enter the first name of the helper"
+                    />
+
+                <Label Content="Helper Last Name:"
+                       Width="180"
+                       Height="35"
+                       Margin="-755,-20,0,0"
+                       FontSize="20"/>
+
+                <TextBox x:Name="txtHelperLastName"
+                         BorderThickness="3"
+                         TextAlignment="Center"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         FontSize="15"
+                         Width="192"
+                         Height="34"
+                         Margin="-350,-10,0,0"
+                         ToolTip="Enter the last name of the helper"
                     />
 
                 <Label Content="Phone Number:"
                        Width="161"
                        Height="35"
-                       Margin="-729,50,0,0"
+                       Margin="-729,60,0,0"
                        FontSize="20"/>
 
                 <TextBox x:Name="txtHelperPhone"
@@ -359,10 +401,11 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="20"
+                         FontSize="15"
                          Width="193"
                          Height="34"
-                         Margin="-347,50,0,0"
+                         Margin="-349,68,0,0"
+                         ToolTip="Enter the phone number of the helper"
                     />
 
                 <Label Content="Address:"
@@ -376,10 +419,11 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="20"
+                         FontSize="15"
                          Width="194"
                          Height="34"
-                         Margin="-345,150,0,0"
+                         Margin="-349,150,0,0"
+                         ToolTip="Enter the address of the helper"
                     />
 
                 <Button x:Name="btnCreateHelper"
@@ -387,6 +431,7 @@
                         Height="50"
                         Margin="-540,350,0,0"
                         Click="CreateNewHelper_Click"
+                        ToolTip="Creates the new helper"
                         Background="Beige" Width="108"/>
             </StackPanel>
 
@@ -403,6 +448,7 @@
                         Background="#F75D59"
                         HorizontalAlignment="Left"
                         Click="NewLocation_Click"
+                        ToolTip="Opens the location creation window"
                           />
             </StackPanel>
 
@@ -418,6 +464,7 @@
                           FontSize="15"
                         Background="#F75D59"
                         Click="OpenNewHelper_Click"
+                        ToolTip="Opens the helper creation window"
                           />
             </StackPanel>
         </Grid>

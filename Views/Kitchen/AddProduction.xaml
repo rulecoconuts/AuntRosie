@@ -115,9 +115,9 @@
                     </LinearGradientBrush>
                 </StackPanel.Background>
 
-                <ComboBox x:Name="cmbProducts" BorderThickness="3" Height="30" Margin="10,135,52,0"/>
-                <DatePicker x:Name="txtServingSize" Height="30" Margin="10,38,52,0" BorderThickness="3" SelectedDate="2020-10-21"/>
-                <TextBox x:Name="txtNutrition"  Height="30" Margin="10,35,158,0" BorderThickness="3"/>
+                <ComboBox x:Name="cmbProducts" BorderThickness="3" Height="30" Margin="10,135,52,0" ToolTip="Select from the following products"/>
+                <DatePicker x:Name="txtServingSize" Height="30" Margin="10,38,52,0" BorderThickness="3" SelectedDate="2020-10-21" ToolTip="Select the date of production"/>
+                <TextBox x:Name="txtNutrition"  Height="30" Margin="10,35,158,0" BorderThickness="3" ToolTip="Enter the quantity per product"/>
 
             </StackPanel>
 
@@ -133,6 +133,7 @@
                         Width="120" 
                         Margin="190,25,0,0"
                         Click="CreateProduction_Click"
+                        ToolTip="Adds the product into production"
                         Background="Beige"/>
 
             </StackPanel>
