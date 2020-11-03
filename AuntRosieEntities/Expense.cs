@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace AuntRosieEntities
+{
+    public class Expense
+    {
+        private ulong id;
+        private DateTime payDate;
+        private double value;
+        private PaymentMethod paymentMethod;
+        private int type;
+        private int note;
+    }
+}

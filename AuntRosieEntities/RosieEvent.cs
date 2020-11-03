@@ -9,5 +9,22 @@ namespace AuntRosieEntities
     {
         private int id;
         private int name;
+        private int locationId;
+
+        public EventLocation EventLocation
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public IEnumerable<AuntRosieEntities.EventProduct> EventProducts
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AuntRosieEntities.ProductSize">
-    <Position X="0.5" Y="7.25" Width="1.5" />
+    <Position X="12.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>ProductSize.cs</FileName>
@@ -74,7 +74,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AuntRosieEntities.Employee">
-    <Position X="7.25" Y="7" Width="1.5" />
+    <Position X="13" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABAAAAAAAAAABAAAAIBAAACAAAACAAAAgA=</HashCode>
       <FileName>Employee.cs</FileName>
@@ -84,21 +84,24 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="AuntRosieEntities.FullTimeEmployee">
-    <Position X="7" Y="10.25" Width="1.5" />
+    <Position X="13" Y="11.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>FullTimeEmployee.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AuntRosieEntities.RosieEvent">
-    <Position X="0.5" Y="5.5" Width="1.5" />
+    <Position X="5.75" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <HashCode>EAAAAAAACAAAAAAAAIAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>RosieEvent.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="EventLocation" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="AuntRosieEntities.EventLocation">
-    <Position X="12.5" Y="9.5" Width="1.5" />
+    <Position X="9.75" Y="12.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIEAAACAAAAAAAAAgA=</HashCode>
       <FileName>EventLocation.cs</FileName>
@@ -122,13 +125,58 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AuntRosieEntities.Customer">
-    <Position X="9.75" Y="7" Width="1.5" />
+    <Position X="7" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAiAAAAAAAAAgA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAIAAAAiAAAAAAAAAgA=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Address" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="AuntRosieEntities.EventProduct">
+    <Position X="0.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAgA=</HashCode>
+      <FileName>EventProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AuntRosieEntities.Sale">
+    <Position X="4.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAwA=</HashCode>
+      <FileName>Sale.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Customer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="AuntRosieEntities.SaleProduct">
+    <Position X="2.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAARAIAAAAAAAAAAAAAgAAAAAAAAAACAAQAAAAAAAAA=</HashCode>
+      <FileName>SaleProduct.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Sale" />
+      <Property Name="EventProduct" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="AuntRosieEntities.Expense">
+    <Position X="9.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAABACAAACAAAAAAAwA=</HashCode>
+      <FileName>Expense.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AuntRosieEntities.EventExpense">
+    <Position X="5.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventExpense.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Event" />
     </ShowAsAssociation>
   </Class>
   <Enum Name="AuntRosieEntities.PaymentMethod">

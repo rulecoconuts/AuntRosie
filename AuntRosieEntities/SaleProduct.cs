@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace AuntRosieEntities
+{
+    public class SaleProduct
+    {
+        private int eventProductId;
+        private int saleId;
+        private int quantity;
+        private double price;
+
+        public Sale Sale
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public EventProduct EventProduct
+        {
+            get => default;
+            set
+            {
+            }
+        }
+    }
+}

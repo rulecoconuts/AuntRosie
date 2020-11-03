@@ -18,5 +18,13 @@ namespace AuntRosieEntities
             {
             }
         }
+
+        public IEnumerable<AuntRosieEntities.Sale> Sales
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }
