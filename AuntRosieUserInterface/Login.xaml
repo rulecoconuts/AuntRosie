@@ -10,7 +10,18 @@
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None" 
-        FontFamily="Segoe UI Emoji">
+        FontFamily="Arial">
+        
+        <!-- Main Login Window. 
+    
+            Aunt Rosie's Synopsis
+            
+            Date: 10-22-2020
+    
+            Concept based from Tutorial of Design.com WPF:
+            https://www.youtube.com/watch?v=gBR1mbMEPnk&ab_channel=DesigncomWPF
+        -->
+    
     <Grid>
         <Grid.Background>
             <ImageBrush x:Name="img_bg"
@@ -27,12 +38,9 @@
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Width="280" Height="229" VerticalAlignment="Bottom" Margin="260,0,260,60"  Fill="White">
-            <Rectangle.Effect>
-                <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
-            </Rectangle.Effect>
         </Rectangle>
         <Grid VerticalAlignment="Bottom" Margin="35,0,35,36" Height="284">
-            <Label Content="Aunt Rosie's Bakery" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="285,44,279,0" Foreground="Gray" FontSize="18"/>
+            <Label Content="Aunt Rosie's Bakery" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="285,44,274,0" Foreground="Gray" FontSize="18" Width="171"/>
             <StackPanel VerticalAlignment="Center" Margin="15">
                 <TextBox x:Name="txtName" Margin="274,10,265,10" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
                 <PasswordBox x:Name="txtPassword" Margin="274,10,265,10" FontFamily="Champagne &amp; Limousines" FontSize="18"/>

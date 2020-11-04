@@ -8,7 +8,7 @@
          Channel Link : https://www.youtube.com/CDesignPro_ArunMutharasu
          GitHub Link : https://github.com/CSharpDesignPro
     -->
-
+    
 <Window x:Class="AuntRosieUserInterface.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -21,14 +21,15 @@
         WindowStartupLocation="CenterScreen"
         Icon="/Images/Pie-icon.png"
         Title="MainWindow" 
-        Height="632.991" 
+        Height="600" 
         Width="800"
+        WindowState="Maximized"
         ResizeMode="NoResize">
-
-
-
+    
+    
+    
     <!-- Main Window Resources -->
-
+    
     <Window.Resources>
         <ImageBrush x:Key="CloseBtn_MouseOver" ImageSource="/Images/close-icon.png"/>
 
@@ -90,7 +91,7 @@
             <Setter Property="Width" Value="120"/>
             <Setter Property="Margin" Value="20,0,0,0"/>
             <Setter Property="Background" Value="#FE2E2E"/>
-
+            
         </Style>
 
         <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
@@ -278,7 +279,7 @@
                         </ListViewItem>
 
                         <!-- List Item For Kitchen Page -->
-
+                        
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
                             <StackPanel Orientation="Horizontal"
@@ -399,9 +400,9 @@
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
-
+                        
                         <!-- List view for Employment Page -->
-
+                        
                         <ListViewItem x:Name="lvEmployment" HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
                             <StackPanel Orientation="Horizontal"
@@ -423,7 +424,7 @@
                                          BorderThickness="1"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
-
+                        
                         <!-- Sign Out-->
 
                         <ListViewItem x:Name="lvSignOut" HorizontalAlignment="Left"
@@ -506,7 +507,7 @@
             </Grid>
 
         </Grid>
-        <Label x:Name="lblTime" Foreground="White" FontSize="23" Content="time" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,577,10,0" Height="46" Width="242"/>
+        <Label x:Name="lblTime" Foreground="White" FontSize="23" Content="time" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,668,164,-114" Height="46" Width="242"/>
 
     </Grid>
 
