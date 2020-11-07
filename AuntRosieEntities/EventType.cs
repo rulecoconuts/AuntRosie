@@ -5,7 +5,10 @@ using System.Text;
 
 namespace AuntRosieEntities
 {
-    public class EmployeePayroll
+    public enum EventType
     {
+        FarmersMarket = 'F',
+        HomeShow = 'H',
+        Other = 'O'
     }
 }

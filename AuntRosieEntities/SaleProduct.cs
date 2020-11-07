@@ -7,8 +7,8 @@ namespace AuntRosieEntities
 {
     public class SaleProduct
     {
-        private int eventProductId;
-        private int saleId;
+        private long eventProductId;
+        private long saleId;
         private int quantity;
         private double price;
 

@@ -5,14 +5,14 @@ using System.Text;
 
 namespace AuntRosieEntities
 {
-    public class Customer : Person
+    public class ProductIngredient
     {
-        private long id;
-        private Address address;
-        private string phone;
-        private string email;
+        private int productItemId;
+        private long ingredientId;
+        private double quantity;
+        private string unit;
 
-        public Address Address
+        public Ingredient Ingredient
         {
             get => default;
             set
@@ -20,7 +20,7 @@ namespace AuntRosieEntities
             }
         }
 
-        public IEnumerable<AuntRosieEntities.Sale> Sales
+        public ProductItem ProductItem
         {
             get => default;
             set

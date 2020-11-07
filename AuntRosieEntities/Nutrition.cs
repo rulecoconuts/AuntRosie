@@ -7,7 +7,7 @@ namespace AuntRosieEntities
 {
     public class Nutrition
     {
-        private int id;
+        private short id;
         private string name;
 
         public Nutrition Add()

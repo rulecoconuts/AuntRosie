@@ -7,7 +7,7 @@ namespace AuntRosieEntities
 {
     public class Person
     {
-        private int firstName;
-        private int lastName;
+        private string firstName;
+        private string lastName;
     }
 }

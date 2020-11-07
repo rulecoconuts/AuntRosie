@@ -7,9 +7,17 @@ namespace AuntRosieEntities
 {
     public class Ingredient
     {
-        private int id;
+        private bigint id;
         private string name;
-        private IngredientType type;
+        private short ingredientTypeId;
         private string storingNote;
+
+        public IngredientType IngredientType
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

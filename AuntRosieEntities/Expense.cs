@@ -7,11 +7,11 @@ namespace AuntRosieEntities
 {
     public class Expense
     {
-        private ulong id;
+        private long id;
         private DateTime payDate;
         private double value;
         private PaymentMethod paymentMethod;
-        private int type;
-        private int note;
+        private string type;
+        private string note;
     }
 }

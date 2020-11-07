@@ -7,10 +7,9 @@ namespace AuntRosieEntities
 {
     public class Product
     {
-        private int id;
+        private short id;
         private string name;
-        private int type;
-        private int servingSize;
-        private string unit;
+        private string type;
+        private string servingSize;
     }
 }

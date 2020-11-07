@@ -7,8 +7,9 @@ namespace AuntRosieEntities
 {
     public class EventProduct
     {
-        private int id;
-        private int eventId;
-        private int productionId;
+        private long id;
+        private long eventId;
+        private long productionId;
+        private short quantity;
     }
 }

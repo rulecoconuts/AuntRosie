@@ -7,13 +7,29 @@ namespace AuntRosieEntities
 {
     public class InventoryIngredient
     {
-        private int ingredientID;
+        private long ingredientID;
         private DateTime purchaseDate;
         private DateTime expiryDate;
-        private string paymentMethod;
-        private int quantity;
-        private int unit;
-        private int cost;
-        private int supplierID;
+        private PaymentMethod paymentMethod;
+        private double quantity;
+        private string unit;
+        private double cost;
+        private long supplierID;
+
+        public Ingredient Ingredient
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Supplier Supplier
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

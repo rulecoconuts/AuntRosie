@@ -7,12 +7,12 @@ namespace AuntRosieEntities
 {
     public class Employee : Person
     {
-        private int id;
-        private int firstName;
-        private int lastName;
-        private int type;
-        private int role;
+        private long id;
+        private EmployeeType type;
+        private string role;
         private Address address;
+        private string email;
+        private string phone;
 
         public Address Address
         {

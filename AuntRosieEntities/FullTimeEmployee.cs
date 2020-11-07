@@ -7,8 +7,9 @@ namespace AuntRosieEntities
 {
     public class FullTimeEmployee : Employee
     {
-        private int salary;
-        private int employementDate;
+        private double salary;
+        private DateTime employementDate;
         private int status;
+        private DateTime terminationDate;
     }
 }

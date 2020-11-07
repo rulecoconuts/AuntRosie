@@ -7,9 +7,18 @@ namespace AuntRosieEntities
 {
     public class EventExpense : Expense
     {
-        private int eventId;
+        private long eventId;
+        private long expenseId;
 
         public RosieEvent Event
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Expense Expense
         {
             get => default;
             set

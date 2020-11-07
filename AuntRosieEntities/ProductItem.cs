@@ -8,7 +8,24 @@ namespace AuntRosieEntities
     public class ProductItem
     {
         private int id;
-        private int sizeID;
+        private byte sizeID;
         private double price;
+        private short productID;
+
+        public Product Product
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public ProductSize ProductSize
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

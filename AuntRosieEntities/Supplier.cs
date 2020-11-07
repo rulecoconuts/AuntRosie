@@ -7,11 +7,12 @@ namespace AuntRosieEntities
 {
     public class Supplier
     {
-        private int id;
+        private long id;
         private string name;
         private string phone;
         private Person contact;
         private Address address;
+        private string email;
 
         public Person Contact
         {

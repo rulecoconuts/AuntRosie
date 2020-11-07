@@ -5,9 +5,9 @@ using System.Text;
 
 namespace AuntRosieEntities
 {
-    public class IngredientType
+    public enum EmployeeStatus
     {
-        private short id;
-        private string name;
+        Current = 'C',
+        Previous = 'P'
     }
 }

@@ -7,9 +7,11 @@ namespace AuntRosieEntities
 {
     public class RosieEvent
     {
-        private int id;
-        private int name;
-        private int locationId;
+        private long id;
+        private string name;
+        private long locationId;
+        private DateTime EventDate;
+        private EventType type;
 
         public EventLocation EventLocation
         {

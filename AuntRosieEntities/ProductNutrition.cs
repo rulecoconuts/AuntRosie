@@ -5,14 +5,14 @@ using System.Text;
 
 namespace AuntRosieEntities
 {
-    public class Sale
+    public class ProductNutrition
     {
-        private long id;
-        private long customerId;
-        private DateTime date;
-        private PaymentMethod paymentMethod;
+        private short productId;
+        private short nutritionId;
+        private double value;
+        private char valueType;
 
-        public Customer Customer
+        public Nutrition Nutrition
         {
             get => default;
             set

@@ -7,10 +7,18 @@ namespace AuntRosieEntities
 {
     public class Production
     {
-        private int id;
+        private long id;
         private int productItemID;
         private DateTime productionDate;
-        private int quantity;
+        private short quantity;
         private DateTime expiryDate;
+
+        public ProductItem ProductItem
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

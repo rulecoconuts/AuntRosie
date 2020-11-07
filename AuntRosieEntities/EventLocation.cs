@@ -7,8 +7,8 @@ namespace AuntRosieEntities
 {
     public class EventLocation
     {
-        private int id;
-        private int name;
+        private long id;
+        private string name;
         private Address address;
 
         public Address Address

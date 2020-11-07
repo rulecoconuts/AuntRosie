@@ -7,8 +7,25 @@ namespace AuntRosieEntities
 {
     public class EmployeeHours
     {
-        private int eventID;
-        private int hours;
+        private long eventID;
+        private double hours;
         private bool isPaid;
+        private long employeeID;
+
+        public Employee Employee
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public RosieEvent RosieEvent
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }
