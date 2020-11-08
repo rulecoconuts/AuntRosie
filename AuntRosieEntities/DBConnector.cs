@@ -51,23 +51,31 @@ namespace AuntRosieEntities
         /// <param name="getInsertedID">If true return the primary key of the newly inserted record else; return if insertion was successful</param>
         /// <param name="transaction">Transaction that the operation is a part of</param>
         /// <returns>The last inserted id</returns>
-        /// 
-
         public long Insert(string query, bool getInsertedID = true, SqlTransaction transaction = null)
+        {
+            return Insert(new SqlCommand(query, Connection), getInsertedID, transaction);
+        }
+
+        /// <summary>
+        /// Insert a record into the database
+        /// </summary>
+        /// <param name="command">Command to execute</param>
+        /// <param name="getInsertedID">If true return the primary key of the newly inserted record else; return if insertion was successful</param>
+        /// <param name="transaction">Transaction that the operation is a part of</param>
+        /// <returns>The last inserted id</returns>
+        public long Insert(SqlCommand command, bool getInsertedID  = true, SqlTransaction transaction = null)
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
             long result = -1;
 
-            if (transaction is null)
+            if (!(transaction is null))
             {
-                adapter.InsertCommand = new SqlCommand(query, Connection);
-            }
-            else
-            {
-                adapter.InsertCommand = new SqlCommand(query, Connection, transaction);
+                command.Transaction = transaction;
             }
 
-            result = getInsertedID? Convert.ToInt64(adapter.InsertCommand.ExecuteScalar()) : adapter.InsertCommand.ExecuteNonQuery();
+            adapter.InsertCommand = command;
+
+            result = getInsertedID ? Convert.ToInt64(adapter.InsertCommand.ExecuteScalar()) : adapter.InsertCommand.ExecuteNonQuery();
 
             adapter.InsertCommand.Dispose();
             adapter.Dispose();
@@ -83,17 +91,26 @@ namespace AuntRosieEntities
         /// <returns>Number of affected records</returns>
         public long Update(string query, SqlTransaction transaction = null)
         {
+            return Update(new SqlCommand(query, Connection), transaction);
+        }
+
+        /// <summary>
+        /// Insert a record into the database
+        /// </summary>
+        /// <param name="command">Command to execute</param>
+        /// <param name="transaction">Transaction that the operation is a part of</param>
+        /// <returns>Number of affected records</returns>
+        public long Update(SqlCommand command, SqlTransaction transaction = null)
+        {
             SqlDataAdapter adapter = new SqlDataAdapter();
             long result = -1;
 
-            if (transaction is null)
+            if (!(transaction is null))
             {
-                adapter.UpdateCommand = new SqlCommand(query, Connection);
+                command.Transaction = transaction;
             }
-            else
-            {
-                adapter.UpdateCommand = new SqlCommand(query, Connection, transaction);
-            }
+
+            adapter.UpdateCommand = command;
 
             result = adapter.UpdateCommand.ExecuteNonQuery();
 
@@ -141,9 +158,24 @@ namespace AuntRosieEntities
             return result;
         }
 
-        public SqlDataReader Retrieve(string query, SqlTransaction transaction = null)
+        /// <summary>
+        /// Retrieve records from the database
+        /// </summary>
+        /// <param name="query">Query to be executed</param>
+        /// <returns>SQL data reader containing results</returns>
+        public SqlDataReader Retrieve(string query)
         {
-            throw new System.NotImplementedException();
+            return Retrieve(new SqlCommand(query, Connection));
+        }
+
+        /// <summary>
+        /// Retrieve records from the database
+        /// </summary>
+        /// <param name="command">Command to be executed</param>
+        /// <returns>SQL data reader containing records</returns>
+        public SqlDataReader Retrieve(SqlCommand command)
+        {
+            return command.ExecuteReader();
         }
     }
 }
