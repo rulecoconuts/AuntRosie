@@ -11,19 +11,22 @@ namespace AuntRosieEntities
         private string firstName;
         private string lastName;
 
-        protected override void Create(SqlTransaction transaction = null)
+        public string FirstName { get => firstName; set => firstName = value; }
+        public string LastName { get => lastName; set => lastName = value; }
+
+        public override void Create(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            
         }
 
-        protected override void Delete(SqlTransaction transaction = null)
+        public override void Delete(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            
         }
 
-        protected override void Update(SqlTransaction transaction = null)
+        public override void Update(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

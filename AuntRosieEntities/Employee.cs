@@ -23,7 +23,7 @@ namespace AuntRosieEntities
             }
         }
 
-        protected override void Create(SqlTransaction transaction = null)
+        public override void Create(SqlTransaction transaction = null)
         {
             base.Create(transaction);
         }

@@ -9,10 +9,12 @@ namespace AuntRosieEntities
 {
     public abstract class RosieEntity
     {
-        protected static DBConnector connector;
+        private static DBConnector connector;
 
-        protected abstract void Create(SqlTransaction transaction = null);
-        protected abstract void Delete(SqlTransaction transaction = null);
-        protected abstract void Update(SqlTransaction transaction = null);
+        public static DBConnector Connector { get => connector; set => connector = value; }
+
+        public abstract void Create(SqlTransaction transaction = null);
+        public abstract void Delete(SqlTransaction transaction = null);
+        public abstract void Update(SqlTransaction transaction = null);
     }
 }

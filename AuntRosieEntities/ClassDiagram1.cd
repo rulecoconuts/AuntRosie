@@ -58,14 +58,14 @@
     <Position X="0.5" Y="16.75" Width="1.5" />
     <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="14.642" />
         <Point X="24.562" Y="27.554" />
         <Point X="1.125" Y="27.554" />
-        <Point X="1.125" Y="18.175" />
+        <Point X="1.125" Y="20.424" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AIQCAAAAACAgAAAAAAAAAgQAAAEEAEAAAAAAAAAAAgA=</HashCode>
       <FileName>IngredientType.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -92,7 +92,7 @@
     <Position X="3" Y="13.25" Width="2" />
     <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="14.642" />
         <Point X="24.562" Y="27.629" />
         <Point X="5.375" Y="27.629" />
         <Point X="5.375" Y="27.527" />
@@ -115,8 +115,8 @@
     <Position X="7" Y="13.75" Width="1.5" />
     <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="23.25" Y="12.5" />
-        <Point X="7.625" Y="12.5" />
+        <Point X="23.25" Y="12.558" />
+        <Point X="7.625" Y="12.558" />
         <Point X="7.625" Y="13.75" />
       </Path>
     </InheritanceLine>
@@ -139,6 +139,14 @@
         <Point X="4.25" Y="11" />
       </Path>
     </InheritanceLine>
+    <AssociationLine Name="Product" Type="AuntRosieEntities.Product" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.25" Y="11.625" />
+        <Point X="11.875" Y="11.625" />
+        <Point X="11.875" Y="6.844" />
+        <Point X="12.25" Y="6.844" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAATABAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>ProductItem.cs</FileName>
@@ -203,7 +211,7 @@
     <Position X="9.25" Y="19.75" Width="1.5" />
     <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="14.642" />
         <Point X="24.562" Y="27.521" />
         <Point X="8.875" Y="27.521" />
         <Point X="8.875" Y="21.25" />
@@ -222,7 +230,7 @@
     <Position X="12.5" Y="19.25" Width="1.5" />
     <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="14.642" />
         <Point X="24.562" Y="27.524" />
         <Point X="13.188" Y="27.524" />
         <Point X="13.188" Y="20.867" />
@@ -238,8 +246,11 @@
   </Class>
   <Class Name="AuntRosieEntities.Person">
     <Position X="14.5" Y="13.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAABAAAAAAAAAAAAAAAEAAEAAAAAACAAAAAA=</HashCode>
+      <HashCode>AAQAAEAAAABAAAAAAAAAAAAAAAEAAEAAAAAACAAAAAg=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -272,7 +283,7 @@
     <Position X="3.25" Y="18.5" Width="1.5" />
     <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="14.642" />
         <Point X="24.562" Y="27.57" />
         <Point X="2.875" Y="27.57" />
         <Point X="2.875" Y="19.625" />
@@ -288,7 +299,7 @@
     <Position X="6.75" Y="17.75" Width="1.5" />
     <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
-        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="14.642" />
         <Point X="24.562" Y="27.662" />
         <Point X="8.75" Y="27.662" />
         <Point X="8.75" Y="27.538" />
@@ -310,7 +321,7 @@
     <Position X="6.75" Y="20.25" Width="1.5" />
     <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="14.642" />
         <Point X="24.562" Y="27.609" />
         <Point X="11" Y="27.609" />
         <Point X="11" Y="27.502" />
@@ -395,7 +406,7 @@
     <Position X="14.25" Y="25.25" Width="1.5" />
     <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="14.642" />
         <Point X="24.562" Y="27.521" />
         <Point X="15" Y="27.521" />
         <Point X="15" Y="27.06" />
@@ -432,7 +443,7 @@
     <Position X="20.75" Y="22.5" Width="1.5" />
     <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="14.642" />
         <Point X="24.562" Y="23.75" />
         <Point X="22.25" Y="23.75" />
       </Path>
@@ -445,7 +456,7 @@
   <Class Name="AuntRosieEntities.RosieEntity">
     <Position X="23.25" Y="12.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAEAAEAAEAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAEQAEAAEAAAAAAAAAA=</HashCode>
       <FileName>RosieEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
