@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AuntRosieEntities
 {
-    public class EmployeePay
+    public class EmployeePay : IRosieEntity
     {
         private long employeeId;
         private DateTime paymentDate;

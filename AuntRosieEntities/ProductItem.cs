@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AuntRosieEntities
 {
-    public class ProductItem
+    public class ProductItem : IRosieEntity
     {
         private int id;
         private byte sizeID;

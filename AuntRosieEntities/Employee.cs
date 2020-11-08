@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AuntRosieEntities
 {
-    public class Employee : Person
+    public class Employee : Person, IRosieEntity
     {
         private long id;
         private EmployeeType type;

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AuntRosieEntities
 {
-    public class InventoryIngredient
+    public class InventoryIngredient : IRosieEntity
     {
         private long ingredientID;
         private DateTime purchaseDate;

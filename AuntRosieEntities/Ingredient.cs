@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AuntRosieEntities
 {
-    public class Ingredient
+    public class Ingredient : IRosieEntity
     {
         private bigint id;
         private string name;

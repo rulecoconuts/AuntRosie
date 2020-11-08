@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AuntRosieEntities.DBConnector">
-    <Position X="7.75" Y="0.5" Width="1.5" />
+    <Position X="8.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIQAAEAAAAAAAAgAAAABAIAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DBConnector.cs</FileName>
@@ -13,6 +13,7 @@
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAEACAAAAAAAAAAAgA=</HashCode>
       <FileName>ProductSize.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Nutrition">
     <Position X="0.5" Y="4.75" Width="1.5" />
@@ -20,6 +21,7 @@
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Nutrition.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Product">
     <Position X="2.75" Y="4.25" Width="1.5" />
@@ -27,6 +29,7 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAFAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Product.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.IngredientType">
     <Position X="0.5" Y="12.5" Width="1.5" />
@@ -34,6 +37,7 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>IngredientType.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Ingredient">
     <Position X="0.5" Y="10.25" Width="1.5" />
@@ -44,6 +48,7 @@
     <ShowAsAssociation>
       <Property Name="IngredientType" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.InventoryIngredient">
     <Position X="3" Y="9" Width="2" />
@@ -55,6 +60,7 @@
       <Property Name="Ingredient" />
       <Property Name="Supplier" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Supplier">
     <Position X="6.25" Y="8.75" Width="1.5" />
@@ -65,6 +71,7 @@
     <ShowAsAssociation>
       <Property Name="Contact" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.ProductItem">
     <Position X="2.75" Y="6.5" Width="1.5" />
@@ -76,6 +83,7 @@
       <Property Name="Product" />
       <Property Name="ProductSize" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Production">
     <Position X="10" Y="6" Width="1.5" />
@@ -94,6 +102,7 @@
     <ShowAsAssociation>
       <Property Name="ProductItem" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Employee">
     <Position X="17.5" Y="13" Width="1.5" />
@@ -104,6 +113,7 @@
     <ShowAsAssociation>
       <Property Name="Address" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.FullTimeEmployee">
     <Position X="17.5" Y="15.75" Width="1.5" />
@@ -121,6 +131,7 @@
     <ShowAsAssociation>
       <Property Name="EventLocation" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.EventLocation">
     <Position X="14.25" Y="15.5" Width="1.5" />
@@ -131,6 +142,7 @@
     <ShowAsAssociation>
       <Property Name="Address" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Person">
     <Position X="9" Y="8.5" Width="1.5" />
@@ -163,6 +175,7 @@
     <ShowAsAssociation>
       <Property Name="Address" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.EventProduct">
     <Position X="3.25" Y="14.25" Width="1.5" />
@@ -170,6 +183,7 @@
       <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAgAAAAAgA=</HashCode>
       <FileName>EventProduct.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Sale">
     <Position X="7.25" Y="11.25" Width="1.5" />
@@ -180,6 +194,7 @@
     <ShowAsAssociation>
       <Property Name="Customer" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.SaleProduct">
     <Position X="6.75" Y="16" Width="1.5" />
@@ -191,6 +206,7 @@
       <Property Name="Sale" />
       <Property Name="EventProduct" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Expense">
     <Position X="9.25" Y="20.5" Width="1.5" />
@@ -217,6 +233,7 @@
       <Property Name="Event" />
       <Property Name="Expense" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.ProductNutrition">
     <Position X="0.5" Y="2.5" Width="1.5" />
@@ -227,6 +244,7 @@
     <ShowAsAssociation>
       <Property Name="Nutrition" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.ProductIngredient">
     <Position X="0.5" Y="8" Width="1.75" />
@@ -238,6 +256,7 @@
       <Property Name="Ingredient" />
       <Property Name="ProductItem" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.EmployeeHours">
     <Position X="14.25" Y="17.75" Width="1.5" />
@@ -265,6 +284,7 @@
       <Property Name="Employee" />
       <Property Name="RosieEvent" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.EmployeePay">
     <Position X="17.5" Y="18" Width="1.5" />
@@ -272,9 +292,10 @@
       <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAgAAEAAMAAAAAAQA=</HashCode>
       <FileName>EmployeePay.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="AuntRosieEntities.IRosieEntity">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+    <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>IRosieEntity.cs</FileName>
