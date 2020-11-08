@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AuntRosieEntities
 {
-    public class EmployeeHours : IRosieEntity
+    public class EmployeeHours : RosieEntity
     {
         private long eventID;
         private double hours;

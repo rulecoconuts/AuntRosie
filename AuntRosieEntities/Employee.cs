@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
 namespace AuntRosieEntities
 {
-    public class Employee : Person, IRosieEntity
+    public class Employee : Person
     {
         private long id;
         private EmployeeType type;
@@ -20,6 +21,11 @@ namespace AuntRosieEntities
             set
             {
             }
+        }
+
+        protected override void Create(SqlTransaction transaction = null)
+        {
+            base.Create(transaction);
         }
     }
 }

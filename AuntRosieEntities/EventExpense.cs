@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AuntRosieEntities
 {
-    public class EventExpense : Expense, IRosieEntity
+    public class EventExpense : Expense, RosieEntity
     {
         private long eventId;
         private long expenseId;

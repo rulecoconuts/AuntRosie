@@ -1,46 +1,85 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AuntRosieEntities.DBConnector">
-    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Position X="8.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIQAAEAAAAAAAAgAAAABAIAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AIQAAEAAAAAAAAEAAAABAIAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DBConnector.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AuntRosieEntities.ProductSize">
-    <Position X="6.5" Y="4.75" Width="1.5" />
+    <Position X="3.25" Y="7.5" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.609" Y="12.25" />
+        <Point X="24.609" Y="3.896" />
+        <Point X="3.812" Y="3.896" />
+        <Point X="3.812" Y="7.5" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAEACAAAAAAAAAAAgA=</HashCode>
       <FileName>ProductSize.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Nutrition">
-    <Position X="0.5" Y="4.75" Width="1.5" />
+    <Position X="0.75" Y="7.25" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.625" Y="12.25" />
+        <Point X="24.625" Y="3.938" />
+        <Point X="2.625" Y="3.938" />
+        <Point X="2.625" Y="8.062" />
+        <Point X="2.25" Y="8.062" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Nutrition.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Product">
-    <Position X="2.75" Y="4.25" Width="1.5" />
+    <Position X="12.25" Y="6.25" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.625" Y="12.25" />
+        <Point X="24.625" Y="6.38" />
+        <Point X="14.125" Y="6.38" />
+        <Point X="14.125" Y="7.188" />
+        <Point X="13.75" Y="7.188" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAFAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Product.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.IngredientType">
-    <Position X="0.5" Y="12.5" Width="1.5" />
+    <Position X="0.5" Y="16.75" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="27.554" />
+        <Point X="1.125" Y="27.554" />
+        <Point X="1.125" Y="18.175" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>IngredientType.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Ingredient">
-    <Position X="0.5" Y="10.25" Width="1.5" />
+    <Position X="0.5" Y="14.5" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.625" Y="12.25" />
+        <Point X="24.625" Y="3.924" />
+        <Point X="0.406" Y="3.924" />
+        <Point X="0.406" Y="15.25" />
+        <Point X="0.5" Y="15.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAACAAAAAAAIAAAEAAAAAAAAAAAAQgA=</HashCode>
       <FileName>Ingredient.cs</FileName>
@@ -48,10 +87,21 @@
     <ShowAsAssociation>
       <Property Name="IngredientType" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.InventoryIngredient">
-    <Position X="3" Y="9" Width="2" />
+    <Position X="3" Y="13.25" Width="2" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="27.629" />
+        <Point X="5.375" Y="27.629" />
+        <Point X="5.375" Y="27.527" />
+        <Point X="2.333" Y="27.527" />
+        <Point X="2.333" Y="16.357" />
+        <Point X="3.688" Y="16.357" />
+        <Point X="3.688" Y="15.829" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAABAAgAAAgoIAAAAAAAAAAAAAQAASAAAAAAAAAAQA=</HashCode>
       <FileName>InventoryIngredient.cs</FileName>
@@ -60,10 +110,16 @@
       <Property Name="Ingredient" />
       <Property Name="Supplier" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Supplier">
-    <Position X="6.25" Y="8.75" Width="1.5" />
+    <Position X="7" Y="13.75" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="23.25" Y="12.5" />
+        <Point X="7.625" Y="12.5" />
+        <Point X="7.625" Y="13.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgCAAAAAgAAAIEAAAgAAAAAAAAAgA=</HashCode>
       <FileName>Supplier.cs</FileName>
@@ -71,10 +127,18 @@
     <ShowAsAssociation>
       <Property Name="Contact" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.ProductItem">
-    <Position X="2.75" Y="6.5" Width="1.5" />
+    <Position X="2.75" Y="10.75" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.625" Y="12.25" />
+        <Point X="24.625" Y="5.255" />
+        <Point X="6.036" Y="5.255" />
+        <Point X="6.036" Y="11" />
+        <Point X="4.25" Y="11" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAATABAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>ProductItem.cs</FileName>
@@ -83,16 +147,23 @@
       <Property Name="Product" />
       <Property Name="ProductSize" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Production">
-    <Position X="10" Y="6" Width="1.5" />
+    <Position X="17.5" Y="7" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="24.625" Y="12.25" />
+        <Point X="24.625" Y="9.377" />
+        <Point X="18.25" Y="9.377" />
+        <Point X="18.25" Y="9.002" />
+      </Path>
+    </InheritanceLine>
     <AssociationLine Name="ProductItem" Type="AuntRosieEntities.ProductItem" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="10" Y="6.936" />
-        <Point X="9.625" Y="6.936" />
-        <Point X="9.625" Y="7.875" />
-        <Point X="4.25" Y="7.875" />
+        <Point X="17.5" Y="8.001" />
+        <Point X="17.125" Y="8.001" />
+        <Point X="17.125" Y="12.231" />
+        <Point X="4.25" Y="12.231" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -102,28 +173,43 @@
     <ShowAsAssociation>
       <Property Name="ProductItem" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Employee">
-    <Position X="17.5" Y="13" Width="1.5" />
+    <Position X="18" Y="16.5" Width="1.5" />
+    <AssociationLine Name="Address" Type="AuntRosieEntities.Address" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="18" Y="17.625" />
+        <Point X="17.625" Y="17.625" />
+        <Point X="17.625" Y="16.75" />
+        <Point X="13" Y="16.75" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgAAAAABAAAAIBAAAiAAAAAAAAAgA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAABAAAAIBAEAiAAAAAAAAAgA=</HashCode>
       <FileName>Employee.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Address" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.FullTimeEmployee">
-    <Position X="17.5" Y="15.75" Width="1.5" />
+    <Position X="18" Y="19.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>FullTimeEmployee.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AuntRosieEntities.RosieEvent">
-    <Position X="9.25" Y="15.5" Width="1.5" />
+    <Position X="9.25" Y="19.75" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="27.521" />
+        <Point X="8.875" Y="27.521" />
+        <Point X="8.875" Y="21.25" />
+        <Point X="9.25" Y="21.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>EAAAAAAACAAAAAAAAIAAAAAAAAAFAAAAAAAAAABAAgA=</HashCode>
       <FileName>RosieEvent.cs</FileName>
@@ -131,10 +217,17 @@
     <ShowAsAssociation>
       <Property Name="EventLocation" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.EventLocation">
-    <Position X="14.25" Y="15.5" Width="1.5" />
+    <Position X="12.5" Y="19.25" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="27.524" />
+        <Point X="13.188" Y="27.524" />
+        <Point X="13.188" Y="20.867" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIEAAACAAAAAAAAAgA=</HashCode>
       <FileName>EventLocation.cs</FileName>
@@ -142,30 +235,29 @@
     <ShowAsAssociation>
       <Property Name="Address" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Person">
-    <Position X="9" Y="8.5" Width="1.5" />
+    <Position X="14.5" Y="13.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAABAAAAAAAAAAAAAAAEAAEAAAAAACAAAAAA=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AuntRosieEntities.Address">
-    <Position X="14.75" Y="13" Width="1.5" />
+    <Position X="11.5" Y="16" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAgAAAAAAAAAAAAI=</HashCode>
       <FileName>Address.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AuntRosieEntities.Customer">
-    <Position X="9.5" Y="10.25" Width="1.5" />
+    <Position X="9.5" Y="16.75" Width="1.5" />
     <AssociationLine Name="Address" Type="AuntRosieEntities.Address" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="11" Y="10.986" />
-        <Point X="11.375" Y="10.986" />
-        <Point X="11.375" Y="13.812" />
-        <Point X="14.75" Y="13.812" />
+        <Point X="11" Y="18.25" />
+        <Point X="11.24" Y="18.25" />
+        <Point X="11.24" Y="17" />
+        <Point X="11.5" Y="17" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -175,18 +267,37 @@
     <ShowAsAssociation>
       <Property Name="Address" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.EventProduct">
-    <Position X="3.25" Y="14.25" Width="1.5" />
+    <Position X="3.25" Y="18.5" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="27.57" />
+        <Point X="2.875" Y="27.57" />
+        <Point X="2.875" Y="19.625" />
+        <Point X="3.25" Y="19.625" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAgAAAAAgA=</HashCode>
       <FileName>EventProduct.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Sale">
-    <Position X="7.25" Y="11.25" Width="1.5" />
+    <Position X="6.75" Y="17.75" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="27.662" />
+        <Point X="8.75" Y="27.662" />
+        <Point X="8.75" Y="27.538" />
+        <Point X="2.354" Y="27.538" />
+        <Point X="2.354" Y="17.237" />
+        <Point X="7.5" Y="17.237" />
+        <Point X="7.5" Y="17.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAwA=</HashCode>
       <FileName>Sale.cs</FileName>
@@ -194,10 +305,19 @@
     <ShowAsAssociation>
       <Property Name="Customer" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.SaleProduct">
-    <Position X="6.75" Y="16" Width="1.5" />
+    <Position X="6.75" Y="20.25" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="27.609" />
+        <Point X="11" Y="27.609" />
+        <Point X="11" Y="27.502" />
+        <Point X="7.438" Y="27.502" />
+        <Point X="7.438" Y="22.06" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAARAIAAAAAAAAAAAAAgAAAAAAAAAACAAQAAAAAAAAA=</HashCode>
       <FileName>SaleProduct.cs</FileName>
@@ -206,23 +326,22 @@
       <Property Name="Sale" />
       <Property Name="EventProduct" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.Expense">
-    <Position X="9.25" Y="20.5" Width="1.5" />
+    <Position X="9.25" Y="24.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAABACAAACAAAAAAAwA=</HashCode>
       <FileName>Expense.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AuntRosieEntities.EventExpense">
-    <Position X="9.25" Y="18.5" Width="1.5" />
+    <Position X="9.25" Y="22.75" Width="1.5" />
     <AssociationLine Name="Expense" Type="AuntRosieEntities.Expense" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="10.75" Y="19.213" />
-        <Point X="11.671" Y="19.213" />
-        <Point X="11.671" Y="21.625" />
-        <Point X="10.75" Y="21.625" />
+        <Point X="10.75" Y="23.463" />
+        <Point X="11.671" Y="23.463" />
+        <Point X="11.671" Y="25.875" />
+        <Point X="10.75" Y="25.875" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -233,10 +352,17 @@
       <Property Name="Event" />
       <Property Name="Expense" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.ProductNutrition">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.625" Y="12.25" />
+        <Point X="24.625" Y="3.97" />
+        <Point X="1.188" Y="3.97" />
+        <Point X="1.188" Y="4.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>BAAAABAAAAAAAAAAAAAIAAAAAAAAACAAAAAQAAAAAAA=</HashCode>
       <FileName>ProductNutrition.cs</FileName>
@@ -244,10 +370,18 @@
     <ShowAsAssociation>
       <Property Name="Nutrition" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.ProductIngredient">
-    <Position X="0.5" Y="8" Width="1.75" />
+    <Position X="0.5" Y="12.25" Width="1.75" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.625" Y="12.25" />
+        <Point X="24.625" Y="3.97" />
+        <Point X="0.406" Y="3.97" />
+        <Point X="0.406" Y="12.938" />
+        <Point X="0.5" Y="12.938" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>BAAABAAAAAAgIAAAAAAAAAQAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>ProductIngredient.cs</FileName>
@@ -256,24 +390,33 @@
       <Property Name="Ingredient" />
       <Property Name="ProductItem" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.EmployeeHours">
-    <Position X="14.25" Y="17.75" Width="1.5" />
+    <Position X="14.25" Y="25.25" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="27.521" />
+        <Point X="15" Y="27.521" />
+        <Point X="15" Y="27.06" />
+      </Path>
+    </InheritanceLine>
     <AssociationLine Name="Employee" Type="AuntRosieEntities.Employee" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="15.75" Y="18.59" />
-        <Point X="17.125" Y="18.59" />
-        <Point X="17.125" Y="14.312" />
-        <Point X="17.5" Y="14.312" />
+        <Point X="15.75" Y="26.155" />
+        <Point X="16.125" Y="26.155" />
+        <Point X="16.125" Y="18.082" />
+        <Point X="18" Y="18.082" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="RosieEvent" Type="AuntRosieEntities.RosieEvent" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="RosieEvent" Type="AuntRosieEntities.RosieEvent" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="14.25" Y="18.094" />
-        <Point X="13.875" Y="18.094" />
-        <Point X="13.875" Y="17.073" />
-        <Point X="10.75" Y="17.073" />
+        <Point X="14.25" Y="25.62" />
+        <Point X="13.271" Y="25.62" Type="JumpStart" />
+        <Point X="13.105" Y="25.62" Type="JumpEnd" />
+        <Point X="11.781" Y="25.62" />
+        <Point X="11.781" Y="21.411" />
+        <Point X="10.75" Y="21.411" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -284,23 +427,28 @@
       <Property Name="Employee" />
       <Property Name="RosieEvent" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="AuntRosieEntities.EmployeePay">
-    <Position X="17.5" Y="18" Width="1.5" />
+    <Position X="20.75" Y="22.5" Width="1.5" />
+    <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.562" Y="14.19" />
+        <Point X="24.562" Y="23.75" />
+        <Point X="22.25" Y="23.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAgAAEAAMAAAAAAQA=</HashCode>
       <FileName>EmployeePay.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="AuntRosieEntities.IRosieEntity">
-    <Position X="3.75" Y="0.5" Width="1.5" />
+  <Class Name="AuntRosieEntities.RosieEntity">
+    <Position X="23.25" Y="12.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
-      <FileName>IRosieEntity.cs</FileName>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAEAAEAAEAAAAAAAAAA=</HashCode>
+      <FileName>RosieEntity.cs</FileName>
     </TypeIdentifier>
-  </Interface>
+  </Class>
   <Enum Name="AuntRosieEntities.PaymentMethod">
     <Position X="13.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
