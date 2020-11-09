@@ -56,16 +56,20 @@
   </Class>
   <Class Name="AuntRosieEntities.IngredientType">
     <Position X="0.5" Y="16.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <InheritanceLine Type="AuntRosieEntities.RosieEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="24.562" Y="14.642" />
         <Point X="24.562" Y="27.554" />
         <Point X="1.125" Y="27.554" />
-        <Point X="1.125" Y="20.424" />
+        <Point X="1.125" Y="19.655" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AIQCAAAAACAgAAAAAAAAAgQAAAEEAEAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AIQKAAAAACIgAAAAAAAAAgQAAAEEAEAAAAAAAAAAAgQ=</HashCode>
       <FileName>IngredientType.cs</FileName>
     </TypeIdentifier>
   </Class>

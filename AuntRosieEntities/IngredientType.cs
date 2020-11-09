@@ -16,8 +16,23 @@ namespace AuntRosieEntities
         private static SqlCommand deletePrepCmd = null;
         private static SqlCommand updatePrepCmd = null;
 
+        /// <summary>
+        /// Prepared statement to retrieve ingredient by id
+        /// </summary>
+        private static SqlCommand retrieveIdPrepCmd = null;
+
+        /// <summary>
+        /// Prepared statement to retrieve ingredient by name
+        /// </summary>
+        private static SqlCommand retrieveNamePrepCmd = null;
+
         public short Id { get => id;}
         public string Name { get => name; set => name = value; }
+
+        private void SetID(short id)
+        {
+            this.id = id;
+        }
 
         /// <summary>
         /// Create a new type of ingredient
@@ -112,7 +127,35 @@ namespace AuntRosieEntities
         /// <returns></returns>
         public static IngredientType Retrieve(string name)
         {
-            return null;
+            IngredientType type = null;
+            bool newPrep = false;
+
+            //Prepare statement
+            if (retrieveNamePrepCmd is null)
+            {
+                newPrep = true;
+                retrieveNamePrepCmd = new SqlCommand(null, Connector.Connection);
+                retrieveNamePrepCmd.CommandText = "select [InventoryTypeId] from [tblInventoryType]  where [TypeName] = @name";
+            }
+
+            SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
+            nameParam.Value = name;
+
+            if (newPrep)
+            {
+                retrieveNamePrepCmd.Prepare();
+            }
+
+            //Process result
+            SqlDataReader reader = Connector.Retrieve(retrieveNamePrepCmd);
+            if (reader.HasRows)
+            {
+                type = new IngredientType();
+                type.SetID(reader.GetInt16(0));
+                type.Name = name;
+            }
+
+            return type;
         }
 
         /// <summary>
@@ -122,7 +165,36 @@ namespace AuntRosieEntities
         /// <returns></returns>
         public static IngredientType Retrieve(short id)
         {
-            return null;
+            IngredientType type = null;
+            bool newPrep = false;
+
+            //Prepare statement
+            if (retrieveIdPrepCmd is null)
+            {
+                newPrep = true;
+                retrieveIdPrepCmd = new SqlCommand(null, Connector.Connection);
+                retrieveIdPrepCmd.CommandText = "select [TypeName] from [tblInventoryType]  where [InventoryTypeID] = @ID";
+            }
+
+            SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
+            idParam.Value = id;
+
+            if (newPrep)
+            {
+                retrieveIdPrepCmd.Prepare();
+            }
+
+            //Process result
+            SqlDataReader reader = Connector.Retrieve(retrieveIdPrepCmd);
+            if(reader.HasRows)
+            {
+                type = new IngredientType();
+                type.SetID(id);
+                type.Name = reader.GetString(0);
+            }
+
+
+            return type;
         }
     }
 }
