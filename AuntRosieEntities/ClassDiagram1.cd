@@ -38,12 +38,12 @@
         <Point X="24.625" Y="12.25" />
         <Point X="24.625" Y="3.938" />
         <Point X="2.625" Y="3.938" />
-        <Point X="2.625" Y="9.229" />
-        <Point X="2.25" Y="9.229" />
+        <Point X="2.625" Y="9.924" />
+        <Point X="2.25" Y="9.924" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAEEAEAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AIQKAAAAACIgAAAAAAAAAgQAAAEEAEAAAAAAAAAAAgQ=</HashCode>
       <FileName>Nutrition.cs</FileName>
     </TypeIdentifier>
   </Class>
