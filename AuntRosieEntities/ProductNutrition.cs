@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace AuntRosieEntities
 {
@@ -18,6 +20,31 @@ namespace AuntRosieEntities
             set
             {
             }
+        }
+
+        public override void Create(SqlTransaction transaction = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Delete(SqlTransaction transaction = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update(SqlTransaction transaction = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Retrieve(short nutritionId, short productId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public static List<ProductNutrition> GetProductNutrition(short productId)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

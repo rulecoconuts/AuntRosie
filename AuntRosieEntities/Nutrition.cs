@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -10,9 +11,19 @@ namespace AuntRosieEntities
         private short id;
         private string name;
 
-        public Nutrition Add()
+        public override void Create(SqlTransaction transaction = null)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
+        }
+
+        public override void Delete(SqlTransaction transaction = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update(SqlTransaction transaction = null)
+        {
+            throw new NotImplementedException();
         }
     }
 }
