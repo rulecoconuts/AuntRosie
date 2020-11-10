@@ -80,12 +80,12 @@
         <Point X="24.625" Y="12.25" />
         <Point X="24.625" Y="3.924" />
         <Point X="0.406" Y="3.924" />
-        <Point X="0.406" Y="15.25" />
-        <Point X="0.5" Y="15.25" />
+        <Point X="0.406" Y="16.501" />
+        <Point X="0.5" Y="16.501" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAACAAAAAAAIAAAEAAAAAAAAAAAAQgA=</HashCode>
+      <HashCode>AIQKAAAAACIgAAACAAAAAgQIAAEEAEAAAABAAAAAQgA=</HashCode>
       <FileName>Ingredient.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

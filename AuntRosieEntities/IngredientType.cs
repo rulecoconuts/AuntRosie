@@ -17,12 +17,12 @@ namespace AuntRosieEntities
         private static SqlCommand updatePrepCmd = null;
 
         /// <summary>
-        /// Prepared statement to retrieve ingredient by id
+        /// Prepared statement to retrieve ingredient type by id
         /// </summary>
         private static SqlCommand retrieveIdPrepCmd = null;
 
         /// <summary>
-        /// Prepared statement to retrieve ingredient by name
+        /// Prepared statement to retrieve ingredient type by name
         /// </summary>
         private static SqlCommand retrieveNamePrepCmd = null;
 
@@ -40,22 +40,24 @@ namespace AuntRosieEntities
         /// <param name="transaction"></param>
         public override void Create(SqlTransaction transaction = null)
         {
-            bool newPrep = false;
-            if(createPrepCmd is null)
+            if (createPrepCmd is null)
             {
-                newPrep = true;
                 createPrepCmd = new SqlCommand(null, Connector.Connection);
                 createPrepCmd.CommandText = "insert into [tblIngredientType]([TypeName]) values (@name)";
-            }
 
-            SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
-            nameParam.Value = Name;
 
-            createPrepCmd.Parameters.Add(nameParam);
+                SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
+                nameParam.Value = Name;
 
-            if(newPrep)
-            {
+                createPrepCmd.Parameters.Add(nameParam);
+
+
+
                 createPrepCmd.Prepare();
+            }
+            else
+            {
+                createPrepCmd.Parameters["name"].Value = Name;
             }
 
             id = Convert.ToInt16(Connector.Insert(createPrepCmd, true, transaction));
@@ -67,22 +69,22 @@ namespace AuntRosieEntities
         /// <param name="transaction"></param>
         public override void Delete(SqlTransaction transaction = null)
         {
-            bool newPrep = false;
             if (deletePrepCmd is null)
             {
-                newPrep = true;
                 deletePrepCmd = new SqlCommand(null, Connector.Connection);
                 deletePrepCmd.CommandText = "delete from [tblIngredientType] where [IngredientTypeID] = @ID";
-            }
 
-            SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
-            idParam.Value = Id;
 
-            deletePrepCmd.Parameters.Add(idParam);
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
+                idParam.Value = Id;
 
-            if (newPrep)
-            {
+                deletePrepCmd.Parameters.Add(idParam);
+
                 deletePrepCmd.Prepare();
+            }
+            else
+            {
+                deletePrepCmd.Parameters["ID"].Value = Id;
             }
 
             Connector.Delete(deletePrepCmd, transaction);
@@ -94,27 +96,28 @@ namespace AuntRosieEntities
         /// <param name="transaction"></param>
         public override void Update(SqlTransaction transaction = null)
         {
-            bool newPrep = false;
             if (updatePrepCmd is null)
             {
-                newPrep = true;
                 updatePrepCmd = new SqlCommand(null, Connector.Connection);
-                updatePrepCmd.CommandText = "update [tblInventoryType] set [TypeName] = @name where [InventoryTypeID] = @ID";
-            }
-
-            SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
-            idParam.Value = Id;
-
-            SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
-            nameParam.Value = Name;
+                updatePrepCmd.CommandText = "update [tblIngredientType] set [TypeName] = @name where [IngredientTypeID] = @ID";
 
 
-            updatePrepCmd.Parameters.Add(idParam);
-            updatePrepCmd.Parameters.Add(nameParam);
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
+                idParam.Value = Id;
 
-            if (newPrep)
-            {
+                SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
+                nameParam.Value = Name;
+
+
+                updatePrepCmd.Parameters.Add(idParam);
+                updatePrepCmd.Parameters.Add(nameParam);
+
                 updatePrepCmd.Prepare();
+            }
+            else
+            {
+                updatePrepCmd.Parameters["ID"].Value = Id;
+                updatePrepCmd.Parameters["name"].Value = Name;
             }
 
             Connector.Update(updatePrepCmd, transaction);
@@ -128,32 +131,37 @@ namespace AuntRosieEntities
         public static IngredientType Retrieve(string name)
         {
             IngredientType type = null;
-            bool newPrep = false;
 
             //Prepare statement
             if (retrieveNamePrepCmd is null)
             {
-                newPrep = true;
                 retrieveNamePrepCmd = new SqlCommand(null, Connector.Connection);
-                retrieveNamePrepCmd.CommandText = "select [InventoryTypeId] from [tblInventoryType]  where [TypeName] = @name";
-            }
+                retrieveNamePrepCmd.CommandText = "select [IngredientTypeID] from [tblIngredientType]  where [TypeName] = @name";
 
-            SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
-            nameParam.Value = name;
 
-            if (newPrep)
-            {
+                SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
+                nameParam.Value = name;
+
+
+
                 retrieveNamePrepCmd.Prepare();
+            }
+            else
+            {
+                retrieveNamePrepCmd.Parameters["name"].Value = name;
             }
 
             //Process result
             SqlDataReader reader = Connector.Retrieve(retrieveNamePrepCmd);
             if (reader.HasRows)
             {
+                reader.Read();
                 type = new IngredientType();
                 type.SetID(reader.GetInt16(0));
                 type.Name = name;
             }
+
+            reader.Close();
 
             return type;
         }
@@ -166,33 +174,35 @@ namespace AuntRosieEntities
         public static IngredientType Retrieve(short id)
         {
             IngredientType type = null;
-            bool newPrep = false;
 
             //Prepare statement
             if (retrieveIdPrepCmd is null)
             {
-                newPrep = true;
                 retrieveIdPrepCmd = new SqlCommand(null, Connector.Connection);
-                retrieveIdPrepCmd.CommandText = "select [TypeName] from [tblInventoryType]  where [InventoryTypeID] = @ID";
-            }
+                retrieveIdPrepCmd.CommandText = "select [TypeName] from [tblIngredientType]  where [IngredientTypeID] = @ID";
 
-            SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
-            idParam.Value = id;
 
-            if (newPrep)
-            {
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
+                idParam.Value = id;
+
                 retrieveIdPrepCmd.Prepare();
+            }
+            else
+            {
+                retrieveIdPrepCmd.Parameters["ID"].Value = id;
             }
 
             //Process result
             SqlDataReader reader = Connector.Retrieve(retrieveIdPrepCmd);
             if(reader.HasRows)
             {
+                reader.Read();
                 type = new IngredientType();
                 type.SetID(id);
                 type.Name = reader.GetString(0);
             }
 
+            reader.Close();
 
             return type;
         }
