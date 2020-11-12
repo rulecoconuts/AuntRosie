@@ -68,7 +68,7 @@
                     <TextBox Margin="270,203,71,364"/>
                 </Grid>
 
-                <StackPanel x:Name="Labels" Margin="246,10,306,52"  RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
+                <StackPanel x:Name="Labels" Margin="239,10,305.667,52.333"  RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
                         >
                     <StackPanel.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -122,7 +122,7 @@
                        Content="Payment Method: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
-                       Margin="71,50,0,0" 
+                       Margin="71,57,0,0" 
                        RenderTransformOrigin="-0.325,-14.385" 
                        Width="166"
                        FontSize="20"/>
@@ -131,7 +131,7 @@
                        Content="Subtotal: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
-                       Margin="148,10,0,0" 
+                       Margin="148,1,0,0" 
                        RenderTransformOrigin="-0.325,-14.385" 
                        Width="89"
                        FontSize="20" Height="33"/>
@@ -155,8 +155,6 @@
                        FontSize="20" Height="33"/>
                 </StackPanel>
 
-                <!-- Inputs for new location -->
-
 
                 <StackPanel x:Name="Inputs" Margin="494,10,25,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
 
@@ -169,15 +167,18 @@
 
                     <ComboBox x:Name="cmbCustomer" Margin="10,25,41.333,0"
                           Height="34"
+                          FontSize="20"
                           BorderThickness="3" ToolTip="Select customer for the transaction"></ComboBox>
 
                     <ComboBox x:Name="cmbProducts" Margin="10,15,41.333,0"
                           Height="34"
+                          FontSize="20"
                           BorderThickness="3" ToolTip="Select the product"></ComboBox>
 
                     <TextBox x:Name="txtQuantity"
                          BorderThickness="3"
                          Margin="10, 6,0,0"
+                             FontSize="20"
                          Height="30"
                          Width="90"
                          HorizontalAlignment="Left"
@@ -196,17 +197,19 @@
                           />
 
                     <ListView x:Name="lstCart" Margin="10,35,41.333,0"
+                              FontSize="20"
                           Height="88"
                           BorderThickness="3"
                           ToolTip="Shows each product chosen in cart"
                           ></ListView>
 
-                    <ComboBox x:Name="cmbPaymentMethod"
+                    <ComboBox x:Name="cmbPaymentType"
+                              FontSize="20"
                           Margin="10,10,0,0"
                           BorderThickness="3"
                           Width="90"
                           HorizontalAlignment="Left" 
-                          ToolTip="Select a payment method">
+                          ToolTip="Select a payment type">
                         <ComboBoxItem>Cash</ComboBoxItem>
                         <ComboBoxItem>Credit</ComboBoxItem>
                         <ComboBoxItem>Debit</ComboBoxItem>
@@ -217,7 +220,7 @@
                        Content="15.23" 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
-                       Margin="10,15,0,0" 
+                       Margin="10,5,0,0" 
                        RenderTransformOrigin="-0.325,-14.385" 
                        Width="90"
                        FontSize="20" Height="32" ToolTip="Subtotal before tax"/>
@@ -247,15 +250,19 @@
 
                 <StackPanel x:Name="spSubmit" Margin="637,102.333,25,52" RenderTransformOrigin="0.491,0.497" Grid.Row="1">
                     <Button x:Name="btnCheckOut" 
-                        Content="Check Out" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
                         Height="33"
-                        Width="120" 
+                        Width="95" 
                         Margin="0,15,0,0"
                         Click="CheckOut_Click"
                         ToolTip="Processes the order"
-                        Background="Beige"/>
+                        Background="Beige">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign.png" Height="20" Width="27" />
+                            <Label Content="Check Out" Padding="4" Height="27" Width="100"/>
+                        </StackPanel>
+                    </Button>
 
                 </StackPanel>
 
@@ -269,10 +276,10 @@
                     </Button>
                 </StackPanel>
 
-                <!-- 10-->
+                <!-- Margin="238,10,24.667,52.333" -->
                 <StackPanel x:Name="sp_CreateCustomer"
                         Orientation="Horizontal"
-                        Margin="238,10,24.667,52.333" Grid.RowSpan="2"
+                        Margin="239,10,23.667,52.333" Grid.RowSpan="2"
                          OpacityMask="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}">
                     <StackPanel.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -307,7 +314,7 @@
                          BorderThickness="3"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="194"
                          Height="40"
                         ToolTip="Enter the first name of the customer"
@@ -326,7 +333,7 @@
                          BorderThickness="3"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="194"
                          Height="40"
                          ToolTip="Enter the last name of the customer"
@@ -345,7 +352,7 @@
                          BorderThickness="3"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="194"
                          Height="40"
                          ToolTip="Enter the phone numebr of the customer"
@@ -353,29 +360,37 @@
                     />
 
                     <Button x:Name="btnCreateCustomer"
-                        Content="Submit Customer"
-                        Width="100"
+                        Width="134"
                         Height="50"
-                        Margin="-530,320,0,0"
+                        Margin="-530,397,0,76.333"
                         Click="SubmitCustomer_Click"
                         ToolTip="Click to add new customer to the customer list"
-                        Background="Beige"></Button>
+                        Background="Beige">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign.png" Height="20" Width="27" />
+                            <Label Content="Submit Customer" Padding="4" Height="27" Width="100"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
 
                 <StackPanel x:Name="sp_CreationPanel"
                         Width="300"
                         Height="40"
-                        Margin="250,170,250,0" Grid.Row="1">
+                        Margin="225,170,250,0" Grid.Row="1">
 
                     <Button x:Name="btnCreate"
                         BorderThickness="3"
-                          Content="Create Customer"
-                          Height="30" Margin="0,5,170,0"
+                          Height="30" Margin="0,5,144,0"
                           FontSize="15"
                         Background="#F75D59"
                         Click="CreateCustomer_Click"
                         ToolTip="Opens the create customer window"
-                          />
+                          >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign2.png" Height="20" Width="27" />
+                            <Label Content="Create Customer" Padding="1" Height="27" Width="120"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
 
             </Grid>

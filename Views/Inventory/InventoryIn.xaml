@@ -30,7 +30,7 @@
             <Setter Property="ToolTipService.InitialShowDelay" Value="100"/>
 
         </Style>
-        
+
         <Style x:Key="font_style" TargetType="{x:Type TextBlock}">
 
             <Setter Property="FontFamily"
@@ -88,7 +88,7 @@
                     <TextBox Margin="270,203,71,364"/>
                 </Grid>
 
-                <StackPanel x:Name="inventoryInScreen" Margin="246,10,306,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
+                <StackPanel x:Name="inventoryInScreen" Margin="238,10,306,51.667" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
                         >
                     <StackPanel.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -171,31 +171,34 @@
 
                 </StackPanel>
 
-                <StackPanel x:Name="inventoryInput" Margin="494,10,34,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
+                <StackPanel x:Name="inventoryInput" Margin="494,10,25,51.667" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
                     <StackPanel.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA48874" Offset="0.322"/>
                             <GradientStop Color="White" Offset="1"/>
                         </LinearGradientBrush>
                     </StackPanel.Background>
-                    <ComboBox Margin="10,70,52,0" SelectedIndex="0"
+                    <ComboBox Margin="10,65,52,0" SelectedIndex="0"
+                              FontSize="20"
                           BorderThickness="3">
                         <ComboBoxItem>Mr Baker's Flour</ComboBoxItem>
                     </ComboBox>
-                    <DatePicker x:Name="dpPurchase" Height="30" Margin="10,20,52,0" SelectedDate="2020-02-01" FontSize="16"/>
-                    <DatePicker x:Name="dpExpiration" Height="30" Margin="10,5,52,0" SelectedDate="2022-03-04" FontSize="16"/>
-                    <ComboBox x:Name="cmbSupplier" Width="210" Margin="10, 20, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedIndex="0"
+                    <DatePicker x:Name="dpPurchase" Height="30" Margin="10,15,52,0" SelectedDate="2020-02-01" FontSize="20"/>
+                    <DatePicker x:Name="dpExpiration" Height="30" Margin="10,5,52,0" SelectedDate="2022-03-04" FontSize="20"/>
+                    <ComboBox x:Name="cmbSupplier" Width="210" Margin="10, 15, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedIndex="0"
+                              FontSize="20"
                           BorderThickness="3">
                         <ComboBoxItem>Costco Warehouse (King Street)</ComboBoxItem>
                     </ComboBox>
 
-                    <TextBox x:Name="txtQuantity" Height="30" Margin="10,15,164,0"
+                    <TextBox x:Name="txtQuantity" Height="30" Margin="10,10,164,0"
+                             FontSize="20"
                          BorderThickness="3"/>
-                    <RadioButton Margin="8,14,15,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137" BorderThickness="3">Grams (G)</RadioButton>
+                    <RadioButton Margin="8,10,15,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137" BorderThickness="3">Grams (G)</RadioButton>
                     <RadioButton Margin="8,0,15,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137" BorderThickness="3">Kilos (KG)</RadioButton>
                     <RadioButton Margin="8,0,15,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137" BorderThickness="3">MilliLitres (ML)</RadioButton>
                     <RadioButton Margin="8,0,15,0" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137" BorderThickness="3">Litres (L)</RadioButton>
-                    <TextBox x:Name="txtCost" Height="30" Margin="10,8,164,0" BorderThickness="3"/>
+                    <TextBox x:Name="txtCost" Height="30" Margin="10,12,164,0" BorderThickness="3" FontSize="20"/>
                     <RadioButton Margin="8,14,15,0" HorizontalAlignment="Left" GroupName="Payment" FontSize="15" Width="137" BorderThickness="3">Cash</RadioButton>
                     <RadioButton Margin="8,0,15,0" HorizontalAlignment="Left" GroupName="Payment" FontSize="15" Width="137" BorderThickness="3">Debit Card</RadioButton>
                     <RadioButton Margin="8,0,15,0" HorizontalAlignment="Left" GroupName="Payment" FontSize="15" Width="137" BorderThickness="3">Credit Card</RadioButton>
@@ -205,14 +208,19 @@
                 <StackPanel x:Name="spSubmit" Margin="246,117.333,34,52" Grid.Row="1">
 
                     <Button x:Name="btnSubmit" 
-                        Content="Add To Inventory" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
                         Height="30"
-                        Width="120" 
+                        Width="150" 
                         Margin="190,0,0,0"
                         Click="submitInventory_Click"
-                        Background="Beige"/>
+                        Background="Beige">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign.png" Height="20" Width="27" />
+                            <Label Content="Add To Inventory" Padding="4" Height="27" Width="110"/>
+                        </StackPanel>
+
+                    </Button>
 
                 </StackPanel>
 
@@ -223,18 +231,22 @@
 
                     <Button x:Name="btnAddSupplier"
                             DockPanel.Dock="Left"
-                Content="Add Supplier" 
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" 
-                Width="98" 
-                Grid.Column="1" 
-                Margin="0,5,0,0" 
-                Height="29"
-                Background="#F75D59"
-                BorderBrush="#000"
-                FontStyle="Italic"
-                Click="AddSupplier_Click"
-                        ToolTip="Click to enter a new Supplier"/>
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" 
+                            Width="120" 
+                            Grid.Column="1" 
+                            Margin="0,5,0,0" 
+                            Height="29"
+                            Background="#F75D59"
+                            BorderBrush="#000"
+                            FontStyle="Italic"
+                            Click="AddSupplier_Click"
+                            ToolTip="Click to enter a new Supplier">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign2.png" Height="24" Width="27" />
+                            <Label Content="Add Supplier" Height="27" Width="110"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
 
                 <StackPanel x:Name="sp_Header">
@@ -245,7 +257,7 @@
                 <!-- 10-->
                 <StackPanel x:Name="sp_CreateSupplier"
                         Orientation="Horizontal"
-                        Margin="246,    0,34,52" Grid.RowSpan="2"
+                        Margin="238,10,24.667,52.333" Grid.RowSpan="2"
                          OpacityMask="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}"
                         >
 
@@ -281,7 +293,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="192"
                          Height="33"
                          Margin="-347,-75,0,0"
@@ -299,7 +311,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="192"
                          Height="34"
                          Margin="-347,5,0,0"
@@ -316,7 +328,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="192"
                          Height="34"
                          Margin="-347,82,0,0"
@@ -334,7 +346,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="192"
                          Height="34"
                          Margin="-345,160,0,0"
@@ -352,7 +364,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="192"
                          Height="34"
                          Margin="-345,240,0,0"
@@ -360,13 +372,18 @@
                     />
 
                     <Button x:Name="btnCreateSupplier"
-                        Content="Submit Supplier"
                         Height="50"
-                        Width="120"
-                        Margin="-530,420,0,0"
+                        Width="154"
+                        Margin="-530,454,0,34.667"
+                        FontSize="15"
                         Click="SubmitCustomer_Click"
                         Background="Beige"
-                        ToolTip="Creates the new Supplier"/>
+                        ToolTip="Creates the new Supplier">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign.png" Height="20" Width="27" />
+                            <Label Content="Create Supplier" Padding="4" Height="27" Width="110"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </Grid>
 

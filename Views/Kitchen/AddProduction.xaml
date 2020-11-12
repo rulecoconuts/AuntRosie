@@ -116,9 +116,9 @@
                         </LinearGradientBrush>
                     </StackPanel.Background>
 
-                    <ComboBox x:Name="cmbProducts" BorderThickness="3" Height="30" Margin="10,135,52,0" ToolTip="Select from the following products"/>
-                    <DatePicker x:Name="txtServingSize" Height="30" Margin="10,38,52,0" BorderThickness="3" SelectedDate="2020-10-21" ToolTip="Select the date of production"/>
-                    <TextBox x:Name="txtNutrition"  Height="30" Margin="10,35,158,0" BorderThickness="3" ToolTip="Enter the quantity per product"/>
+                    <ComboBox x:Name="cmbProducts" BorderThickness="3" Height="30" Margin="10,135,52,0" FontSize="20" ToolTip="Select from the following products"/>
+                    <DatePicker x:Name="txtServingSize" Height="36" Margin="10,38,51.667,0" BorderThickness="3" FontSize="20" SelectedDate="2020-10-21" ToolTip="Select the date of production"/>
+                    <TextBox x:Name="txtNutrition"  Height="30" Margin="10,35,158,0" BorderThickness="3" FontSize="20" ToolTip="Enter the quantity per product"/>
 
                 </StackPanel>
 
@@ -127,21 +127,25 @@
                 <StackPanel x:Name="spSubmit" Margin="246,10.333,34,52" RenderTransformOrigin="0.491,0.497" Grid.Row="1">
 
                     <Button x:Name="btnAddProduct" 
-                        Content="Add To Production" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
                         Height="30"
-                        Width="120" 
+                        Width="130" 
                         Margin="190,25,0,0"
                         Click="CreateProduction_Click"
                         ToolTip="Adds the product into production"
-                        Background="Beige"/>
+                        Background="Beige">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign.png" Height="20" Width="27" />
+                            <Label Content="Add Production" Padding="4" Height="27" Width="95"/>
+                        </StackPanel>
+                    </Button>
 
                 </StackPanel>
 
                 <StackPanel x:Name="sp_Header"
                         Width="500"
-                        Margin="258,10,42,306.667" RenderTransformOrigin="0.495,0.21">
+                        Margin="258,40,42,306.667" RenderTransformOrigin="0.495,0.21">
                     <Label x:Name="lblHeader"
                        Content="Record Production"
                        HorizontalAlignment="Center"

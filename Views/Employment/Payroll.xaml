@@ -5,9 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AuntRosieUserInterface.Views.Employment"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800"
+      Width="auto"
+    Height="auto"
       Title="Event">
-
     <Page.Resources>
         <Style x:Key="font_style" TargetType="TextBlock">
 
@@ -29,59 +29,247 @@
         </Style>
     </Page.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="219*"/>
-            <ColumnDefinition Width="581*"/>
-        </Grid.ColumnDefinitions>
-
-        <!--// Background Color //-->
-
-        <Grid Background="Black" Grid.ColumnSpan="2">
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="381*"/>
-                <RowDefinition Height="220*"/>
+                <RowDefinition Height="307*"/>
+                <RowDefinition Height="278*"/>
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="219*"/>
+                <ColumnDefinition Width="581*"/>
+            </Grid.ColumnDefinitions>
 
-            <!--// Background Image //-->
+            <!--// Background Color //-->
 
-            <Grid x:Name="BG" Grid.RowSpan="2" >
+            <Grid Background="Black" Grid.ColumnSpan="2" Margin="0,0,-0.333,0.333" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="381*"/>
+                    <RowDefinition Height="220*"/>
+                </Grid.RowDefinitions>
 
-                <Grid.Background>
+                <!--// Background Image //-->
 
-                    <ImageBrush x:Name="img_bg"
+                <Grid x:Name="BG" Grid.RowSpan="2" >
+
+                    <Grid.Background>
+
+                        <ImageBrush x:Name="img_bg"
                                 ImageSource="/Images/Bakery Image.jpg"
                                 Stretch="Fill"/>
 
-                </Grid.Background>
-                <Frame x:Name="HomeScreen"/>
-            </Grid>
+                    </Grid.Background>
+                    <Frame x:Name="HomeScreen"/>
+                </Grid>
 
-            <!--// Navigation Panel //-->
+                <!--// Navigation Panel //-->
 
-            <Grid   x:Name="inventoryIn_pnl"
+                <Grid   x:Name="inventoryIn_pnl"
                     HorizontalAlignment="Left"
-                    Width="565"
-                    Background="#FFEAEAEA"
-                    Margin="225,0,0,0" Grid.RowSpan="2">
-                <TextBox Margin="270,203,71,364"/>
+                    Width="791"
+                    Background="#FFCAC4C4"
+                    Margin="138,0,-0.333,0.333" Grid.RowSpan="2"/>
+
+                <StackPanel x:Name="sp_PayrollScreen" Margin="151,10,9.667,52.333" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
+                        >
+
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA48874" Offset="0.322"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+
+                    <StackPanel>
+                        <Label Content="Start Date:"
+                           Width="161"
+                           Height="35"
+                           Margin="-540,10,0,0"
+                           FontSize="20"/>
+
+                        <DatePicker x:Name="txtStartPeriod" Height="34" Margin="-270,-30,0,0" Width="200"
+                             BorderThickness="3" SelectedDate="2020-10-21"
+                                FontSize="20"
+                                ToolTip="Select the date for the event"/>
+
+                        <Label Content="End Date:"
+                           Width="161"
+                           Height="35"
+                           Margin="-540,0,0,0"
+                           FontSize="20"/>
+
+                        <DatePicker x:Name="txtEndPeriod" Height="34" Margin="-270,-30,0,0" Width="200"
+                             BorderThickness="3" SelectedDate="2020-10-21"
+                                FontSize="20"
+                                ToolTip="Select the end period for the range"/>
+
+                        <Button x:Name="btnSearch"
+                        Height="50"
+                        Width="120"
+                        Margin="300,-70,0,0"
+                        FontSize="15"
+                        Click="Search_Click"
+                        Background="Beige"
+                        ToolTip="Searches using criteria entered">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/PlusSign.png" Height="20" Width="27" />
+                                <Label Content="Search" Padding="4" Height="27" Width="60"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <DataGrid x:Name="dgPayroll" Height="348" Margin="32,40,31,0" FontSize="18">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="dgColumnName" Header="Employee Name" Width="150"/>
+                            <DataGridTextColumn x:Name="dgColumnStatus" Header="Status" Width="90"/>
+                            <DataGridTextColumn x:Name="dgColumnHours" Header="Total Hours"/>
+                            <DataGridTextColumn x:Name="dgColumnPay" Header="Total Pay"/>
+                            <DataGridTextColumn x:Name="dgColumnIsPay" Header="Is Paid"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </StackPanel>
+
+
+
+                <StackPanel x:Name="spSubmit" Margin="246,387.333,33.667,52.333" RenderTransformOrigin="0.491,0.497" Grid.Row="1"/>
+
+                <!-- Margin="151,10,9.667,52.333" -->
+                <StackPanel x:Name="sp_CreateSlip"
+                        Orientation="Horizontal"
+                        Margin="151,10,9.667,52.333" Grid.RowSpan="2"
+                         OpacityMask="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}">
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA48874" Offset="0.322"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+
+
+                    <Button x:Name="btnCloseScreen" Click="CloseCustomerSlip_Click" Background="{x:Null}" BorderBrush="{x:Null}" Height="60" Margin="650,7,0,456.333" Width="100">
+                        <Image Source="/Images/Close.png"
+                                       Stretch="Uniform" Height="52" Width="65"
+                           HorizontalAlignment="Left"
+                           ToolTip="Closes the slip create screen"
+                               Margin="0,0,0,0"
+                           />
+                    </Button>
+
+                    <Label x:Name="lblSlipHeader" Height="39"
+                       Content="New Payroll Slip"
+                       HorizontalAlignment="Center" Margin="-680,40,56.333,367.333"
+                       FontSize="20" Width="124" FontWeight="Bold"
+                       ></Label>
+
+                    <Label Content="Employee Selection:"
+                       Width="187"
+                       Height="35"
+                       Margin="-920,-170,0,0"
+                       FontSize="20"/>
+
+                    <Label Content="Payment Date:"
+                       Width="138"
+                       Height="35"
+                       Margin="-870,200,0,264.333"
+                       FontSize="20"/>
+
+                    <Label Content="Start Period:"
+                       Width="124"
+                       Height="35"
+                       Margin="-845,0,0,0"
+                       FontSize="20"/>
+
+                    <Label Content="End Period:"
+                       Width="124"
+                       Height="35"
+                       Margin="-830,60,0,0"
+                       FontSize="20"/>
+
+                    <Label Content="Payment Method:"
+                       Width="166"
+                       Height="35"
+                       Margin="-905,300,0,154.333"
+                       FontSize="20"/>
+
+                    <Label Content="Amount:"
+                       Width="124"
+                       Height="35"
+                       Margin="-785,210,0,0"
+                       FontSize="20"/>
+
+
+
+                    <ComboBox x:Name="cmbEmployees" Margin="-500,-160,0,0" SelectedIndex="0"
+                              Height="40"
+                              Width="200"
+                              FontSize="20"
+                          BorderThickness="3">
+                    </ComboBox>
+
+                    <DatePicker x:Name="dpPaymentDate" Height="30" Width="150" Margin="-550,-60,0,0" SelectedDate="2020-02-01" FontSize="20"/>
+                    <DatePicker x:Name="dpStartDate" Height="30" Width ="150" Margin="-550,5,0,0" SelectedDate="2022-03-04" FontSize="20"/>
+                    <DatePicker x:Name="dpEndDate" Height="30" Width="150" Margin="-550,70,0,0" SelectedDate="2022-03-04" FontSize="20"/>
+
+                    <ComboBox x:Name="cmbPaymentType"
+                          Margin="-350,322,0,171.333"
+                          BorderThickness="3"
+                          Height="30"
+                          Width="150"
+                          HorizontalAlignment="Left" 
+                          FontSize="20"
+                          ToolTip="Select a payment type">
+                        <ComboBoxItem>Cash</ComboBoxItem>
+                        <ComboBoxItem>Credit</ComboBoxItem>
+                        <ComboBoxItem>Debit</ComboBoxItem>
+                    </ComboBox>
+
+                    <TextBox x:Name="txtQuantity" Height="30" Margin="-550,216,0,0"
+                             Width="150"
+                             FontSize="20"
+                         BorderThickness="3"/>
+
+                    <Button x:Name="btnCreateSlip"
+                        Width="100"
+                        Height="50"
+                        Margin="-530,400,0,0"
+                        Click="SubmitSlip_Click"
+                        ToolTip="Click to create the new slip."
+                        Background="Beige">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign.png" Height="20" Width="27" />
+                            <Label Content="Create Slip" Padding="4" Height="27" Width="90"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel x:Name="sp_CreationPanel"
+                        Width="300"
+                        Height="40"
+                        Margin="-470,520,0,0" Grid.Row="1">
+
+                    <Button x:Name="btnNewSlip"
+                            DockPanel.Dock="Left"
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" 
+                            Width="110" 
+                            Grid.Column="1" 
+                            Margin="70,5,0,0" 
+                            Height="29"
+                            Background="#F75D59"
+                            BorderBrush="#000"
+                            FontStyle="Italic"
+                            Click="AddPayroll_Click"
+                        ToolTip="Click to create a new payment slip">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign2.png" Height="24" Width="27" />
+                            <Label Content="New Payroll" Height="27" Width="110"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
             </Grid>
 
-            <StackPanel x:Name="inventoryInScreen" Margin="246,10,306,52" Background="White" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
-                        />
-
-            <!-- Inputs for new location -->
-
-
-            <StackPanel x:Name="inventoryInput" Margin="494,10,34,52" Background="White" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"/>
-
-            <Label Margin="371,237,159,183" Grid.RowSpan="2"
-                   HorizontalAlignment="Center"
-                   FontSize="30">Under Maintanence</Label>
-
-
-            <StackPanel x:Name="spSubmit" Margin="246,98.333,34,52" Background="White" RenderTransformOrigin="0.491,0.497" Grid.Row="1"/>
         </Grid>
-
-    </Grid>
+    </Viewbox>
 </Page>

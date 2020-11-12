@@ -43,21 +43,17 @@ namespace AuntRosieUserInterface
             } 
             else if (!getLogin.isAdmin && getLogin.isEmployee)
             {
-                adminView(); //Disables other employment views
+                employeeView(); //Disables other employment views
             }
 
             lblTime.Content = DateTime.Now;
         }
 
-        //Member Variables
-        static bool inventoryOpen;
-        static bool kitchenOpen;
-        static bool eventOpen;
-        static bool expensesOpen;
-        static bool reportsOpen;
-        static bool queriesOpen;
-        static bool employmentOpen;
-
+        /// <summary>
+        /// Shows the tooltips in the listview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
         {
             // Set tooltip visibility
@@ -86,7 +82,10 @@ namespace AuntRosieUserInterface
             }
         }
 
-        private void adminView()
+        /// <summary>
+        /// Produces the admin
+        /// </summary>
+        private void employeeView()
         {
             btnQuery.IsEnabled = false;
             btnReports.IsEnabled = false;
@@ -99,6 +98,7 @@ namespace AuntRosieUserInterface
             lvEmployment.Content = "";
 
         }
+
 
         private void pieButtonUnchecked(object sender, RoutedEventArgs e)
         {
@@ -132,29 +132,8 @@ namespace AuntRosieUserInterface
         /// <param name="e"></param>
         private void OpenInventory_Click(object sender, RoutedEventArgs e)
         {
-            if (!inventoryOpen) //Inventory view is NOT open
-            {
-                HomeScreen.Content = new InventoryPage();
-                inventoryOpen = true;
-
-                btnKitchen.IsEnabled = false;
-                btnEvents.IsEnabled = false;
-                btnExpenses.IsEnabled = false;
-                btnReports.IsEnabled = false;
-                btnQuery.IsEnabled = false;
-                btnEmployment.IsEnabled = false;
-            } else
-            {
-                HomeScreen.Content = "";
-                inventoryOpen = false;
-
-                btnKitchen.IsEnabled = true;
-                btnEvents.IsEnabled = true;
-                btnExpenses.IsEnabled = true;
-                btnReports.IsEnabled = true;
-                btnQuery.IsEnabled = true;
-                btnEmployment.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new InventoryPage();
         }
 
         /// <summary>
@@ -164,30 +143,8 @@ namespace AuntRosieUserInterface
         /// <param name="e"></param>
         private void OpenKitchen_Click(object sender, RoutedEventArgs e)
         {
-            if (!kitchenOpen) //Kitchen view is NOT open
-            {
-                HomeScreen.Content = new Kitchen(); //Show Page
-                kitchenOpen = true;
-
-                btnInventory.IsEnabled = false;
-                btnEvents.IsEnabled = false;
-                btnExpenses.IsEnabled = false;
-                btnReports.IsEnabled = false;
-                btnQuery.IsEnabled = false;
-                btnEmployment.IsEnabled = false;
-            }
-            else
-            {
-                HomeScreen.Content = "";
-                kitchenOpen = false;
-
-                btnInventory.IsEnabled = true;
-                btnEvents.IsEnabled = true;
-                btnExpenses.IsEnabled = true;
-                btnReports.IsEnabled = true;
-                btnQuery.IsEnabled = true;
-                btnEmployment.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new Kitchen();
         }
 
         /// <summary>
@@ -197,30 +154,8 @@ namespace AuntRosieUserInterface
         /// <param name="e"></param>
         private void OpenEvent_Click(object sender, RoutedEventArgs e)
         {
-            if (!eventOpen) //Event view is NOT open
-            {
-                HomeScreen.Content = new Event(); //Show Page
-                eventOpen = true;
-
-                btnInventory.IsEnabled = false;
-                btnKitchen.IsEnabled = false;
-                btnExpenses.IsEnabled = false;
-                btnReports.IsEnabled = false;
-                btnQuery.IsEnabled = false;
-                btnEmployment.IsEnabled = false;
-            }
-            else
-            {
-                HomeScreen.Content = "";
-                eventOpen = false;
-
-                btnInventory.IsEnabled = true;
-                btnKitchen.IsEnabled = true;
-                btnExpenses.IsEnabled = true;
-                btnReports.IsEnabled = true;
-                btnQuery.IsEnabled = true;
-                btnEmployment.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new Event();
         }
 
         /// <summary>
@@ -230,30 +165,8 @@ namespace AuntRosieUserInterface
         /// <param name="e"></param>
         private void OpenExpenses_Click(object sender, RoutedEventArgs e)
         {
-            if (!expensesOpen) //Inventory view is NOT open
-            {
-                HomeScreen.Content = new Expenses(); //Show Page
-                expensesOpen = true;
-
-                btnInventory.IsEnabled = false;
-                btnKitchen.IsEnabled = false;
-                btnEvents.IsEnabled = false;
-                btnReports.IsEnabled = false;
-                btnQuery.IsEnabled = false;
-                btnEmployment.IsEnabled = false;
-            }
-            else
-            {
-                HomeScreen.Content = "";
-                expensesOpen = false;
-
-                btnInventory.IsEnabled = true;
-                btnKitchen.IsEnabled = true;
-                btnEvents.IsEnabled = true;
-                btnReports.IsEnabled = true;
-                btnQuery.IsEnabled = true;
-                btnEmployment.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new Expenses();
         }
 
         /// <summary>
@@ -263,30 +176,8 @@ namespace AuntRosieUserInterface
         /// <param name="e"></param>
         private void OpenReports_Click(object sender, RoutedEventArgs e)
         {
-            if (!reportsOpen) //Inventory view is NOT open
-            {
-                HomeScreen.Content = new Reports(); //Show Page
-                reportsOpen = true;
-
-                btnInventory.IsEnabled = false;
-                btnKitchen.IsEnabled = false;
-                btnEvents.IsEnabled = false;
-                btnExpenses.IsEnabled = false;
-                btnQuery.IsEnabled = false;
-                btnEmployment.IsEnabled = false;
-            }
-            else
-            {
-                HomeScreen.Content = "";
-                reportsOpen = false;
-
-                btnInventory.IsEnabled = true;
-                btnKitchen.IsEnabled = true;
-                btnEvents.IsEnabled = true;
-                btnExpenses.IsEnabled = true;
-                btnQuery.IsEnabled = true;
-                btnEmployment.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new Reports();
         }
 
         /// <summary>
@@ -296,30 +187,8 @@ namespace AuntRosieUserInterface
         /// <param name="e"></param>
         private void OpenQuery_Click(object sender, RoutedEventArgs e)
         {
-            if (!queriesOpen) //Inventory view is NOT open
-            {
-                HomeScreen.Content = new Query(); //Show Page
-                queriesOpen = true;
-
-                btnInventory.IsEnabled = false;
-                btnKitchen.IsEnabled = false;
-                btnEvents.IsEnabled = false;
-                btnExpenses.IsEnabled = false;
-                btnReports.IsEnabled = false;
-                btnEmployment.IsEnabled = false;
-            }
-            else
-            {
-                HomeScreen.Content = "";
-                queriesOpen = false;
-
-                btnInventory.IsEnabled = true;
-                btnKitchen.IsEnabled = true;
-                btnEvents.IsEnabled = true;
-                btnExpenses.IsEnabled = true;
-                btnReports.IsEnabled = true;
-                btnEmployment.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new Query();
         }
 
         /// <summary>
@@ -329,30 +198,8 @@ namespace AuntRosieUserInterface
         /// <param name="e"></param>
         private void OpenEmployment_Click(object sender, RoutedEventArgs e)
         {
-            if (!employmentOpen) //Inventory view is NOT open
-            {
-                HomeScreen.Content = new Employment(); //Show Page
-                employmentOpen = true;
-
-                btnInventory.IsEnabled = false;
-                btnKitchen.IsEnabled = false;
-                btnEvents.IsEnabled = false;
-                btnExpenses.IsEnabled = false;
-                btnReports.IsEnabled = false;
-                btnQuery.IsEnabled = false;
-            }
-            else
-            {
-                HomeScreen.Content = "";
-                employmentOpen = false;
-
-                btnInventory.IsEnabled = true;
-                btnKitchen.IsEnabled = true;
-                btnEvents.IsEnabled = true;
-                btnExpenses.IsEnabled = true;
-                btnReports.IsEnabled = true;
-                btnQuery.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new Employment();
         }
     }
 }

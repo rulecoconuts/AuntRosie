@@ -28,28 +28,13 @@ namespace AuntRosieUserInterface.Views.Event
             HomeScreen.Content = new ShowEvents();
         }
 
-        //Member Variables
-        private bool openCreateEvent;
-        private bool openSales;
-
         private void OpenSales_Click(object sender, RoutedEventArgs e)
         {
-            if (!openSales)
-            {
-                btnSales.Background = new SolidColorBrush(Colors.Red);
+            btnCreateEvent.Background = null;
+            btnSales.Background = new SolidColorBrush(Colors.Red);
 
-                HomeScreen.Content = new Sales();
-                openSales = true;
-
-                btnCreateEvent.IsEnabled = false;
-            } else
-            {
-                btnSales.Background = new SolidColorBrush(Colors.White);
-                HomeScreen.Content = new ShowEvents();
-
-                openSales = false;
-                btnCreateEvent.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new Sales();
         }
 
         /// <summary>
@@ -59,23 +44,11 @@ namespace AuntRosieUserInterface.Views.Event
         /// <param name="e"></param>
         private void OpenCreateEvent_Click(object sender, RoutedEventArgs e)
         {
-            if (!openCreateEvent)
-            {
-                btnCreateEvent.Background = new SolidColorBrush(Colors.Red);
-                //Opens the Create Event page
-                HomeScreen.Content = new CreateEvent();
+            btnSales.Background = null;
+            btnCreateEvent.Background = new SolidColorBrush(Colors.Red);
 
-                openCreateEvent = true;
-
-                btnSales.IsEnabled = false;
-            }
-            else
-            {
-                btnCreateEvent.Background = new SolidColorBrush(Colors.White);
-                HomeScreen.Content = new ShowEvents();
-                openCreateEvent = false;
-                btnSales.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new CreateEvent();
         }
     }
 }

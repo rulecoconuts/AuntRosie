@@ -29,10 +29,6 @@ namespace AuntRosieUserInterface.Views.Employment
             txtSalary.Visibility = Visibility.Hidden;
 
 
-            //Temporary Output, just for demonstration
-            lstEmployeeList.Items.Add("Jackson Thomas");
-            lstEmployeeList.Items.Add("Richmond Hill");
-            lstEmployeeList.Items.Add("Glen Coco");
         }
 
         /// <summary>
@@ -60,15 +56,15 @@ namespace AuntRosieUserInterface.Views.Employment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lstEmployeeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cmbEmployeeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
             //Retrieves information from the database
 
             //Temporary Output
-            if(lstEmployeeList.SelectedIndex == 0)
+            if(cmbEmployeeList.SelectedIndex == 0)
             {
-                txtEmployeeName.Text = "Jackson Thomas";
+                txtEmployeeName.Text = "Jackson Phillip";
                 cmbType.SelectedIndex = 0;
                 txtEmployeeRole.Text = "Cashier";
                 txtEmployeeAddress.Text = "45 Clementine Square, M1H3J2";

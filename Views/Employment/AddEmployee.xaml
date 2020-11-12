@@ -78,13 +78,22 @@
                         </LinearGradientBrush>
                     </StackPanel.Background>
 
-                    <Label x:Name="lblName" 
-                       Content="Enter Name: " 
+                    <Label x:Name="lblFirstName" 
+                       Content="First Name: " 
                        HorizontalAlignment="Right" 
                        VerticalAlignment="Top" 
                        Margin="0,80,0,0" 
                        RenderTransformOrigin="-0.325,-14.385" 
-                       Width="134"
+                       Width="122"
+                       FontSize="20"/>
+
+                    <Label x:Name="lblLastName" 
+                       Content="Last Name: " 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Top" 
+                       Margin="0,15,0,0" 
+                       RenderTransformOrigin="-0.325,-14.385" 
+                       Width="122"
                        FontSize="20"/>
 
                     <Label x:Name="lblAddress" 
@@ -119,7 +128,7 @@
                        Content="Date: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
-                       Margin="177,40,0,0" 
+                       Margin="177,10,0,0" 
                        RenderTransformOrigin="-0.325,-14.385" 
                        Width="60"
                        FontSize="20"/>
@@ -144,29 +153,33 @@
                         </LinearGradientBrush>
                     </StackPanel.Background>
 
-                    <TextBox x:Name="txtEmployeeName" Height="30" Margin="10,85,52,0"
+                    <TextBox x:Name="txtEmployeeFirstName" Height="35" Margin="10,85,52,0"
+                             FontSize="20"
                          BorderThickness="3" ToolTip="Enter name of new employee"
                          />
-                    <TextBox x:Name="txtEmployeeAddress" Height="30" Margin="10,26,52,0"
+                    <TextBox x:Name="txtEmployeeLastName" Height="35" Margin="10,18,52,0"
+                             FontSize="20"
+                         BorderThickness="3" ToolTip="Enter name of new employee"
+                         />
+                    <TextBox x:Name="txtEmployeeAddress" FontSize="20" Height="35" Margin="10,17,52,0"
                          ToolTip="Enter address of new employee"
                          BorderThickness="3"/>
-                    <ComboBox x:Name="cmbProducts" Height="30" Margin="10,17,52,0" BorderThickness="3" SelectionChanged="cmbProducts_SelectionChanged"
+                    <ComboBox x:Name="cmbProducts" Height="35" Margin="10,13,52,0" FontSize="20" BorderThickness="3" SelectionChanged="cmbProducts_SelectionChanged"
                           ToolTip="Enter type of employee">
                         <ComboBoxItem>Full-Time</ComboBoxItem>
                         <ComboBoxItem>Part-Time</ComboBoxItem>
                     </ComboBox>
-                    <TextBox x:Name="txtEmployeeRole" Height="30" Margin="10,17,52,0" BorderThickness="3" ToolTip="Enter the position of the new employee"/>
-                    <TextBox x:Name="txtEmployeeDate" Height="30" Margin="10,45,154,0" BorderThickness="3" ToolTip="Enter the date of employment"/>
-                    <TextBox x:Name="txtSalary" Height="30" Margin="10,16,154,0" BorderThickness="3" ToolTip="Enter the pay rate"/>
+                    <TextBox x:Name="txtEmployeeRole" Height="35" Margin="10,10,52,0" FontSize="20" BorderThickness="3" ToolTip="Enter the position of the new employee"/>
+                    <TextBox x:Name="txtEmployeeDate" Height="35" Margin="10,16,154,0" FontSize="20" BorderThickness="3" ToolTip="Enter the date of employment"/>
+                    <TextBox x:Name="txtSalary" Height="35" Margin="10,10,154,0" FontSize="20" BorderThickness="3" ToolTip="Enter the pay rate"/>
 
                 </StackPanel>
 
 
 
-                <StackPanel x:Name="spSubmit" Margin="246,61.333,34,52"  RenderTransformOrigin="0.491,0.497" Grid.Row="1">
+                <StackPanel x:Name="spSubmit" Margin="246,23,34,52.333"  RenderTransformOrigin="0.491,0.497" Grid.Row="1">
 
                     <Button x:Name="btnAddEmployee" 
-                        Content="Add Employee" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
                         Height="30"
@@ -174,7 +187,12 @@
                         Margin="190,25,0,0"
                         Click="AddEmployee_Click"
                         ToolTip="Creates the new employee"
-                        Background="Beige"/>
+                        Background="Beige">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign.png" Height="24" Width="27" />
+                            <Label Content="Add Employee" Height="27" Width="110"/>
+                        </StackPanel>
+                    </Button>
 
                 </StackPanel>
 

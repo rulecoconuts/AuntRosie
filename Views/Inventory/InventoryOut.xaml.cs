@@ -26,12 +26,12 @@ namespace AuntRosieUserInterface.Views.Inventory
 
             //Temporary add
 
-            lstIngredients.Items.Add("Potatoes");
-            lstIngredients.Items.Add("Onions");
-            lstIngredients.Items.Add("Flour");
-            lstIngredients.Items.Add("Eggs");
-            lstIngredients.Items.Add("Butter");
-            lstIngredients.Items.Add("Ketchup");
+            cmbIngredients.Items.Add("Potatoes");
+            cmbIngredients.Items.Add("Onions");
+            cmbIngredients.Items.Add("Flour");
+            cmbIngredients.Items.Add("Eggs");
+            cmbIngredients.Items.Add("Butter");
+            cmbIngredients.Items.Add("Ketchup");
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace AuntRosieUserInterface.Views.Inventory
             {
                 suffix = "L";
             }
-            lstCart.Items.Add(txtQuantity.Text + " " + suffix + " | " + lstIngredients.SelectedItem.ToString());
+            lstCart.Items.Add(txtQuantity.Text + " " + suffix + " | " + cmbIngredients.SelectedItem.ToString());
         }
     }
 }

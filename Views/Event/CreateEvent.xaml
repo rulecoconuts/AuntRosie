@@ -68,7 +68,7 @@
                     <TextBox Margin="270,203,71,364"/>
                 </Grid>
 
-                <StackPanel x:Name="inventoryInScreen" Margin="246,10,306,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
+                <StackPanel x:Name="inventoryInScreen" Margin="238,10,305.667,52.667" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
                         >
 
                     <StackPanel.Background>
@@ -141,7 +141,7 @@
                        FontSize="20"/>
                 </StackPanel>
 
-                <StackPanel x:Name="inventoryInput" Margin="494,10,34,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
+                <StackPanel x:Name="inventoryInput" Margin="494,10,33.667,52.667" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
 
                     <StackPanel.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -150,14 +150,17 @@
                         </LinearGradientBrush>
                     </StackPanel.Background>
                     <ComboBox x:Name="cmbLocations" Height="30" Margin="10,75,52,0"
+                          FontSize="20"
                           BorderThickness="3"
                           ToolTip="Shows the available locations"/>
                     <ComboBox x:Name="cmbHelpers" Margin="10,29,52,0"
                           Height="30"
                           BorderThickness="3"
+                          FontSize="20"
                           ToolTip="Shows the available helpers"></ComboBox>
                     <TextBox x:Name="txtRole" Height="30" Margin="10,5,52,0"
                          BorderThickness="3"
+                         FontSize="20"
                          ToolTip="Enter the role for the helper"/>
                     <Button x:Name="btnSubmitHelper"
                         BorderThickness="3"
@@ -168,13 +171,16 @@
                         ToolTip="Adds the helper to list for the event"
                         Click="SubmitNewHelper_Click"
                           />
+
                     <ListView x:Name="lstHelpersList" Height="58" Margin="10,19,52,0"
-                          BorderThickness="3" ToolTip="Shows the list of helpers for the event"/>
+                          BorderThickness="3" ToolTip="Shows the list of helpers for the event" FontSize="20"/>
                     <TextBox x:Name="txtEventName" Height="30" Margin="10,34,52,0"
                          BorderThickness="3"
+                         FontSize="20"
                          ToolTip="Enter the event name"/>
-                    <DatePicker x:Name="txtEventDate" Height="30" Margin="10,8,52,0"
+                    <DatePicker x:Name="txtEventDate" Height="34" Margin="10,8,51.667,0"
                          BorderThickness="3" SelectedDate="2020-10-21"
+                            FontSize="20"
                             ToolTip="Select the date for the event"/>
 
                 </StackPanel>
@@ -184,15 +190,19 @@
                 <StackPanel x:Name="spSubmit" Margin="246,98.333,34,52" RenderTransformOrigin="0.491,0.497" Grid.Row="1">
 
                     <Button x:Name="btnCreateEvent" 
-                        Content="Add Event" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
                         Height="30"
-                        Width="120" 
+                        Width="93" 
                         Margin="190,5,0,0"
                         Click="CreateEvent_Click"
                         ToolTip="Creates the event"
-                        Background="Beige"/>
+                        Background="Beige">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign.png" Height="20" Width="27" />
+                            <Label Content="Add Event" Padding="1" Height="27" Width="110"/>
+                        </StackPanel>
+                    </Button>
 
                 </StackPanel>
 
@@ -207,7 +217,7 @@
                        BorderThickness="4" Width="456" FontWeight="Bold"/>
                 </StackPanel>
 
-                <StackPanel Margin="713,266,34,62.667">
+                <StackPanel Margin="720,266,34,62.667">
                     <Button x:Name="btnRemoveHelper" Click="RemoveHelper_Click" Background="{x:Null}" BorderBrush="{x:Null}" Height="26" Margin="0,0,27.333,0">
                         <Image Source="/Images/Close.png"
                                        Stretch="Uniform" Height="20" Width="20"
@@ -220,7 +230,7 @@
                 <!--  10-->
                 <StackPanel x:Name="sp_CreateLocation"
                         Orientation="Horizontal"
-                        Margin="246,10,34,52" Grid.RowSpan="2"
+                        Margin="238,10,32,53.667" Grid.RowSpan="2"
                          OpacityMask="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}"
                         >
                     <StackPanel.Background>
@@ -256,7 +266,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="192"
                          Height="32"
                          Margin="-350, -75,0,0"
@@ -274,7 +284,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="194"
                          Height="34"
                           Margin="-347,25,0,0"
@@ -292,7 +302,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="194"
                          Height="34"
                          Margin="-345,125,0,0"
@@ -310,7 +320,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="194"
                          Height="34"
                          Margin="-345,225,0,0"
@@ -318,19 +328,23 @@
                     />
 
                     <Button x:Name="btnCreateNewLocation"
-                        Content="Create Location"
                         Height="50"
                         Width="120"
                         Margin="-530,400,0,0"
                         Click="CreateNewLocation_Click"
                         Background="Beige"
-                        ToolTip="Adds the new location to the location list"/>
+                        ToolTip="Adds the new location to the location list">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign.png" Height="20" Width="27" />
+                            <Label Content="Create Location" Padding="4" Height="27" Width="90"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
 
-                <!--  10-->
+                <!--  Margin="236,10,34,52.667"-->
                 <StackPanel x:Name="sp_CreateHelper"
                         Orientation="Horizontal"
-                        Margin="246, 10,34,52" Grid.RowSpan="2"
+                        Margin="238,12,34,52.667" Grid.RowSpan="2"
                          OpacityMask="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}"
                         >
                     <StackPanel.Background>
@@ -366,7 +380,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="192"
                          Height="34"
                          Margin="-350,-90,0,0"
@@ -384,7 +398,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="192"
                          Height="34"
                          Margin="-350,-10,0,0"
@@ -402,7 +416,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="193"
                          Height="34"
                          Margin="-349,68,0,0"
@@ -420,7 +434,7 @@
                          TextAlignment="Center"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
-                         FontSize="15"
+                         FontSize="20"
                          Width="194"
                          Height="34"
                          Margin="-349,150,0,0"
@@ -428,12 +442,15 @@
                     />
 
                     <Button x:Name="btnCreateHelper"
-                        Content="Create Helper"
-                        Height="50"
-                        Margin="-540,350,0,0"
+                        Margin="-540,425,0,61.333"
                         Click="CreateNewHelper_Click"
                         ToolTip="Creates the new helper"
-                        Background="Beige" Width="108"/>
+                        Background="Beige" Width="116">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign.png" Height="20" Width="27" />
+                            <Label Content="Create Helper" Padding="4" Height="27" Width="90"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
 
                 <StackPanel x:Name="sp_CreationPanel"
@@ -442,31 +459,39 @@
 
                     <Button x:Name="btnNewLocation"
                         BorderThickness="3"
-                          Content="New Location"
                           Height="30" Margin="0,0,0,0"
-                          Width="106"
+                          Width="135"
                           FontSize="15"
                         Background="#F75D59"
                         HorizontalAlignment="Left"
                         Click="NewLocation_Click"
                         ToolTip="Opens the location creation window"
-                          />
+                          >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign2.png" Height="20" Width="27" />
+                            <Label Content="New Location" Padding="1" Height="27" Width="110"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
 
                 <StackPanel x:Name="sp_NewHelper"
                         Height="40"
-                        Margin="370,159,316,-3" Grid.Row="1">
+                        Margin="90,163,0,0" Grid.Row="1">
 
                     <Button x:Name="btnNewHelper"
                         BorderThickness="3"
-                          Content="New Helper"
-                        Width="100"
-                          Height="30" Margin="0,0,11,0"
+                        Width="120"
+                          Height="30" Margin="0,0,0,0"
                           FontSize="15"
                         Background="#F75D59"
                         Click="OpenNewHelper_Click"
                         ToolTip="Opens the helper creation window"
-                          />
+                          >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign2.png" Height="20" Width="27" />
+                            <Label Content="New Helper" Padding="1" Height="27" Width="110"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </Grid>
 

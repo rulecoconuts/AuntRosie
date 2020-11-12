@@ -68,7 +68,7 @@
                     <TextBox Margin="270,203,71,364"/>
                 </Grid>
 
-                <StackPanel x:Name="inventoryInScreen" Margin="246,10,289.667,52.667" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
+                <StackPanel x:Name="inventoryInScreen" Margin="237,10,289.667,52.667" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
                         >
                     <StackPanel.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -85,29 +85,6 @@
                        RenderTransformOrigin="-0.325,-14.385" 
                        Width="184"
                        FontSize="20"/>
-
-                    <Label x:Name="lblSortBy" 
-                       Content="Sort By: " 
-                       HorizontalAlignment="Left" 
-                       VerticalAlignment="Top" 
-                       Margin="54,10,0,0" 
-                       RenderTransformOrigin="-0.325,-14.385" 
-                       Width="183"
-                       FontSize="20"/>
-
-                    <ComboBox
-                    x:Name="cmbSortBy"
-                    Background="#FE2E2E" BorderBrush="Red" Margin="60,0,35,0"
-                         BorderThickness="2"
-                         ToolTip="Select Category to Sort By"
-                    >
-
-                        <ComboBoxItem>Alphabet: A-Z</ComboBoxItem>
-                        <ComboBoxItem>Alphabet: Z-A</ComboBoxItem>
-                        <ComboBoxItem>Quantity: Low to High</ComboBoxItem>
-                        <ComboBoxItem>Quantity: High to Low</ComboBoxItem>
-                        <ComboBoxItem></ComboBoxItem>
-                    </ComboBox>
 
 
                     <Label x:Name="lblQuantity" 
@@ -141,7 +118,7 @@
 
                 </StackPanel>
 
-                <StackPanel x:Name="inventoryInput" Margin="494,10,34,52" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
+                <StackPanel x:Name="inventoryInput" Margin="494,10,9.667,51.667" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
 
                     <StackPanel.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -150,9 +127,9 @@
                         </LinearGradientBrush>
                     </StackPanel.Background>
 
-                    <ListBox x:Name="lstIngredients"
-                         Height="165" Margin="10,30,52,7" BorderThickness="3" ToolTip="Select an Ingredient"/>
-                    <TextBox x:Name="txtQuantity" Height="30" Margin="10,0,164,0"
+                    <ComboBox x:Name="cmbIngredients"
+                         Height="33" Margin="10,83,51.667,7" BorderThickness="3" ToolTip="Select an Ingredient"/>
+                    <TextBox x:Name="txtQuantity" Height="30" Margin="10,13,164,0"
                          BorderThickness="3" ToolTip="Enter the amount of required"/>
                     <RadioButton x:Name="radPounds" Margin="8,5,15,0" BorderThickness="3" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137" ToolTip="Select for Pounds (LBS)">Pounds (LBS)</RadioButton>
                     <RadioButton x:Name="radKilos" Margin="8,0,0,0" BorderThickness="3" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" Content="Kilos (KG)" ToolTip="Select for Kilos (KG)"/>
@@ -170,17 +147,30 @@
 
                 <StackPanel x:Name="spSubmit" Margin="246,334.333,33.667,52.333"  RenderTransformOrigin="0.491,0.497" Grid.Row="1">
                     <Button x:Name="btnOut" 
-                        Content="Take Out" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
                         Height="30"
-                        Width="120" 
-                        Margin="190,120,0,0"
+                        Width="100" 
+                        Margin="210,23,0,0"
                         Click="TakeOut_Click"
                         Background="Beige"
                         ToolTip="Processes the order to remove inventory"
-                        />
+                        >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign.png" Height="20" Width="27" />
+                            <Label Content="Take Out" Padding="4" Height="27" Width="90"/>
+                        </StackPanel>
+                    </Button>
 
+                </StackPanel>
+
+                <StackPanel Width="300" Height="60" Margin="190,0,0,0">
+                    <Label x:Name="lblSupplierHeader" Height="39"
+                           
+                       Content="Ingredient Check-Out:"
+                       HorizontalAlignment="Center" Margin="45,0,-66,0"
+                       FontSize="20" Width="321" FontWeight="Bold"
+                       ></Label>
                 </StackPanel>
             </Grid>
 
