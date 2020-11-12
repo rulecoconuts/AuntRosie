@@ -44,7 +44,7 @@
 
             <!--// Background Image //-->
 
-            <Grid x:Name="BG" Grid.RowSpan="2" >
+            <Grid x:Name="BG" Grid.RowSpan="2">
 
                 <Grid.Background>
 
@@ -140,7 +140,8 @@
                        Margin="60,5,0,0" 
                        RenderTransformOrigin="-0.325,-14.385" 
                        Width="171"
-                       FontSize="20"/>
+                       FontSize="20"
+                       />
 
             </StackPanel>
 
