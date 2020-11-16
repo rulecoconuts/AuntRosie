@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AuntRosieUserInterface.Views.Expenses
+namespace AuntRosieUserInterface.Views.Event
 {
     /// <summary>
-    /// Interaction logic for Expenses.xaml
+    /// Interaction logic for ShowEvents.xaml
     /// </summary>
-    public partial class Expenses : Page
+    public partial class ShowEvents : Page
     {
-        public Expenses()
+        public ShowEvents()
         {
             InitializeComponent();
         }

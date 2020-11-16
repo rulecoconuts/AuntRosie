@@ -24,14 +24,7 @@ namespace AuntRosieUserInterface.Views.Kitchen
         {
             InitializeComponent();
 
-            //Temporary add
-
-            /*lstIngredients.Items.Add("Potatoes");
-            lstIngredients.Items.Add("Onions");
-            lstIngredients.Items.Add("Flour");
-            lstIngredients.Items.Add("Eggs");
-            lstIngredients.Items.Add("Butter");
-            lstIngredients.Items.Add("Ketchup");*/
+            sp_CreateSize.Visibility = Visibility.Hidden;
         }
 
         /// <summary>
@@ -52,7 +45,38 @@ namespace AuntRosieUserInterface.Views.Kitchen
         private void lstIngredients_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Check validity of quantities
+        }
 
+        /// <summary>
+        /// Opens the new size window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddSize_Click(object sender, RoutedEventArgs e)
+        {
+            sp_CreateSize.Visibility = Visibility.Visible;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreateSize_Click(object sender, RoutedEventArgs e)
+        {
+            //Send information to database
+
+            sp_CreateSize.Visibility = Visibility.Hidden;
+        }
+
+        /// <summary>
+        /// Closes the window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseSizeCreate_Click(object sender, RoutedEventArgs e)
+        {
+            sp_CreateSize.Visibility = Visibility.Hidden;
         }
     }
 }

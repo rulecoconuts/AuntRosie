@@ -26,34 +26,18 @@ namespace AuntRosieUserInterface.Views.Kitchen
         }
 
         /// <summary>
-        /// Member Variables Used To Check if Open
-        /// </summary>
-        private bool openAddProduct;
-        private bool openProductManager;
-        private bool openProduction;
-
-        /// <summary>
         /// Navigates to addProduct Page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public void addProduct_Click (object sender, RoutedEventArgs e)
         {
-            if (!openAddProduct)
-            {
-                HomeScreen.Content = new AddProduct();
-                openAddProduct = true;
+            btnAddProduct.Background = new SolidColorBrush(Colors.Red);
+            btnManageProducts.Background = null;
+            btnProduction.Background = null;
 
-                btnProduction.IsEnabled = false;
-                btnManageProducts.IsEnabled = false;
-            } else
-            {
-                HomeScreen.Content = "";
-                openAddProduct = false;
-
-                btnProduction.IsEnabled = true;
-                btnManageProducts.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new AddProduct();
         }
 
         /// <summary>
@@ -64,22 +48,12 @@ namespace AuntRosieUserInterface.Views.Kitchen
         public void OpenProductManager_Click(object sender, RoutedEventArgs e)
         {
 
-            if (!openProductManager)
-            {
-                HomeScreen.Content = new ProductManager();
-                openProductManager = true;
+            btnAddProduct.Background = null;
+            btnManageProducts.Background = new SolidColorBrush(Colors.Red);
+            btnProduction.Background = null;
 
-                btnProduction.IsEnabled = false;
-                btnAddProduct.IsEnabled = false;
-            }
-            else
-            {
-                HomeScreen.Content = "";
-                openProductManager = false;
-
-                btnProduction.IsEnabled = true;
-                btnAddProduct.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new ProductManager();
         }
 
         /// <summary>
@@ -89,21 +63,12 @@ namespace AuntRosieUserInterface.Views.Kitchen
         /// <param name="e"></param>
         private void OpenProduction_Click(object sender, RoutedEventArgs e)
         {
-            if (!openProduction)
-            {
-                HomeScreen.Content = new AddProduction();
-                openProduction = true;
+            btnAddProduct.Background = null;
+            btnManageProducts.Background = null;
+            btnProduction.Background = new SolidColorBrush(Colors.Red);
 
-                btnAddProduct.IsEnabled = false;
-                btnManageProducts.IsEnabled = false;
-            } else
-            {
-                HomeScreen.Content = "";
-                openProduction = false;
-
-                btnAddProduct.IsEnabled = true;
-                btnManageProducts.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new AddProduction();
         }
     }
 

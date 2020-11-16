@@ -25,68 +25,50 @@ namespace AuntRosieUserInterface.Views.Inventory
             InitializeComponent();
         }
 
-        private bool openInventoryIn;
-        private bool openInventoryOut;
-        private bool openExpiredItems;
-
+        /// <summary>
+        /// Opens the Inventory In page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenInventoryIn_Click(object sender, RoutedEventArgs e)
         {
-            if (!openInventoryIn)
-            {
-                HomeScreen.Content = new InventoryIn();
-                openInventoryIn = true;
+            btnInventoryIn.Background = new SolidColorBrush(Colors.Red);
+            btnInventoryOut.Background = null;
+            btnExpiredItems.Background = null;
 
-                btnInventoryOut.IsEnabled = false;
-                btnExpiredItems.IsEnabled = false;
-            }
-            else
-            {
-                HomeScreen.Content = "";
-                openInventoryIn = false;
 
-                btnInventoryOut.IsEnabled = true;
-                btnExpiredItems.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new InventoryIn();
         }
 
+        /// <summary>
+        /// Opens the inventory out page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenInventoryOut_Click(object sender, RoutedEventArgs e)
         {
-            if (!openInventoryOut)
-            {
-                HomeScreen.Content = new InventoryOut();
-                openInventoryOut = true;
+            btnInventoryIn.Background = null;
+            btnInventoryOut.Background = new SolidColorBrush(Colors.Red);
+            btnExpiredItems.Background = null;
 
-                btnExpiredItems.IsEnabled = false;
-                btnInventoryIn.IsEnabled = false;
-            }
-            else
-            {
-                HomeScreen.Content = "";
-                openInventoryOut = false;
-
-                btnExpiredItems.IsEnabled = true;
-                btnInventoryIn.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new InventoryOut();
         }
 
+        /// <summary>
+        /// Opens the expired items page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenExpiredItems_Click(object sender, RoutedEventArgs e)
         {
-            if (!openExpiredItems)
-            {
-                HomeScreen.Content = new ExpiredItems();
-                openExpiredItems = true;
+            btnInventoryIn.Background = null;
+            btnInventoryOut.Background = null;
+            btnExpiredItems.Background = new SolidColorBrush(Colors.Red);
 
-                btnInventoryOut.IsEnabled = false;
-                btnInventoryIn.IsEnabled = false;
-            }
-            else
-            {
-                HomeScreen.Content = "";
-                openExpiredItems = false;
-
-                btnInventoryOut.IsEnabled = true;
-                btnInventoryIn.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new ExpiredItems();
         }
     }
 }

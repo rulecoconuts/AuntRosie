@@ -23,27 +23,18 @@ namespace AuntRosieUserInterface.Views.Event
         public Event()
         {
             InitializeComponent();
-        }
 
-        //Member Variables
-        private bool openCreateEvent;
-        private bool openSales;
+            //Display Events on Startup
+            HomeScreen.Content = new ShowEvents();
+        }
 
         private void OpenSales_Click(object sender, RoutedEventArgs e)
         {
-            if (!openSales)
-            {
-                HomeScreen.Content = new Sales();
-                openSales = true;
+            btnCreateEvent.Background = null;
+            btnSales.Background = new SolidColorBrush(Colors.Red);
 
-                btnCreateEvent.IsEnabled = false;
-            } else
-            {
-                HomeScreen.Content = "";
-
-                openSales = false;
-                btnCreateEvent.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new Sales();
         }
 
         /// <summary>
@@ -53,21 +44,11 @@ namespace AuntRosieUserInterface.Views.Event
         /// <param name="e"></param>
         private void OpenCreateEvent_Click(object sender, RoutedEventArgs e)
         {
-            if (!openCreateEvent)
-            {
-                //Opens the Create Event page
-                HomeScreen.Content = new CreateEvent();
+            btnSales.Background = null;
+            btnCreateEvent.Background = new SolidColorBrush(Colors.Red);
 
-                openCreateEvent = true;
-
-                btnAddProduct.IsEnabled = false;
-            }
-            else
-            {
-                HomeScreen.Content = "";
-                openCreateEvent = false;
-                btnAddProduct.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new CreateEvent();
         }
     }
 }
