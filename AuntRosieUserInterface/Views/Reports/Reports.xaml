@@ -5,122 +5,151 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AuntRosieUserInterface.Views.Reports"
       mc:Ignorable="d" 
-      d:DesignHeight="580" d:DesignWidth="800"
+      Width="auto"
+    Height="auto"
       Title="Event">
+    <Page.Resources>
+        <Style x:Key="font_style" TargetType="TextBlock">
 
-    <Grid>
+            <Setter Property="FontFamily"
+                    Value="Fonts/Roboto-Light.ttf #Roboto"/>
 
-        <!--// Background Color //-->
+            <Setter Property="VerticalAlignment"
+                    Value="Center"/>
 
-        <Grid Background="Black">
+            <Setter Property="HorizontalAlignment"
+                    Value="Left"/>
 
-            <!--// Background Image //-->
+            <Setter Property="Foreground"
+                    Value="#000"/>
 
-            <Grid x:Name="BG" >
+            <Setter Property="FontSize"
+                    Value="15"/>
 
-                <Grid.Background>
+        </Style>
+    </Page.Resources>
 
-                    <ImageBrush x:Name="img_bg"
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="307*"/>
+                <RowDefinition Height="278*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="219*"/>
+                <ColumnDefinition Width="581*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--// Background Color //-->
+
+            <Grid Background="Black" Grid.ColumnSpan="2" Margin="0,0,-0.333,0.333" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="381*"/>
+                    <RowDefinition Height="220*"/>
+                </Grid.RowDefinitions>
+
+                <!--// Background Image //-->
+
+                <Grid x:Name="BG" Grid.RowSpan="2" >
+
+                    <Grid.Background>
+
+                        <ImageBrush x:Name="img_bg"
                                 ImageSource="/Images/Bakery Image.jpg"
                                 Stretch="Fill"/>
 
-                </Grid.Background>
-                <StackPanel x:Name="MainScreen" HorizontalAlignment="Left" Height="580" Width="644" Margin="75,10,0,0" VerticalAlignment="Top" />
-                <Frame x:Name="HomeScreen"/>
-            </Grid>
+                    </Grid.Background>
+                    <Frame x:Name="HomeScreen"/>
+                </Grid>
 
-            <!--// Navigation Panel //-->
+                <!--// Navigation Panel //-->
 
-            <Grid   x:Name="nav_pnl"
+                <Grid   x:Name="inventoryIn_pnl"
                     HorizontalAlignment="Left"
-                    Width="66"
-                    Background="#FFF"
-                    Margin="70,0,0,0">
+                    Width="791"
+                    Background="#FFCAC4C4"
+                    Margin="138,0,-0.333,0.333" Grid.RowSpan="2"/>
 
-                <StackPanel x:Name="st_pnl">
+                <StackPanel x:Name="sp_Report" Margin="151,10,9.667,52.333" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
+                        >
 
-                    <!-- List Item For Main Page -->
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA48874" Offset="0.322"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
 
-                    <ListView  x:Name="LV"
-                               Background="Transparent"
-                               BorderBrush="Transparent"
-                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                               HorizontalAlignment="Right">
+                    <StackPanel Margin="0,0,452,0" Height="497" Width="320"
+                    RenderTransformOrigin="0.491,0.497" >
+                        <Label Content="Report Type:"
+                           FontWeight="Bold"
+                           Width="130"
+                           Height="35"
+                           Margin="-170,10,0,0"
+                           FontSize="20"/>
 
-                        <!-- List Item For Inventory Page -->
-                        <ListViewItem HorizontalAlignment="Right"
-                                      Margin="0,0,0,15" >
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Image Source="/Images/Report.gif"
-                                       Stretch="Uniform"
-                                       Margin="3,0,0,0"
-                                       HorizontalAlignment="Right" RenderTransformOrigin="1.51,0.524"/>
+                        <ComboBox x:Name="cmbReportTypes" Height="34" Margin="143,-30,10,0"
+                             BorderThickness="3" 
+                                FontSize="15"
+                                SelectionChanged="ReportSelection_Changed"
+                                ToolTip="Select the report to produce">
+                            <ComboBoxItem>Inventory Auditing</ComboBoxItem>
+                            <ComboBoxItem>Employees Per Event</ComboBoxItem>
+                            <ComboBoxItem>Total Revenue Report</ComboBoxItem>
+                            <ComboBoxItem>Total Expense Report</ComboBoxItem>
+                            <ComboBoxItem>Ingredient Stock Check</ComboBoxItem>
+                            <ComboBoxItem>Nutrition Information</ComboBoxItem>
+                            <ComboBoxItem>Top Markets</ComboBoxItem>
+                            <ComboBoxItem>Top Selling Products</ComboBoxItem>
+                            <ComboBoxItem>Lowest Selling Products</ComboBoxItem>
+                            <ComboBoxItem>Max Products</ComboBoxItem>
+                            <ComboBoxItem>Ingredient Price Changes</ComboBoxItem>
+                            <ComboBoxItem>Customer Promotions</ComboBoxItem>
+                            <ComboBoxItem>Customer Purchases</ComboBoxItem>
 
+                        </ComboBox>
+
+                        <Button x:Name="btnViewReport"
+                        Height="35"
+                        Margin="28,30,157,0"
+                        FontSize="20"
+                        Click="ViewReport_Click"
+                        Background="Beige"
+                        ToolTip="Views the report selected">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/Query.png" Height="20" Width="27" />
+                                <Label Content="View" Padding="4" Height="30" Width="50"/>
                             </StackPanel>
+                        </Button>
 
-                        </ListViewItem>
+                        <Button x:Name="btnPrintReport"
+                        Height="35"
+                        Margin="178,-36,10,0"
+                        FontSize="20"
+                        Click="PrintReport_Click"
+                        Background="Beige"
+                        ToolTip="Prints the report selected">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/Print.png" Height="20" Width="27" />
+                                <Label Content="Print" Padding="4" Height="30" Width="50"/>
+                            </StackPanel>
+                        </Button>
 
 
+                        <TextBox x:Name="txtDescription" TextWrapping="Wrap" Height="338" FontSize="20" Margin="30,20,10,0" IsEnabled="False"/>
 
-                        <!--// Listview items style template //-->
+                    </StackPanel>
 
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                            <Border x:Name="Bd"
-                                                    Height="50"
-                                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                                    Background="{TemplateBinding Background}"
-                                                    Padding="{TemplateBinding Padding}"
-                                                    SnapsToDevicePixels="True">
-                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <MultiTrigger>
-                                                    <MultiTrigger.Conditions>
-                                                        <Condition Property="IsMouseOver" Value="True"/>
-                                                    </MultiTrigger.Conditions>
 
-                                                    <Setter Property="Background"
-                                                            TargetName="Bd"
-                                                            Value="#FE2E2E"/>
-
-                                                    <Setter Property="BorderBrush"
-                                                            TargetName="Bd"
-                                                            Value="#000"/>
-
-                                                    <Setter Property="BorderThickness"
-                                                            TargetName="Bd"
-                                                            Value="2"/>
-
-                                                </MultiTrigger>
-
-                                            </ControlTemplate.Triggers>
-
-                                        </ControlTemplate>
-
-                                    </Setter.Value>
-
-                                </Setter>
-
-                            </Style>
-
-                        </ListView.ItemContainerStyle>
-
-                    </ListView>
 
                 </StackPanel>
+
+                <TextBox TextWrapping="Wrap"  Margin="476,27,27.666,80" Grid.RowSpan="2"/>
 
 
             </Grid>
 
         </Grid>
-
-    </Grid>
+    </Viewbox>
 </Page>

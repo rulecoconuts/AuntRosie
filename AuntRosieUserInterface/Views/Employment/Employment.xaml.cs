@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AuntRosieUserInterface.Views.Kitchen;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,13 +22,6 @@ namespace AuntRosieUserInterface.Views.Employment
     public partial class Employment : Page
     {
 
-        /// <summary>
-        /// Member Variables
-        /// </summary>
-        private bool openAddEmployee;
-        private bool openPayroll;
-        private bool openManage;
-
         public Employment()
         {
             InitializeComponent();
@@ -40,21 +34,12 @@ namespace AuntRosieUserInterface.Views.Employment
         /// <param name="e"></param>
         private void OpenAddEmployee_Click(object sender, RoutedEventArgs e)
         {
-            if (!openAddEmployee)
-            {
+                btnAddEmployee.Background = new SolidColorBrush(Colors.Red);
+                btnManage.Background = null;
+                btnPayroll.Background = null;
+
+                HomeScreen.Content = null;
                 HomeScreen.Content = new AddEmployee();
-                openAddEmployee = true;
-
-                btnPayroll.IsEnabled = false;
-                btnManage.IsEnabled = false;
-            } else
-            {
-                HomeScreen.Content = "";
-                openAddEmployee = false;
-
-                btnPayroll.IsEnabled = true;
-                btnManage.IsEnabled = true;
-            }
         }
 
         /// <summary>
@@ -64,21 +49,12 @@ namespace AuntRosieUserInterface.Views.Employment
         /// <param name="e"></param>
         private void OpenPayroll_Click(object sender, RoutedEventArgs e)
         {
-            if (!openPayroll)
-            {
-                HomeScreen.Content = new Payroll();
-                openPayroll = true;
+            btnAddEmployee.Background = null;
+            btnManage.Background = null;
+            btnPayroll.Background = new SolidColorBrush(Colors.Red);
 
-                btnAddEmployee.IsEnabled = false;
-                btnManage.IsEnabled = false;
-            } else
-            {
-                HomeScreen.Content = "";
-                openPayroll = false;
-
-                btnAddEmployee.IsEnabled = true;
-                btnManage.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new Payroll();
         }
 
         /// <summary>
@@ -88,22 +64,12 @@ namespace AuntRosieUserInterface.Views.Employment
         /// <param name="e"></param>
         private void OpenManageEmployee_Click(object sender, RoutedEventArgs e)
         {
-            if (!openManage)
-            {
-                HomeScreen.Content = new ManageEmployee();
-                openManage = true;
+            btnAddEmployee.Background = null;
+            btnManage.Background = new SolidColorBrush(Colors.Red);
+            btnPayroll.Background = null;
 
-                btnAddEmployee.IsEnabled = false;
-                btnPayroll.IsEnabled = false;
-            } else
-            {
-                HomeScreen.Content = "";
-                openManage = false;
-
-
-                btnAddEmployee.IsEnabled = true;
-                btnPayroll.IsEnabled = true;
-            }
+            HomeScreen.Content = null;
+            HomeScreen.Content = new ManageEmployee();
         }
     }
 

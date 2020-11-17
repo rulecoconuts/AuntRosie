@@ -5,8 +5,54 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AuntRosieUserInterface.Views.Query"
       mc:Ignorable="d" 
-      d:DesignHeight="580" d:DesignWidth="800"
-      Title="Event">
+      d:DesignHeight="600" d:DesignWidth="800"
+      VerticalAlignment="Stretch"
+      HorizontalAlignment="Stretch"
+      
+      Title="Event" >
+
+    <Page.Resources>
+
+        <Style TargetType="ToolTip" x:Key="tt">
+            <Setter Property="PlacementRectangle" Value="120,10,0,0"/>
+            <Setter Property="HorizontalOffset" Value="30"/>
+            <Setter Property="VerticalOffset" Value="6"/>
+            <Setter Property="HasDropShadow" Value="True"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Placement" Value="Bottom"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="Background" Value="#FE2E2E"/>
+            <Setter Property="ToolTipService.InitialShowDelay" Value="100"/>
+
+        </Style>
+
+        <Style x:Key="font_style" TargetType="TextBlock">
+
+            <Setter Property="FontFamily"
+                    Value="Fonts/Roboto-Light.ttf #Roboto"/>
+
+            <Setter Property="VerticalAlignment"
+                    Value="Center"/>
+
+            <Setter Property="HorizontalAlignment"
+                    Value="Left"/>
+
+            <Setter Property="Foreground"
+                    Value="#000"/>
+
+            <Setter Property="FontSize"
+                    Value="15"/>
+
+        </Style>
+    </Page.Resources>
+
 
     <Grid>
 
@@ -33,7 +79,7 @@
 
             <Grid   x:Name="nav_pnl"
                     HorizontalAlignment="Left"
-                    Width="66"
+                    Width="148"
                     Background="#FFF"
                     Margin="70,0,0,0">
 
@@ -47,21 +93,100 @@
                                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                HorizontalAlignment="Right">
 
-                        <!-- List Item For Inventory Page -->
+                        <!-- List Item For Inventory Icon-->
                         <ListViewItem HorizontalAlignment="Right"
                                       Margin="0,0,0,15" >
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
                                 <Image Source="/Images/Query.png"
                                        Stretch="Uniform"
-                                       Margin="3,0,0,0"
-                                       HorizontalAlignment="Right" RenderTransformOrigin="1.51,0.524"/>
+                                       Margin="15,0,0,0"
+                                       HorizontalAlignment="Center" RenderTransformOrigin="1.51,0.524" Width="96"/>
 
                             </StackPanel>
 
                         </ListViewItem>
 
+                        <ListViewItem></ListViewItem>
 
+
+                        <!-- Inventory-In List View -->
+
+                        <ListViewItem x:Name="lvProductQuery" HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" >
+                            <StackPanel Orientation="Horizontal"
+                                        Width="134">
+
+                                <Button x:Name="btnProductQuery" Width="130"
+                                        Height="40"
+                                        Background="{x:Null}"
+                                        BorderBrush="{x:Null}"
+                                        Click="OpenProductQuery_Click">
+                                    <TextBlock Text="Max Product"
+                                           Style="{StaticResource font_style}" Width="95"
+                                           HorizontalAlignment="Center"/>
+                                </Button>
+                            </StackPanel>
+                            <!--// Tooltip //-->
+                            <ListViewItem.ToolTip>
+                                <ToolTip 
+                                         Content="Opens the product maximization page"
+                                         Style="{StaticResource tt}"
+                                         BorderThickness="1"/>
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+
+
+                        <ListViewItem x:Name="lvTopProducts" HorizontalAlignment="Left"
+                                      Margin="0,0,0,15">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="134">
+
+                                <Button x:Name="btnTopProducts" Width="130"
+                                        Height="40"
+                                        Background="{x:Null}"
+                                        BorderBrush="{x:Null}"
+                                        Click="OpenTopProducts_Click">
+                                    <TextBlock Text="Top Products"
+                                           Style="{StaticResource font_style}" Width="95"
+                                           HorizontalAlignment="Center"/>
+                                </Button>
+                            </StackPanel>
+                            <!--// Tooltip //-->
+                            <ListViewItem.ToolTip>
+                                <ToolTip 
+                                         Content="Takes Out Item From Inventory"
+                                         Style="{StaticResource tt}"
+                                         BorderThickness="1"/>
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+
+                        <ListViewItem x:Name="lvLowerProducts" HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" >
+                            <StackPanel Orientation="Horizontal"
+                                        Width="134">
+
+                                <Button x:Name="btnLowerProducts" Width="130"
+                                        Height="40"
+                                        Background="{x:Null}"
+                                        BorderBrush="{x:Null}"
+                                        Click="OpenLowerProducts_Click">
+                                    <TextBlock Text="Lower Products"
+                                           Style="{StaticResource font_style}" Width="105"
+                                           HorizontalAlignment="Center"/>
+                                </Button>
+                            </StackPanel>
+                            <!--// Tooltip //-->
+                            <ListViewItem.ToolTip>
+                                <ToolTip 
+                                         Content="Removes Expired Items From Inventory"
+                                         Style="{StaticResource tt}"
+                                         BorderThickness="1"/>
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
 
                         <!--// Listview items style template //-->
 

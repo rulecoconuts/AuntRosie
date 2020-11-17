@@ -13,16 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AuntRosieUserInterface.Views.Expenses
+namespace AuntRosieUserInterface.Views.Query
 {
     /// <summary>
-    /// Interaction logic for Expenses.xaml
+    /// Interaction logic for TopProducts.xaml
     /// </summary>
-    public partial class Expenses : Page
+    public partial class TopProducts : Page
     {
-        public Expenses()
+        public TopProducts()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Sends requests, retrieves data if any, and populates table
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

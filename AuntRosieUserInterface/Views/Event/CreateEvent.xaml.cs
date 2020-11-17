@@ -24,38 +24,17 @@ namespace AuntRosieUserInterface.Views.Event
         {
             InitializeComponent();
 
-            EnableLocation(false);
-            btnSubmitNewLocation.Visibility = Visibility.Hidden;
-            btnSubmitHelper.IsEnabled = false;
+            //Disable Create Screens
+            sp_CreateLocation.Visibility = Visibility.Hidden;
+            sp_CreateHelper.Visibility = Visibility.Hidden;
 
             //Temporary Output
             cmbLocations.Items.Add("North Bay Market");
             cmbLocations.Items.Add("HillCrest Farm");
             cmbLocations.Items.Add("South SIde Farm");
 
-            lstHelpers.Items.Add("Christy Margaret");
-            lstHelpers.Items.Add("John Alimony");
-        }
-
-        /// <summary>
-        /// Sets the location inputs based on input
-        /// </summary>
-        /// <param name="value"></param>
-        private void EnableLocation(bool value)
-        {
-            if (value)
-            {
-                txtNewLocationName.Text = "Location Name";
-                txtNewLocationProvince.Text = "Province";
-                txtNewLocationCity.Text = "City";
-                txtNewLocationStreet.Text = "Street";
-            }
-
-            btnSubmitNewLocation.Visibility = Visibility.Visible;
-            txtNewLocationName.IsEnabled = value;
-            txtNewLocationProvince.IsEnabled = value;
-            txtNewLocationCity.IsEnabled = value;
-            txtNewLocationStreet.IsEnabled = value;
+            cmbHelpers.Items.Add("Christy Margaret");
+            cmbHelpers.Items.Add("John Alimony");
         }
 
         /// <summary>
@@ -68,11 +47,42 @@ namespace AuntRosieUserInterface.Views.Event
             //
         }
 
-        //Creates a new location field to be added to locations table
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NewLocation_Click(object sender, RoutedEventArgs e)
         {
-            EnableLocation(true);
+            //Shows the creation screen.
+            sp_CreateLocation.Visibility = Visibility.Visible;
+
+            btnNewLocation.IsEnabled = false;
         }
+
+        /// <summary>
+        /// Creates new location and adds it to database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreateNewLocation_Click(object sender, RoutedEventArgs e)
+        {
+
+            //Temporary Output
+            cmbLocations.Items.Add(txtLocationName.Text);
+
+            //Reset values
+            btnNewLocation.IsEnabled = true;
+            txtLocationName.Text = "";
+            txtProvince.Text = "";
+            txtCity.Text = "";
+            txtStreet.Text = "";
+
+
+            //Hides the creation screen
+            sp_CreateLocation.Visibility = Visibility.Hidden;
+        }
+
 
         /// <summary>
         /// Adds information to the database
@@ -85,31 +95,14 @@ namespace AuntRosieUserInterface.Views.Event
         }
 
         /// <summary>
-        /// Will prompt each persons task to the textbox which can be changed
+        /// Opens the new helper creation screen.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lstHelpers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OpenNewHelper_Click(object sender, RoutedEventArgs e)
         {
-
-            //If no helpers are selected, disable submit button
-            if(lstHelpers.SelectedIndex >= 0)
-            {
-                btnSubmitHelper.IsEnabled = true;
-            } else
-            {
-                btnSubmitHelper.IsEnabled = false;
-            }
-
-            //Temporary Output
-            if(lstHelpers.SelectedIndex == 0)
-            {
-                txtRole.Text = "Cashier";
-                
-            } else if (lstHelpers.SelectedIndex == 1)
-            {
-                txtRole.Text = "Baker";
-            } 
+            sp_CreateHelper.Visibility = Visibility.Visible;
+            btnNewHelper.IsEnabled = false;
         }
 
         /// <summary>
@@ -119,7 +112,68 @@ namespace AuntRosieUserInterface.Views.Event
         /// <param name="e"></param>
         private void SubmitNewHelper_Click(object sender, RoutedEventArgs e)
         {
-            lstHelpersList.Items.Add(lstHelpers.SelectedItem.ToString() + " | " + txtRole.Text);
+            lstHelpersList.Items.Add(cmbHelpers.SelectedItem.ToString() + " | " + txtRole.Text);
+        }
+
+        /// <summary>
+        /// Creates a new helper using the screen prompt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreateNewHelper_Click(object sender, RoutedEventArgs e)
+        {
+            cmbHelpers.Items.Add(txtHelperFirstName.Text + " " + txtHelperLastName.Text);
+
+            btnNewHelper.IsEnabled = true;
+
+            sp_CreateHelper.Visibility = Visibility.Hidden;
+        }
+
+        /// <summary>
+        /// Closes the creation window and resets the values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseLocationCreate_Click(object sender, RoutedEventArgs e)
+        {
+            sp_CreateLocation.Visibility = Visibility.Hidden;
+
+            btnNewLocation.IsEnabled = true;
+            txtLocationName.Text = "";
+            txtProvince.Text = "";
+            txtCity.Text = "";
+            txtStreet.Text = "";
+        }
+
+        /// <summary>
+        /// Closes the creation window for helper and resets the values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseHelperCreate_Click(object sender, RoutedEventArgs e)
+        {
+            btnNewHelper.IsEnabled = true;
+            sp_CreateHelper.Visibility = Visibility.Hidden;
+
+            //Reset values
+            txtHelperFirstName.Text = "";
+            txtHelperLastName.Text = "";
+            txtHelperPhone.Text = "";
+            txtHelperAddress.Text = "";
+        }
+
+        /// <summary>
+        /// Removes a selected helper
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RemoveHelper_Click(object sender, RoutedEventArgs e)
+        {
+            if(lstHelpersList.SelectedIndex >= 0)
+            {
+                lstHelpersList.Items.RemoveAt(lstHelpersList.SelectedIndex);
+            }
+            
         }
     }
 }

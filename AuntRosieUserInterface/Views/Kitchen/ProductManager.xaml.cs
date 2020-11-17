@@ -65,7 +65,6 @@ namespace AuntRosieUserInterface.Views.Kitchen
                 cmbProductType.SelectedIndex = 0;
                 txtNutrition.Text = "100 Calories - 8 G of Sugar";
                 txtPrice.Text = "$4.99";
-                txtUnitCost.Text = "$1.00";
 
                 lstIngredients.SelectedIndex = 1;
             }

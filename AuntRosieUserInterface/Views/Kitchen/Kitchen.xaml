@@ -9,6 +9,27 @@
       Title="Event" >
 
     <Page.Resources>
+
+        <Style TargetType="ToolTip" x:Key="tt">
+            <Setter Property="PlacementRectangle" Value="120,10,0,0"/>
+            <Setter Property="HorizontalOffset" Value="30"/>
+            <Setter Property="VerticalOffset" Value="6"/>
+            <Setter Property="HasDropShadow" Value="True"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Placement" Value="Bottom"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="Background" Value="#FE2E2E"/>
+            <Setter Property="ToolTipService.InitialShowDelay" Value="100"/>
+
+        </Style>
+
         <Style x:Key="font_style" TargetType="TextBlock">
 
             <Setter Property="FontFamily"
@@ -102,6 +123,13 @@
                                            HorizontalAlignment="Center"/>
                                 </Button>
                             </StackPanel>
+                            <!--// Tooltip //-->
+                            <ListViewItem.ToolTip>
+                                <ToolTip 
+                                         Content="Adds a New Product"
+                                         Style="{StaticResource tt}"
+                                         BorderThickness="1"/>
+                            </ListViewItem.ToolTip>
 
                         </ListViewItem>
 
@@ -122,6 +150,13 @@
                                            HorizontalAlignment="Center"/>
                                 </Button>
                             </StackPanel>
+                            <!--// Tooltip //-->
+                            <ListViewItem.ToolTip>
+                                <ToolTip 
+                                         Content="Opens the Product Management Window"
+                                         Style="{StaticResource tt}"
+                                         BorderThickness="1"/>
+                            </ListViewItem.ToolTip>
 
                         </ListViewItem>
 
@@ -140,6 +175,13 @@
                                            HorizontalAlignment="Center"/>
                                 </Button>
                             </StackPanel>
+                            <!--// Tooltip //-->
+                            <ListViewItem.ToolTip>
+                                <ToolTip 
+                                         Content="Adds Product to Production Line"
+                                         Style="{StaticResource tt}"
+                                         BorderThickness="1"/>
+                            </ListViewItem.ToolTip>
 
                         </ListViewItem>
 

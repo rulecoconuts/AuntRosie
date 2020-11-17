@@ -4,8 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AuntRosieUserInterface.Views.Inventory"
-      mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800"
+      Width="auto"
+      Height="auto"
       Title="Event">
 
     <Page.Resources>
@@ -29,48 +29,55 @@
         </Style>
     </Page.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="219*"/>
-            <ColumnDefinition Width="581*"/>
-        </Grid.ColumnDefinitions>
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="219*"/>
+                <ColumnDefinition Width="581*"/>
+            </Grid.ColumnDefinitions>
 
-        <!--// Background Color //-->
+            <!--// Background Color //-->
 
-        <Grid Background="Black" Grid.ColumnSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="381*"/>
-                <RowDefinition Height="220*"/>
-            </Grid.RowDefinitions>
+            <Grid Background="Black" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="381*"/>
+                    <RowDefinition Height="220*"/>
+                </Grid.RowDefinitions>
 
-            <!--// Background Image //-->
+                <!--// Background Image //-->
 
-            <Grid x:Name="BG" Grid.RowSpan="2" >
+                <Grid x:Name="BG" Grid.RowSpan="2" Width="1100" >
 
-                <Grid.Background>
+                    <Grid.Background>
 
-                    <ImageBrush x:Name="img_bg"
+                        <ImageBrush x:Name="img_bg"
                                 ImageSource="/Images/Bakery Image.jpg"
                                 Stretch="Fill"/>
 
-                </Grid.Background>
-                <Frame x:Name="HomeScreen"/>
-            </Grid>
+                    </Grid.Background>
+                    <Frame x:Name="HomeScreen"/>
+                </Grid>
 
-            <!--// Navigation Panel //-->
+                <!--// Navigation Panel //-->
 
-            <Grid   x:Name="inventoryIn_pnl"
+                <Grid   x:Name="inventoryIn_pnl"
                     HorizontalAlignment="Left"
                     Width="565"
-                    Background="#FFEAEAEA"
+                    Background="#FFCAC4C4"
                     Margin="225,0,0,0" Grid.RowSpan="2">
-                <TextBox Margin="270,203,71,364"/>
-            </Grid>
+                    <TextBox Margin="270,203,71,364"/>
+                </Grid>
 
-            <StackPanel x:Name="inventoryInScreen" Margin="246,10,306,52" Background="White" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
+                <StackPanel x:Name="inventoryInScreen" Margin="237,10,289.667,52.667" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2"
                         >
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA48874" Offset="0.322"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
 
-                <Label x:Name="lblName" 
+                    <Label x:Name="lblName" 
                        Content="Choose Ingredient: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -79,16 +86,8 @@
                        Width="184"
                        FontSize="20"/>
 
-                <Label x:Name="lblEmployee" 
-                       Content="Employee ID#: " 
-                       HorizontalAlignment="Left" 
-                       VerticalAlignment="Top" 
-                       Margin="92,200,0,0" 
-                       RenderTransformOrigin="-0.325,-14.385" 
-                       Width="145"
-                       FontSize="20"/>
 
-                <Label x:Name="lblQuantity" 
+                    <Label x:Name="lblQuantity" 
                        Content="Quantity: " 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top" 
@@ -97,30 +96,84 @@
                        Width="97"
                        FontSize="20"/>
 
-            </StackPanel>
+                    <Button x:Name="btnAddIngredient" Height="30" Margin="140,7,11,0" Content="Add To Cart" BorderThickness="3" Click="AddToCart_Click"/>
 
-            <StackPanel x:Name="inventoryInput" Margin="494,10,34,52" Background="White" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
-                <ListBox x:Name="lstIngredients"
-                         Height="298" Margin="10,0" SelectionChanged="lstIngredients_SelectionChanged" SelectionMode="Multiple"/>
-                <TextBox x:Name="txtEmployee" Height="30" Margin="10, 24, 52, 0"/>
-                <TextBox x:Name="txtQuantity" Height="30" Margin="10,17,164,0"/>
+                    <Label x:Name="lblCart" 
+                       Content="Cart:" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top" 
+                       Margin="180,50,0,0" 
+                       RenderTransformOrigin="-0.325,-14.385" 
+                       Width="57"
+                       FontSize="20"/>
 
-            </StackPanel>
+                    <Label x:Name="lblEmployee" 
+                       Content="Employee Name: " 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top" 
+                       Margin="71,60,0,0" 
+                       RenderTransformOrigin="-0.325,-14.385" 
+                       Width="166"
+                       FontSize="20"/>
+
+                </StackPanel>
+
+                <StackPanel x:Name="inventoryInput" Margin="494,10,9.667,51.667" RenderTransformOrigin="0.491,0.497" Grid.RowSpan="2">
+
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA48874" Offset="0.322"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+
+                    <ComboBox x:Name="cmbIngredients"
+                         Height="33" Margin="10,83,51.667,7" BorderThickness="3" ToolTip="Select an Ingredient"/>
+                    <TextBox x:Name="txtQuantity" Height="30" Margin="10,13,164,0"
+                         BorderThickness="3" ToolTip="Enter the amount of required"/>
+                    <RadioButton x:Name="radPounds" Margin="8,5,15,0" BorderThickness="3" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="137" ToolTip="Select for Pounds (LBS)">Pounds (LBS)</RadioButton>
+                    <RadioButton x:Name="radKilos" Margin="8,0,0,0" BorderThickness="3" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" Content="Kilos (KG)" ToolTip="Select for Kilos (KG)"/>
+                    <RadioButton x:Name="radLitres" Margin="8,0,0,0" BorderThickness="3" HorizontalAlignment="Left" GroupName="Units" FontSize="15" Width="152" ToolTip="Select for Litres (L)">Litres (L)</RadioButton>
+
+                    <ListBox x:Name="lstCart" Margin="10,20,52,0" Height="100"
+                         BorderThickness="3" ToolTip="Shows the chosen ingredients"/>
 
 
-            <StackPanel x:Name="spSubmit" Margin="246,53.5,34,52" Background="White" RenderTransformOrigin="0.491,0.497" Grid.Row="1">
+                    <TextBox x:Name="txtEmployee" Height="30" Margin="10, 10, 52, 0"
+                         BorderThickness="3" ToolTip="Verify Name of Employee"/>
 
-                <Button x:Name="btnOut" 
-                        Content="Take Out" 
+                </StackPanel>
+
+
+                <StackPanel x:Name="spSubmit" Margin="246,334.333,33.667,52.333"  RenderTransformOrigin="0.491,0.497" Grid.Row="1">
+                    <Button x:Name="btnOut" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Top" 
                         Height="30"
-                        Width="120" 
-                        Margin="190,25,0,0"
-                        />
+                        Width="100" 
+                        Margin="210,23,0,0"
+                        Click="TakeOut_Click"
+                        Background="Beige"
+                        ToolTip="Processes the order to remove inventory"
+                        >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/PlusSign.png" Height="20" Width="27" />
+                            <Label Content="Take Out" Padding="4" Height="27" Width="90"/>
+                        </StackPanel>
+                    </Button>
 
-            </StackPanel>
+                </StackPanel>
+
+                <StackPanel Width="300" Height="60" Margin="190,0,0,0">
+                    <Label x:Name="lblSupplierHeader" Height="39"
+                           
+                       Content="Ingredient Check-Out:"
+                       HorizontalAlignment="Center" Margin="45,0,-66,0"
+                       FontSize="20" Width="321" FontWeight="Bold"
+                       ></Label>
+                </StackPanel>
+            </Grid>
+
         </Grid>
-
-    </Grid>
+    </Viewbox>
 </Page>

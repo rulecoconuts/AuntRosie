@@ -26,17 +26,43 @@ namespace AuntRosieUserInterface.Views.Inventory
 
             //Temporary add
 
-            lstIngredients.Items.Add("Potatoes");
-            lstIngredients.Items.Add("Onions");
-            lstIngredients.Items.Add("Flour");
-            lstIngredients.Items.Add("Eggs");
-            lstIngredients.Items.Add("Butter");
-            lstIngredients.Items.Add("Ketchup");
+            cmbIngredients.Items.Add("Potatoes");
+            cmbIngredients.Items.Add("Onions");
+            cmbIngredients.Items.Add("Flour");
+            cmbIngredients.Items.Add("Eggs");
+            cmbIngredients.Items.Add("Butter");
+            cmbIngredients.Items.Add("Ketchup");
         }
 
-        private void lstIngredients_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /// <summary>
+        /// Submits request and updates quantities in the database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TakeOut_Click(object sender, RoutedEventArgs e)
         {
-            //Check if still valid quantity in database
+            //
+        }
+
+        /// <summary>
+        /// Adds values to cart for the user to see
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddToCart_Click(object sender, RoutedEventArgs e)
+        {
+            string suffix = "";
+            if (radPounds.IsChecked == true)
+            {
+                suffix = "LBS";
+            } else if (radKilos.IsChecked == true)
+            {
+                suffix = "KG";
+            } else if (radLitres.IsChecked == true)
+            {
+                suffix = "L";
+            }
+            lstCart.Items.Add(txtQuantity.Text + " " + suffix + " | " + cmbIngredients.SelectedItem.ToString());
         }
     }
 }
