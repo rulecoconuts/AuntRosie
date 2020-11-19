@@ -8,18 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AuntRosieApplication.Inventory
+namespace AuntRosieApplication.Employment
 {
-    public partial class SuppliersForm : Form
+    public partial class frmManagEmp : Form
     {
-        public SuppliersForm()
+        public frmManagEmp()
         {
             InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void label7_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+        }
+
+        private void frmManagEmp_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

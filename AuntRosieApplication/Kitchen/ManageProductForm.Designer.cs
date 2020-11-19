@@ -38,9 +38,9 @@
             this.cmbServingSize = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radOther = new System.Windows.Forms.RadioButton();
+            this.radPercentage = new System.Windows.Forms.RadioButton();
+            this.radweight = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,23 +49,23 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.cmbUnit = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblsize = new System.Windows.Forms.Label();
             this.cmbSizes = new System.Windows.Forms.ComboBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -84,9 +84,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -180,9 +180,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.radOther);
+            this.groupBox2.Controls.Add(this.radPercentage);
+            this.groupBox2.Controls.Add(this.radweight);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(6, 77);
             this.groupBox2.Name = "groupBox2";
@@ -191,43 +191,43 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Value Type";
             // 
-            // radioButton3
+            // radOther
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.radioButton3.Location = new System.Drawing.Point(241, 35);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(75, 26);
-            this.radioButton3.TabIndex = 8;
-            this.radioButton3.Text = "Other";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radOther.AutoSize = true;
+            this.radOther.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radOther.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.radOther.Location = new System.Drawing.Point(241, 35);
+            this.radOther.Name = "radOther";
+            this.radOther.Size = new System.Drawing.Size(75, 26);
+            this.radOther.TabIndex = 8;
+            this.radOther.Text = "Other";
+            this.radOther.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radPercentage
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.radioButton2.Location = new System.Drawing.Point(109, 37);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(126, 26);
-            this.radioButton2.TabIndex = 7;
-            this.radioButton2.Text = "Percentage";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radPercentage.AutoSize = true;
+            this.radPercentage.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radPercentage.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.radPercentage.Location = new System.Drawing.Point(109, 37);
+            this.radPercentage.Name = "radPercentage";
+            this.radPercentage.Size = new System.Drawing.Size(126, 26);
+            this.radPercentage.TabIndex = 7;
+            this.radPercentage.Text = "Percentage";
+            this.radPercentage.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // radweight
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.radioButton1.Location = new System.Drawing.Point(15, 35);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(88, 26);
-            this.radioButton1.TabIndex = 6;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Weight";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radweight.AutoSize = true;
+            this.radweight.Checked = true;
+            this.radweight.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radweight.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.radweight.Location = new System.Drawing.Point(15, 35);
+            this.radweight.Name = "radweight";
+            this.radweight.Size = new System.Drawing.Size(88, 26);
+            this.radweight.TabIndex = 6;
+            this.radweight.TabStop = true;
+            this.radweight.Text = "Weight";
+            this.radweight.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -320,6 +320,99 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Step3:Available Sizes & Ingredient";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.dataGridView3);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.txtQuantity);
+            this.groupBox4.Controls.Add(this.cmbUnit);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Location = new System.Drawing.Point(7, 77);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(513, 228);
+            this.groupBox4.TabIndex = 18;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Ingredients";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label8.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(337, 81);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 22);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Unit";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(14, 114);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(321, 101);
+            this.dataGridView3.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label7.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(28, 81);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 22);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Quantity";
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.txtQuantity.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtQuantity.Location = new System.Drawing.Point(107, 78);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(118, 29);
+            this.txtQuantity.TabIndex = 21;
+            // 
+            // cmbUnit
+            // 
+            this.cmbUnit.AutoCompleteCustomSource.AddRange(new string[] {
+            "Pies",
+            "Preserves"});
+            this.cmbUnit.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cmbUnit.FormattingEnabled = true;
+            this.cmbUnit.Location = new System.Drawing.Point(395, 75);
+            this.cmbUnit.Name = "cmbUnit";
+            this.cmbUnit.Size = new System.Drawing.Size(112, 32);
+            this.cmbUnit.TabIndex = 20;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label6.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(6, 39);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 22);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Ingredient";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            "Pies",
+            "Preserves"});
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(107, 39);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(170, 32);
+            this.comboBox1.TabIndex = 18;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -372,99 +465,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(321, 101);
             this.dataGridView2.TabIndex = 0;
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.button4);
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.dataGridView3);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.textBox3);
-            this.groupBox4.Controls.Add(this.comboBox2);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.comboBox1);
-            this.groupBox4.Location = new System.Drawing.Point(7, 77);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(513, 228);
-            this.groupBox4.TabIndex = 18;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Ingredients";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label7.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(28, 81);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 22);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Quantity";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.textBox3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox3.Location = new System.Drawing.Point(107, 78);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(118, 29);
-            this.textBox3.TabIndex = 21;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
-            "Pies",
-            "Preserves"});
-            this.comboBox2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(395, 75);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(112, 32);
-            this.comboBox2.TabIndex = 20;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label6.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(6, 39);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 22);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Ingredient";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
-            "Pies",
-            "Preserves"});
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(107, 39);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(170, 32);
-            this.comboBox1.TabIndex = 18;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label8.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(337, 81);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 22);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Unit";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(14, 114);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(321, 101);
-            this.dataGridView3.TabIndex = 19;
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.label10);
@@ -486,26 +486,6 @@
             this.groupBox5.Text = "Step 1: Product Information";
             this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(471, 88);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(138, 22);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Validation Time";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.textBox4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox4.Location = new System.Drawing.Point(621, 86);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(107, 29);
-            this.textBox4.TabIndex = 10;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -516,6 +496,26 @@
             this.label10.Size = new System.Drawing.Size(62, 22);
             this.label10.TabIndex = 25;
             this.label10.Text = "day(s)";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(471, 88);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(132, 22);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Days till Expiry";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.textBox4.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBox4.Location = new System.Drawing.Point(621, 86);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(107, 29);
+            this.textBox4.TabIndex = 10;
             // 
             // panel2
             // 
@@ -680,10 +680,10 @@
             this.panel1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -702,9 +702,9 @@
         private System.Windows.Forms.ComboBox cmbServingSize;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radOther;
+        private System.Windows.Forms.RadioButton radPercentage;
+        private System.Windows.Forms.RadioButton radweight;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
@@ -733,8 +733,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.ComboBox cmbUnit;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox5;

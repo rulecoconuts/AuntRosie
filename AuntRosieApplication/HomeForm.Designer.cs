@@ -42,8 +42,8 @@
             this.tmnInventoryIn = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnManageProduct = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnEmployment = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmnManageEmployee = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPayroll = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmnManageEmployee = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnEvent = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnOrginizeEvent = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnSales = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,8 +52,8 @@
             this.tmnProducation = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnManage = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnQueriesAndReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmnQueries = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnReports = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmnQueries = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReportMain = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
@@ -194,6 +194,7 @@
             this.tmnInventoryIn.Name = "tmnInventoryIn";
             this.tmnInventoryIn.Size = new System.Drawing.Size(171, 28);
             this.tmnInventoryIn.Text = "Inventory-In";
+            this.tmnInventoryIn.Click += new System.EventHandler(this.btnInventoryIn_Click);
             this.tmnInventoryIn.MouseEnter += new System.EventHandler(this.tmnInventoryIn_MouseEnter);
             this.tmnInventoryIn.MouseLeave += new System.EventHandler(this.tmnInventoryIn_MouseLeave);
             // 
@@ -202,6 +203,7 @@
             this.tmnManageProduct.Name = "tmnManageProduct";
             this.tmnManageProduct.Size = new System.Drawing.Size(171, 28);
             this.tmnManageProduct.Text = "Suppliers";
+            this.tmnManageProduct.Click += new System.EventHandler(this.btnSuppliers_Click);
             this.tmnManageProduct.MouseEnter += new System.EventHandler(this.tmnManageProduct_MouseEnter);
             this.tmnManageProduct.MouseLeave += new System.EventHandler(this.tmnInventoryIn_MouseLeave);
             // 
@@ -215,21 +217,23 @@
             this.tmnEmployment.Text = "Employment";
             this.tmnEmployment.MouseEnter += new System.EventHandler(this.employmentToolStripMenuItem_MouseEnter);
             // 
-            // tmnManageEmployee
-            // 
-            this.tmnManageEmployee.Name = "tmnManageEmployee";
-            this.tmnManageEmployee.Size = new System.Drawing.Size(219, 28);
-            this.tmnManageEmployee.Text = "Manage Employee";
-            this.tmnManageEmployee.MouseEnter += new System.EventHandler(this.tmnManageEmployee_MouseEnter);
-            this.tmnManageEmployee.MouseLeave += new System.EventHandler(this.tmnManageEmployee_MouseLeave);
-            // 
             // mnuPayroll
             // 
             this.mnuPayroll.Name = "mnuPayroll";
             this.mnuPayroll.Size = new System.Drawing.Size(219, 28);
             this.mnuPayroll.Text = "Payroll";
+            this.mnuPayroll.Click += new System.EventHandler(this.btnPayroll_Click);
             this.mnuPayroll.MouseEnter += new System.EventHandler(this.mnuPayroll_MouseEnter);
             this.mnuPayroll.MouseLeave += new System.EventHandler(this.tmnManageEmployee_MouseLeave);
+            // 
+            // tmnManageEmployee
+            // 
+            this.tmnManageEmployee.Name = "tmnManageEmployee";
+            this.tmnManageEmployee.Size = new System.Drawing.Size(219, 28);
+            this.tmnManageEmployee.Text = "Manage Employee";
+            this.tmnManageEmployee.Click += new System.EventHandler(this.btnManagEmp_Click);
+            this.tmnManageEmployee.MouseEnter += new System.EventHandler(this.tmnManageEmployee_MouseEnter);
+            this.tmnManageEmployee.MouseLeave += new System.EventHandler(this.tmnManageEmployee_MouseLeave);
             // 
             // tmnEvent
             // 
@@ -239,6 +243,7 @@
             this.tmnEvent.Name = "tmnEvent";
             this.tmnEvent.Size = new System.Drawing.Size(65, 27);
             this.tmnEvent.Text = "Event";
+            this.tmnEvent.Click += new System.EventHandler(this.tmnEvent_Click);
             this.tmnEvent.MouseEnter += new System.EventHandler(this.eventToolStripMenuItem_MouseEnter);
             // 
             // tmnOrginizeEvent
@@ -278,6 +283,7 @@
             this.tmnProducation.Name = "tmnProducation";
             this.tmnProducation.Size = new System.Drawing.Size(204, 28);
             this.tmnProducation.Text = "Producation";
+            this.tmnProducation.Click += new System.EventHandler(this.btnProduction_Click);
             this.tmnProducation.MouseEnter += new System.EventHandler(this.tmnProducation_MouseEnter);
             this.tmnProducation.MouseLeave += new System.EventHandler(this.tmnProducation_MouseLeave);
             // 
@@ -286,6 +292,7 @@
             this.tmnManage.Name = "tmnManage";
             this.tmnManage.Size = new System.Drawing.Size(204, 28);
             this.tmnManage.Text = "Manage Product";
+            this.tmnManage.Click += new System.EventHandler(this.tmnManageProduct_Click);
             this.tmnManage.MouseEnter += new System.EventHandler(this.tmnManage_MouseEnter);
             this.tmnManage.MouseLeave += new System.EventHandler(this.tmnProducation_MouseLeave);
             // 
@@ -299,14 +306,6 @@
             this.tmnQueriesAndReports.Text = "Queries and Reports";
             this.tmnQueriesAndReports.MouseEnter += new System.EventHandler(this.queriesAndReportsToolStripMenuItem_MouseEnter);
             // 
-            // tmnQueries
-            // 
-            this.tmnQueries.Name = "tmnQueries";
-            this.tmnQueries.Size = new System.Drawing.Size(140, 28);
-            this.tmnQueries.Text = "Queries";
-            this.tmnQueries.MouseEnter += new System.EventHandler(this.tmnQueries_MouseEnter);
-            this.tmnQueries.MouseLeave += new System.EventHandler(this.tmnQueries_MouseLeave);
-            // 
             // tmnReports
             // 
             this.tmnReports.Name = "tmnReports";
@@ -314,6 +313,14 @@
             this.tmnReports.Text = "Reports";
             this.tmnReports.MouseEnter += new System.EventHandler(this.tmnReports_MouseEnter);
             this.tmnReports.MouseLeave += new System.EventHandler(this.tmnQueries_MouseLeave);
+            // 
+            // tmnQueries
+            // 
+            this.tmnQueries.Name = "tmnQueries";
+            this.tmnQueries.Size = new System.Drawing.Size(140, 28);
+            this.tmnQueries.Text = "Queries";
+            this.tmnQueries.MouseEnter += new System.EventHandler(this.tmnQueries_MouseEnter);
+            this.tmnQueries.MouseLeave += new System.EventHandler(this.tmnQueries_MouseLeave);
             // 
             // btnReportMain
             // 
@@ -415,6 +422,7 @@
             this.btnManagEmp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnManagEmp, "Manage Employees");
             this.btnManagEmp.UseVisualStyleBackColor = true;
+            this.btnManagEmp.Click += new System.EventHandler(this.btnManagEmp_Click);
             // 
             // btnPayroll
             // 
@@ -427,6 +435,7 @@
             this.btnPayroll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnPayroll, "Payroll");
             this.btnPayroll.UseVisualStyleBackColor = true;
+            this.btnPayroll.Click += new System.EventHandler(this.btnPayroll_Click);
             // 
             // btnEventMAin
             // 
@@ -452,6 +461,7 @@
             this.btnOrgEvent.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnOrgEvent, "Organize Event");
             this.btnOrgEvent.UseVisualStyleBackColor = true;
+            this.btnOrgEvent.Click += new System.EventHandler(this.btnOrgEvent_Click);
             // 
             // btnSale
             // 
@@ -464,6 +474,7 @@
             this.btnSale.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnSale, "Sales");
             this.btnSale.UseVisualStyleBackColor = true;
+            this.btnSale.Click += new System.EventHandler(this.btnSale_Click);
             // 
             // btnShowMain
             // 
@@ -620,13 +631,14 @@
             this.btnInventoryIn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnInventoryIn, "Inventory-In");
             this.btnInventoryIn.UseVisualStyleBackColor = true;
+            this.btnInventoryIn.Click += new System.EventHandler(this.btnInventoryIn_Click);
             // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1114, 769);
+            this.ClientSize = new System.Drawing.Size(1216, 788);
             this.Controls.Add(this.pnlReportQuery);
             this.Controls.Add(this.pnlKitchen);
             this.Controls.Add(this.pnlEmp);

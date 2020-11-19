@@ -316,5 +316,46 @@ namespace AuntRosieApp
             AuntRosieApplication.Inventory.SuppliersForm form = new AuntRosieApplication.Inventory.SuppliersForm();
             ShowForm(form);
         }
+
+        private void tmnManageProduct_Click(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Inventory.SuppliersForm form = new AuntRosieApplication.Inventory.SuppliersForm();
+            ShowForm(form);
+        }
+
+        private void btnInventoryIn_Click(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Inventory.InventoryInForm form = new AuntRosieApplication.Inventory.InventoryInForm();
+            ShowForm(form);
+        }
+
+        private void btnPayroll_Click(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Employment.frmPayroll  form = new AuntRosieApplication.Employment.frmPayroll();
+            ShowForm(form);
+        }
+
+        private void btnManagEmp_Click(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Employment.frmManagEmp form  = new AuntRosieApplication.Employment.frmManagEmp();
+            ShowForm(form);
+        }
+
+        private void tmnEvent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSale_Click(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Event.frmSale form = new AuntRosieApplication.Event.frmSale();
+            ShowForm(form);
+        }
+
+        private void btnOrgEvent_Click(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Event.frmOrganizeEvent form = new AuntRosieApplication.Event.frmOrganizeEvent();
+            ShowForm(form);
+        }
     }
 }

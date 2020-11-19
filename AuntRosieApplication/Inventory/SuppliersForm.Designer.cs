@@ -50,13 +50,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtSupplierLastName = new System.Windows.Forms.TextBox();
             this.cmbSupplierName = new System.Windows.Forms.ComboBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -253,9 +253,9 @@
             this.label10.ForeColor = System.Drawing.SystemColors.WindowText;
             this.label10.Location = new System.Drawing.Point(98, 26);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 22);
+            this.label10.Size = new System.Drawing.Size(102, 22);
             this.label10.TabIndex = 42;
-            this.label10.Text = "First nmae";
+            this.label10.Text = "First Name";
             // 
             // txtPhone
             // 
@@ -292,15 +292,6 @@
             this.cmbSupplierName.Name = "cmbSupplierName";
             this.cmbSupplierName.Size = new System.Drawing.Size(235, 31);
             this.cmbSupplierName.TabIndex = 55;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_window;
-            this.btnClose.Location = new System.Drawing.Point(0, -1);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(41, 41);
-            this.btnClose.TabIndex = 13;
-            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -362,6 +353,16 @@
             this.btnDelete.TabIndex = 11;
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
+            // btnClose
+            // 
+            this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_window;
+            this.btnClose.Location = new System.Drawing.Point(0, -1);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(41, 41);
+            this.btnClose.TabIndex = 13;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // SuppliersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,6 +376,7 @@
             this.Controls.Add(this.lblName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SuppliersForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SuppliersForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

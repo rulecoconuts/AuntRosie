@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AuntRosieApplication.Inventory
+namespace AuntRosieApplication.Event
 {
-    public partial class SuppliersForm : Form
+    public partial class frmSale : Form
     {
-        public SuppliersForm()
+        public frmSale()
         {
             InitializeComponent();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
