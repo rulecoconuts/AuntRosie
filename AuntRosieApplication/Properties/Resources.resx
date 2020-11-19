@@ -160,6 +160,9 @@
   <data name="Dots" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dots.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="down_squared" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\down-squared.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -276,6 +279,9 @@
   </data>
   <data name="supplier__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\supplier (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sweet_easter_cake_light_gray_background_spikelets_rye_concept_bright_holiday_121946_1332" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sweet-easter-cake-light-gray-background-spikelets-rye-concept-bright-holiday_121946-1332.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="teacher_hirring" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\teacher-hirring.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

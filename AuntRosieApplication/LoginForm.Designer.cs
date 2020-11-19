@@ -131,7 +131,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.sweet_easter_cake_light_gray_background_spikelets_rye_concept_bright_holiday_121946_1332;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(672, 486);
             this.ControlBox = false;
             this.Controls.Add(this.pnlLoginBox);

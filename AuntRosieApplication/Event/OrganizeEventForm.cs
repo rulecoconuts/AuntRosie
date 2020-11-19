@@ -55,5 +55,10 @@ namespace AuntRosieApplication.Event
             form.ShowDialog();
 
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

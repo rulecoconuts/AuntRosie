@@ -16,5 +16,10 @@ namespace AuntRosieApplication.Employment
         {
             InitializeComponent();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

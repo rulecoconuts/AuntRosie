@@ -35,13 +35,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.cmbName = new System.Windows.Forms.ComboBox();
+            this.lblName = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.cmbName = new System.Windows.Forms.ComboBox();
-            this.lblName = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -115,6 +115,42 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Payroll";
             // 
+            // cmbName
+            // 
+            this.cmbName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbName.FormattingEnabled = true;
+            this.cmbName.Location = new System.Drawing.Point(232, 144);
+            this.cmbName.Name = "cmbName";
+            this.cmbName.Size = new System.Drawing.Size(231, 31);
+            this.cmbName.TabIndex = 63;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblName.Location = new System.Drawing.Point(27, 144);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(151, 22);
+            this.lblName.TabIndex = 62;
+            this.lblName.Text = "Employee Name";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(22, 188);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(577, 101);
+            this.dataGridView3.TabIndex = 107;
+            // 
+            // button1
+            // 
+            this.button1.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
+            this.button1.Location = new System.Drawing.Point(472, 142);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(41, 38);
+            this.button1.TabIndex = 106;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -124,6 +160,7 @@
             this.btnClose.Size = new System.Drawing.Size(41, 38);
             this.btnClose.TabIndex = 13;
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnCancel
             // 
@@ -144,42 +181,6 @@
             this.btnSave.Size = new System.Drawing.Size(97, 72);
             this.btnSave.TabIndex = 13;
             this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // cmbName
-            // 
-            this.cmbName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbName.FormattingEnabled = true;
-            this.cmbName.Location = new System.Drawing.Point(232, 144);
-            this.cmbName.Name = "cmbName";
-            this.cmbName.Size = new System.Drawing.Size(231, 31);
-            this.cmbName.TabIndex = 63;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.lblName.Location = new System.Drawing.Point(27, 144);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(151, 22);
-            this.lblName.TabIndex = 62;
-            this.lblName.Text = "Employee Name";
-            // 
-            // button1
-            // 
-            this.button1.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
-            this.button1.Location = new System.Drawing.Point(472, 142);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 38);
-            this.button1.TabIndex = 106;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(22, 188);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(577, 101);
-            this.dataGridView3.TabIndex = 107;
             // 
             // frmPayroll
             // 

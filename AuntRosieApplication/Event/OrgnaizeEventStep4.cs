@@ -28,5 +28,10 @@ namespace AuntRosieApplication.Event
         {
             this.Close();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

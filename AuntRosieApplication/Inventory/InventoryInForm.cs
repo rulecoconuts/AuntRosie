@@ -78,5 +78,10 @@ namespace AuntRosieApplication.Inventory
             Inventory.SuppliersForm form = new Inventory.SuppliersForm();
             form.ShowDialog();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

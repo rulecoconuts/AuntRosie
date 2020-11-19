@@ -35,5 +35,10 @@ namespace AuntRosieApplication.Event
             frmOrganizeEventStep4 form = new frmOrganizeEventStep4();
             form.ShowDialog();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

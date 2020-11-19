@@ -28,8 +28,8 @@ namespace AuntRosieApp
             
              
             
-            pnlExit.Left=  0 ;
-            pnlExit.Top = (this.Height - pnlExit.Height) ;
+            pnlExit.Left=  this.Width- pnlExit.Width ;
+            pnlExit.Top = 0 ;
             ShowMainMenu();
 
 

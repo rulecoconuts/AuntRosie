@@ -30,13 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtQuntity = new System.Windows.Forms.TextBox();
             this.cmbEvent = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbProductType = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblProductSize = new System.Windows.Forms.Label();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.lblProductName = new System.Windows.Forms.Label();
@@ -46,13 +50,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -62,22 +61,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(259, 5);
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Location = new System.Drawing.Point(35, 8);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 31);
+            this.label4.Size = new System.Drawing.Size(0, 31);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Production";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(619, 42);
-            this.panel1.TabIndex = 20;
             // 
             // label3
             // 
@@ -95,7 +83,7 @@
             this.txtQuntity.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtQuntity.Location = new System.Drawing.Point(265, 131);
             this.txtQuntity.Name = "txtQuntity";
-            this.txtQuntity.Size = new System.Drawing.Size(66, 29);
+            this.txtQuntity.Size = new System.Drawing.Size(44, 29);
             this.txtQuntity.TabIndex = 4;
             // 
             // cmbEvent
@@ -107,7 +95,7 @@
             this.cmbEvent.FormattingEnabled = true;
             this.cmbEvent.Location = new System.Drawing.Point(265, 28);
             this.cmbEvent.Name = "cmbEvent";
-            this.cmbEvent.Size = new System.Drawing.Size(252, 31);
+            this.cmbEvent.Size = new System.Drawing.Size(230, 31);
             this.cmbEvent.TabIndex = 3;
             // 
             // label1
@@ -128,119 +116,31 @@
             "Preserves"});
             this.cmbProductType.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProductType.FormattingEnabled = true;
-            this.cmbProductType.Location = new System.Drawing.Point(267, 104);
+            this.cmbProductType.Location = new System.Drawing.Point(300, 103);
             this.cmbProductType.Name = "cmbProductType";
             this.cmbProductType.Size = new System.Drawing.Size(252, 31);
             this.cmbProductType.TabIndex = 2;
             // 
-            // lblProductSize
-            // 
-            this.lblProductSize.AutoSize = true;
-            this.lblProductSize.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.lblProductSize.Location = new System.Drawing.Point(134, 104);
-            this.lblProductSize.Name = "lblProductSize";
-            this.lblProductSize.Size = new System.Drawing.Size(123, 22);
-            this.lblProductSize.TabIndex = 14;
-            this.lblProductSize.Text = "Product  Size";
-            // 
-            // txtProductName
-            // 
-            this.txtProductName.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.txtProductName.Location = new System.Drawing.Point(267, 60);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(252, 29);
-            this.txtProductName.TabIndex = 1;
-            // 
-            // lblProductName
-            // 
-            this.lblProductName.AutoSize = true;
-            this.lblProductName.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.lblProductName.Location = new System.Drawing.Point(131, 60);
-            this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(126, 22);
-            this.lblProductName.TabIndex = 15;
-            this.lblProductName.Text = "ProductName";
-            // 
-            // dtpProductionDate
-            // 
-            this.dtpProductionDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpProductionDate.Location = new System.Drawing.Point(267, 157);
-            this.dtpProductionDate.Name = "dtpProductionDate";
-            this.dtpProductionDate.Size = new System.Drawing.Size(252, 26);
-            this.dtpProductionDate.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label2.Location = new System.Drawing.Point(115, 156);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 22);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Production Date";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.cmbEvent);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtQuntity);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.groupBox1.Location = new System.Drawing.Point(2, 183);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(606, 310);
-            this.groupBox1.TabIndex = 27;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Events Quantity";
-            // 
-            // label5
-            // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label5.Location = new System.Drawing.Point(201, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(316, 56);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Event Location:   ";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 165);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(530, 130);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnSave);
-            this.panel2.Controls.Add(this.btnClear);
-            this.panel2.Controls.Add(this.btnNew);
-            this.panel2.Location = new System.Drawing.Point(156, 509);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(330, 84);
-            this.panel2.TabIndex = 28;
-            // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_window;
-            this.btnClose.Location = new System.Drawing.Point(0, -1);
+            this.btnClose.Location = new System.Drawing.Point(649, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(41, 41);
+            this.btnClose.Size = new System.Drawing.Size(58, 52);
             this.btnClose.TabIndex = 7;
             this.toolTip1.SetToolTip(this.btnClose, "Close");
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSave
             // 
             this.btnSave.Enabled = false;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
             this.btnSave.Location = new System.Drawing.Point(217, 3);
             this.btnSave.Name = "btnSave";
@@ -250,18 +150,10 @@
             this.toolTip1.SetToolTip(this.btnSave, "Save");
             this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // btnClear
-            // 
-            this.btnClear.Enabled = false;
-            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
-            this.btnClear.Location = new System.Drawing.Point(114, 3);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(97, 72);
-            this.btnClear.TabIndex = 15;
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
             // btnNew
             // 
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
             this.btnNew.Location = new System.Drawing.Point(11, 3);
             this.btnNew.Name = "btnNew";
@@ -273,8 +165,10 @@
             // 
             // button5
             // 
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Image = global::AuntRosieApplication.Properties.Resources.down_squared;
-            this.button5.Location = new System.Drawing.Point(546, 219);
+            this.button5.Location = new System.Drawing.Point(501, 219);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(54, 47);
             this.button5.TabIndex = 13;
@@ -283,26 +177,155 @@
             // 
             // button1
             // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
-            this.button1.Location = new System.Drawing.Point(546, 166);
+            this.button1.Location = new System.Drawing.Point(501, 166);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(54, 47);
             this.button1.TabIndex = 12;
             this.toolTip1.SetToolTip(this.button1, "Add");
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // lblProductSize
+            // 
+            this.lblProductSize.AutoSize = true;
+            this.lblProductSize.BackColor = System.Drawing.Color.Transparent;
+            this.lblProductSize.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblProductSize.Location = new System.Drawing.Point(167, 103);
+            this.lblProductSize.Name = "lblProductSize";
+            this.lblProductSize.Size = new System.Drawing.Size(123, 22);
+            this.lblProductSize.TabIndex = 14;
+            this.lblProductSize.Text = "Product  Size";
+            // 
+            // txtProductName
+            // 
+            this.txtProductName.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.txtProductName.Location = new System.Drawing.Point(300, 59);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(252, 29);
+            this.txtProductName.TabIndex = 1;
+            // 
+            // lblProductName
+            // 
+            this.lblProductName.AutoSize = true;
+            this.lblProductName.BackColor = System.Drawing.Color.Transparent;
+            this.lblProductName.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblProductName.Location = new System.Drawing.Point(164, 59);
+            this.lblProductName.Name = "lblProductName";
+            this.lblProductName.Size = new System.Drawing.Size(126, 22);
+            this.lblProductName.TabIndex = 15;
+            this.lblProductName.Text = "ProductName";
+            // 
+            // dtpProductionDate
+            // 
+            this.dtpProductionDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpProductionDate.Location = new System.Drawing.Point(300, 156);
+            this.dtpProductionDate.Name = "dtpProductionDate";
+            this.dtpProductionDate.Size = new System.Drawing.Size(252, 26);
+            this.dtpProductionDate.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label2.Location = new System.Drawing.Point(148, 155);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(146, 22);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Production Date";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.cmbEvent);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtQuntity);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.groupBox1.Location = new System.Drawing.Point(67, 180);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(569, 310);
+            this.groupBox1.TabIndex = 27;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Events Quantity";
+            // 
+            // label5
+            // 
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label5.Location = new System.Drawing.Point(201, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(294, 56);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Event Location:   ";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 166);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(480, 130);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.btnSave);
+            this.panel2.Controls.Add(this.btnClear);
+            this.panel2.Controls.Add(this.btnNew);
+            this.panel2.Location = new System.Drawing.Point(171, 489);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(330, 80);
+            this.panel2.TabIndex = 28;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Enabled = false;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
+            this.btnClear.Location = new System.Drawing.Point(114, 3);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(97, 72);
+            this.btnClear.TabIndex = 15;
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(281, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(161, 32);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Production";
+            // 
             // frmProduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.download;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(620, 605);
+            this.ClientSize = new System.Drawing.Size(708, 605);
             this.ControlBox = false;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpProductionDate);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.cmbProductType);
             this.Controls.Add(this.lblProductSize);
             this.Controls.Add(this.txtProductName);
@@ -310,8 +333,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProduction";
             this.Load += new System.EventHandler(this.frmProduction_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -326,7 +347,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtQuntity;
@@ -345,5 +365,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label6;
     }
 }

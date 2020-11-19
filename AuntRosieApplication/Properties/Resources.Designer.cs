@@ -213,6 +213,16 @@ namespace AuntRosieApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap download {
+            get {
+                object obj = ResourceManager.GetObject("download", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
@@ -586,6 +596,17 @@ namespace AuntRosieApplication.Properties {
         internal static System.Drawing.Bitmap supplier__1_ {
             get {
                 object obj = ResourceManager.GetObject("supplier__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sweet_easter_cake_light_gray_background_spikelets_rye_concept_bright_holiday_121946_1332 {
+            get {
+                object obj = ResourceManager.GetObject("sweet_easter_cake_light_gray_background_spikelets_rye_concept_bright_holiday_1219" +
+                        "46_1332", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -351,6 +351,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\download.jpg" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\sweet-easter-cake-light-gray-background-spikelets-rye-concept-bright-holiday_121946-1332.jpg" />
     <None Include="Resources\checked-2.png" />
     <None Include="Resources\finish-flag.png" />
     <None Include="Resources\arrow-right.png" />
