@@ -189,7 +189,7 @@
                         ToolTip="Creates the new employee"
                         Background="Beige">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/Images/PlusSign.png" Height="24" Width="27" />
+                            
                             <Label Content="Add Employee" Height="27" Width="110"/>
                         </StackPanel>
                     </Button>

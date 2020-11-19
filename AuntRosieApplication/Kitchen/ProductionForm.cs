@@ -19,6 +19,7 @@ namespace AuntRosieApplication.Kitchen
 
         private void frmProduction_Load(object sender, EventArgs e)
         {
+            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
 
         }
 

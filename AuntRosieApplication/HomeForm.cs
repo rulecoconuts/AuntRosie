@@ -18,13 +18,15 @@ namespace AuntRosieApp
 
         private void frmHome_Load(object sender, EventArgs e)
         {
+            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.sweet;
+            this.DoubleBuffered = false;
             relocation(pnlMain);
             relocation(pnlInventory);
             relocation(pnlKitchen);
             relocation(pnlEvent);
             relocation(pnlReportQuery);
             relocation(pnlEmp);
-             
+
             
              
             

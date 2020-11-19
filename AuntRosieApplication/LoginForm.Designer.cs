@@ -35,31 +35,34 @@
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pnlLoginBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLoginBox
             // 
             this.pnlLoginBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnlLoginBox.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+            this.pnlLoginBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlLoginBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlLoginBox.Controls.Add(this.textBox1);
             this.pnlLoginBox.Controls.Add(this.lblTitle);
             this.pnlLoginBox.Controls.Add(this.btnCancel);
             this.pnlLoginBox.Controls.Add(this.btnLogin);
             this.pnlLoginBox.Controls.Add(this.cmbType);
             this.pnlLoginBox.Controls.Add(this.label2);
             this.pnlLoginBox.Controls.Add(this.label1);
-            this.pnlLoginBox.Controls.Add(this.textBox2);
             this.pnlLoginBox.Location = new System.Drawing.Point(166, 102);
             this.pnlLoginBox.Name = "pnlLoginBox";
-            this.pnlLoginBox.Size = new System.Drawing.Size(383, 242);
+            this.pnlLoginBox.Size = new System.Drawing.Size(460, 356);
             this.pnlLoginBox.TabIndex = 0;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(131, 11);
+            this.lblTitle.Location = new System.Drawing.Point(179, 37);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(124, 31);
             this.lblTitle.TabIndex = 5;
@@ -68,23 +71,31 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Location = new System.Drawing.Point(228, 173);
+            this.btnCancel.Image = global::AuntRosieApplication.Properties.Resources.cancel;
+            this.btnCancel.Location = new System.Drawing.Point(265, 229);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(92, 64);
+            this.btnCancel.Size = new System.Drawing.Size(94, 84);
             this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "&Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnLogin
             // 
+            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnLogin.Location = new System.Drawing.Point(131, 173);
+            this.btnLogin.Image = global::AuntRosieApplication.Properties.Resources.login_rounded_right;
+            this.btnLogin.Location = new System.Drawing.Point(165, 229);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(92, 64);
+            this.btnLogin.Size = new System.Drawing.Size(94, 84);
             this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Lo&gin";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // cmbType
             // 
@@ -93,7 +104,7 @@
             this.cmbType.Items.AddRange(new object[] {
             "Admin",
             "User"});
-            this.cmbType.Location = new System.Drawing.Point(138, 75);
+            this.cmbType.Location = new System.Drawing.Point(170, 112);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(189, 31);
             this.cmbType.TabIndex = 3;
@@ -101,8 +112,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(24, 120);
+            this.label2.Location = new System.Drawing.Point(55, 170);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 22);
             this.label2.TabIndex = 2;
@@ -111,35 +123,36 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(24, 79);
+            this.label1.Location = new System.Drawing.Point(55, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 22);
             this.label1.TabIndex = 1;
             this.label1.Text = "User &Type";
             // 
-            // textBox2
+            // textBox1
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial Narrow", 14.25F);
-            this.textBox2.Location = new System.Drawing.Point(138, 120);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(189, 29);
-            this.textBox2.TabIndex = 0;
+            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(170, 163);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '*';
+            this.textBox1.Size = new System.Drawing.Size(188, 29);
+            this.textBox1.TabIndex = 6;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.sweet_easter_cake_light_gray_background_spikelets_rye_concept_bright_holiday_121946_1332;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(672, 486);
+            this.ClientSize = new System.Drawing.Size(783, 552);
             this.ControlBox = false;
             this.Controls.Add(this.pnlLoginBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.pnlLoginBox.ResumeLayout(false);
             this.pnlLoginBox.PerformLayout();
@@ -154,8 +167,8 @@
         private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

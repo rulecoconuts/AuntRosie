@@ -21,5 +21,15 @@ namespace AuntRosieApplication.Employment
         {
             this.Close();
         }
+
+        private void frmPayroll_Load(object sender, EventArgs e)
+        {
+            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

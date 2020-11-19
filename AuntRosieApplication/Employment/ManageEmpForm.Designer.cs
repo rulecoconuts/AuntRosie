@@ -40,7 +40,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,14 +53,15 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.txtsalary = new System.Windows.Forms.TextBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtsalary = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
@@ -69,17 +69,17 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbName
             // 
             this.cmbName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbName.FormattingEnabled = true;
-            this.cmbName.Location = new System.Drawing.Point(244, 49);
+            this.cmbName.Location = new System.Drawing.Point(244, 81);
             this.cmbName.Name = "cmbName";
             this.cmbName.Size = new System.Drawing.Size(235, 31);
             this.cmbName.TabIndex = 61;
@@ -97,6 +97,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.txtFirstName);
@@ -106,8 +107,8 @@
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.txtLastName);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox2.Location = new System.Drawing.Point(28, 85);
+            this.groupBox2.ForeColor = System.Drawing.Color.IndianRed;
+            this.groupBox2.Location = new System.Drawing.Point(28, 117);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(558, 167);
             this.groupBox2.TabIndex = 60;
@@ -187,22 +188,12 @@
             this.textBox6.Size = new System.Drawing.Size(90, 29);
             this.textBox6.TabIndex = 9;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(2, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(617, 42);
-            this.panel1.TabIndex = 58;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(185, 0);
+            this.label4.Location = new System.Drawing.Point(80, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(268, 31);
             this.label4.TabIndex = 0;
@@ -212,7 +203,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.lblName.Location = new System.Drawing.Point(90, 53);
+            this.lblName.Location = new System.Drawing.Point(90, 85);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(151, 22);
             this.lblName.TabIndex = 57;
@@ -288,6 +279,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.txtPostalCode);
             this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.txtProvince);
@@ -297,8 +289,8 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtCity);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(28, 253);
+            this.groupBox1.ForeColor = System.Drawing.Color.IndianRed;
+            this.groupBox1.Location = new System.Drawing.Point(28, 285);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(258, 197);
             this.groupBox1.TabIndex = 59;
@@ -307,18 +299,20 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.btnClear);
             this.panel2.Controls.Add(this.btnNew);
             this.panel2.Controls.Add(this.btnEdit);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.btnDelete);
-            this.panel2.Location = new System.Drawing.Point(49, 456);
+            this.panel2.Location = new System.Drawing.Point(49, 488);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(511, 79);
             this.panel2.TabIndex = 62;
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.radioButton2);
             this.groupBox3.Controls.Add(this.txtsalary);
@@ -328,13 +322,73 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox3.Location = new System.Drawing.Point(292, 253);
+            this.groupBox3.ForeColor = System.Drawing.Color.IndianRed;
+            this.groupBox3.Location = new System.Drawing.Point(292, 285);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(291, 197);
             this.groupBox3.TabIndex = 60;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Emploment Information";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label1.Location = new System.Drawing.Point(6, 111);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 22);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "Salary";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.radioButton2.Location = new System.Drawing.Point(155, 29);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(113, 26);
+            this.radioButton2.TabIndex = 65;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Full Time";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // txtsalary
+            // 
+            this.txtsalary.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.txtsalary.Location = new System.Drawing.Point(70, 108);
+            this.txtsalary.Name = "txtsalary";
+            this.txtsalary.Size = new System.Drawing.Size(90, 29);
+            this.txtsalary.TabIndex = 49;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.radioButton1.Location = new System.Drawing.Point(8, 29);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(117, 26);
+            this.radioButton1.TabIndex = 64;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Part Time";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(10, 165);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(275, 26);
+            this.dateTimePicker1.TabIndex = 63;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(70, 74);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(206, 31);
+            this.comboBox1.TabIndex = 62;
             // 
             // label2
             // 
@@ -358,90 +412,51 @@
             this.label12.TabIndex = 43;
             this.label12.Text = "Role";
             // 
-            // comboBox1
+            // pictureBox1
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(70, 74);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(206, 31);
-            this.comboBox1.TabIndex = 62;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(10, 165);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(275, 26);
-            this.dateTimePicker1.TabIndex = 63;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.radioButton1.Location = new System.Drawing.Point(8, 29);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(117, 26);
-            this.radioButton1.TabIndex = 64;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Part Time";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.radioButton2.Location = new System.Drawing.Point(155, 29);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(113, 26);
-            this.radioButton2.TabIndex = 65;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Full Time";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label1.Location = new System.Drawing.Point(6, 111);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 22);
-            this.label1.TabIndex = 50;
-            this.label1.Text = "Salary";
-            // 
-            // txtsalary
-            // 
-            this.txtsalary.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.txtsalary.Location = new System.Drawing.Point(70, 108);
-            this.txtsalary.Name = "txtsalary";
-            this.txtsalary.Size = new System.Drawing.Size(90, 29);
-            this.txtsalary.TabIndex = 49;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::AuntRosieApplication.Properties.Resources.services;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(62, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 139;
+            this.pictureBox1.TabStop = false;
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_window;
-            this.btnClose.Location = new System.Drawing.Point(0, -1);
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
+            this.btnClose.Location = new System.Drawing.Point(538, 34);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(41, 41);
-            this.btnClose.TabIndex = 13;
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Size = new System.Drawing.Size(58, 52);
+            this.btnClose.TabIndex = 63;
+            this.toolTip1.SetToolTip(this.btnClose, "Close");
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnClear
             // 
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
             this.btnClear.Enabled = false;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
             this.btnClear.Location = new System.Drawing.Point(306, 3);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(97, 72);
             this.btnClear.TabIndex = 13;
             this.toolTip1.SetToolTip(this.btnClear, "Clear");
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             // 
             // btnNew
             // 
+            this.btnNew.BackColor = System.Drawing.Color.Transparent;
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
             this.btnNew.Location = new System.Drawing.Point(5, 4);
             this.btnNew.Name = "btnNew";
@@ -449,50 +464,61 @@
             this.btnNew.TabIndex = 9;
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.btnNew, "New");
-            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.UseVisualStyleBackColor = false;
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Image = global::AuntRosieApplication.Properties.Resources.edit;
             this.btnEdit.Location = new System.Drawing.Point(105, 4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(97, 72);
             this.btnEdit.TabIndex = 10;
             this.toolTip1.SetToolTip(this.btnEdit, "Edit");
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
             this.btnSave.Enabled = false;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
             this.btnSave.Location = new System.Drawing.Point(407, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(97, 72);
             this.btnSave.TabIndex = 12;
             this.toolTip1.SetToolTip(this.btnSave, "Save");
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Image = global::AuntRosieApplication.Properties.Resources.delete_sign;
             this.btnDelete.Location = new System.Drawing.Point(206, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(97, 72);
             this.btnDelete.TabIndex = 11;
             this.toolTip1.SetToolTip(this.btnDelete, "Delete");
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // frmManagEmp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(620, 547);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(618, 588);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cmbName);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -502,21 +528,18 @@
             this.Load += new System.EventHandler(this.frmManagEmp_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ComboBox cmbName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -528,7 +551,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label3;
@@ -555,5 +577,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtsalary;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

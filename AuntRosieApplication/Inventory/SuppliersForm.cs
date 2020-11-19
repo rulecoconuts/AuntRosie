@@ -21,5 +21,11 @@ namespace AuntRosieApplication.Inventory
         {
             this.Close();
         }
+
+        private void SuppliersForm_Load(object sender, EventArgs e)
+        {
+            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+
+        }
     }
 }

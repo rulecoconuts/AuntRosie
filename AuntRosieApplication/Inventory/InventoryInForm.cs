@@ -83,5 +83,23 @@ namespace AuntRosieApplication.Inventory
         {
             this.Close();
         }
+
+        private void InventoryInForm_Load(object sender, EventArgs e)
+        {
+            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+
+        }
+
+        private void btnNewTypeClose_Click_1(object sender, EventArgs e)
+        {
+            pnlNewType.Visible = false;
+            pnlMain.Enabled = true;
+        }
+
+        private void btnNewIngredintClose_Click_1(object sender, EventArgs e)
+        {
+            pnlNewType.Visible = false;
+            pnlMain.Enabled = true;
+        }
     }
 }

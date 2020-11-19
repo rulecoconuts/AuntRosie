@@ -22,7 +22,8 @@ namespace AuntRosieApp.Kitchen
 
         private void frmManageProduct_Load(object sender, EventArgs e)
         {
-             
+            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+
         }
 
         private void frmManageProduct_FormClosed(object sender, FormClosedEventArgs e)

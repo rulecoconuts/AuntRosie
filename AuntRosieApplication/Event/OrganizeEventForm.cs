@@ -19,6 +19,7 @@ namespace AuntRosieApplication.Event
 
         private void frmOrganizeEvent_Load(object sender, EventArgs e)
         {
+            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
 
         }
         #region helpper-functions

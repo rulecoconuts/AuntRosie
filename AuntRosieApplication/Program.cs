@@ -16,7 +16,8 @@ namespace AuntRosieApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AuntRosieApp.frmHome());
+            // Application.Run(new AuntRosieApp.frmHome());
+            Application.Run(new frmLogin());
         }
     }
 }

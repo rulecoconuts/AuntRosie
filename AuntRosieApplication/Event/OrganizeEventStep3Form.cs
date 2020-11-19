@@ -40,5 +40,11 @@ namespace AuntRosieApplication.Event
         {
             this.Close();
         }
+
+        private void frmOrganizeEventStep3_Load(object sender, EventArgs e)
+        {
+            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+
+        }
     }
 }

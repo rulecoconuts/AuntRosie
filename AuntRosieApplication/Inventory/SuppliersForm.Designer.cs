@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.components = new System.ComponentModel.Container();
             this.label4 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,28 +57,20 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(1, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(619, 42);
-            this.panel1.TabIndex = 36;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(259, 0);
+            this.label4.Location = new System.Drawing.Point(80, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(136, 31);
             this.label4.TabIndex = 0;
@@ -88,7 +80,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.lblName.Location = new System.Drawing.Point(91, 66);
+            this.lblName.Location = new System.Drawing.Point(91, 85);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(135, 22);
             this.lblName.TabIndex = 35;
@@ -153,6 +145,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.txtPostalCode);
             this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.txtProvince);
@@ -162,8 +155,8 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtCity);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(29, 271);
+            this.groupBox1.ForeColor = System.Drawing.Color.IndianRed;
+            this.groupBox1.Location = new System.Drawing.Point(29, 290);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(558, 173);
             this.groupBox1.TabIndex = 47;
@@ -191,6 +184,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.txtSupplierFirstName);
@@ -200,8 +194,8 @@
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.txtSupplierLastName);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox2.Location = new System.Drawing.Point(29, 98);
+            this.groupBox2.ForeColor = System.Drawing.Color.IndianRed;
+            this.groupBox2.Location = new System.Drawing.Point(29, 117);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(558, 173);
             this.groupBox2.TabIndex = 49;
@@ -288,111 +282,149 @@
             // 
             this.cmbSupplierName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSupplierName.FormattingEnabled = true;
-            this.cmbSupplierName.Location = new System.Drawing.Point(245, 62);
+            this.cmbSupplierName.Location = new System.Drawing.Point(245, 81);
             this.cmbSupplierName.Name = "cmbSupplierName";
             this.cmbSupplierName.Size = new System.Drawing.Size(235, 31);
             this.cmbSupplierName.TabIndex = 55;
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.btnClear);
             this.panel2.Controls.Add(this.btnNew);
             this.panel2.Controls.Add(this.btnEdit);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.btnDelete);
-            this.panel2.Location = new System.Drawing.Point(47, 454);
+            this.panel2.Location = new System.Drawing.Point(56, 469);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(511, 79);
-            this.panel2.TabIndex = 56;
+            this.panel2.TabIndex = 142;
             // 
             // btnClear
             // 
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
             this.btnClear.Enabled = false;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
             this.btnClear.Location = new System.Drawing.Point(306, 3);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(97, 72);
             this.btnClear.TabIndex = 13;
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnClear, "Clear");
+            this.btnClear.UseVisualStyleBackColor = false;
             // 
             // btnNew
             // 
+            this.btnNew.BackColor = System.Drawing.Color.Transparent;
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
             this.btnNew.Location = new System.Drawing.Point(5, 4);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(97, 72);
             this.btnNew.TabIndex = 9;
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnNew.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnNew, "New");
+            this.btnNew.UseVisualStyleBackColor = false;
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Image = global::AuntRosieApplication.Properties.Resources.edit;
             this.btnEdit.Location = new System.Drawing.Point(105, 4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(97, 72);
             this.btnEdit.TabIndex = 10;
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnEdit, "Edit");
+            this.btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
             this.btnSave.Enabled = false;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
             this.btnSave.Location = new System.Drawing.Point(407, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(97, 72);
             this.btnSave.TabIndex = 12;
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnSave, "Save");
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Image = global::AuntRosieApplication.Properties.Resources.delete_sign;
             this.btnDelete.Location = new System.Drawing.Point(206, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(97, 72);
             this.btnDelete.TabIndex = 11;
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnDelete, "Delete");
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnClose
             // 
-            this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_window;
-            this.btnClose.Location = new System.Drawing.Point(0, -1);
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
+            this.btnClose.Location = new System.Drawing.Point(540, 12);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(41, 41);
-            this.btnClose.TabIndex = 13;
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Size = new System.Drawing.Size(58, 52);
+            this.btnClose.TabIndex = 141;
+            this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::AuntRosieApplication.Properties.Resources.supplier__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(62, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 144;
+            this.pictureBox1.TabStop = false;
             // 
             // SuppliersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(622, 561);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbSupplierName);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SuppliersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SuppliersForm";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Load += new System.EventHandler(this.SuppliersForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label3;
@@ -414,11 +446,14 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtSupplierLastName;
         private System.Windows.Forms.ComboBox cmbSupplierName;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
