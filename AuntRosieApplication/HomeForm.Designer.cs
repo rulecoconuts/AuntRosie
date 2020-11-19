@@ -166,9 +166,9 @@
             this.pnlExit.Controls.Add(this.btnShowMain);
             this.pnlExit.Controls.Add(this.btnExit);
             this.pnlExit.Controls.Add(this.btnHelp);
-            this.pnlExit.Location = new System.Drawing.Point(52, 485);
+            this.pnlExit.Location = new System.Drawing.Point(53, 485);
             this.pnlExit.Name = "pnlExit";
-            this.pnlExit.Size = new System.Drawing.Size(224, 57);
+            this.pnlExit.Size = new System.Drawing.Size(175, 53);
             this.pnlExit.TabIndex = 10;
             // 
             // mnuMain
@@ -254,8 +254,8 @@
             // tmnEvent
             // 
             this.tmnEvent.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tmnOrginizeEvent,
-            this.tmnSales});
+            this.tmnSales,
+            this.tmnOrginizeEvent});
             this.tmnEvent.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnEvent.Name = "tmnEvent";
             this.tmnEvent.Size = new System.Drawing.Size(86, 35);
@@ -594,7 +594,7 @@
             this.btnShowMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowMain.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnShowMain.Image = global::AuntRosieApplication.Properties.Resources.home;
-            this.btnShowMain.Location = new System.Drawing.Point(56, 3);
+            this.btnShowMain.Location = new System.Drawing.Point(2, 0);
             this.btnShowMain.Name = "btnShowMain";
             this.btnShowMain.Size = new System.Drawing.Size(54, 48);
             this.btnShowMain.TabIndex = 6;
@@ -610,7 +610,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnExit.Image = global::AuntRosieApplication.Properties.Resources.shutdown;
-            this.btnExit.Location = new System.Drawing.Point(167, 3);
+            this.btnExit.Location = new System.Drawing.Point(113, 0);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(54, 48);
             this.btnExit.TabIndex = 8;
@@ -626,7 +626,7 @@
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnHelp.Image = global::AuntRosieApplication.Properties.Resources.question_mark;
-            this.btnHelp.Location = new System.Drawing.Point(110, 3);
+            this.btnHelp.Location = new System.Drawing.Point(56, 0);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(54, 48);
             this.btnHelp.TabIndex = 7;
