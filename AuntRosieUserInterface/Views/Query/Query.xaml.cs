@@ -34,7 +34,7 @@ namespace AuntRosieUserInterface.Views.Query
             btnLowerProducts.Background = null;
 
             HomeScreen.Content = null;
-            HomeScreen.Content = new ProductQuery();
+            //HomeScreen.Content = new ProductQuery();
         }
 
         private void OpenTopProducts_Click(object sender, RoutedEventArgs e)
@@ -45,7 +45,7 @@ namespace AuntRosieUserInterface.Views.Query
             btnLowerProducts.Background = null;
 
             HomeScreen.Content = null;
-            HomeScreen.Content = new TopProducts();
+            //HomeScreen.Content = new TopProducts();
         }
 
         private void OpenLowerProducts_Click(object sender, RoutedEventArgs e)
@@ -56,7 +56,7 @@ namespace AuntRosieUserInterface.Views.Query
             btnLowerProducts.Background = new SolidColorBrush(Colors.Red);
 
             HomeScreen.Content = null;
-            HomeScreen.Content = new LowerProducts();
+            //HomeScreen.Content = new LowerProducts();
         }
     }
 }
