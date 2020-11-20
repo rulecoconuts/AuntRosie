@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using AuntRosieEntities;
 namespace AuntRosieApplication.Inventory
 {
     public partial class InventoryInForm : Form
@@ -36,6 +36,7 @@ namespace AuntRosieApplication.Inventory
         {
             pnlMain.Enabled = false;
             ViewPanel(pnlNewType);
+            txtxNewType.Focus();
         }
 
         #region helpper-functions
@@ -86,14 +87,12 @@ namespace AuntRosieApplication.Inventory
 
         private void InventoryInForm_Load(object sender, EventArgs e)
         {
-            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+           this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+           FillCombBox( AuntRosieEntities.IngredientType.GetAllIngredintType
+               (Classes.DBMethod.GetConnectionString()),cmbType);
+           FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
+               (Classes.DBMethod.GetConnectionString()), cmbNewtype);
 
-        }
-
-        private void btnNewTypeClose_Click_1(object sender, EventArgs e)
-        {
-            pnlNewType.Visible = false;
-            pnlMain.Enabled = true;
         }
 
         private void btnNewIngredintClose_Click_1(object sender, EventArgs e)
@@ -101,5 +100,59 @@ namespace AuntRosieApplication.Inventory
             pnlNewType.Visible = false;
             pnlMain.Enabled = true;
         }
+
+        private void btnNewTypetClear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNewTypeCancel_Click(object sender, EventArgs e)
+        {
+            pnlNewType.Visible = false;
+            pnlMain.Enabled = true;
+        }
+
+        private void txtxNewType_TextChanged(object sender, EventArgs e)
+        {
+            if (txtxNewType.Text.Length>=3)
+            {
+                btnNewTypetSave.Enabled = true;
+            }
+            else
+            {
+                btnNewTypetSave.Enabled = false;
+            }
+        }
+
+        private void btnNewTypetSave_Click(object sender, EventArgs e)
+        {
+            IngredientType newType = new IngredientType();
+            if (txtxNewType.Text.Length >= 3)
+            {
+                newType.Name = txtxNewType.Text;
+                newType.Create();
+            }
+
+            else
+            {
+                MessageBox.Show("Ingredient Type Name could not contain less than 3 character", "ENTRY ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        #region Helpers-Functionsnctons 
+
+        private void FillCombBox(DataTable dt , ComboBox cmb )
+
+            {
+
+            foreach (DataRow row in dt.Rows)
+            {AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
+                 itm.name = row[1].ToString();
+                itm.id = row[0].ToString();
+                cmb.Items.Add((Object)itm);
+            }
+        }
+
+        #endregion
     }
 }

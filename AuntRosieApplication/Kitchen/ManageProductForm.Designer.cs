@@ -34,6 +34,15 @@
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.lblProductType = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.cmbProductType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbServingSize = new System.Windows.Forms.ComboBox();
@@ -67,16 +76,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -86,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProductName
@@ -119,6 +117,125 @@
             this.lblProductType.Size = new System.Drawing.Size(123, 22);
             this.lblProductType.TabIndex = 0;
             this.lblProductType.Text = "Product Type";
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
+            this.btnClear.Enabled = false;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
+            this.btnClear.Location = new System.Drawing.Point(320, 3);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(97, 72);
+            this.btnClear.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.btnClear, "Clear");
+            this.btnClear.UseVisualStyleBackColor = false;
+            // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.Color.Transparent;
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
+            this.btnNew.Location = new System.Drawing.Point(19, 4);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(97, 72);
+            this.btnNew.TabIndex = 9;
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.toolTip1.SetToolTip(this.btnNew, "New");
+            this.btnNew.UseVisualStyleBackColor = false;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Image = global::AuntRosieApplication.Properties.Resources.edit;
+            this.btnEdit.Location = new System.Drawing.Point(119, 4);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(97, 72);
+            this.btnEdit.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.btnEdit, "Edit");
+            this.btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
+            this.btnSave.Enabled = false;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
+            this.btnSave.Location = new System.Drawing.Point(421, 4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(97, 72);
+            this.btnSave.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.btnSave, "Save");
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Image = global::AuntRosieApplication.Properties.Resources.delete_sign;
+            this.btnDelete.Location = new System.Drawing.Point(220, 4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(97, 72);
+            this.btnDelete.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.btnDelete, "Delete");
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
+            this.btnClose.Location = new System.Drawing.Point(881, 20);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(58, 52);
+            this.btnClose.TabIndex = 64;
+            this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(378, 67);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(54, 47);
+            this.button3.TabIndex = 20;
+            this.toolTip1.SetToolTip(this.button3, "Add new ingredint");
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(500, 31);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(54, 47);
+            this.button2.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.button2, "Add  new product size with its ingredints");
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::AuntRosieApplication.Properties.Resources.low_importance;
+            this.button1.Location = new System.Drawing.Point(281, 143);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(54, 47);
+            this.button1.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.button1, "Add new nuitrition");
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // cmbProductType
             // 
@@ -168,7 +285,7 @@
             this.groupBox1.Controls.Add(this.cmbNutritionName);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.IndianRed;
+            this.groupBox1.ForeColor = System.Drawing.Color.Goldenrod;
             this.groupBox1.Location = new System.Drawing.Point(24, 205);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(341, 426);
@@ -282,10 +399,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(92, 36);
+            this.label4.Font = new System.Drawing.Font("Algerian", 20.25F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label4.Location = new System.Drawing.Point(35, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(241, 31);
+            this.label4.Size = new System.Drawing.Size(275, 30);
             this.label4.TabIndex = 0;
             this.label4.Text = "Manage Products";
             // 
@@ -300,7 +418,7 @@
             this.groupBox3.Controls.Add(this.cmbSizes);
             this.groupBox3.Controls.Add(this.dataGridView2);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.IndianRed;
+            this.groupBox3.ForeColor = System.Drawing.Color.Goldenrod;
             this.groupBox3.Location = new System.Drawing.Point(371, 205);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(554, 426);
@@ -466,7 +584,7 @@
             this.groupBox5.Controls.Add(this.label1);
             this.groupBox5.Controls.Add(this.cmbServingSize);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.ForeColor = System.Drawing.Color.IndianRed;
+            this.groupBox5.ForeColor = System.Drawing.Color.Goldenrod;
             this.groupBox5.Location = new System.Drawing.Point(24, 78);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(901, 127);
@@ -519,143 +637,12 @@
             this.panel2.Size = new System.Drawing.Size(523, 79);
             this.panel2.TabIndex = 65;
             // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.Transparent;
-            this.btnClear.Enabled = false;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
-            this.btnClear.Location = new System.Drawing.Point(320, 3);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(97, 72);
-            this.btnClear.TabIndex = 13;
-            this.toolTip1.SetToolTip(this.btnClear, "Clear");
-            this.btnClear.UseVisualStyleBackColor = false;
-            // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.Color.Transparent;
-            this.btnNew.FlatAppearance.BorderSize = 0;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
-            this.btnNew.Location = new System.Drawing.Point(19, 4);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(97, 72);
-            this.btnNew.TabIndex = 9;
-            this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.toolTip1.SetToolTip(this.btnNew, "New");
-            this.btnNew.UseVisualStyleBackColor = false;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Image = global::AuntRosieApplication.Properties.Resources.edit;
-            this.btnEdit.Location = new System.Drawing.Point(119, 4);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(97, 72);
-            this.btnEdit.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.btnEdit, "Edit");
-            this.btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.Transparent;
-            this.btnSave.Enabled = false;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
-            this.btnSave.Location = new System.Drawing.Point(421, 4);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(97, 72);
-            this.btnSave.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.btnSave, "Save");
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Image = global::AuntRosieApplication.Properties.Resources.delete_sign;
-            this.btnDelete.Location = new System.Drawing.Point(220, 4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(97, 72);
-            this.btnDelete.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.btnDelete, "Delete");
-            this.btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(881, 20);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(58, 52);
-            this.btnClose.TabIndex = 64;
-            this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(378, 67);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(54, 47);
-            this.button3.TabIndex = 20;
-            this.toolTip1.SetToolTip(this.button3, "Add new ingredint");
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(500, 31);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(54, 47);
-            this.button2.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.button2, "Add  new product size with its ingredints");
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::AuntRosieApplication.Properties.Resources.low_importance;
-            this.button1.Location = new System.Drawing.Point(281, 143);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(54, 47);
-            this.button1.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.button1, "Add new nuitrition");
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::AuntRosieApplication.Properties.Resources.services;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 139;
-            this.pictureBox1.TabStop = false;
-            // 
             // frmManageProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(967, 739);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label4);
@@ -683,7 +670,6 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -737,6 +723,5 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

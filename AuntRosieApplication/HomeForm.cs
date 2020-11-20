@@ -13,11 +13,14 @@ namespace AuntRosieApp
         public frmHome()
         {
             InitializeComponent();
+            this.Visible = false;
         }
  
 
         private void frmHome_Load(object sender, EventArgs e)
         {
+            ShowMainMenu();
+           
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.sweet;
             this.DoubleBuffered = false;
             relocation(pnlMain);
@@ -32,11 +35,11 @@ namespace AuntRosieApp
             
             pnlExit.Left=  this.Width- pnlExit.Width ;
             pnlExit.Top = 0 ;
-            ShowMainMenu();
-
+            
+            this.Visible = true;
 
         }
-        #region helpperFunctions
+        #region Helpers-Functions
 
         private void ShowMainMenu()
         {

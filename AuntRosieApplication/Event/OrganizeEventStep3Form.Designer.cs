@@ -32,6 +32,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnAddLocation = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEventName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -42,14 +46,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnAddLocation = new System.Windows.Forms.Button();
             this.grbNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -67,12 +65,68 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(80, 33);
+            this.label4.Font = new System.Drawing.Font("Algerian", 20.25F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label4.Location = new System.Drawing.Point(35, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(293, 31);
+            this.label4.Size = new System.Drawing.Size(328, 30);
             this.label4.TabIndex = 0;
             this.label4.Text = "Orgnize Event- Step3";
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
+            this.btnClose.Location = new System.Drawing.Point(506, 12);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(58, 52);
+            this.btnClose.TabIndex = 139;
+            this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Image = global::AuntRosieApplication.Properties.Resources.arrow_left;
+            this.btnBack.Location = new System.Drawing.Point(193, 470);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(64, 57);
+            this.btnBack.TabIndex = 125;
+            this.toolTip1.SetToolTip(this.btnBack, "Back");
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.Transparent;
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
+            this.btnNext.Location = new System.Drawing.Point(263, 470);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(64, 57);
+            this.btnNext.TabIndex = 122;
+            this.toolTip1.SetToolTip(this.btnNext, "Next");
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnAddLocation
+            // 
+            this.btnAddLocation.FlatAppearance.BorderSize = 0;
+            this.btnAddLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddLocation.Image = global::AuntRosieApplication.Properties.Resources.low_importance;
+            this.btnAddLocation.Location = new System.Drawing.Point(476, 121);
+            this.btnAddLocation.Name = "btnAddLocation";
+            this.btnAddLocation.Size = new System.Drawing.Size(41, 42);
+            this.btnAddLocation.TabIndex = 113;
+            this.toolTip1.SetToolTip(this.btnAddLocation, "Add new Location");
+            this.btnAddLocation.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -178,79 +232,12 @@
             this.progressBar1.TabIndex = 135;
             this.progressBar1.Value = 75;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::AuntRosieApplication.Properties.Resources.event_declined;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 140;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(506, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(58, 52);
-            this.btnClose.TabIndex = 139;
-            this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Image = global::AuntRosieApplication.Properties.Resources.arrow_left;
-            this.btnBack.Location = new System.Drawing.Point(193, 470);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(64, 57);
-            this.btnBack.TabIndex = 125;
-            this.toolTip1.SetToolTip(this.btnBack, "Back");
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.Color.Transparent;
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
-            this.btnNext.Location = new System.Drawing.Point(263, 470);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(64, 57);
-            this.btnNext.TabIndex = 122;
-            this.toolTip1.SetToolTip(this.btnNext, "Next");
-            this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnAddLocation
-            // 
-            this.btnAddLocation.FlatAppearance.BorderSize = 0;
-            this.btnAddLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddLocation.Image = global::AuntRosieApplication.Properties.Resources.low_importance;
-            this.btnAddLocation.Location = new System.Drawing.Point(476, 121);
-            this.btnAddLocation.Name = "btnAddLocation";
-            this.btnAddLocation.Size = new System.Drawing.Size(41, 42);
-            this.btnAddLocation.TabIndex = 113;
-            this.toolTip1.SetToolTip(this.btnAddLocation, "Add new Location");
-            this.btnAddLocation.UseVisualStyleBackColor = true;
-            // 
             // frmOrganizeEventStep3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(585, 603);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label4);
@@ -268,7 +255,6 @@
             this.grbNew.ResumeLayout(false);
             this.grbNew.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,6 +279,5 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
