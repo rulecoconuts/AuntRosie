@@ -48,7 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -71,6 +73,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AuntRosieDBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Classes\DBMethod.cs" />
     <Compile Include="Employment\ManageEmpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +116,12 @@
     <Compile Include="Event\SalesForm.Designer.cs">
       <DependentUpon>SalesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +152,7 @@
     <Compile Include="Kitchen\ProductionForm.Designer.cs">
       <DependentUpon>ProductionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\ListItem.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Event\SalesForm.resx">
       <DependentUpon>SalesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -397,6 +410,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AuntRosieEntities\AuntRosieEntities.csproj">
+      <Project>{1abd60a6-2a4b-449a-9ea8-b54b384560fe}</Project>
+      <Name>AuntRosieEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

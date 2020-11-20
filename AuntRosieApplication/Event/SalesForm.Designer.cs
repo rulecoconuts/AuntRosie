@@ -32,6 +32,9 @@
             this.label20 = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -44,9 +47,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnAddToCart = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddCustomer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -55,12 +60,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbName = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnNewTypeCancel = new System.Windows.Forms.Button();
+            this.btnNewTypetClear = new System.Windows.Forms.Button();
             this.pnlNewcustomer = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnNewTypeCancel = new System.Windows.Forms.Button();
-            this.btnNewTypetClear = new System.Windows.Forms.Button();
-            this.btnNewTypeClose = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -68,12 +72,6 @@
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnAddToCart = new System.Windows.Forms.Button();
-            this.btnAddCustomer = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -82,17 +80,16 @@
             this.groupBox1.SuspendLayout();
             this.grbNew.SuspendLayout();
             this.pnlNewcustomer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label20.Location = new System.Drawing.Point(78, 30);
+            this.label20.Font = new System.Drawing.Font("Algerian", 20.25F, System.Drawing.FontStyle.Bold);
+            this.label20.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label20.Location = new System.Drawing.Point(35, 25);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(86, 32);
+            this.label20.Size = new System.Drawing.Size(100, 30);
             this.label20.TabIndex = 123;
             this.label20.Text = "Sales";
             // 
@@ -118,6 +115,48 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(377, 60);
             this.panel3.TabIndex = 140;
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
+            this.btnClear.Enabled = false;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
+            this.btnClear.Location = new System.Drawing.Point(162, 3);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(78, 54);
+            this.btnClear.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.btnClear, "Clear");
+            this.btnClear.UseVisualStyleBackColor = false;
+            // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.Color.Transparent;
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
+            this.btnNew.Location = new System.Drawing.Point(59, 3);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(97, 54);
+            this.btnNew.TabIndex = 9;
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.toolTip1.SetToolTip(this.btnNew, "New");
+            this.btnNew.UseVisualStyleBackColor = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
+            this.btnSave.Enabled = false;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
+            this.btnSave.Location = new System.Drawing.Point(223, 3);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(97, 54);
+            this.btnSave.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.btnSave, "Save");
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // groupBox2
             // 
@@ -253,6 +292,18 @@
             this.label6.TabIndex = 125;
             this.label6.Text = "Quantity";
             // 
+            // btnAddToCart
+            // 
+            this.btnAddToCart.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddToCart.FlatAppearance.BorderSize = 0;
+            this.btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddToCart.Image = global::AuntRosieApplication.Properties.Resources.add_shopping_cart;
+            this.btnAddToCart.Location = new System.Drawing.Point(628, 29);
+            this.btnAddToCart.Name = "btnAddToCart";
+            this.btnAddToCart.Size = new System.Drawing.Size(55, 51);
+            this.btnAddToCart.TabIndex = 123;
+            this.btnAddToCart.UseVisualStyleBackColor = false;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -285,6 +336,20 @@
             this.groupBox1.Size = new System.Drawing.Size(347, 187);
             this.groupBox1.TabIndex = 138;
             this.groupBox1.TabStop = false;
+            // 
+            // btnAddCustomer
+            // 
+            this.btnAddCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddCustomer.FlatAppearance.BorderSize = 0;
+            this.btnAddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCustomer.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
+            this.btnAddCustomer.Location = new System.Drawing.Point(300, 44);
+            this.btnAddCustomer.Name = "btnAddCustomer";
+            this.btnAddCustomer.Size = new System.Drawing.Size(41, 42);
+            this.btnAddCustomer.TabIndex = 123;
+            this.toolTip1.SetToolTip(this.btnAddCustomer, "Add new customer");
+            this.btnAddCustomer.UseVisualStyleBackColor = false;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // label1
             // 
@@ -360,52 +425,6 @@
             this.cmbName.Size = new System.Drawing.Size(332, 31);
             this.cmbName.TabIndex = 108;
             // 
-            // pnlNewcustomer
-            // 
-            this.pnlNewcustomer.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
-            this.pnlNewcustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlNewcustomer.Controls.Add(this.label4);
-            this.pnlNewcustomer.Controls.Add(this.label8);
-            this.pnlNewcustomer.Controls.Add(this.btnNewTypeCancel);
-            this.pnlNewcustomer.Controls.Add(this.btnNewTypetClear);
-            this.pnlNewcustomer.Controls.Add(this.btnNewTypeClose);
-            this.pnlNewcustomer.Controls.Add(this.txtEmail);
-            this.pnlNewcustomer.Controls.Add(this.txtFirstName);
-            this.pnlNewcustomer.Controls.Add(this.label9);
-            this.pnlNewcustomer.Controls.Add(this.label10);
-            this.pnlNewcustomer.Controls.Add(this.txtPhone);
-            this.pnlNewcustomer.Controls.Add(this.label11);
-            this.pnlNewcustomer.Controls.Add(this.txtLastName);
-            this.pnlNewcustomer.Location = new System.Drawing.Point(185, 33);
-            this.pnlNewcustomer.Name = "pnlNewcustomer";
-            this.pnlNewcustomer.Size = new System.Drawing.Size(479, 282);
-            this.pnlNewcustomer.TabIndex = 21;
-            this.pnlNewcustomer.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label4.ForeColor = System.Drawing.Color.IndianRed;
-            this.label4.Location = new System.Drawing.Point(187, 35);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(175, 22);
-            this.label4.TabIndex = 57;
-            this.label4.Text = "Add New Customer";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label8.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label8.Location = new System.Drawing.Point(67, 183);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 22);
-            this.label8.TabIndex = 56;
-            this.label8.Text = "Email";
-            // 
             // btnNewTypeCancel
             // 
             this.btnNewTypeCancel.BackColor = System.Drawing.Color.Transparent;
@@ -432,19 +451,50 @@
             this.toolTip1.SetToolTip(this.btnNewTypetClear, "Save");
             this.btnNewTypetClear.UseVisualStyleBackColor = false;
             // 
-            // btnNewTypeClose
+            // pnlNewcustomer
             // 
-            this.btnNewTypeClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnNewTypeClose.FlatAppearance.BorderSize = 0;
-            this.btnNewTypeClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewTypeClose.Image = global::AuntRosieApplication.Properties.Resources.macos_close;
-            this.btnNewTypeClose.Location = new System.Drawing.Point(12, 9);
-            this.btnNewTypeClose.Name = "btnNewTypeClose";
-            this.btnNewTypeClose.Size = new System.Drawing.Size(36, 38);
-            this.btnNewTypeClose.TabIndex = 20;
-            this.toolTip1.SetToolTip(this.btnNewTypeClose, "Close add new customer box");
-            this.btnNewTypeClose.UseVisualStyleBackColor = false;
-            this.btnNewTypeClose.Click += new System.EventHandler(this.btnNewTypeClose_Click);
+            this.pnlNewcustomer.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+            this.pnlNewcustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlNewcustomer.Controls.Add(this.label4);
+            this.pnlNewcustomer.Controls.Add(this.label8);
+            this.pnlNewcustomer.Controls.Add(this.btnNewTypeCancel);
+            this.pnlNewcustomer.Controls.Add(this.btnNewTypetClear);
+            this.pnlNewcustomer.Controls.Add(this.txtEmail);
+            this.pnlNewcustomer.Controls.Add(this.txtFirstName);
+            this.pnlNewcustomer.Controls.Add(this.label9);
+            this.pnlNewcustomer.Controls.Add(this.label10);
+            this.pnlNewcustomer.Controls.Add(this.txtPhone);
+            this.pnlNewcustomer.Controls.Add(this.label11);
+            this.pnlNewcustomer.Controls.Add(this.txtLastName);
+            this.pnlNewcustomer.Location = new System.Drawing.Point(185, 33);
+            this.pnlNewcustomer.Name = "pnlNewcustomer";
+            this.pnlNewcustomer.Size = new System.Drawing.Size(479, 282);
+            this.pnlNewcustomer.TabIndex = 21;
+            this.pnlNewcustomer.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label4.ForeColor = System.Drawing.Color.Goldenrod;
+            this.label4.Location = new System.Drawing.Point(187, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(175, 22);
+            this.label4.TabIndex = 57;
+            this.label4.Text = "Add New Customer";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label8.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label8.Location = new System.Drawing.Point(67, 183);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 22);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "Email";
             // 
             // txtEmail
             // 
@@ -514,85 +564,6 @@
             this.txtLastName.Size = new System.Drawing.Size(303, 29);
             this.txtLastName.TabIndex = 50;
             // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.Transparent;
-            this.btnClear.Enabled = false;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
-            this.btnClear.Location = new System.Drawing.Point(162, 3);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(78, 54);
-            this.btnClear.TabIndex = 13;
-            this.toolTip1.SetToolTip(this.btnClear, "Clear");
-            this.btnClear.UseVisualStyleBackColor = false;
-            // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.Color.Transparent;
-            this.btnNew.FlatAppearance.BorderSize = 0;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
-            this.btnNew.Location = new System.Drawing.Point(59, 3);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(97, 54);
-            this.btnNew.TabIndex = 9;
-            this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.toolTip1.SetToolTip(this.btnNew, "New");
-            this.btnNew.UseVisualStyleBackColor = false;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.Transparent;
-            this.btnSave.Enabled = false;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
-            this.btnSave.Location = new System.Drawing.Point(223, 3);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(97, 54);
-            this.btnSave.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.btnSave, "Save");
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnAddToCart
-            // 
-            this.btnAddToCart.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddToCart.FlatAppearance.BorderSize = 0;
-            this.btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddToCart.Image = global::AuntRosieApplication.Properties.Resources.add_shopping_cart;
-            this.btnAddToCart.Location = new System.Drawing.Point(628, 29);
-            this.btnAddToCart.Name = "btnAddToCart";
-            this.btnAddToCart.Size = new System.Drawing.Size(55, 51);
-            this.btnAddToCart.TabIndex = 123;
-            this.btnAddToCart.UseVisualStyleBackColor = false;
-            // 
-            // btnAddCustomer
-            // 
-            this.btnAddCustomer.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddCustomer.FlatAppearance.BorderSize = 0;
-            this.btnAddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddCustomer.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
-            this.btnAddCustomer.Location = new System.Drawing.Point(300, 44);
-            this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(41, 42);
-            this.btnAddCustomer.TabIndex = 123;
-            this.toolTip1.SetToolTip(this.btnAddCustomer, "Add new customer");
-            this.btnAddCustomer.UseVisualStyleBackColor = false;
-            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::AuntRosieApplication.Properties.Resources.receipt;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 138;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
@@ -615,7 +586,6 @@
             this.ClientSize = new System.Drawing.Size(787, 695);
             this.Controls.Add(this.pnlNewcustomer);
             this.Controls.Add(this.pnlMain);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.btnClose);
             this.DoubleBuffered = true;
@@ -635,14 +605,12 @@
             this.grbNew.PerformLayout();
             this.pnlNewcustomer.ResumeLayout(false);
             this.pnlNewcustomer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnNewTypeClose;
         private System.Windows.Forms.Button btnNewTypeCancel;
         private System.Windows.Forms.Button btnNewTypetClear;
         private System.Windows.Forms.Panel pnlNewcustomer;
@@ -657,7 +625,6 @@
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnClear;

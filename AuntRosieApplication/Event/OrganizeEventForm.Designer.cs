@@ -35,6 +35,7 @@
             this.txtEventName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnAddLocation = new System.Windows.Forms.Button();
             this.cmbName = new System.Windows.Forms.ComboBox();
             this.dtpFormDate = new System.Windows.Forms.DateTimePicker();
             this.lblName = new System.Windows.Forms.Label();
@@ -44,8 +45,10 @@
             this.radExisting = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnNewTypeCancel = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.pnlNewLoc = new System.Windows.Forms.Panel();
             this.btnNewTypeClose = new System.Windows.Forms.Button();
             this.txtnewLocName = new System.Windows.Forms.TextBox();
@@ -59,16 +62,11 @@
             this.txtStreet = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCity = new System.Windows.Forms.TextBox();
-            this.btnNewTypeCancel = new System.Windows.Forms.Button();
             this.btnNewTypetClear = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnAddLocation = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grbNew.SuspendLayout();
             this.grbExists.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlNewLoc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // radNew
@@ -131,6 +129,20 @@
             this.label2.Size = new System.Drawing.Size(328, 56);
             this.label2.TabIndex = 114;
             this.label2.Text = "Event Location:   ";
+            // 
+            // btnAddLocation
+            // 
+            this.btnAddLocation.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddLocation.FlatAppearance.BorderSize = 0;
+            this.btnAddLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddLocation.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
+            this.btnAddLocation.Location = new System.Drawing.Point(448, 120);
+            this.btnAddLocation.Name = "btnAddLocation";
+            this.btnAddLocation.Size = new System.Drawing.Size(41, 42);
+            this.btnAddLocation.TabIndex = 113;
+            this.toolTip1.SetToolTip(this.btnAddLocation, "Add new Location");
+            this.btnAddLocation.UseVisualStyleBackColor = false;
+            this.btnAddLocation.Click += new System.EventHandler(this.btnAddLocation_Click);
             // 
             // cmbName
             // 
@@ -207,21 +219,13 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(76, 31);
+            this.label4.Font = new System.Drawing.Font("Algerian", 20.25F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label4.Location = new System.Drawing.Point(35, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(293, 31);
+            this.label4.Size = new System.Drawing.Size(328, 30);
             this.label4.TabIndex = 0;
             this.label4.Text = "Orgnize Event- Step1";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.progressBar1.Location = new System.Drawing.Point(33, 538);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(500, 23);
-            this.progressBar1.TabIndex = 136;
-            this.progressBar1.Value = 25;
             // 
             // btnClose
             // 
@@ -237,6 +241,42 @@
             this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnNewTypeCancel
+            // 
+            this.btnNewTypeCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnNewTypeCancel.FlatAppearance.BorderSize = 0;
+            this.btnNewTypeCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewTypeCancel.Image = global::AuntRosieApplication.Properties.Resources.file_delete;
+            this.btnNewTypeCancel.Location = new System.Drawing.Point(195, 222);
+            this.btnNewTypeCancel.Name = "btnNewTypeCancel";
+            this.btnNewTypeCancel.Size = new System.Drawing.Size(63, 55);
+            this.btnNewTypeCancel.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.btnNewTypeCancel, "Cancel");
+            this.btnNewTypeCancel.UseVisualStyleBackColor = false;
+            // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.Transparent;
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
+            this.btnNext.Location = new System.Drawing.Point(249, 472);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(68, 59);
+            this.btnNext.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.btnNext, "Next");
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.progressBar1.Location = new System.Drawing.Point(33, 538);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(500, 23);
+            this.progressBar1.TabIndex = 136;
+            this.progressBar1.Value = 25;
             // 
             // pnlNewLoc
             // 
@@ -288,7 +328,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label12.ForeColor = System.Drawing.Color.IndianRed;
+            this.label12.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label12.Location = new System.Drawing.Point(107, 12);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(163, 22);
@@ -384,19 +424,6 @@
             this.txtCity.Size = new System.Drawing.Size(168, 29);
             this.txtCity.TabIndex = 112;
             // 
-            // btnNewTypeCancel
-            // 
-            this.btnNewTypeCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnNewTypeCancel.FlatAppearance.BorderSize = 0;
-            this.btnNewTypeCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewTypeCancel.Image = global::AuntRosieApplication.Properties.Resources.file_delete;
-            this.btnNewTypeCancel.Location = new System.Drawing.Point(195, 222);
-            this.btnNewTypeCancel.Name = "btnNewTypeCancel";
-            this.btnNewTypeCancel.Size = new System.Drawing.Size(63, 55);
-            this.btnNewTypeCancel.TabIndex = 16;
-            this.toolTip1.SetToolTip(this.btnNewTypeCancel, "Cancel");
-            this.btnNewTypeCancel.UseVisualStyleBackColor = false;
-            // 
             // btnNewTypetClear
             // 
             this.btnNewTypetClear.BackColor = System.Drawing.Color.Transparent;
@@ -409,52 +436,12 @@
             this.btnNewTypetClear.TabIndex = 15;
             this.btnNewTypetClear.UseVisualStyleBackColor = false;
             // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.Color.Transparent;
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
-            this.btnNext.Location = new System.Drawing.Point(249, 472);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(68, 59);
-            this.btnNext.TabIndex = 14;
-            this.toolTip1.SetToolTip(this.btnNext, "Next");
-            this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnAddLocation
-            // 
-            this.btnAddLocation.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddLocation.FlatAppearance.BorderSize = 0;
-            this.btnAddLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddLocation.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
-            this.btnAddLocation.Location = new System.Drawing.Point(448, 120);
-            this.btnAddLocation.Name = "btnAddLocation";
-            this.btnAddLocation.Size = new System.Drawing.Size(41, 42);
-            this.btnAddLocation.TabIndex = 113;
-            this.toolTip1.SetToolTip(this.btnAddLocation, "Add new Location");
-            this.btnAddLocation.UseVisualStyleBackColor = false;
-            this.btnAddLocation.Click += new System.EventHandler(this.btnAddLocation_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::AuntRosieApplication.Properties.Resources.event_declined;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 139;
-            this.pictureBox1.TabStop = false;
-            // 
             // frmOrganizeEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(585, 603);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label4);
@@ -475,7 +462,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlNewLoc.ResumeLayout(false);
             this.pnlNewLoc.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,6 +501,5 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnNewTypeClose;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
