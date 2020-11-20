@@ -399,6 +399,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AuntRosieEntities\AuntRosieEntities.csproj">
+      <Project>{1abd60a6-2a4b-449a-9ea8-b54b384560fe}</Project>
+      <Name>AuntRosieEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
