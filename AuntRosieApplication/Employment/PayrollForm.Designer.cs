@@ -64,10 +64,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label10.Location = new System.Drawing.Point(102, 133);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 22);
+            this.label10.Size = new System.Drawing.Size(81, 22);
             this.label10.TabIndex = 104;
             this.label10.Tag = "";
             this.label10.Text = "To Date";
@@ -75,10 +76,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label9.Location = new System.Drawing.Point(78, 93);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 22);
+            this.label9.Size = new System.Drawing.Size(106, 22);
             this.label9.TabIndex = 103;
             this.label9.Tag = "";
             this.label9.Text = "From Date";
@@ -89,7 +91,7 @@
             this.panel3.Controls.Add(this.btnSave);
             this.panel3.Location = new System.Drawing.Point(200, 340);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(213, 79);
+            this.panel3.Size = new System.Drawing.Size(171, 69);
             this.panel3.TabIndex = 102;
             // 
             // btnCancel
@@ -99,9 +101,9 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Image = global::AuntRosieApplication.Properties.Resources.file_delete;
-            this.btnCancel.Location = new System.Drawing.Point(113, 4);
+            this.btnCancel.Location = new System.Drawing.Point(86, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(97, 72);
+            this.btnCancel.Size = new System.Drawing.Size(78, 61);
             this.btnCancel.TabIndex = 12;
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -112,9 +114,9 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
-            this.btnSave.Location = new System.Drawing.Point(3, 4);
+            this.btnSave.Location = new System.Drawing.Point(3, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(97, 72);
+            this.btnSave.Size = new System.Drawing.Size(78, 61);
             this.btnSave.TabIndex = 13;
             this.btnSave.UseVisualStyleBackColor = false;
             // 
@@ -142,10 +144,11 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
+            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.lblName.Location = new System.Drawing.Point(27, 178);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(151, 22);
+            this.lblName.Size = new System.Drawing.Size(159, 22);
             this.lblName.TabIndex = 62;
             this.lblName.Text = "Employee Name";
             // 
@@ -188,6 +191,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(627, 481);
             this.Controls.Add(this.btnClose);
@@ -201,6 +205,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel3);
+            this.ForeColor = System.Drawing.Color.Sienna;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPayroll";
             this.Text = "PayrollForm";

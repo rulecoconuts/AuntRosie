@@ -87,7 +87,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnCancel.ForeColor = System.Drawing.Color.Sienna;
             this.btnCancel.Location = new System.Drawing.Point(248, 244);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(142, 54);
@@ -104,7 +104,7 @@
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnLogin.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnLogin.ForeColor = System.Drawing.Color.Sienna;
             this.btnLogin.Location = new System.Drawing.Point(90, 244);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(150, 54);
@@ -130,7 +130,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label2.ForeColor = System.Drawing.Color.Sienna;
             this.label2.Location = new System.Drawing.Point(86, 169);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 22);
@@ -142,7 +142,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label1.ForeColor = System.Drawing.Color.Sienna;
             this.label1.Location = new System.Drawing.Point(86, 115);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 22);

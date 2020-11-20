@@ -50,14 +50,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtSupplierLastName = new System.Windows.Forms.TextBox();
             this.cmbSupplierName = new System.Windows.Forms.ComboBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -78,21 +78,23 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
+            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblName.ForeColor = System.Drawing.Color.Sienna;
             this.lblName.Location = new System.Drawing.Point(91, 85);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(135, 22);
+            this.lblName.Size = new System.Drawing.Size(145, 22);
             this.lblName.TabIndex = 35;
             this.lblName.Text = "Supplier Name";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Sienna;
             this.label3.Location = new System.Drawing.Point(132, 101);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 22);
+            this.label3.Size = new System.Drawing.Size(65, 22);
             this.label3.TabIndex = 46;
             this.label3.Text = "Street";
             // 
@@ -115,11 +117,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Sienna;
             this.label5.Location = new System.Drawing.Point(155, 66);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 22);
+            this.label5.Size = new System.Drawing.Size(46, 22);
             this.label5.TabIndex = 43;
             this.label5.Text = "City";
             // 
@@ -134,11 +136,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.Sienna;
             this.label6.Location = new System.Drawing.Point(113, 26);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 22);
+            this.label6.Size = new System.Drawing.Size(93, 22);
             this.label6.TabIndex = 42;
             this.label6.Text = "Province";
             // 
@@ -165,11 +167,11 @@
             // txtPostalCode
             // 
             this.txtPostalCode.AutoSize = true;
-            this.txtPostalCode.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.txtPostalCode.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtPostalCode.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.txtPostalCode.ForeColor = System.Drawing.Color.Sienna;
             this.txtPostalCode.Location = new System.Drawing.Point(82, 136);
             this.txtPostalCode.Name = "txtPostalCode";
-            this.txtPostalCode.Size = new System.Drawing.Size(115, 22);
+            this.txtPostalCode.Size = new System.Drawing.Size(122, 22);
             this.txtPostalCode.TabIndex = 48;
             this.txtPostalCode.Text = "Postal Code";
             // 
@@ -204,11 +206,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label8.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.Sienna;
             this.label8.Location = new System.Drawing.Point(140, 136);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 22);
+            this.label8.Size = new System.Drawing.Size(61, 22);
             this.label8.TabIndex = 48;
             this.label8.Text = "Email";
             // 
@@ -231,22 +233,22 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label9.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label9.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.Sienna;
             this.label9.Location = new System.Drawing.Point(132, 97);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 22);
+            this.label9.Size = new System.Drawing.Size(70, 22);
             this.label9.TabIndex = 46;
             this.label9.Text = "Phone";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label10.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label10.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.Sienna;
             this.label10.Location = new System.Drawing.Point(98, 26);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 22);
+            this.label10.Size = new System.Drawing.Size(109, 22);
             this.label10.TabIndex = 42;
             this.label10.Text = "First Name";
             // 
@@ -261,11 +263,11 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label11.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label11.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.Sienna;
             this.label11.Location = new System.Drawing.Point(96, 66);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(101, 22);
+            this.label11.Size = new System.Drawing.Size(107, 22);
             this.label11.TabIndex = 43;
             this.label11.Text = "Last Name";
             // 
@@ -286,87 +288,6 @@
             this.cmbSupplierName.Size = new System.Drawing.Size(235, 31);
             this.cmbSupplierName.TabIndex = 55;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.btnClear);
-            this.panel2.Controls.Add(this.btnNew);
-            this.panel2.Controls.Add(this.btnEdit);
-            this.panel2.Controls.Add(this.btnSave);
-            this.panel2.Controls.Add(this.btnDelete);
-            this.panel2.Location = new System.Drawing.Point(56, 469);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(511, 79);
-            this.panel2.TabIndex = 142;
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.Transparent;
-            this.btnClear.Enabled = false;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
-            this.btnClear.Location = new System.Drawing.Point(306, 3);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(97, 72);
-            this.btnClear.TabIndex = 13;
-            this.toolTip1.SetToolTip(this.btnClear, "Clear");
-            this.btnClear.UseVisualStyleBackColor = false;
-            // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.Color.Transparent;
-            this.btnNew.FlatAppearance.BorderSize = 0;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
-            this.btnNew.Location = new System.Drawing.Point(5, 4);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(97, 72);
-            this.btnNew.TabIndex = 9;
-            this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.toolTip1.SetToolTip(this.btnNew, "New");
-            this.btnNew.UseVisualStyleBackColor = false;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Image = global::AuntRosieApplication.Properties.Resources.edit;
-            this.btnEdit.Location = new System.Drawing.Point(105, 4);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(97, 72);
-            this.btnEdit.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.btnEdit, "Edit");
-            this.btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.Transparent;
-            this.btnSave.Enabled = false;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
-            this.btnSave.Location = new System.Drawing.Point(407, 4);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(97, 72);
-            this.btnSave.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.btnSave, "Save");
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Image = global::AuntRosieApplication.Properties.Resources.delete_sign;
-            this.btnDelete.Location = new System.Drawing.Point(206, 4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(97, 72);
-            this.btnDelete.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.btnDelete, "Delete");
-            this.btnDelete.UseVisualStyleBackColor = false;
-            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
@@ -382,10 +303,92 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.btnClear);
+            this.panel2.Controls.Add(this.btnNew);
+            this.panel2.Controls.Add(this.btnEdit);
+            this.panel2.Controls.Add(this.btnSave);
+            this.panel2.Controls.Add(this.btnDelete);
+            this.panel2.Location = new System.Drawing.Point(95, 469);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(425, 66);
+            this.panel2.TabIndex = 142;
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
+            this.btnClear.Enabled = false;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
+            this.btnClear.Location = new System.Drawing.Point(250, 1);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(79, 61);
+            this.btnClear.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.btnClear, "Clear");
+            this.btnClear.UseVisualStyleBackColor = false;
+            // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.Color.Transparent;
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
+            this.btnNew.Location = new System.Drawing.Point(3, 1);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(79, 61);
+            this.btnNew.TabIndex = 9;
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.toolTip1.SetToolTip(this.btnNew, "New");
+            this.btnNew.UseVisualStyleBackColor = false;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Image = global::AuntRosieApplication.Properties.Resources.edit;
+            this.btnEdit.Location = new System.Drawing.Point(88, 1);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(79, 61);
+            this.btnEdit.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.btnEdit, "Edit");
+            this.btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
+            this.btnSave.Enabled = false;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
+            this.btnSave.Location = new System.Drawing.Point(335, 1);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(79, 61);
+            this.btnSave.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.btnSave, "Save");
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Image = global::AuntRosieApplication.Properties.Resources.delete_sign;
+            this.btnDelete.Location = new System.Drawing.Point(166, 2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(79, 61);
+            this.btnDelete.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.btnDelete, "Delete");
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
             // SuppliersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(622, 561);
             this.Controls.Add(this.panel2);
@@ -433,12 +436,12 @@
         private System.Windows.Forms.TextBox txtSupplierLastName;
         private System.Windows.Forms.ComboBox cmbSupplierName;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
