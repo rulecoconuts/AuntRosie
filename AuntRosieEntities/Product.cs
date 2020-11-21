@@ -170,11 +170,39 @@ namespace AuntRosieEntities
             return product;
         }
 
+        public static List<Product> GetProducts()
+        {
+            List<Product> products = new List<Product>();
+
+            //Process result
+            SqlDataReader reader = Connector.Retrieve("select [ProductID], [ProductName], [ProductType], [ServingSize]" +
+                "from [tblProduct]");
+            while (reader.HasRows && reader.Read())
+            {
+                Product product = new Product();
+                product.SetID(reader.GetInt16(0));
+                product.Name = reader.GetString(1);
+                product.Type = reader.GetString(2);
+                product.ServingSize = reader.GetString(3);
+
+                products.Add(product);
+            }
+
+            reader.Close();
+
+            return products;
+        }
+
         public void Dispose()
         {
             //Dispose of prepared statements
             retrieveIdPrepCmd.Dispose();
             retrieveNamePrepCmd.Dispose();
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} {ServingSize}";
         }
     }
 }
