@@ -73,7 +73,7 @@ namespace AuntRosieEntities
                     " from [tblProduction] where [ProductionID] = @ID";
 
 
-                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.BigInt, 0);
                 idParam.Value = id;
 
                 retrieveIdPrepCmd.Prepare();

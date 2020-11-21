@@ -36,9 +36,14 @@ namespace AuntRosieEntities
 
         public ProductSize ProductSize
         {
-            get => default;
+            get
+            {
+                return ProductSize.Retrieve(SizeID);
+            }
             set
             {
+                this.SizeID = value.Id;
+                Update();
             }
         }
 
@@ -78,7 +83,7 @@ namespace AuntRosieEntities
                 retrieveIdPrepCmd.CommandText = "select [ProductID], [SizeID], [Price] from [tblProductItem] where [ProductItemID] = @ID";
 
 
-                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int, 0);
                 idParam.Value = id;
 
                 retrieveIdPrepCmd.Prepare();
@@ -116,7 +121,7 @@ namespace AuntRosieEntities
 
             //Process result
             SqlDataReader reader = Connector.Retrieve("select [ProductItemID], [ProductID], [SizeID], [Price]" +
-                "from [tblProductItem] where [ProductItemID] = @ID");
+                "from [tblProductItem]");
             while (reader.HasRows)
             {
                 reader.Read();
@@ -132,6 +137,11 @@ namespace AuntRosieEntities
             reader.Close();
 
             return items;
+        }
+
+        public override string ToString()
+        {
+            return $"{Product.Name} ({ProductSize.ToString()})";
         }
     }
 }

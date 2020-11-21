@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace AuntRosieEntities
 {
-    public class DBConnector
+    public class DBConnector: IDisposable
     {
         private SqlConnection connection;
 
@@ -176,6 +176,18 @@ namespace AuntRosieEntities
         public SqlDataReader Retrieve(SqlCommand command)
         {
             return command.ExecuteReader();
+        }
+
+        public void Dispose()
+        {
+            while(Connection.State == ConnectionState.Executing)
+            {
+
+            }
+            if(Connection.State != ConnectionState.Closed && Connection.State != ConnectionState.Broken)
+            {
+                Connection.Close();
+            }
         }
     }
 }

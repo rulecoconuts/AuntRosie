@@ -163,6 +163,9 @@
   <data name="confetti" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\confetti.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ConnectionString" xml:space="preserve">
+    <value>Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\AuntRosieDB.mdf;Integrated Security=True</value>
+  </data>
   <data name="connection_status_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\connection-status-off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

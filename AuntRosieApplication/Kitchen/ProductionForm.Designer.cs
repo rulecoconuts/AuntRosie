@@ -34,13 +34,11 @@
             this.txtQuntity = new System.Windows.Forms.TextBox();
             this.cmbEvent = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbProductType = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.lblProductSize = new System.Windows.Forms.Label();
             this.lblProductName = new System.Windows.Forms.Label();
             this.dtpProductionDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,6 +54,8 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -109,18 +109,6 @@
             this.label1.Size = new System.Drawing.Size(58, 22);
             this.label1.TabIndex = 13;
             this.label1.Text = "Event";
-            // 
-            // cmbProductType
-            // 
-            this.cmbProductType.AutoCompleteCustomSource.AddRange(new string[] {
-            "Pies",
-            "Preserves"});
-            this.cmbProductType.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbProductType.FormattingEnabled = true;
-            this.cmbProductType.Location = new System.Drawing.Point(287, 129);
-            this.cmbProductType.Name = "cmbProductType";
-            this.cmbProductType.Size = new System.Drawing.Size(278, 31);
-            this.cmbProductType.TabIndex = 2;
             // 
             // btnClose
             // 
@@ -178,17 +166,6 @@
             this.toolTip1.SetToolTip(this.button1, "Add");
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // lblProductSize
-            // 
-            this.lblProductSize.AutoSize = true;
-            this.lblProductSize.BackColor = System.Drawing.Color.Transparent;
-            this.lblProductSize.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.lblProductSize.Location = new System.Drawing.Point(154, 138);
-            this.lblProductSize.Name = "lblProductSize";
-            this.lblProductSize.Size = new System.Drawing.Size(123, 22);
-            this.lblProductSize.TabIndex = 14;
-            this.lblProductSize.Text = "Product  Size";
-            // 
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
@@ -196,9 +173,10 @@
             this.lblProductName.Font = new System.Drawing.Font("Arial", 14.25F);
             this.lblProductName.Location = new System.Drawing.Point(146, 98);
             this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(131, 22);
+            this.lblProductName.Size = new System.Drawing.Size(76, 22);
             this.lblProductName.TabIndex = 15;
-            this.lblProductName.Text = "Product Name";
+            this.lblProductName.Text = "Product";
+            this.lblProductName.Click += new System.EventHandler(this.lblProductName_Click);
             // 
             // dtpProductionDate
             // 
@@ -340,8 +318,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpProductionDate);
-            this.Controls.Add(this.cmbProductType);
-            this.Controls.Add(this.lblProductSize);
             this.Controls.Add(this.lblProductName);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -351,6 +327,9 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,8 +345,6 @@
         private System.Windows.Forms.TextBox txtQuntity;
         private System.Windows.Forms.ComboBox cmbEvent;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbProductType;
-        private System.Windows.Forms.Label lblProductSize;
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.DateTimePicker dtpProductionDate;
         private System.Windows.Forms.Label label2;

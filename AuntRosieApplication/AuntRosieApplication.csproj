@@ -140,6 +140,12 @@
     <Compile Include="Inventory\SuppliersForm.Designer.cs">
       <DependentUpon>SuppliersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kitchen\GiveProductSizeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\GiveProductSizeForm.Designer.cs">
+      <DependentUpon>GiveProductSizeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kitchen\ManageProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\SuppliersForm.resx">
       <DependentUpon>SuppliersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen\GiveProductSizeForm.resx">
+      <DependentUpon>GiveProductSizeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kitchen\ManageProductForm.resx">
       <DependentUpon>ManageProductForm.cs</DependentUpon>

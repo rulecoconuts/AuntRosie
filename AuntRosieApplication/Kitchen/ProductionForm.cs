@@ -13,7 +13,8 @@ namespace AuntRosieApplication.Kitchen
 {
     public partial class frmProduction : Form
     {
-        private List<ProductItem> productItems;
+        private List<ProductItem> productItems = new List<ProductItem>();
+        private List<RosieEvent> events = new List<RosieEvent>();
 
         public frmProduction()
         {
@@ -23,12 +24,18 @@ namespace AuntRosieApplication.Kitchen
         private void frmProduction_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
-
+            DBConnector conn = new DBConnector(Properties.Resources.ConnectionString);
+            RosieEntity.Connector = conn;
+            cmbProductName.DataSource = productItems;
+            cmbProductName.DisplayMember = "Product.Name";
+            cmbEvent.DataSource = events;
+            /*cmbEvent.DisplayMember = "ToString()";*/
         }
 
-        private void loadProducts()
+        private void loadCmbs()
         {
             productItems = ProductItem.GetProductItems();
+            events = RosieEvent.GetEvents(DateTime.Now);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -62,6 +69,11 @@ namespace AuntRosieApplication.Kitchen
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblProductName_Click(object sender, EventArgs e)
         {
 
         }
