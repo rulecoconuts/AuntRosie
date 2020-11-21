@@ -235,7 +235,7 @@
             // txtCity
             // 
             this.txtCity.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.txtCity.Location = new System.Drawing.Point(506, 38);
+            this.txtCity.Location = new System.Drawing.Point(544, 38);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(100, 29);
             this.txtCity.TabIndex = 126;
@@ -245,7 +245,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Sienna;
-            this.label6.Location = new System.Drawing.Point(422, 41);
+            this.label6.Location = new System.Drawing.Point(450, 41);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 22);
             this.label6.TabIndex = 125;
@@ -266,7 +266,7 @@
             // 
             this.comboBox2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(127, 37);
+            this.comboBox2.Location = new System.Drawing.Point(131, 37);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(289, 31);
             this.comboBox2.TabIndex = 108;
@@ -287,11 +287,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Sienna;
             this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 22);
+            this.label1.Size = new System.Drawing.Size(158, 22);
             this.label1.TabIndex = 122;
             this.label1.Text = "Customer Name";
             // 
@@ -375,7 +375,7 @@
             this.pnlNewcustomer.Controls.Add(this.label11);
             this.pnlNewcustomer.Controls.Add(this.txtLastName);
             this.pnlNewcustomer.ForeColor = System.Drawing.Color.Sienna;
-            this.pnlNewcustomer.Location = new System.Drawing.Point(185, 33);
+            this.pnlNewcustomer.Location = new System.Drawing.Point(19, 20);
             this.pnlNewcustomer.Name = "pnlNewcustomer";
             this.pnlNewcustomer.Size = new System.Drawing.Size(479, 282);
             this.pnlNewcustomer.TabIndex = 21;
@@ -547,7 +547,7 @@
             this.btnAddToCart.FlatAppearance.BorderSize = 0;
             this.btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddToCart.Image = global::AuntRosieApplication.Properties.Resources.add_shopping_cart;
-            this.btnAddToCart.Location = new System.Drawing.Point(628, 29);
+            this.btnAddToCart.Location = new System.Drawing.Point(636, 29);
             this.btnAddToCart.Name = "btnAddToCart";
             this.btnAddToCart.Size = new System.Drawing.Size(55, 51);
             this.btnAddToCart.TabIndex = 123;
@@ -574,9 +574,9 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(701, 20);
+            this.btnClose.Location = new System.Drawing.Point(695, 25);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(58, 52);
+            this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 137;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);

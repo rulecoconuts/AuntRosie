@@ -192,7 +192,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Algerian", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label4.Location = new System.Drawing.Point(41, 25);
+            this.label4.Location = new System.Drawing.Point(28, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(298, 30);
             this.label4.TabIndex = 0;
@@ -422,9 +422,9 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(628, 34);
+            this.btnClose.Location = new System.Drawing.Point(646, 31);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(68, 52);
+            this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 63;
             this.toolTip1.SetToolTip(this.btnClose, "Close");
             this.btnClose.UseVisualStyleBackColor = false;

@@ -80,9 +80,9 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(506, 12);
+            this.btnClose.Location = new System.Drawing.Point(503, 29);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(58, 52);
+            this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 139;
             this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
             this.btnClose.UseVisualStyleBackColor = false;

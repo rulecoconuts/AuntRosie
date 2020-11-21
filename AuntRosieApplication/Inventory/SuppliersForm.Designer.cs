@@ -52,12 +52,12 @@
             this.cmbSupplierName = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnClose = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -295,26 +295,13 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(540, 12);
+            this.btnClose.Location = new System.Drawing.Point(537, 25);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(58, 52);
+            this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 141;
             this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.btnClear);
-            this.panel2.Controls.Add(this.btnNew);
-            this.panel2.Controls.Add(this.btnEdit);
-            this.panel2.Controls.Add(this.btnSave);
-            this.panel2.Controls.Add(this.btnDelete);
-            this.panel2.Location = new System.Drawing.Point(95, 469);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(425, 66);
-            this.panel2.TabIndex = 142;
             // 
             // btnClear
             // 
@@ -383,6 +370,19 @@
             this.btnDelete.TabIndex = 11;
             this.toolTip1.SetToolTip(this.btnDelete, "Delete");
             this.btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.btnClear);
+            this.panel2.Controls.Add(this.btnNew);
+            this.panel2.Controls.Add(this.btnEdit);
+            this.panel2.Controls.Add(this.btnSave);
+            this.panel2.Controls.Add(this.btnDelete);
+            this.panel2.Location = new System.Drawing.Point(95, 469);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(425, 66);
+            this.panel2.TabIndex = 142;
             // 
             // SuppliersForm
             // 

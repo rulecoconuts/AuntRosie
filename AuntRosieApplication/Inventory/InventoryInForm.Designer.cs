@@ -31,6 +31,16 @@
             this.components = new System.ComponentModel.Container();
             this.label4 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnNewIngredintCancel = new System.Windows.Forms.Button();
+            this.btnNewTypeCancel = new System.Windows.Forms.Button();
+            this.btnNewTypetSave = new System.Windows.Forms.Button();
+            this.btnAddType = new System.Windows.Forms.Button();
+            this.btnAddIngredint = new System.Windows.Forms.Button();
+            this.btnAddSupplier = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.dtpExpiryDate = new System.Windows.Forms.DateTimePicker();
             this.dtpPurchaseDate = new System.Windows.Forms.DateTimePicker();
@@ -53,29 +63,19 @@
             this.cmbName = new System.Windows.Forms.ComboBox();
             this.lblName = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnClose = new System.Windows.Forms.Button();
             this.pnlNewIngredint = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtstoringNote = new System.Windows.Forms.TextBox();
             this.cmbNewtype = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnNewIngredintCancel = new System.Windows.Forms.Button();
             this.btnNewIngredintSave = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.txtNewIngredintName = new System.Windows.Forms.TextBox();
             this.pnlNewType = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnNewTypeCancel = new System.Windows.Forms.Button();
-            this.btnNewTypetSave = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtxNewType = new System.Windows.Forms.TextBox();
-            this.btnAddType = new System.Windows.Forms.Button();
-            this.btnAddIngredint = new System.Windows.Forms.Button();
-            this.btnAddSupplier = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnlNewIngredint.SuspendLayout();
@@ -93,6 +93,139 @@
             this.label4.Size = new System.Drawing.Size(198, 30);
             this.label4.TabIndex = 0;
             this.label4.Text = "Inventory-In";
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
+            this.btnClose.Location = new System.Drawing.Point(541, 12);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(50, 50);
+            this.btnClose.TabIndex = 140;
+            this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnNewIngredintCancel
+            // 
+            this.btnNewIngredintCancel.Image = global::AuntRosieApplication.Properties.Resources.file_delete;
+            this.btnNewIngredintCancel.Location = new System.Drawing.Point(204, 176);
+            this.btnNewIngredintCancel.Name = "btnNewIngredintCancel";
+            this.btnNewIngredintCancel.Size = new System.Drawing.Size(63, 55);
+            this.btnNewIngredintCancel.TabIndex = 22;
+            this.toolTip1.SetToolTip(this.btnNewIngredintCancel, "Cancel");
+            this.btnNewIngredintCancel.UseVisualStyleBackColor = true;
+            this.btnNewIngredintCancel.Click += new System.EventHandler(this.btnNewIngredintCancel_Click);
+            // 
+            // btnNewTypeCancel
+            // 
+            this.btnNewTypeCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnNewTypeCancel.FlatAppearance.BorderSize = 0;
+            this.btnNewTypeCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewTypeCancel.Image = global::AuntRosieApplication.Properties.Resources.file_delete;
+            this.btnNewTypeCancel.Location = new System.Drawing.Point(183, 140);
+            this.btnNewTypeCancel.Name = "btnNewTypeCancel";
+            this.btnNewTypeCancel.Size = new System.Drawing.Size(63, 55);
+            this.btnNewTypeCancel.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.btnNewTypeCancel, "Cancel");
+            this.btnNewTypeCancel.UseVisualStyleBackColor = false;
+            this.btnNewTypeCancel.Click += new System.EventHandler(this.btnNewTypeCancel_Click);
+            // 
+            // btnNewTypetSave
+            // 
+            this.btnNewTypetSave.BackColor = System.Drawing.Color.Transparent;
+            this.btnNewTypetSave.Enabled = false;
+            this.btnNewTypetSave.FlatAppearance.BorderSize = 0;
+            this.btnNewTypetSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewTypetSave.Image = global::AuntRosieApplication.Properties.Resources.save;
+            this.btnNewTypetSave.Location = new System.Drawing.Point(119, 140);
+            this.btnNewTypetSave.Name = "btnNewTypetSave";
+            this.btnNewTypetSave.Size = new System.Drawing.Size(63, 55);
+            this.btnNewTypetSave.TabIndex = 15;
+            this.toolTip1.SetToolTip(this.btnNewTypetSave, "Save");
+            this.btnNewTypetSave.UseVisualStyleBackColor = false;
+            this.btnNewTypetSave.Click += new System.EventHandler(this.btnNewTypetSave_Click);
+            // 
+            // btnAddType
+            // 
+            this.btnAddType.FlatAppearance.BorderSize = 0;
+            this.btnAddType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddType.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
+            this.btnAddType.Location = new System.Drawing.Point(449, 2);
+            this.btnAddType.Name = "btnAddType";
+            this.btnAddType.Size = new System.Drawing.Size(40, 31);
+            this.btnAddType.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btnAddType, "Add new Ingredint Type");
+            this.btnAddType.UseVisualStyleBackColor = true;
+            this.btnAddType.Click += new System.EventHandler(this.btnAddType_Click);
+            // 
+            // btnAddIngredint
+            // 
+            this.btnAddIngredint.FlatAppearance.BorderSize = 0;
+            this.btnAddIngredint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddIngredint.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
+            this.btnAddIngredint.Location = new System.Drawing.Point(449, 48);
+            this.btnAddIngredint.Name = "btnAddIngredint";
+            this.btnAddIngredint.Size = new System.Drawing.Size(40, 31);
+            this.btnAddIngredint.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.btnAddIngredint, "Add new  Ingredient");
+            this.btnAddIngredint.UseVisualStyleBackColor = true;
+            this.btnAddIngredint.Click += new System.EventHandler(this.btnAddIngredint_Click);
+            // 
+            // btnAddSupplier
+            // 
+            this.btnAddSupplier.FlatAppearance.BorderSize = 0;
+            this.btnAddSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddSupplier.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
+            this.btnAddSupplier.Location = new System.Drawing.Point(449, 89);
+            this.btnAddSupplier.Name = "btnAddSupplier";
+            this.btnAddSupplier.Size = new System.Drawing.Size(40, 31);
+            this.btnAddSupplier.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.btnAddSupplier, "Add new Supplier");
+            this.btnAddSupplier.UseVisualStyleBackColor = true;
+            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Enabled = false;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
+            this.btnClear.Location = new System.Drawing.Point(91, 4);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(77, 62);
+            this.btnClear.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.btnClear, "Clear");
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
+            // btnNew
+            // 
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
+            this.btnNew.Location = new System.Drawing.Point(8, 3);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(77, 62);
+            this.btnNew.TabIndex = 0;
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.toolTip1.SetToolTip(this.btnNew, "New");
+            this.btnNew.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Enabled = false;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
+            this.btnSave.Location = new System.Drawing.Point(174, 4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(77, 62);
+            this.btnSave.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.btnSave, "Save");
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // pnlMain
             // 
@@ -342,21 +475,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(541, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(58, 52);
-            this.btnClose.TabIndex = 140;
-            this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // pnlNewIngredint
             // 
             this.pnlNewIngredint.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
@@ -434,17 +552,6 @@
             this.label15.TabIndex = 102;
             this.label15.Text = "Type";
             // 
-            // btnNewIngredintCancel
-            // 
-            this.btnNewIngredintCancel.Image = global::AuntRosieApplication.Properties.Resources.file_delete;
-            this.btnNewIngredintCancel.Location = new System.Drawing.Point(204, 176);
-            this.btnNewIngredintCancel.Name = "btnNewIngredintCancel";
-            this.btnNewIngredintCancel.Size = new System.Drawing.Size(63, 55);
-            this.btnNewIngredintCancel.TabIndex = 22;
-            this.toolTip1.SetToolTip(this.btnNewIngredintCancel, "Cancel");
-            this.btnNewIngredintCancel.UseVisualStyleBackColor = true;
-            this.btnNewIngredintCancel.Click += new System.EventHandler(this.btnNewIngredintCancel_Click);
-            // 
             // btnNewIngredintSave
             // 
             this.btnNewIngredintSave.Image = global::AuntRosieApplication.Properties.Resources.save;
@@ -504,35 +611,6 @@
             this.label12.Tag = "";
             this.label12.Text = "Add New Ingredint Type";
             // 
-            // btnNewTypeCancel
-            // 
-            this.btnNewTypeCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnNewTypeCancel.FlatAppearance.BorderSize = 0;
-            this.btnNewTypeCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewTypeCancel.Image = global::AuntRosieApplication.Properties.Resources.file_delete;
-            this.btnNewTypeCancel.Location = new System.Drawing.Point(183, 140);
-            this.btnNewTypeCancel.Name = "btnNewTypeCancel";
-            this.btnNewTypeCancel.Size = new System.Drawing.Size(63, 55);
-            this.btnNewTypeCancel.TabIndex = 16;
-            this.toolTip1.SetToolTip(this.btnNewTypeCancel, "Cancel");
-            this.btnNewTypeCancel.UseVisualStyleBackColor = false;
-            this.btnNewTypeCancel.Click += new System.EventHandler(this.btnNewTypeCancel_Click);
-            // 
-            // btnNewTypetSave
-            // 
-            this.btnNewTypetSave.BackColor = System.Drawing.Color.Transparent;
-            this.btnNewTypetSave.Enabled = false;
-            this.btnNewTypetSave.FlatAppearance.BorderSize = 0;
-            this.btnNewTypetSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewTypetSave.Image = global::AuntRosieApplication.Properties.Resources.save;
-            this.btnNewTypetSave.Location = new System.Drawing.Point(119, 140);
-            this.btnNewTypetSave.Name = "btnNewTypetSave";
-            this.btnNewTypetSave.Size = new System.Drawing.Size(63, 55);
-            this.btnNewTypetSave.TabIndex = 15;
-            this.toolTip1.SetToolTip(this.btnNewTypetSave, "Save");
-            this.btnNewTypetSave.UseVisualStyleBackColor = false;
-            this.btnNewTypetSave.Click += new System.EventHandler(this.btnNewTypetSave_Click);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -554,84 +632,6 @@
             this.txtxNewType.Size = new System.Drawing.Size(208, 29);
             this.txtxNewType.TabIndex = 14;
             this.txtxNewType.TextChanged += new System.EventHandler(this.txtxNewType_TextChanged);
-            // 
-            // btnAddType
-            // 
-            this.btnAddType.FlatAppearance.BorderSize = 0;
-            this.btnAddType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddType.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
-            this.btnAddType.Location = new System.Drawing.Point(449, 2);
-            this.btnAddType.Name = "btnAddType";
-            this.btnAddType.Size = new System.Drawing.Size(40, 31);
-            this.btnAddType.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.btnAddType, "Add new Ingredint Type");
-            this.btnAddType.UseVisualStyleBackColor = true;
-            this.btnAddType.Click += new System.EventHandler(this.btnAddType_Click);
-            // 
-            // btnAddIngredint
-            // 
-            this.btnAddIngredint.FlatAppearance.BorderSize = 0;
-            this.btnAddIngredint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddIngredint.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
-            this.btnAddIngredint.Location = new System.Drawing.Point(449, 48);
-            this.btnAddIngredint.Name = "btnAddIngredint";
-            this.btnAddIngredint.Size = new System.Drawing.Size(40, 31);
-            this.btnAddIngredint.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.btnAddIngredint, "Add new  Ingredient");
-            this.btnAddIngredint.UseVisualStyleBackColor = true;
-            this.btnAddIngredint.Click += new System.EventHandler(this.btnAddIngredint_Click);
-            // 
-            // btnAddSupplier
-            // 
-            this.btnAddSupplier.FlatAppearance.BorderSize = 0;
-            this.btnAddSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddSupplier.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
-            this.btnAddSupplier.Location = new System.Drawing.Point(449, 89);
-            this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(40, 31);
-            this.btnAddSupplier.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.btnAddSupplier, "Add new Supplier");
-            this.btnAddSupplier.UseVisualStyleBackColor = true;
-            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Enabled = false;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
-            this.btnClear.Location = new System.Drawing.Point(91, 4);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(77, 62);
-            this.btnClear.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.btnClear, "Clear");
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
-            // btnNew
-            // 
-            this.btnNew.FlatAppearance.BorderSize = 0;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
-            this.btnNew.Location = new System.Drawing.Point(8, 3);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(77, 62);
-            this.btnNew.TabIndex = 0;
-            this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.toolTip1.SetToolTip(this.btnNew, "New");
-            this.btnNew.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Enabled = false;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
-            this.btnSave.Location = new System.Drawing.Point(174, 4);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(77, 62);
-            this.btnSave.TabIndex = 13;
-            this.toolTip1.SetToolTip(this.btnSave, "Save");
-            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // InventoryInForm
             // 
