@@ -20,6 +20,9 @@ namespace AuntRosieEntities
         private static SqlCommand retrieveIdPrepCmd = null;
 
         private static SqlCommand retrieveNamePrepCmd = null;
+        private static SqlCommand createPrepCmd = null;
+        private static SqlCommand deletePrepCmd = null;
+        private static SqlCommand updatePrepCmd = null;
 
         public Product Product
         {
@@ -59,17 +62,96 @@ namespace AuntRosieEntities
 
         public override void Create(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (createPrepCmd is null)
+            {
+                createPrepCmd = new SqlCommand(null, Connector.Connection);
+                createPrepCmd.CommandText = "insert into [tblProductItem]([ProductID], [SizeID], [Price]) values " +
+                    "(@product, @size, @price)";
+
+                SqlParameter productParam = new SqlParameter("@product", SqlDbType.SmallInt, 0);
+                productParam.Value = ProductID;
+
+                SqlParameter sizeParam = new SqlParameter("@size", SqlDbType.TinyInt, 0);
+                sizeParam.Value = SizeID;
+
+                SqlParameter priceParam = new SqlParameter("@price", SqlDbType.Money, 0);
+                priceParam.Value = Price;
+
+                createPrepCmd.Parameters.Add(productParam);
+                createPrepCmd.Parameters.Add(sizeParam);
+                createPrepCmd.Parameters.Add(priceParam);
+
+                createPrepCmd.Prepare();
+            }
+            else
+            {
+                createPrepCmd.Parameters["@product"].Value = ProductID;
+                createPrepCmd.Parameters["@size"].Value = SizeID;
+                createPrepCmd.Parameters["@price"].Value = Price;
+            }
+
+            id = Convert.ToInt32(Connector.Insert(createPrepCmd,true, transaction));
         }
 
         public override void Delete(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (deletePrepCmd is null)
+            {
+                deletePrepCmd = new SqlCommand(null, Connector.Connection);
+                deletePrepCmd.CommandText = "delete from [tblProductItem] where [ProductItemID]=@ID";
+
+
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int, 0);
+                idParam.Value = Id;
+
+                deletePrepCmd.Parameters.Add(idParam);
+
+                deletePrepCmd.Prepare();
+            }
+            else
+            {
+                deletePrepCmd.Parameters["@ID"].Value = Id;
+            }
+
+            Connector.Delete(deletePrepCmd, transaction);
         }
 
         public override void Update(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (updatePrepCmd is null)
+            {
+                updatePrepCmd = new SqlCommand(null, Connector.Connection);
+                updatePrepCmd.CommandText = "update [tblProductItem] set [ProductID]=@product, [SizeID]=@size, [Price]=@price " +
+                    "where [ProductItemID]=@ID";
+
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
+                idParam.Value = Id;
+
+                SqlParameter productParam = new SqlParameter("@product", SqlDbType.SmallInt, 0);
+                productParam.Value = ProductID;
+
+                SqlParameter sizeParam = new SqlParameter("@size", SqlDbType.TinyInt, 0);
+                sizeParam.Value = SizeID;
+
+                SqlParameter priceParam = new SqlParameter("@price", SqlDbType.Money, 0);
+                priceParam.Value = Price;
+
+                updatePrepCmd.Parameters.Add(idParam);
+                updatePrepCmd.Parameters.Add(productParam);
+                updatePrepCmd.Parameters.Add(sizeParam);
+                updatePrepCmd.Parameters.Add(priceParam);
+
+                updatePrepCmd.Prepare();
+            }
+            else
+            {
+                updatePrepCmd.Parameters["@ID"].Value = Id;
+                updatePrepCmd.Parameters["@product"].Value = ProductID;
+                updatePrepCmd.Parameters["@size"].Value = SizeID;
+                updatePrepCmd.Parameters["@price"].Value = Price;
+            }
+
+            Connector.Update(updatePrepCmd, transaction);
         }
 
         public static ProductItem Retrieve(int id)
@@ -90,7 +172,7 @@ namespace AuntRosieEntities
             }
             else
             {
-                retrieveIdPrepCmd.Parameters["ID"].Value = id;
+                retrieveIdPrepCmd.Parameters["@ID"].Value = id;
             }
 
             //Process result

@@ -9,9 +9,9 @@ namespace AuntRosieEntities
 {
     public class RosieEvent : RosieEntity
     {
-        private long id;
+        private long id = -1;
         private string name;
-        private long locationId;
+        private long locationId = -1;
         private DateTime eventDate;
         private EventType type;
 
@@ -19,6 +19,9 @@ namespace AuntRosieEntities
         /// Prepared statement to retrieve product by id
         /// </summary>
         private static SqlCommand retrieveIdPrepCmd = null;
+        private static SqlCommand createPrepCmd = null;
+        private static SqlCommand deletePrepCmd = null;
+        private static SqlCommand updatePrepCmd = null;
 
         public EventLocation EventLocation
         {
@@ -53,17 +56,107 @@ namespace AuntRosieEntities
 
         public override void Create(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (createPrepCmd is null)
+            {
+                createPrepCmd = new SqlCommand(null, Connector.Connection);
+                createPrepCmd.CommandText = "insert into [tblEvent]([EventName], [LocationID], [EventDate], [EventType]) values " +
+                    "(@name, @locationID, @date, @type)";
+
+
+                SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
+                nameParam.Value = Name;
+
+                SqlParameter locationParam = new SqlParameter("@locationID", SqlDbType.BigInt, 0);
+                locationParam.Value = LocationId;
+
+                SqlParameter dateParam = new SqlParameter("@date", SqlDbType.DateTime, 0);
+                dateParam.Value = EventDate;
+
+                SqlParameter typeParam = new SqlParameter("@type", SqlDbType.Char, 1);
+                typeParam.Value = Type;
+
+                createPrepCmd.Parameters.Add(nameParam);
+                createPrepCmd.Parameters.Add(locationParam);
+                createPrepCmd.Parameters.Add(dateParam);
+                createPrepCmd.Parameters.Add(typeParam);
+
+                createPrepCmd.Prepare();
+            }
+            else
+            {
+                createPrepCmd.Parameters["@name"].Value = Name;
+                createPrepCmd.Parameters["@locationID"].Value = LocationId;
+                createPrepCmd.Parameters["@date"].Value = EventDate;
+                createPrepCmd.Parameters["@type"].Value = Type;
+            }
+
+            id = Connector.Insert(createPrepCmd, true, transaction);
         }
 
         public override void Delete(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (deletePrepCmd is null)
+            {
+                deletePrepCmd = new SqlCommand(null, Connector.Connection);
+                deletePrepCmd.CommandText = "delete from [tblEvent] where [EventID]=@ID";
+
+
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.BigInt, 0);
+                idParam.Value = Id;
+
+                deletePrepCmd.Parameters.Add(idParam);
+
+                deletePrepCmd.Prepare();
+            }
+            else
+            {
+                deletePrepCmd.Parameters["@ID"].Value = Id;
+            }
+
+            Connector.Delete(deletePrepCmd, transaction);
         }
 
         public override void Update(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (updatePrepCmd is null)
+            {
+                updatePrepCmd = new SqlCommand(null, Connector.Connection);
+                updatePrepCmd.CommandText = "update [tblEvent] set [EventName] = @name, [LocationID] = @locationID," +
+                    "[EventDate] = @date, [EventType] = @type where [EventID] = @ID";
+
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.BigInt, 0);
+                idParam.Value = Id;
+
+                SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
+                nameParam.Value = Name;
+
+                SqlParameter locationParam = new SqlParameter("@locationID", SqlDbType.BigInt, 0);
+                locationParam.Value = LocationId;
+
+                SqlParameter dateParam = new SqlParameter("@date", SqlDbType.DateTime, 0);
+                dateParam.Value = EventDate;
+
+                SqlParameter typeParam = new SqlParameter("@type", SqlDbType.Char, 1);
+                typeParam.Value = Type;
+
+                updatePrepCmd.Parameters.Add(idParam);
+                updatePrepCmd.Parameters.Add(nameParam);
+                updatePrepCmd.Parameters.Add(locationParam);
+                updatePrepCmd.Parameters.Add(dateParam);
+                updatePrepCmd.Parameters.Add(typeParam);
+
+                updatePrepCmd.Prepare();
+            }
+            else
+            {
+                updatePrepCmd.Parameters["@ID"].Value = Id;
+                updatePrepCmd.Parameters["@name"].Value = Name;
+                updatePrepCmd.Parameters["@locationID"].Value = LocationId;
+                updatePrepCmd.Parameters["@date"].Value = EventDate;
+                updatePrepCmd.Parameters["@type"].Value = Type;
+            }
+
+            Connector.Update(updatePrepCmd, transaction);
         }
 
         /// <summary>
@@ -115,7 +208,7 @@ namespace AuntRosieEntities
             }
             else
             {
-                retrieveIdPrepCmd.Parameters["ID"].Value = id;
+                retrieveIdPrepCmd.Parameters["@ID"].Value = id;
             }
 
             //Process result

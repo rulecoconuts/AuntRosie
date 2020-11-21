@@ -80,7 +80,7 @@ namespace AuntRosieEntities
             }
             else
             {
-                retrieveIdPrepCmd.Parameters["ID"].Value = id;
+                retrieveIdPrepCmd.Parameters["@ID"].Value = id;
             }
 
             //Process result

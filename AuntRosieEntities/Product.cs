@@ -9,7 +9,7 @@ namespace AuntRosieEntities
 {
     public class Product : RosieEntity, IDisposable
     {
-        private short id;
+        private short id = -1;
         private string name;
         private string type;
         private string servingSize;
@@ -20,6 +20,10 @@ namespace AuntRosieEntities
         private static SqlCommand retrieveIdPrepCmd = null;
 
         private static SqlCommand retrieveNamePrepCmd = null;
+
+        private static SqlCommand createPrepCmd = null;
+        private static SqlCommand deletePrepCmd = null;
+        private static SqlCommand updatePrepCmd = null;
 
         public short Id { get => id; }
         public string Name { get => name; set => name = value; }
@@ -33,19 +37,99 @@ namespace AuntRosieEntities
 
         public override void Create(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (createPrepCmd is null)
+            {
+                createPrepCmd = new SqlCommand(null, Connector.Connection);
+                createPrepCmd.CommandText = "insert into [tblProduct]([ProductName], [ProductType], [ServingSize]) values " +
+                    "(@name, @type, @size)";
+
+
+                SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
+                nameParam.Value = Name;
+
+                SqlParameter typeParam = new SqlParameter("@type", SqlDbType.VarChar, 50);
+                typeParam.Value = Type;
+
+                SqlParameter sizeParam = new SqlParameter("@size", SqlDbType.VarChar, 50);
+                sizeParam.Value = ServingSize;
+
+                createPrepCmd.Parameters.Add(nameParam);
+                createPrepCmd.Parameters.Add(typeParam);
+                createPrepCmd.Parameters.Add(sizeParam);
+
+                createPrepCmd.Prepare();
+            }
+            else
+            {
+                createPrepCmd.Parameters["@name"].Value = Name;
+                createPrepCmd.Parameters["@type"].Value = Type;
+                createPrepCmd.Parameters["@size"].Value = ServingSize;
+            }
+
+            id = Convert.ToInt16(Connector.Insert(createPrepCmd, true, transaction));
         }
 
 
 
         public override void Delete(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (deletePrepCmd is null)
+            {
+                deletePrepCmd = new SqlCommand(null, Connector.Connection);
+                deletePrepCmd.CommandText = "delete from [tblProduct] where [ProductID]=@ID";
+
+
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
+                idParam.Value = Id;
+
+                deletePrepCmd.Parameters.Add(idParam);
+
+                deletePrepCmd.Prepare();
+            }
+            else
+            {
+                deletePrepCmd.Parameters["@ID"].Value = Id;
+            }
+
+            Connector.Delete(deletePrepCmd, transaction);
         }
 
         public override void Update(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (updatePrepCmd is null)
+            {
+                updatePrepCmd = new SqlCommand(null, Connector.Connection);
+                updatePrepCmd.CommandText = "update [tblProduct] set [ProductName]=@name, [ProductType]=@type, [ServingSize]=@size " +
+                    "where [ProductID]=@ID";
+
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
+                idParam.Value = Id;
+
+                SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
+                nameParam.Value = Name;
+
+                SqlParameter typeParam = new SqlParameter("@type", SqlDbType.VarChar, 50);
+                typeParam.Value = Type;
+
+                SqlParameter sizeParam = new SqlParameter("@size", SqlDbType.VarChar, 50);
+                sizeParam.Value = ServingSize;
+
+                updatePrepCmd.Parameters.Add(idParam);
+                updatePrepCmd.Parameters.Add(nameParam);
+                updatePrepCmd.Parameters.Add(typeParam);
+                updatePrepCmd.Parameters.Add(sizeParam);
+
+                updatePrepCmd.Prepare();
+            }
+            else
+            {
+                updatePrepCmd.Parameters["@ID"].Value = Id;
+                updatePrepCmd.Parameters["@name"].Value = Name;
+                updatePrepCmd.Parameters["@type"].Value = Type;
+                updatePrepCmd.Parameters["@size"].Value = ServingSize;
+            }
+
+            Connector.Update(updatePrepCmd, transaction);
         }
 
         public static Product Retrieve(short id)
@@ -66,7 +150,7 @@ namespace AuntRosieEntities
             }
             else
             {
-                retrieveIdPrepCmd.Parameters["ID"].Value = id;
+                retrieveIdPrepCmd.Parameters["@ID"].Value = id;
             }
 
             //Process result
