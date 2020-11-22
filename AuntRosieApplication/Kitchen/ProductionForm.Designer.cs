@@ -171,7 +171,7 @@
             this.lblProductName.AutoSize = true;
             this.lblProductName.BackColor = System.Drawing.Color.Transparent;
             this.lblProductName.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.lblProductName.Location = new System.Drawing.Point(146, 98);
+            this.lblProductName.Location = new System.Drawing.Point(199, 98);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(76, 22);
             this.lblProductName.TabIndex = 15;
@@ -299,7 +299,7 @@
             this.cmbProductName.FormattingEnabled = true;
             this.cmbProductName.Location = new System.Drawing.Point(287, 94);
             this.cmbProductName.Name = "cmbProductName";
-            this.cmbProductName.Size = new System.Drawing.Size(278, 31);
+            this.cmbProductName.Size = new System.Drawing.Size(382, 31);
             this.cmbProductName.TabIndex = 141;
             // 
             // frmProduction

@@ -313,7 +313,7 @@ namespace AuntRosieApp
         private void btnProduction_Click(object sender, EventArgs e)
         {
             //AuntRosieApplication.Kitchen.frmProduction form = new AuntRosieApplication.Kitchen.frmProduction();
-            AuntRosieApplication.Kitchen.frmGiveProductSize form = new AuntRosieApplication.Kitchen.frmGiveProductSize();
+            AuntRosieApplication.Kitchen.frmProduction form = new AuntRosieApplication.Kitchen.frmProduction();
             ShowForm(form);
         }
 

@@ -11,7 +11,7 @@ namespace AuntRosieEntities
     {
         private int id;
         private byte sizeID;
-        private double price;
+        private decimal price;
         private short productID;
 
         /// <summary>
@@ -23,6 +23,17 @@ namespace AuntRosieEntities
         private static SqlCommand createPrepCmd = null;
         private static SqlCommand deletePrepCmd = null;
         private static SqlCommand updatePrepCmd = null;
+
+        public ProductItem(byte sizeID, decimal price, short productID)
+        {
+            this.sizeID = sizeID;
+            this.price = price;
+            this.productID = productID;
+        }
+
+        public ProductItem()
+        {
+        }
 
         public Product Product
         {
@@ -52,7 +63,7 @@ namespace AuntRosieEntities
 
         public int Id { get => id;}
         public byte SizeID { get => sizeID; set => sizeID = value; }
-        public double Price { get => price; set => price = value; }
+        public decimal Price { get => price; set => price = value; }
         public short ProductID { get => productID; set => productID = value; }
 
         private void SetID(int id)
@@ -162,7 +173,8 @@ namespace AuntRosieEntities
             if (retrieveIdPrepCmd is null)
             {
                 retrieveIdPrepCmd = new SqlCommand(null, Connector.Connection);
-                retrieveIdPrepCmd.CommandText = "select [ProductID], [SizeID], [Price] from [tblProductItem] where [ProductItemID] = @ID";
+                retrieveIdPrepCmd.CommandText = "select [ProductID], [SizeID], [Price] from [tblProductItem] where [ProductItemID] = @ID; " +
+                    "OUTPUT INSERTED";
 
 
                 SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int, 0);
@@ -184,7 +196,7 @@ namespace AuntRosieEntities
                 productItem.SetID(id);
                 productItem.ProductID = reader.GetInt16(0);
                 productItem.SizeID = reader.GetByte(1);
-                productItem.Price = reader.GetDouble(2);
+                productItem.Price = reader.GetDecimal(2);
             }
 
             reader.Close();
@@ -199,19 +211,19 @@ namespace AuntRosieEntities
         /// <returns></returns>
         public static List<ProductItem> GetProductItems()
         {
-            List<ProductItem> items = null;
+            List<ProductItem> items = new List<ProductItem>();
 
             //Process result
             SqlDataReader reader = Connector.Retrieve("select [ProductItemID], [ProductID], [SizeID], [Price]" +
                 "from [tblProductItem]");
-            while (reader.HasRows)
+
+            while (reader.HasRows && reader.Read())
             {
-                reader.Read();
                 ProductItem productItem = new ProductItem();
                 productItem.SetID(reader.GetInt32(0));
                 productItem.ProductID = reader.GetInt16(1);
                 productItem.SizeID = reader.GetByte(2);
-                productItem.Price = reader.GetDouble(3);
+                productItem.Price = reader.GetDecimal(3);
 
                 items.Add(productItem);
             }

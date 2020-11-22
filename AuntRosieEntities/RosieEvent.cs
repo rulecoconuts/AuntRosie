@@ -170,7 +170,7 @@ namespace AuntRosieEntities
 
             //Process result
             SqlDataReader reader = Connector.Retrieve("select [EventID], [EventName], [LocationID], [EventDate], [EventType] " +
-                    $"from [tblEvent] where [EventDate] >= {earliestDate.ToString()}");
+                    $"from [tblEvent] where [EventDate] >= '{earliestDate.ToString()}'");
             while (reader.HasRows)
             {
                 reader.Read();

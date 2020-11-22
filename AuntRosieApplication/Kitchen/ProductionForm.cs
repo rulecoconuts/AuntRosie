@@ -24,8 +24,14 @@ namespace AuntRosieApplication.Kitchen
         private void frmProduction_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
-            DBConnector conn = new DBConnector(Properties.Resources.ConnectionString);
+            String DatabasePath = System.IO.Directory.GetCurrentDirectory();
+            int x = DatabasePath.IndexOf("bin");
+            DatabasePath = DatabasePath.Substring(0, x - 1);
+            String conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + DatabasePath +
+              @"\AuntRosieDB.mdf;Integrated Security=True;Connect Timeout=30";
+            DBConnector conn = new DBConnector(conStr);
             RosieEntity.Connector = conn;
+            loadCmbs();
             cmbProductName.DataSource = productItems;
             cmbProductName.DisplayMember = "Product.Name";
             cmbEvent.DataSource = events;

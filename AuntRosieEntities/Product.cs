@@ -146,6 +146,8 @@ namespace AuntRosieEntities
                 SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
                 idParam.Value = id;
 
+                retrieveIdPrepCmd.Parameters.Add(idParam);
+
                 retrieveIdPrepCmd.Prepare();
             }
             else
