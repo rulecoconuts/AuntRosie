@@ -128,12 +128,12 @@ namespace AuntRosieApplication.Event
 
         private bool validateAddEventFrm()
         {
-            return true;
+            return validateDate();
         }
 
         private bool validateDate()
         {
-            return true;
+            return dtpFormDate.Value > DateTime.Now;
         }
 
         private void ViewPanel(Panel pnl)
@@ -225,6 +225,18 @@ namespace AuntRosieApplication.Event
         private void btnNewTypeCancel_Click(object sender, EventArgs e)
         {
             btnNewTypeClose_Click(sender, e);
+        }
+
+        private void radNew_CheckedChanged(object sender, EventArgs e)
+        {
+            radExisting.Checked = !radNew.Checked;
+        }
+
+        private void radExisting_CheckedChanged(object sender, EventArgs e)
+        {
+            radNew.Checked = !radExisting.Checked;
+
+            dgEvents.DataSource = RosieEvent.GetEvents(DateTime.Now);
         }
     }
 }

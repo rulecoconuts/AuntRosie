@@ -7,11 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AuntRosieEntities;
 
 namespace AuntRosieApplication.Event
 {
     public partial class frmOrganizeEventStep2 : Form
     {
+        private RosieEvent rosieEvent;
+        
+
+        public frmOrganizeEventStep2(RosieEvent rosieEvent)
+        {
+            this.rosieEvent = rosieEvent;
+            InitializeComponent();
+        }
+
         public frmOrganizeEventStep2()
         {
             InitializeComponent();

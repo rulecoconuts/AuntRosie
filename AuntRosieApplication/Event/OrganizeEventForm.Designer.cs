@@ -41,7 +41,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.grbExists = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgEvents = new System.Windows.Forms.DataGridView();
             this.radExisting = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -50,6 +50,7 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.pnlNewLoc = new System.Windows.Forms.Panel();
+            this.lblLocMsg = new System.Windows.Forms.Label();
             this.btnNewTypeClose = new System.Windows.Forms.Button();
             this.txtnewLocName = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -64,10 +65,9 @@
             this.txtCity = new System.Windows.Forms.TextBox();
             this.btnNewTypetClear = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblLocMsg = new System.Windows.Forms.Label();
             this.grbNew.SuspendLayout();
             this.grbExists.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEvents)).BeginInit();
             this.pnlNewLoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -84,6 +84,7 @@
             this.radNew.TabStop = true;
             this.radNew.Text = "New Event";
             this.radNew.UseVisualStyleBackColor = true;
+            this.radNew.CheckedChanged += new System.EventHandler(this.radNew_CheckedChanged);
             // 
             // grbNew
             // 
@@ -189,34 +190,35 @@
             // grbExists
             // 
             this.grbExists.BackColor = System.Drawing.Color.Transparent;
-            this.grbExists.Controls.Add(this.dataGridView1);
+            this.grbExists.Controls.Add(this.dgEvents);
             this.grbExists.Controls.Add(this.radExisting);
             this.grbExists.Location = new System.Drawing.Point(32, 325);
             this.grbExists.Name = "grbExists";
-            this.grbExists.Size = new System.Drawing.Size(512, 138);
+            this.grbExists.Size = new System.Drawing.Size(512, 157);
             this.grbExists.TabIndex = 3;
             this.grbExists.TabStop = false;
-            this.grbExists.Text = "groupBox2";
+            this.grbExists.Text = "Existing Event";
             // 
-            // dataGridView1
+            // dgEvents
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 30);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(484, 96);
-            this.dataGridView1.TabIndex = 2;
+            this.dgEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgEvents.Location = new System.Drawing.Point(16, 50);
+            this.dgEvents.Name = "dgEvents";
+            this.dgEvents.Size = new System.Drawing.Size(484, 96);
+            this.dgEvents.TabIndex = 2;
             // 
             // radExisting
             // 
             this.radExisting.AutoSize = true;
             this.radExisting.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radExisting.Location = new System.Drawing.Point(6, 0);
+            this.radExisting.Location = new System.Drawing.Point(6, 19);
             this.radExisting.Name = "radExisting";
             this.radExisting.Size = new System.Drawing.Size(116, 24);
             this.radExisting.TabIndex = 1;
             this.radExisting.TabStop = true;
             this.radExisting.Text = "Existing Event";
             this.radExisting.UseVisualStyleBackColor = true;
+            this.radExisting.CheckedChanged += new System.EventHandler(this.radExisting_CheckedChanged);
             // 
             // label4
             // 
@@ -265,7 +267,7 @@
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
-            this.btnNext.Location = new System.Drawing.Point(249, 472);
+            this.btnNext.Location = new System.Drawing.Point(248, 488);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(68, 59);
             this.btnNext.TabIndex = 14;
@@ -276,7 +278,7 @@
             // progressBar1
             // 
             this.progressBar1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.progressBar1.Location = new System.Drawing.Point(33, 538);
+            this.progressBar1.Location = new System.Drawing.Point(32, 554);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(500, 23);
             this.progressBar1.TabIndex = 136;
@@ -302,11 +304,19 @@
             this.pnlNewLoc.Controls.Add(this.txtCity);
             this.pnlNewLoc.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewLoc.Controls.Add(this.btnNewTypetClear);
-            this.pnlNewLoc.Location = new System.Drawing.Point(12, 139);
+            this.pnlNewLoc.Location = new System.Drawing.Point(127, 70);
             this.pnlNewLoc.Name = "pnlNewLoc";
             this.pnlNewLoc.Size = new System.Drawing.Size(423, 334);
             this.pnlNewLoc.TabIndex = 114;
             this.pnlNewLoc.Visible = false;
+            // 
+            // lblLocMsg
+            // 
+            this.lblLocMsg.Location = new System.Drawing.Point(16, 297);
+            this.lblLocMsg.Name = "lblLocMsg";
+            this.lblLocMsg.Size = new System.Drawing.Size(392, 23);
+            this.lblLocMsg.TabIndex = 121;
+            this.lblLocMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnNewTypeClose
             // 
@@ -446,14 +456,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // lblLocMsg
-            // 
-            this.lblLocMsg.Location = new System.Drawing.Point(16, 297);
-            this.lblLocMsg.Name = "lblLocMsg";
-            this.lblLocMsg.Size = new System.Drawing.Size(392, 23);
-            this.lblLocMsg.TabIndex = 121;
-            this.lblLocMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // frmOrganizeEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,7 +479,7 @@
             this.grbNew.PerformLayout();
             this.grbExists.ResumeLayout(false);
             this.grbExists.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEvents)).EndInit();
             this.pnlNewLoc.ResumeLayout(false);
             this.pnlNewLoc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -490,7 +492,7 @@
         private System.Windows.Forms.RadioButton radNew;
         private System.Windows.Forms.GroupBox grbNew;
         private System.Windows.Forms.GroupBox grbExists;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgEvents;
         private System.Windows.Forms.RadioButton radExisting;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnNext;
