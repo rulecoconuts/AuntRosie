@@ -297,7 +297,7 @@
             this.pnlNewLoc.Controls.Add(this.txtCity);
             this.pnlNewLoc.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewLoc.Controls.Add(this.btnNewTypetClear);
-            this.pnlNewLoc.Location = new System.Drawing.Point(12, 139);
+            this.pnlNewLoc.Location = new System.Drawing.Point(12, 123);
             this.pnlNewLoc.Name = "pnlNewLoc";
             this.pnlNewLoc.Size = new System.Drawing.Size(360, 290);
             this.pnlNewLoc.TabIndex = 114;
@@ -435,6 +435,7 @@
             this.btnNewTypetClear.Size = new System.Drawing.Size(63, 55);
             this.btnNewTypetClear.TabIndex = 15;
             this.btnNewTypetClear.UseVisualStyleBackColor = false;
+            this.btnNewTypetClear.Click += new System.EventHandler(this.btnNewTypetClear_Click);
             // 
             // frmOrganizeEvent
             // 

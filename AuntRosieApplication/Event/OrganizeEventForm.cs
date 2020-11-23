@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AuntRosieEntities;
 
 namespace AuntRosieApplication.Event
 {
@@ -60,6 +61,15 @@ namespace AuntRosieApplication.Event
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnNewTypetClear_Click(object sender, EventArgs e)
+        {
+            Address address = new Address(txtProvince.Text, txtCity.Text, txtStreet.Text);
+            EventLocation location = new EventLocation();
+            location.Name = txtnewLocName.Text;
+            location.Address = address;
+            location.Create();
         }
     }
 }
