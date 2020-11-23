@@ -36,7 +36,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAddLocation = new System.Windows.Forms.Button();
-            this.cmbName = new System.Windows.Forms.ComboBox();
+            this.cmbLocations = new System.Windows.Forms.ComboBox();
             this.dtpFormDate = new System.Windows.Forms.DateTimePicker();
             this.lblName = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -63,10 +63,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.btnNewTypetClear = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblLocMsg = new System.Windows.Forms.Label();
             this.grbNew.SuspendLayout();
             this.grbExists.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlNewLoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // radNew
@@ -90,7 +93,7 @@
             this.grbNew.Controls.Add(this.label2);
             this.grbNew.Controls.Add(this.btnAddLocation);
             this.grbNew.Controls.Add(this.radNew);
-            this.grbNew.Controls.Add(this.cmbName);
+            this.grbNew.Controls.Add(this.cmbLocations);
             this.grbNew.Controls.Add(this.dtpFormDate);
             this.grbNew.Controls.Add(this.lblName);
             this.grbNew.Controls.Add(this.label9);
@@ -144,14 +147,14 @@
             this.btnAddLocation.UseVisualStyleBackColor = false;
             this.btnAddLocation.Click += new System.EventHandler(this.btnAddLocation_Click);
             // 
-            // cmbName
+            // cmbLocations
             // 
-            this.cmbName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbName.FormattingEnabled = true;
-            this.cmbName.Location = new System.Drawing.Point(161, 120);
-            this.cmbName.Name = "cmbName";
-            this.cmbName.Size = new System.Drawing.Size(281, 31);
-            this.cmbName.TabIndex = 108;
+            this.cmbLocations.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbLocations.FormattingEnabled = true;
+            this.cmbLocations.Location = new System.Drawing.Point(161, 120);
+            this.cmbLocations.Name = "cmbLocations";
+            this.cmbLocations.Size = new System.Drawing.Size(281, 31);
+            this.cmbLocations.TabIndex = 108;
             // 
             // dtpFormDate
             // 
@@ -223,9 +226,9 @@
             this.label4.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label4.Location = new System.Drawing.Point(35, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(328, 30);
+            this.label4.Size = new System.Drawing.Size(349, 30);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Orgnize Event- Step1";
+            this.label4.Text = "Organize Event- Step1";
             // 
             // btnClose
             // 
@@ -254,6 +257,7 @@
             this.btnNewTypeCancel.TabIndex = 16;
             this.toolTip1.SetToolTip(this.btnNewTypeCancel, "Cancel");
             this.btnNewTypeCancel.UseVisualStyleBackColor = false;
+            this.btnNewTypeCancel.Click += new System.EventHandler(this.btnNewTypeCancel_Click);
             // 
             // btnNext
             // 
@@ -283,6 +287,7 @@
             this.pnlNewLoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlNewLoc.BackgroundImage")));
             this.pnlNewLoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlNewLoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlNewLoc.Controls.Add(this.lblLocMsg);
             this.pnlNewLoc.Controls.Add(this.btnNewTypeClose);
             this.pnlNewLoc.Controls.Add(this.txtnewLocName);
             this.pnlNewLoc.Controls.Add(this.label12);
@@ -297,9 +302,9 @@
             this.pnlNewLoc.Controls.Add(this.txtCity);
             this.pnlNewLoc.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewLoc.Controls.Add(this.btnNewTypetClear);
-            this.pnlNewLoc.Location = new System.Drawing.Point(12, 123);
+            this.pnlNewLoc.Location = new System.Drawing.Point(12, 139);
             this.pnlNewLoc.Name = "pnlNewLoc";
-            this.pnlNewLoc.Size = new System.Drawing.Size(360, 290);
+            this.pnlNewLoc.Size = new System.Drawing.Size(423, 334);
             this.pnlNewLoc.TabIndex = 114;
             this.pnlNewLoc.Visible = false;
             // 
@@ -331,10 +336,10 @@
             this.label12.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label12.Location = new System.Drawing.Point(107, 12);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(163, 22);
+            this.label12.Size = new System.Drawing.Size(159, 22);
             this.label12.TabIndex = 102;
             this.label12.Tag = "";
-            this.label12.Text = "Add NewLlocation";
+            this.label12.Text = "Add NewLocation";
             // 
             // label1
             // 
@@ -437,6 +442,18 @@
             this.btnNewTypetClear.UseVisualStyleBackColor = false;
             this.btnNewTypetClear.Click += new System.EventHandler(this.btnNewTypetClear_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // lblLocMsg
+            // 
+            this.lblLocMsg.Location = new System.Drawing.Point(16, 297);
+            this.lblLocMsg.Name = "lblLocMsg";
+            this.lblLocMsg.Size = new System.Drawing.Size(392, 23);
+            this.lblLocMsg.TabIndex = 121;
+            this.lblLocMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmOrganizeEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,6 +480,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlNewLoc.ResumeLayout(false);
             this.pnlNewLoc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,7 +496,7 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnAddLocation;
-        private System.Windows.Forms.ComboBox cmbName;
+        private System.Windows.Forms.ComboBox cmbLocations;
         private System.Windows.Forms.DateTimePicker dtpFormDate;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label9;
@@ -502,5 +520,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnNewTypeClose;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label lblLocMsg;
     }
 }

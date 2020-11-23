@@ -182,7 +182,7 @@ namespace AuntRosieEntities
                 reader.Read();
                 location = new EventLocation();
                 location.SetID(id);
-                location.Name = reader.GetString(0);
+                location.Name = reader.IsDBNull(0) ? null : reader.GetString(0);
                 location.Address = new Address(reader.GetString(1), reader.GetString(2), reader.GetString(3));
             }
 
@@ -205,8 +205,8 @@ namespace AuntRosieEntities
             while (reader.HasRows && reader.Read())
             {
                 EventLocation location = new EventLocation();
-                location.SetID(reader.GetInt16(0));
-                location.Name = reader.GetString(1);
+                location.SetID(reader.GetInt64(0));
+                location.Name = reader.IsDBNull(1)?null: reader.GetString(1);
                 location.Address = new Address(reader.GetString(2), reader.GetString(3), reader.GetString(4));
 
                 locations.Add(location);
@@ -219,7 +219,7 @@ namespace AuntRosieEntities
 
         public override string ToString()
         {
-            return $"{(Name != null? $"{Name},": "")} {Address.ToString()}".Trim();
+            return $"{(Name != null && Name != ""? $"{Name},": "")} {Address.ToString()}".Trim();
         }
     }
 }
