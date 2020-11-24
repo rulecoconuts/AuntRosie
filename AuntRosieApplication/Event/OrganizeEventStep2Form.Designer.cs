@@ -36,7 +36,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnAddLocation = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.cmbEmpName = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.grbNew = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.txtEvent = new System.Windows.Forms.TextBox();
             this.grbNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -51,13 +51,14 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label2.Location = new System.Drawing.Point(25, 80);
+            this.label2.Location = new System.Drawing.Point(36, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(213, 29);
+            this.label2.Size = new System.Drawing.Size(525, 29);
             this.label2.TabIndex = 114;
-            this.label2.Text = "Event Name ";
+            this.label2.Text = "Event";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label4
@@ -94,7 +95,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::AuntRosieApplication.Properties.Resources.arrow_left;
-            this.button1.Location = new System.Drawing.Point(214, 460);
+            this.button1.Location = new System.Drawing.Point(213, 490);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(62, 62);
             this.button1.TabIndex = 120;
@@ -108,7 +109,7 @@
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
-            this.btnNext.Location = new System.Drawing.Point(282, 460);
+            this.btnNext.Location = new System.Drawing.Point(281, 490);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(62, 62);
             this.btnNext.TabIndex = 117;
@@ -128,18 +129,6 @@
             this.btnAddLocation.TabIndex = 113;
             this.toolTip1.SetToolTip(this.btnAddLocation, "Add new Location");
             this.btnAddLocation.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label1.Location = new System.Drawing.Point(421, 80);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 29);
-            this.label1.TabIndex = 119;
-            this.label1.Text = "Event Date";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblName
             // 
@@ -189,7 +178,7 @@
             this.grbNew.Controls.Add(this.btnAddLocation);
             this.grbNew.Controls.Add(this.cmbEmpName);
             this.grbNew.Controls.Add(this.lblName);
-            this.grbNew.Location = new System.Drawing.Point(30, 112);
+            this.grbNew.Location = new System.Drawing.Point(29, 142);
             this.grbNew.Name = "grbNew";
             this.grbNew.Size = new System.Drawing.Size(531, 342);
             this.grbNew.TabIndex = 115;
@@ -206,11 +195,20 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(33, 538);
+            this.progressBar1.Location = new System.Drawing.Point(32, 568);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(532, 23);
             this.progressBar1.TabIndex = 136;
             this.progressBar1.Value = 50;
+            // 
+            // txtEvent
+            // 
+            this.txtEvent.Enabled = false;
+            this.txtEvent.Location = new System.Drawing.Point(30, 87);
+            this.txtEvent.Multiline = true;
+            this.txtEvent.Name = "txtEvent";
+            this.txtEvent.Size = new System.Drawing.Size(531, 49);
+            this.txtEvent.TabIndex = 139;
             // 
             // frmOrganizeEventStep2
             // 
@@ -218,11 +216,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(585, 603);
+            this.Controls.Add(this.txtEvent);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.grbNew);
             this.Controls.Add(this.label2);
@@ -245,7 +243,6 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.ComboBox cmbEmpName;
         private System.Windows.Forms.Button btnAddLocation;
@@ -256,5 +253,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.TextBox txtEvent;
     }
 }

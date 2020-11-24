@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.ComponentModel;
 
 namespace AuntRosieEntities
 {
@@ -19,6 +20,7 @@ namespace AuntRosieEntities
         /// Prepared statement to retrieve product by id
         /// </summary>
         private static SqlCommand retrieveIdPrepCmd = null;
+        private static SqlCommand retrieveDateLocationPrepCmd = null;
         private static SqlCommand createPrepCmd = null;
         private static SqlCommand deletePrepCmd = null;
         private static SqlCommand updatePrepCmd = null;
@@ -43,6 +45,7 @@ namespace AuntRosieEntities
             }
         }
 
+        [Browsable(false)]
         public long Id { get => id;}
         public string Name { get => name; set => name = value; }
         public long LocationId { get => locationId; set => locationId = value; }
@@ -204,6 +207,8 @@ namespace AuntRosieEntities
                 SqlParameter idParam = new SqlParameter("@ID", SqlDbType.BigInt, 0);
                 idParam.Value = id;
 
+                retrieveIdPrepCmd.Parameters.Add(idParam);
+
                 retrieveIdPrepCmd.Prepare();
             }
             else
@@ -227,6 +232,57 @@ namespace AuntRosieEntities
             reader.Close();
 
             return reqEvent;
+        }
+
+        public static RosieEvent Retrieve(DateTime date, long locationId)
+        {
+            RosieEvent reqEvent = null;
+
+            //Prepare statement
+            if (retrieveIdPrepCmd is null)
+            {
+                retrieveIdPrepCmd = new SqlCommand(null, Connector.Connection);
+                retrieveIdPrepCmd.CommandText = "select [EventID], [EventName], [EventType] " +
+                    "from [tblEvent] where [EventDate] = @date and [LocationID]=@location";
+
+
+                SqlParameter dateParam = new SqlParameter("@date", SqlDbType.DateTime, 0);
+                dateParam.Value = date;
+
+                SqlParameter locationParam = new SqlParameter("@location", SqlDbType.BigInt, 0);
+                locationParam.Value = locationId;
+
+                retrieveDateLocationPrepCmd.Parameters.Add(dateParam);
+                retrieveDateLocationPrepCmd.Parameters.Add(locationParam);
+                retrieveDateLocationPrepCmd.Prepare();
+            }
+            else
+            {
+                retrieveDateLocationPrepCmd.Parameters["@date"].Value = date;
+                retrieveDateLocationPrepCmd.Parameters["@location"].Value = locationId;
+            }
+
+            //Process result
+            SqlDataReader reader = Connector.Retrieve(retrieveDateLocationPrepCmd);
+            if (reader.HasRows)
+            {
+                reader.Read();
+                reqEvent = new RosieEvent();
+                reqEvent.SetID(reader.GetInt64(0));
+                reqEvent.Name = reader.GetString(1);
+                reqEvent.LocationId = locationId;
+                reqEvent.EventDate = date;
+                reqEvent.Type = (EventType)reader.GetString(2)[0];
+            }
+
+            reader.Close();
+
+            return reqEvent;
+        }
+
+        public override string ToString()
+        {
+            return $"{(Name != null && Name != ""? ($"{Name} |"):"")} {EventDate} | {EventLocation}".Trim();
         }
     }
 }

@@ -34,7 +34,6 @@
             this.grbNew = new System.Windows.Forms.GroupBox();
             this.txtEventName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnAddLocation = new System.Windows.Forms.Button();
             this.cmbLocations = new System.Windows.Forms.ComboBox();
             this.dtpFormDate = new System.Windows.Forms.DateTimePicker();
@@ -65,6 +64,8 @@
             this.txtCity = new System.Windows.Forms.TextBox();
             this.btnNewTypetClear = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbTypes = new System.Windows.Forms.ComboBox();
             this.grbNew.SuspendLayout();
             this.grbExists.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEvents)).BeginInit();
@@ -89,9 +90,10 @@
             // grbNew
             // 
             this.grbNew.BackColor = System.Drawing.Color.Transparent;
+            this.grbNew.Controls.Add(this.cmbTypes);
+            this.grbNew.Controls.Add(this.label2);
             this.grbNew.Controls.Add(this.txtEventName);
             this.grbNew.Controls.Add(this.label7);
-            this.grbNew.Controls.Add(this.label2);
             this.grbNew.Controls.Add(this.btnAddLocation);
             this.grbNew.Controls.Add(this.radNew);
             this.grbNew.Controls.Add(this.cmbLocations);
@@ -117,22 +119,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 14.25F);
             this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label7.Location = new System.Drawing.Point(5, 82);
+            this.label7.Location = new System.Drawing.Point(40, 78);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 22);
             this.label7.TabIndex = 122;
             this.label7.Text = "Event Name";
-            // 
-            // label2
-            // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label2.Location = new System.Drawing.Point(161, 173);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(328, 56);
-            this.label2.TabIndex = 114;
-            this.label2.Text = "Event Location:   ";
             // 
             // btnAddLocation
             // 
@@ -180,7 +171,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label9.Location = new System.Drawing.Point(22, 34);
+            this.label9.Location = new System.Drawing.Point(50, 30);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(103, 22);
             this.label9.TabIndex = 111;
@@ -304,7 +295,7 @@
             this.pnlNewLoc.Controls.Add(this.txtCity);
             this.pnlNewLoc.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewLoc.Controls.Add(this.btnNewTypetClear);
-            this.pnlNewLoc.Location = new System.Drawing.Point(127, 70);
+            this.pnlNewLoc.Location = new System.Drawing.Point(12, 214);
             this.pnlNewLoc.Name = "pnlNewLoc";
             this.pnlNewLoc.Size = new System.Drawing.Size(423, 334);
             this.pnlNewLoc.TabIndex = 114;
@@ -456,6 +447,26 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label2.Location = new System.Drawing.Point(50, 178);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 22);
+            this.label2.TabIndex = 123;
+            this.label2.Tag = "";
+            this.label2.Text = "Event Type";
+            // 
+            // cmbTypes
+            // 
+            this.cmbTypes.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTypes.FormattingEnabled = true;
+            this.cmbTypes.Location = new System.Drawing.Point(161, 174);
+            this.cmbTypes.Name = "cmbTypes";
+            this.cmbTypes.Size = new System.Drawing.Size(281, 31);
+            this.cmbTypes.TabIndex = 124;
+            // 
             // frmOrganizeEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -518,11 +529,12 @@
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtEventName;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnNewTypeClose;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label lblLocMsg;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbTypes;
     }
 }

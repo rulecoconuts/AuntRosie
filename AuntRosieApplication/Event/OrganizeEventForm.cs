@@ -14,9 +14,26 @@ namespace AuntRosieApplication.Event
 {
     public partial class frmOrganizeEvent : Form
     {
+        RosieEvent curEvent = null;
+        SqlTransaction transaction = null;
+        Dictionary<string, EventType> types = new Dictionary<string, EventType>() 
+        { 
+            { "Farmers Market", EventType.FarmersMarket},
+            {"HomeShow", EventType.HomeShow },
+            {"Other", EventType.Other}
+        };
+
         public frmOrganizeEvent()
         {
             InitializeComponent();
+        }
+
+        public frmOrganizeEvent(RosieEvent curEvent, SqlTransaction transaction)
+        {
+            this.curEvent = curEvent;
+            this.transaction = transaction;
+            InitializeComponent();
+            loadEvent(curEvent);
         }
 
         /// <summary>
@@ -44,9 +61,42 @@ namespace AuntRosieApplication.Event
             {
                 cmbLocations.SelectedIndex = 0;
             }
+
+            foreach(KeyValuePair<string, EventType> item in types)
+            {
+                cmbTypes.Items.Add(item);
+            }
+            cmbTypes.SelectedIndex = 0;
+            cmbTypes.DisplayMember = "Key";
         }
 
         #region helper-functions
+
+        private void loadEvent(RosieEvent ev)
+        {
+            if (ev != null)
+            {
+                txtEventName.Text = ev.Name;
+                EventLocation locToBeSelected = findEquivalentInCombobox(ev.EventLocation);
+                if (locToBeSelected != null)
+                {
+                    cmbLocations.SelectedItem = locToBeSelected;
+                }
+            }
+        }
+
+        private EventLocation findEquivalentInCombobox(EventLocation loc)
+        {
+            foreach (EventLocation cmbLoc in cmbLocations.Items)
+            {
+                if (cmbLoc.ToString() == loc.ToString())
+                {
+                    return cmbLoc;
+                }
+            }
+
+            return null;
+        }
 
         /// <summary>
         /// Show messages on the 'Add location' panel
@@ -133,7 +183,13 @@ namespace AuntRosieApplication.Event
 
         private bool validateDate()
         {
-            return dtpFormDate.Value > DateTime.Now;
+            if(dtpFormDate.Value <= DateTime.Now)
+            {
+                errorProvider1.SetError(dtpFormDate, "Date must be in the future");
+                return false;
+            }
+
+            return true;
         }
 
         private void ViewPanel(Panel pnl)
@@ -169,9 +225,21 @@ namespace AuntRosieApplication.Event
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            this.Close();
-             frmOrganizeEventStep2 form = new frmOrganizeEventStep2();
-            form.ShowDialog();
+            if (validateAddEventFrm())
+            {
+                RosieEvent ev = new RosieEvent();
+                ev.EventDate = dtpFormDate.Value;
+                ev.LocationId = (cmbLocations.SelectedItem as EventLocation).Id;
+                ev.Name = txtEventName.Text;
+                ev.Type = ((KeyValuePair<string, EventType>)cmbTypes.SelectedItem).Value;
+                SqlTransaction transaction = RosieEntity.Connector.Connection.BeginTransaction();
+                ev.Create();
+
+                this.Close();
+
+                frmOrganizeEventStep2 form = new frmOrganizeEventStep2(ev, transaction);
+                form.ShowDialog();
+            }
 
         }
 

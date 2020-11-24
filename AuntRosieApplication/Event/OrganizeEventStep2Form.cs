@@ -8,18 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AuntRosieEntities;
+using System.Data.SqlClient;
 
 namespace AuntRosieApplication.Event
 {
     public partial class frmOrganizeEventStep2 : Form
     {
         private RosieEvent rosieEvent;
+        private SqlTransaction transaction;
         
 
-        public frmOrganizeEventStep2(RosieEvent rosieEvent)
+        public frmOrganizeEventStep2(RosieEvent rosieEvent, SqlTransaction transaction)
         {
             this.rosieEvent = rosieEvent;
+            this.transaction = transaction;
             InitializeComponent();
+            loadEvent(rosieEvent);
+        }
+
+        private void loadEvent(RosieEvent ev)
+        {
+            if (ev != null)
+            {
+                txtEvent.Text = ev.ToString();
+            }
         }
 
         public frmOrganizeEventStep2()
