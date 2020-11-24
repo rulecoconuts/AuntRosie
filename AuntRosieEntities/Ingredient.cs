@@ -77,9 +77,9 @@ namespace AuntRosieEntities
             }
             else
             {
-                createPrepCmd.Parameters["name"].Value = Name;
-                createPrepCmd.Parameters["note"].Value = StoringNote;
-                createPrepCmd.Parameters["type"].Value = IngredientTypeId;
+                createPrepCmd.Parameters["@name"].Value = Name;
+                createPrepCmd.Parameters["@note"].Value = StoringNote;
+                createPrepCmd.Parameters["@type"].Value = IngredientTypeId;
             }
 
             id = Convert.ToInt64(Connector.Insert(createPrepCmd, true, transaction));
@@ -107,7 +107,7 @@ namespace AuntRosieEntities
             }
             else
             {
-                deletePrepCmd.Parameters["ID"].Value = Id;
+                deletePrepCmd.Parameters["@ID"].Value = Id;
             }
 
             Connector.Delete(deletePrepCmd, transaction);
@@ -142,9 +142,9 @@ namespace AuntRosieEntities
             }
             else
             {
-                updatePrepCmd.Parameters["ID"].Value = Id;
-                updatePrepCmd.Parameters["name"].Value = Name;
-                updatePrepCmd.Parameters["type"].Value = IngredientTypeId;
+                updatePrepCmd.Parameters["@ID"].Value = Id;
+                updatePrepCmd.Parameters["@name"].Value = Name;
+                updatePrepCmd.Parameters["@type"].Value = IngredientTypeId;
             }
             
 
@@ -240,7 +240,7 @@ namespace AuntRosieEntities
 
 
         /// <summary>
-        /// Get Ingredint type
+        /// Get Ingredints
         /// //Mervat November ,19
         /// </summary>
         /// <param name="conStr"></param>
@@ -276,5 +276,41 @@ namespace AuntRosieEntities
             return IngredintTable;
         }
 
+        /// <summary>
+        /// Get Ingredints by thier types
+        /// //Mervat November ,19
+        /// </summary>
+        /// <param name="conStr"></param>
+        /// <returns></returns>
+        public static DataTable GetAllIngredintsByType(String conStr,String typeId)
+        {
+            // Declare the connection
+            SqlConnection dbConnection = new SqlConnection(conStr);
+
+            // Create new SQL command
+            SqlCommand command = new SqlCommand("SELECT * FROM [tblIngredient] Where [IngredientTypeID]=" + typeId, dbConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            // Declare a DataTable object that will hold the return value
+            DataTable IngredintTable = new DataTable();
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                adapter.Fill(IngredintTable);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+            // Return the populated DataTable
+            return IngredintTable;
+        }
     }
 }

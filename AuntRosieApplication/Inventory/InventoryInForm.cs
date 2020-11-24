@@ -8,18 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AuntRosieEntities;
+using AuntRosieApplication.Classes;
 namespace AuntRosieApplication.Inventory
 {
     public partial class InventoryInForm : Form
     {
+        public static String OpStatus = null;
+        public bool SupplierFlag = false;
+        public bool isNewIngrdent = false;
         public InventoryInForm()
         {
             InitializeComponent();
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -34,23 +33,49 @@ namespace AuntRosieApplication.Inventory
 
         private void btnAddType_Click(object sender, EventArgs e)
         {
+            Classes.DBMethod.FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
+                   (Classes.DBMethod.GetConnectionString()), cmbNewtype);
             pnlMain.Enabled = false;
             ViewPanel(pnlNewType);
             txtxNewType.Focus();
         }
 
-        #region helpper-functions
+        #region helppr-functions
         private void ViewPanel(Panel pnl)
         {
             pnl.Top = (this.Height - pnl.Height) / 2;
             pnl.Left = (this.Width - pnl.Width) / 2;
             pnl.Visible = true;
         }
+         private bool IsValidIngredent ()
+        {
+            bool isvalid = true;
+            if (txtNewIngredintName.Text.Length < 3)
+            {
+                isvalid = false;
+                errIngredientName.SetError(txtNewIngredintName, "Ingredient Name could not be less than 3 letters");
+            }
+            if (cmbNewtype.Text.Length ==0)
+            {
+                isvalid = false;
+                errIngredientType.SetError(cmbNewtype, "Ingredient should has a type");
+
+            }
+            if (txtstoringNote.Text.Length == 0)
+            {
+                isvalid = false;
+                errCost.SetError(txtstoringNote, "Sorting note could not be empty");
+
+            }
+             
+            return isvalid;
+        }
+         
         #endregion
 
         private void btnNewIngredintCancel_Click(object sender, EventArgs e)
         {
-
+            pnlNewIngredint.Visible = false;
         }
 
         private void btnNewIngredintClose_Click(object sender, EventArgs e)
@@ -76,8 +101,10 @@ namespace AuntRosieApplication.Inventory
 
         private void btnAddSupplier_Click(object sender, EventArgs e)
         {
-            Inventory.SuppliersForm form = new Inventory.SuppliersForm();
+            Inventory.frmSupplier form = new Inventory.frmSupplier();
+            form.thisOpStatus = "newOnly";
             form.ShowDialog();
+            SupplierFlag = true;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -87,11 +114,21 @@ namespace AuntRosieApplication.Inventory
 
         private void InventoryInForm_Load(object sender, EventArgs e)
         {
-           this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
-           FillCombBox( AuntRosieEntities.IngredientType.GetAllIngredintType
+            lblTitle.Left = (this.Width - lblTitle.Width) / 2;
+            pnlButton.Left = (this.Width - pnlButton.Width) / 2;
+            pnlMain.Left = (this.Width - pnlMain.Width) / 2;
+            pnlSubMain.Enabled = false;
+            btnNew.Focus();
+            DBMethod.relocation(pnlNewType, this);
+            DBMethod.relocation(pnlNewIngredint, this);
+            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+          Classes.DBMethod.FillCombBox( AuntRosieEntities.IngredientType.GetAllIngredintType
                (Classes.DBMethod.GetConnectionString()),cmbType);
-           FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
+            Classes.DBMethod.FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
                (Classes.DBMethod.GetConnectionString()), cmbNewtype);
+            Classes.DBMethod.FillCombBox(AuntRosieEntities.Supplier.GetAllSuppliers
+                (Classes.DBMethod.GetConnectionString()), cmbSupplier);
+
 
         }
 
@@ -130,29 +167,104 @@ namespace AuntRosieApplication.Inventory
             if (txtxNewType.Text.Length >= 3)
             {
                 newType.Name = txtxNewType.Text;
+                DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                RosieEntity.Connector = conn;
+
                 newType.Create();
+                pnlNewType.Visible = false;
+                pnlMain.Enabled = true; 
+
+                cmbType.Items.Clear();
+                Classes.DBMethod.FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
+                     (Classes.DBMethod.GetConnectionString()), cmbType);
+                cmbType.SelectedItem = cmbType.Items[cmbType.Items.Count - 1];
+                
+                 
+
+
+                cmbNewtype.Items.Clear();
+                Classes.DBMethod.FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
+                     (Classes.DBMethod.GetConnectionString()), cmbNewtype);
+                cmbNewtype.SelectedItem = cmbType.Items[cmbNewtype.Items.Count - 1];
+
             }
 
             else
             {
-                MessageBox.Show("Ingredient Type Name could not contain less than 3 character", "ENTRY ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                errIngredientType.SetError(txtxNewType, "Ingredient Type Name could not contain less than 3 character");
+                txtxNewType.Focus();
             }
         }
 
-        #region Helpers-Functionsnctons 
+ 
 
-        private void FillCombBox(DataTable dt , ComboBox cmb )
-
+        private void InventoryInForm_Activated(object sender, EventArgs e)
+        {   if (SupplierFlag)
             {
+        
+            cmbSupplier.Items.Clear();
+            Classes.DBMethod.FillCombBox(AuntRosieEntities.Supplier.GetAllSuppliers
+                (Classes.DBMethod.GetConnectionString()), cmbSupplier);
 
-            foreach (DataRow row in dt.Rows)
-            {AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
-                 itm.name = row[1].ToString();
-                itm.id = row[0].ToString();
-                cmb.Items.Add((Object)itm);
+                cmbSupplier.SelectedItem = cmbSupplier.Items[cmbSupplier.Items.Count - 1];
+
             }
+
         }
 
-        #endregion
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            OpStatus = "new";
+            pnlSubMain.Enabled = true; ;
+            btnCancel.Enabled = true;
+            btnSave.Enabled = true;
+            cmbType.Focus();
+            btnNew.Enabled = false;
+             
+           
+             
+            
+        }
+
+        private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbName.Items.Clear();
+            Classes.DBMethod.FillCombBox(AuntRosieEntities.Ingredient.GetAllIngredintsByType
+              (Classes.DBMethod.GetConnectionString(), DBMethod.GetSelectedItemID(cmbType)), cmbName);
+        }
+
+        private void btnNewIngredintSave_Click(object sender, EventArgs e)
+        {
+            Ingredient newIngredient = new Ingredient();
+            if (IsValidIngredent())
+            {
+                newIngredient.Name = txtNewIngredintName.Text.Trim();
+
+                newIngredient.IngredientTypeId = (short) Convert.ToDouble(DBMethod.GetSelectedItemID(cmbNewtype)) ;
+                newIngredient.StoringNote = txtstoringNote.Text;
+                DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                RosieEntity.Connector = conn;
+                newIngredient.Create();
+                pnlNewIngredint.Visible = false;
+                pnlMain.Enabled = true;
+
+                cmbType.Items.Clear();
+             
+                cmbType.SelectedItem = cmbType.Items[cmbType.Items.Count - 1];
+
+
+
+
+                cmbNewtype.Items.Clear();
+                Classes.DBMethod.FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
+                     (Classes.DBMethod.GetConnectionString()), cmbNewtype);
+                cmbNewtype.SelectedItem = cmbType.Items[cmbNewtype.Items.Count - 1];
+
+
+
+            }
+
+
+        }
     }
 }
