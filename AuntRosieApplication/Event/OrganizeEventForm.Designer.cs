@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrganizeEvent));
             this.radNew = new System.Windows.Forms.RadioButton();
             this.grbNew = new System.Windows.Forms.GroupBox();
+            this.cmbTypes = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtEventName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAddLocation = new System.Windows.Forms.Button();
@@ -64,8 +66,6 @@
             this.txtCity = new System.Windows.Forms.TextBox();
             this.btnNewTypetClear = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbTypes = new System.Windows.Forms.ComboBox();
             this.grbNew.SuspendLayout();
             this.grbExists.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEvents)).BeginInit();
@@ -105,6 +105,26 @@
             this.grbNew.Size = new System.Drawing.Size(512, 242);
             this.grbNew.TabIndex = 2;
             this.grbNew.TabStop = false;
+            // 
+            // cmbTypes
+            // 
+            this.cmbTypes.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTypes.FormattingEnabled = true;
+            this.cmbTypes.Location = new System.Drawing.Point(161, 174);
+            this.cmbTypes.Name = "cmbTypes";
+            this.cmbTypes.Size = new System.Drawing.Size(281, 31);
+            this.cmbTypes.TabIndex = 124;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label2.Location = new System.Drawing.Point(50, 178);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 22);
+            this.label2.TabIndex = 123;
+            this.label2.Tag = "";
+            this.label2.Text = "Event Type";
             // 
             // txtEventName
             // 
@@ -295,7 +315,7 @@
             this.pnlNewLoc.Controls.Add(this.txtCity);
             this.pnlNewLoc.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewLoc.Controls.Add(this.btnNewTypetClear);
-            this.pnlNewLoc.Location = new System.Drawing.Point(12, 214);
+            this.pnlNewLoc.Location = new System.Drawing.Point(22, 148);
             this.pnlNewLoc.Name = "pnlNewLoc";
             this.pnlNewLoc.Size = new System.Drawing.Size(423, 334);
             this.pnlNewLoc.TabIndex = 114;
@@ -446,26 +466,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label2.Location = new System.Drawing.Point(50, 178);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 22);
-            this.label2.TabIndex = 123;
-            this.label2.Tag = "";
-            this.label2.Text = "Event Type";
-            // 
-            // cmbTypes
-            // 
-            this.cmbTypes.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTypes.FormattingEnabled = true;
-            this.cmbTypes.Location = new System.Drawing.Point(161, 174);
-            this.cmbTypes.Name = "cmbTypes";
-            this.cmbTypes.Size = new System.Drawing.Size(281, 31);
-            this.cmbTypes.TabIndex = 124;
             // 
             // frmOrganizeEvent
             // 
