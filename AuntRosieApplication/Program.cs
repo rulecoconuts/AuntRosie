@@ -16,8 +16,8 @@ namespace AuntRosieApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-                 Application.Run(new frmLogin());
-             // Application.Run(new  AuntRosieApplication.Inventory.InventoryInForm());
+                   Application.Run(new frmLogin());
+              // Application.Run(new  AuntRosieApplication.Inventory.frmInventoryStock());
         }
     }
 }

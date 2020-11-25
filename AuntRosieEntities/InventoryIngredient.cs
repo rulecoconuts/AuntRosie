@@ -47,26 +47,30 @@ namespace AuntRosieEntities
                 createPrepCmd = new SqlCommand(null, Connector.Connection);
                 createPrepCmd.CommandText = "insert into [tblIngredientInventory]([IngredientID]," +
                     "[PurchaseDate],[ExpiryDate] ,[PaymentMethod],[Quantity],[Unit],[Cost],[SupplierID] )" +
-                    " values (@ingredientId,@purchaseDate,@expiryDate,@pymentMethod,@quantity,@unit,@supplierID)";
+                    " values (@ingredientId,@purchaseDate,@expiryDate,@pymentMethod,@quantity,@unit,@cost,@supplierID)";
 
 
                 SqlParameter ingredientIdParam = new SqlParameter("@ingredientId", SqlDbType.BigInt );
                 ingredientIdParam.Value = IngredientID;
                 createPrepCmd.Parameters.Add(ingredientIdParam);
 
-                SqlParameter purchaseDateParam = new SqlParameter("@purchaseDate", SqlDbType.DateTime);
+                SqlParameter purchaseDateParam = new SqlParameter("@purchaseDate", SqlDbType.Date);
                 purchaseDateParam.Value = PurchaseDate;
                 createPrepCmd.Parameters.Add(purchaseDateParam);
 
-                SqlParameter expiryDateParam = new SqlParameter("@expiryDate", SqlDbType.DateTime);
+                SqlParameter expiryDateParam = new SqlParameter("@expiryDate", SqlDbType.Date);
                 expiryDateParam.Value = ExpiryDate;
                 createPrepCmd.Parameters.Add(expiryDateParam);
 
-                SqlParameter paymentMethodParam = new SqlParameter("@paymentMethod", SqlDbType.Char,1);
+                SqlParameter paymentMethodParam = new SqlParameter("@pymentMethod", SqlDbType.Char,1);
                 paymentMethodParam.Value = ThisPaymentMethod;
                 createPrepCmd.Parameters.Add(paymentMethodParam);
 
-                SqlParameter quantityParam = new SqlParameter("@quantity", SqlDbType.Decimal,15);
+                SqlParameter quantityParam = new SqlParameter("@quantity", SqlDbType.Decimal)
+                {
+                    Precision = 14,
+                    Scale = 2
+                }; 
                 quantityParam.Value =Quantity;
                 createPrepCmd.Parameters.Add(quantityParam);
 
@@ -78,7 +82,7 @@ namespace AuntRosieEntities
                 costParam.Value = Cost;
                 createPrepCmd.Parameters.Add(costParam);
 
-                SqlParameter supplierIDParam = new SqlParameter("@supplierID", SqlDbType.Money, 20);
+                SqlParameter supplierIDParam = new SqlParameter("@supplierID", SqlDbType.BigInt);
                 supplierIDParam.Value = SupplierId;
                 createPrepCmd.Parameters.Add(supplierIDParam);
 
@@ -100,7 +104,7 @@ namespace AuntRosieEntities
                 createPrepCmd.Parameters["@supplierID"].Value = SupplierId;
             }
 
-             
+            Connector.Insert(createPrepCmd, true, transaction);
         }
 
 

@@ -293,13 +293,16 @@ namespace AuntRosieApplication.Inventory
                     InsertInventoryIngredient.Quantity = Convert.ToDouble(txtQuantity.Text.Trim());
                     InsertInventoryIngredient.Cost = Convert.ToDouble(txtCost.Text.Trim());
                     InsertInventoryIngredient.Unit = cmbUnit.Text.Trim();
+                    DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                    RosieEntity.Connector = conn;
                     InsertInventoryIngredient.Create();
                     MessageBox.Show("The ingredient quantity has successfully stocked into the inventory", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message);
+                  // MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
             }
@@ -332,14 +335,14 @@ namespace AuntRosieApplication.Inventory
                 isValid = false;
 
             }
-            if  ( dtpPurchaseDate.Value > DateTime.Today)
+            if  (dtpPurchaseDate.Value.Date > DateTime.Today.Date)
             {
                 MessageBox.Show(dtpPurchaseDate.Value + "'" + DateTime.Today);
                errPurchaseDate.SetError(dtpPurchaseDate, "Please check the purchase date, the date could not be after today");
                 isValid = false;
 
             }
-            if (dtpExpiryDate.Value < DateTime.Today)
+            if (dtpExpiryDate.Value.Date < DateTime.Today.Date)
             {
                 errEpiryDate.SetError(dtpExpiryDate, "Please check the expiry date, the date could not be before today");
                 isValid = false;

@@ -243,7 +243,7 @@
             this.btnCancel.Location = new System.Drawing.Point(91, 2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(77, 62);
-            this.btnCancel.TabIndex = 14;
+            this.btnCancel.TabIndex = 10;
             this.toolTip1.SetToolTip(this.btnCancel, "Clear");
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -256,7 +256,7 @@
             this.btnNew.Location = new System.Drawing.Point(3, 2);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(77, 62);
-            this.btnNew.TabIndex = 13;
+            this.btnNew.TabIndex = 0;
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.btnNew, "New");
             this.btnNew.UseVisualStyleBackColor = true;
@@ -271,7 +271,7 @@
             this.btnSave.Location = new System.Drawing.Point(170, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(77, 62);
-            this.btnSave.TabIndex = 15;
+            this.btnSave.TabIndex = 11;
             this.toolTip1.SetToolTip(this.btnSave, "Save");
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -286,7 +286,7 @@
             this.btnClose.Location = new System.Drawing.Point(541, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 50);
-            this.btnClose.TabIndex = 140;
+            this.btnClose.TabIndex = 15;
             this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -336,7 +336,7 @@
             this.txtQuantity.Location = new System.Drawing.Point(183, 153);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(100, 29);
-            this.txtQuantity.TabIndex = 106;
+            this.txtQuantity.TabIndex = 4;
             this.txtQuantity.Leave += new System.EventHandler(this.txtQuantity_Leave);
             // 
             // txtCost
@@ -345,7 +345,7 @@
             this.txtCost.Location = new System.Drawing.Point(183, 188);
             this.txtCost.Name = "txtCost";
             this.txtCost.Size = new System.Drawing.Size(224, 29);
-            this.txtCost.TabIndex = 108;
+            this.txtCost.TabIndex = 6;
             this.txtCost.TextChanged += new System.EventHandler(this.txtCost_TextChanged);
             this.txtCost.Leave += new System.EventHandler(this.txtCost_Leave);
             // 
@@ -355,7 +355,7 @@
             this.dtpExpiryDate.Location = new System.Drawing.Point(183, 307);
             this.dtpExpiryDate.Name = "dtpExpiryDate";
             this.dtpExpiryDate.Size = new System.Drawing.Size(281, 26);
-            this.dtpExpiryDate.TabIndex = 111;
+            this.dtpExpiryDate.TabIndex = 8;
             // 
             // dtpPurchaseDate
             // 
@@ -363,7 +363,7 @@
             this.dtpPurchaseDate.Location = new System.Drawing.Point(183, 266);
             this.dtpPurchaseDate.Name = "dtpPurchaseDate";
             this.dtpPurchaseDate.Size = new System.Drawing.Size(281, 26);
-            this.dtpPurchaseDate.TabIndex = 110;
+            this.dtpPurchaseDate.TabIndex = 7;
             // 
             // label10
             // 
@@ -475,7 +475,7 @@
             this.cmbUnit.Location = new System.Drawing.Point(359, 151);
             this.cmbUnit.Name = "cmbUnit";
             this.cmbUnit.Size = new System.Drawing.Size(112, 31);
-            this.cmbUnit.TabIndex = 107;
+            this.cmbUnit.TabIndex = 5;
             // 
             // cmbSupplier
             // 
@@ -485,7 +485,7 @@
             this.cmbSupplier.Location = new System.Drawing.Point(183, 107);
             this.cmbSupplier.Name = "cmbSupplier";
             this.cmbSupplier.Size = new System.Drawing.Size(235, 31);
-            this.cmbSupplier.TabIndex = 104;
+            this.cmbSupplier.TabIndex = 3;
             // 
             // label2
             // 
@@ -507,7 +507,7 @@
             this.cmbType.Location = new System.Drawing.Point(183, 18);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(235, 31);
-            this.cmbType.TabIndex = 100;
+            this.cmbType.TabIndex = 1;
             this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
             // 
             // label1
@@ -529,7 +529,7 @@
             this.cmbName.Location = new System.Drawing.Point(183, 62);
             this.cmbName.Name = "cmbName";
             this.cmbName.Size = new System.Drawing.Size(235, 31);
-            this.cmbName.TabIndex = 102;
+            this.cmbName.TabIndex = 2;
             // 
             // lblName
             // 
@@ -550,7 +550,7 @@
             this.pnlButton.Location = new System.Drawing.Point(166, 367);
             this.pnlButton.Name = "pnlButton";
             this.pnlButton.Size = new System.Drawing.Size(251, 67);
-            this.pnlButton.TabIndex = 85;
+            this.pnlButton.TabIndex = 9;
             // 
             // contextMenuStrip1
             // 
@@ -612,7 +612,7 @@
             this.pnlNewType.Controls.Add(this.btnNewTypetSave);
             this.pnlNewType.Controls.Add(this.label11);
             this.pnlNewType.Controls.Add(this.txtxNewType);
-            this.pnlNewType.Location = new System.Drawing.Point(12, 303);
+            this.pnlNewType.Location = new System.Drawing.Point(12, 74);
             this.pnlNewType.Name = "pnlNewType";
             this.pnlNewType.Size = new System.Drawing.Size(379, 245);
             this.pnlNewType.TabIndex = 22;
@@ -669,7 +669,7 @@
             this.pnlNewIngredint.Controls.Add(this.btnNewIngredintSave);
             this.pnlNewIngredint.Controls.Add(this.label14);
             this.pnlNewIngredint.Controls.Add(this.txtNewIngredintName);
-            this.pnlNewIngredint.Location = new System.Drawing.Point(12, 4);
+            this.pnlNewIngredint.Location = new System.Drawing.Point(583, 135);
             this.pnlNewIngredint.Name = "pnlNewIngredint";
             this.pnlNewIngredint.Size = new System.Drawing.Size(403, 296);
             this.pnlNewIngredint.TabIndex = 16;
