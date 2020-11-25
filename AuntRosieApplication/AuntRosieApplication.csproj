@@ -137,6 +137,12 @@
     <Compile Include="Inventory\InventoryInForm.Designer.cs">
       <DependentUpon>InventoryInForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventory\InventoryStockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\InventoryStockForm.Designer.cs">
+      <DependentUpon>InventoryStockForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventory\SuppliersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\InventoryInForm.resx">
       <DependentUpon>InventoryInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\InventoryStockForm.resx">
+      <DependentUpon>InventoryStockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\SuppliersForm.resx">
       <DependentUpon>SuppliersForm.cs</DependentUpon>
@@ -412,6 +421,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\appointment-reminders.png" />
+    <None Include="Resources\full-trash.png" />
     <None Include="Resources\ingredients.png" />
     <None Include="Resources\background2.png" />
   </ItemGroup>

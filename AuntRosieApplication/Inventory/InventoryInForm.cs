@@ -33,8 +33,7 @@ namespace AuntRosieApplication.Inventory
 
         private void btnAddType_Click(object sender, EventArgs e)
         {
-            Classes.DBMethod.FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
-                   (Classes.DBMethod.GetConnectionString()), cmbNewtype);
+       
             pnlMain.Enabled = false;
             ViewPanel(pnlNewType);
             txtxNewType.Focus();
@@ -95,6 +94,9 @@ namespace AuntRosieApplication.Inventory
         private void btnAddIngredint_Click(object sender, EventArgs e)
         {
             pnlMain.Enabled = false;
+            cmbNewtype.Items.Clear();
+            Classes.DBMethod.FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
+                 (Classes.DBMethod.GetConnectionString()), cmbNewtype);
             ViewPanel(pnlNewIngredint);
 
         }
@@ -122,14 +124,17 @@ namespace AuntRosieApplication.Inventory
             DBMethod.relocation(pnlNewType, this);
             DBMethod.relocation(pnlNewIngredint, this);
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+            cmbType.Items.Clear();
           Classes.DBMethod.FillCombBox( AuntRosieEntities.IngredientType.GetAllIngredintType
                (Classes.DBMethod.GetConnectionString()),cmbType);
+            cmbNewtype.Items.Clear();
             Classes.DBMethod.FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
                (Classes.DBMethod.GetConnectionString()), cmbNewtype);
+            cmbSupplier.Items.Clear();
             Classes.DBMethod.FillCombBox(AuntRosieEntities.Supplier.GetAllSuppliers
                 (Classes.DBMethod.GetConnectionString()), cmbSupplier);
 
-
+            Classes.DBMethod.FillPaymentmethodCombo(cmbPaymentMethod);
         }
 
         private void btnNewIngredintClose_Click_1(object sender, EventArgs e)
@@ -146,7 +151,7 @@ namespace AuntRosieApplication.Inventory
         private void btnNewTypeCancel_Click(object sender, EventArgs e)
         {
             pnlNewType.Visible = false;
-            pnlMain.Enabled = true;
+           
         }
 
         private void txtxNewType_TextChanged(object sender, EventArgs e)
@@ -203,6 +208,7 @@ namespace AuntRosieApplication.Inventory
             {
         
             cmbSupplier.Items.Clear();
+                cmbSupplier.Items.Clear();
             Classes.DBMethod.FillCombBox(AuntRosieEntities.Supplier.GetAllSuppliers
                 (Classes.DBMethod.GetConnectionString()), cmbSupplier);
 
@@ -249,21 +255,169 @@ namespace AuntRosieApplication.Inventory
                 pnlMain.Enabled = true;
 
                 cmbType.Items.Clear();
-             
-                cmbType.SelectedItem = cmbType.Items[cmbType.Items.Count - 1];
-
-
-
-
-                cmbNewtype.Items.Clear();
                 Classes.DBMethod.FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
-                     (Classes.DBMethod.GetConnectionString()), cmbNewtype);
-                cmbNewtype.SelectedItem = cmbType.Items[cmbNewtype.Items.Count - 1];
+                    (Classes.DBMethod.GetConnectionString()), cmbType);
 
+                AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
+                Object obj = cmbType.Items[cmbNewtype.SelectedIndex];
+                itm = (Classes.ListItem)obj;
+
+                cmbType.SelectedItem = itm;
+              
+                   cmbName.SelectedItem = cmbName.Items[cmbName.Items.Count - 1];
 
 
             }
 
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ViewPanel( pnlNewType);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+           if (isValidEntery())
+            {
+                try
+                {
+                    InventoryIngredient InsertInventoryIngredient = new InventoryIngredient();
+                    InsertInventoryIngredient.IngredientID = (long)Convert.ToDouble(DBMethod.GetSelectedItemID(cmbName));
+                    InsertInventoryIngredient.SupplierId = (long)Convert.ToDouble(DBMethod.GetSelectedItemID(cmbSupplier));
+                    InsertInventoryIngredient.ThisPaymentMethod = DBMethod.GetSelectedItemID(cmbPaymentMethod);
+                    InsertInventoryIngredient.PurchaseDate = dtpPurchaseDate.Value;
+                    InsertInventoryIngredient.ExpiryDate = dtpExpiryDate.Value;
+                    InsertInventoryIngredient.Quantity = Convert.ToDouble(txtQuantity.Text.Trim());
+                    InsertInventoryIngredient.Cost = Convert.ToDouble(txtCost.Text.Trim());
+                    InsertInventoryIngredient.Unit = cmbUnit.Text.Trim();
+                    InsertInventoryIngredient.Create();
+                    MessageBox.Show("The ingredient quantity has successfully stocked into the inventory", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+             
+        }
+         private bool isValidEntery()
+        {
+            bool isValid = true;
+            if (cmbName.SelectedItem==null)
+            {
+                errIngredientName.SetError(cmbName, "Choose the ingredent name ");
+                isValid = false;
+
+            }
+            if (cmbType.SelectedItem == null)
+            {
+                errIngredientName.SetError(cmbType, "Choose the ingredent Type ");
+                isValid = false;
+
+            }
+            if (cmbSupplier.SelectedItem == null)
+            {
+                errIngredientName.SetError(cmbSupplier, "Choose the  supplier ");
+                isValid = false;
+
+            }
+            if (cmbPaymentMethod.SelectedItem == null)
+            {
+               errorPayment.SetError(cmbPaymentMethod, "Choose the  supplier ");
+                isValid = false;
+
+            }
+            if  ( dtpPurchaseDate.Value > DateTime.Today)
+            {
+                MessageBox.Show(dtpPurchaseDate.Value + "'" + DateTime.Today);
+               errPurchaseDate.SetError(dtpPurchaseDate, "Please check the purchase date, the date could not be after today");
+                isValid = false;
+
+            }
+            if (dtpExpiryDate.Value < DateTime.Today)
+            {
+                errEpiryDate.SetError(dtpExpiryDate, "Please check the expiry date, the date could not be before today");
+                isValid = false;
+
+            }
+            double x;
+            if (!double.TryParse(txtCost.Text, out x)) {
+                errCost.SetError(txtCost, "Please check the cost value, , it should be numeric");
+                isValid = false; }
+            if (!double.TryParse(txtQuantity.Text, out x))
+            {
+                errCost.SetError(txtQuantity, "Please check the qunity value, it should be numeric");
+                isValid = false;
+            }
+
+            if (cmbUnit.SelectedItem == null)
+            {
+                errUnit.SetError(cmbUnit, "Please check the qunity value, it should be numeric");
+                isValid = false;
+            }
+            return isValid;
+        }
+        private void cmbPaymentMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            btnNew.Enabled = true;
+            btnNew.Focus();
+            pnlSubMain.Enabled = false;
+            cmbName.SelectedItem = null;
+            cmbType.SelectedItem = null;
+            cmbSupplier.SelectedItem = null;
+            txtQuantity.Text = string.Empty;
+            txtCost.Text = string.Empty;
+            cmbPaymentMethod.SelectedItem = null;
+            dtpPurchaseDate.Value = DateTime.Today;
+            dtpExpiryDate.Value = DateTime.Today;
+
+
+
+        }
+
+        private void txtCost_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCost_Leave(object sender, EventArgs e)
+        {
+            double cost;
+            if (txtCost.Text.Trim().Length > 0)
+            {
+                if (double.TryParse(txtCost.Text, out cost))
+                {
+                    txtCost.Text = string.Format("{0:0.00}", cost);
+                }
+            }
+
+        }
+
+        private void txtQuantity_Leave(object sender, EventArgs e)
+        {
+            double qun;
+            if (txtQuantity.Text.Trim().Length > 0)
+            {
+                if (double.TryParse(txtQuantity.Text, out qun))
+                {
+                    txtQuantity.Text = string.Format("{0:0.00}", qun);
+                }
+            }
+
+        }
+
+        private void pnlNewIngredint_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

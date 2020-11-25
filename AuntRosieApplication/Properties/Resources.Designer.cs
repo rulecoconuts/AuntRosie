@@ -73,6 +73,16 @@ namespace AuntRosieApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap appointment_reminders {
+            get {
+                object obj = ResourceManager.GetObject("appointment_reminders", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_left {
             get {
                 object obj = ResourceManager.GetObject("arrow_left", resourceCulture);
@@ -366,6 +376,16 @@ namespace AuntRosieApplication.Properties {
         internal static System.Drawing.Bitmap finish_flag {
             get {
                 object obj = ResourceManager.GetObject("finish_flag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap full_trash {
+            get {
+                object obj = ResourceManager.GetObject("full_trash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

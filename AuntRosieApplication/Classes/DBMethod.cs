@@ -88,7 +88,7 @@ namespace AuntRosieApplication.Classes
 
  public  static string GetSelectedItemID(ComboBox cmb )
         {
-
+             
             AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
             Object obj = cmb.Items[cmb.SelectedIndex];
             itm = (Classes.ListItem)obj;
@@ -100,6 +100,24 @@ namespace AuntRosieApplication.Classes
             //relocation the login pannel 
             pnl.Left = (frm.Width - pnl.Width) / 2;
             pnl.Top = (frm.Height - pnl.Height) / 2;
+        }
+
+        public static void FillPaymentmethodCombo(ComboBox cmb)
+        {
+            AuntRosieApplication.Classes.ListItem itm1 = new AuntRosieApplication.Classes.ListItem();
+            itm1.name = "Cash";
+            itm1.id = "r";
+            cmb.Items.Add((Object)itm1);
+            AuntRosieApplication.Classes.ListItem itm2 = new AuntRosieApplication.Classes.ListItem();
+            itm2.name = "Credit Card";
+            itm2.id = "r";
+            cmb.Items.Add((Object)itm2);
+            AuntRosieApplication.Classes.ListItem itm3 = new AuntRosieApplication.Classes.ListItem();
+            itm3.name = "Debit Card";
+            itm3.id = "d";
+            cmb.Items.Add((Object)itm3);
+
+
         }
     }
 }

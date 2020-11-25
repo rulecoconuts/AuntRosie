@@ -200,7 +200,7 @@ namespace AuntRosieApplication.Inventory
             catch (Exception ex){
 
                 //MessageBox.Show(ex.Message);
-               MessageBox.Show("Sorry! An internal error has been happening", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                    
             }
 
@@ -248,7 +248,7 @@ namespace AuntRosieApplication.Inventory
             {
 
                // MessageBox.Show(ex.Message);
-                  MessageBox.Show("Sorry! An internal error has been happening", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }

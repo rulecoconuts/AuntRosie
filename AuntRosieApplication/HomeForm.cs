@@ -184,7 +184,7 @@ namespace AuntRosieApp
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this.Controls.Count.ToString());
+            //MessageBox.Show(this.Controls.Count.ToString());
         }
 
         private void frmHome_MouseEnter(object sender, EventArgs e)
@@ -365,13 +365,25 @@ namespace AuntRosieApp
 
         private void btnManageIngerdint_Click(object sender, EventArgs e)
         {
-            AuntRosieApplication.Inventory.frmIngredients form = new AuntRosieApplication.Inventory.frmIngredients();
-            ShowForm(form);
+         
+            ShowForm(new AuntRosieApplication.Inventory.frmIngredients());
         }
 
         private void ingredintsToolStripMenuItem_MouseEnter(object sender, EventArgs e)
         {
             btnManageIngerdint.Focus();
+        }
+
+        private void btnInventoryContents_Click(object sender, EventArgs e)
+        {
+           
+            ShowForm(new AuntRosieApplication.Inventory.frmInventoryStock());
+
+        }
+
+        private void tmnInventoryStock_MouseEnter(object sender, EventArgs e)
+        {
+            btnInventoryContents.Focus();
         }
     }
 }

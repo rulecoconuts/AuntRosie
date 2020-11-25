@@ -40,7 +40,9 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.tmnInventory = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmnInventoryStock = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnInventoryIn = new System.Windows.Forms.ToolStripMenuItem();
+            this.ingredintsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnManageProduct = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnEmployment = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPayroll = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +57,6 @@
             this.tmnQueriesAndReports = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnReports = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnQueries = new System.Windows.Forms.ToolStripMenuItem();
-            this.ingredintsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReportMain = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
@@ -65,6 +66,7 @@
             this.btnEmpMAin = new System.Windows.Forms.Button();
             this.btnManagEmp = new System.Windows.Forms.Button();
             this.btnPayroll = new System.Windows.Forms.Button();
+            this.btnInventoryContents = new System.Windows.Forms.Button();
             this.btnManageIngerdint = new System.Windows.Forms.Button();
             this.btnInventoryMain = new System.Windows.Forms.Button();
             this.btnSuppliers = new System.Windows.Forms.Button();
@@ -72,6 +74,7 @@
             this.btnEventMAin = new System.Windows.Forms.Button();
             this.btnOrgEvent = new System.Windows.Forms.Button();
             this.btnSale = new System.Windows.Forms.Button();
+            this.btnNotification = new System.Windows.Forms.Button();
             this.btnShowMain = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
@@ -94,13 +97,14 @@
             // pnlInventory
             // 
             this.pnlInventory.BackColor = System.Drawing.Color.Transparent;
+            this.pnlInventory.Controls.Add(this.btnInventoryContents);
             this.pnlInventory.Controls.Add(this.btnManageIngerdint);
             this.pnlInventory.Controls.Add(this.btnInventoryMain);
             this.pnlInventory.Controls.Add(this.btnSuppliers);
             this.pnlInventory.Controls.Add(this.btnInventoryIn);
-            this.pnlInventory.Location = new System.Drawing.Point(555, 488);
+            this.pnlInventory.Location = new System.Drawing.Point(269, 488);
             this.pnlInventory.Name = "pnlInventory";
-            this.pnlInventory.Size = new System.Drawing.Size(772, 207);
+            this.pnlInventory.Size = new System.Drawing.Size(955, 207);
             this.pnlInventory.TabIndex = 9;
             // 
             // pnlMain
@@ -166,12 +170,13 @@
             // pnlExit
             // 
             this.pnlExit.BackColor = System.Drawing.Color.Transparent;
+            this.pnlExit.Controls.Add(this.btnNotification);
             this.pnlExit.Controls.Add(this.btnShowMain);
             this.pnlExit.Controls.Add(this.btnExit);
             this.pnlExit.Controls.Add(this.btnHelp);
             this.pnlExit.Location = new System.Drawing.Point(53, 485);
             this.pnlExit.Name = "pnlExit";
-            this.pnlExit.Size = new System.Drawing.Size(175, 53);
+            this.pnlExit.Size = new System.Drawing.Size(210, 53);
             this.pnlExit.TabIndex = 10;
             // 
             // mnuMain
@@ -187,38 +192,59 @@
             this.tmnQueriesAndReports});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(1369, 34);
+            this.mnuMain.Size = new System.Drawing.Size(1386, 34);
             this.mnuMain.TabIndex = 11;
             this.mnuMain.Text = "menuStrip1";
             // 
             // tmnInventory
             // 
             this.tmnInventory.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tmnInventoryStock,
             this.tmnInventoryIn,
             this.ingredintsToolStripMenuItem,
             this.tmnManageProduct});
             this.tmnInventory.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnInventory.Name = "tmnInventory";
-            this.tmnInventory.Size = new System.Drawing.Size(157, 30);
-            this.tmnInventory.Text = "Inventory";
+            this.tmnInventory.Size = new System.Drawing.Size(271, 30);
+            this.tmnInventory.Text = "Inventory control";
             this.tmnInventory.Click += new System.EventHandler(this.inventoryToolStripMenuItem_Click);
             this.tmnInventory.MouseEnter += new System.EventHandler(this.inventoryToolStripMenuItem_MouseEnter);
+            // 
+            // tmnInventoryStock
+            // 
+            this.tmnInventoryStock.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.tmnInventoryStock.Name = "tmnInventoryStock";
+            this.tmnInventoryStock.Size = new System.Drawing.Size(301, 30);
+            this.tmnInventoryStock.Text = "Inventory Stock";
+            this.tmnInventoryStock.Click += new System.EventHandler(this.btnInventoryContents_Click);
+            this.tmnInventoryStock.MouseEnter += new System.EventHandler(this.tmnInventoryStock_MouseEnter);
+            this.tmnInventoryStock.MouseLeave += new System.EventHandler(this.tmnInventoryIn_MouseLeave);
             // 
             // tmnInventoryIn
             // 
             this.tmnInventoryIn.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnInventoryIn.Name = "tmnInventoryIn";
-            this.tmnInventoryIn.Size = new System.Drawing.Size(249, 30);
+            this.tmnInventoryIn.Size = new System.Drawing.Size(301, 30);
             this.tmnInventoryIn.Text = "Inventory-In";
             this.tmnInventoryIn.Click += new System.EventHandler(this.btnInventoryIn_Click);
             this.tmnInventoryIn.MouseEnter += new System.EventHandler(this.tmnInventoryIn_MouseEnter);
             this.tmnInventoryIn.MouseLeave += new System.EventHandler(this.tmnInventoryIn_MouseLeave);
             // 
+            // ingredintsToolStripMenuItem
+            // 
+            this.ingredintsToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.ingredintsToolStripMenuItem.Name = "ingredintsToolStripMenuItem";
+            this.ingredintsToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
+            this.ingredintsToolStripMenuItem.Text = "ingredients";
+            this.ingredintsToolStripMenuItem.Click += new System.EventHandler(this.btnManageIngerdint_Click);
+            this.ingredintsToolStripMenuItem.MouseEnter += new System.EventHandler(this.ingredintsToolStripMenuItem_MouseEnter);
+            this.ingredintsToolStripMenuItem.MouseLeave += new System.EventHandler(this.tmnInventoryIn_MouseLeave);
+            // 
             // tmnManageProduct
             // 
             this.tmnManageProduct.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnManageProduct.Name = "tmnManageProduct";
-            this.tmnManageProduct.Size = new System.Drawing.Size(249, 30);
+            this.tmnManageProduct.Size = new System.Drawing.Size(301, 30);
             this.tmnManageProduct.Text = "Suppliers";
             this.tmnManageProduct.Click += new System.EventHandler(this.btnSuppliers_Click);
             this.tmnManageProduct.MouseEnter += new System.EventHandler(this.tmnManageProduct_MouseEnter);
@@ -351,16 +377,6 @@
             this.tmnQueries.Text = "Queries";
             this.tmnQueries.MouseEnter += new System.EventHandler(this.tmnQueries_MouseEnter);
             this.tmnQueries.MouseLeave += new System.EventHandler(this.tmnQueries_MouseLeave);
-            // 
-            // ingredintsToolStripMenuItem
-            // 
-            this.ingredintsToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.ingredintsToolStripMenuItem.Name = "ingredintsToolStripMenuItem";
-            this.ingredintsToolStripMenuItem.Size = new System.Drawing.Size(249, 30);
-            this.ingredintsToolStripMenuItem.Text = "ingredients";
-            this.ingredintsToolStripMenuItem.Click += new System.EventHandler(this.btnManageIngerdint_Click);
-            this.ingredintsToolStripMenuItem.MouseEnter += new System.EventHandler(this.ingredintsToolStripMenuItem_MouseEnter);
-            this.ingredintsToolStripMenuItem.MouseLeave += new System.EventHandler(this.tmnInventoryIn_MouseLeave);
             // 
             // btnReportMain
             // 
@@ -504,6 +520,22 @@
             this.btnPayroll.UseVisualStyleBackColor = true;
             this.btnPayroll.Click += new System.EventHandler(this.btnPayroll_Click);
             // 
+            // btnInventoryContents
+            // 
+            this.btnInventoryContents.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnInventoryContents.BackgroundImage")));
+            this.btnInventoryContents.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnInventoryContents.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnInventoryContents.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnInventoryContents.Image = global::AuntRosieApplication.Properties.Resources.Inventory;
+            this.btnInventoryContents.Location = new System.Drawing.Point(3, 9);
+            this.btnInventoryContents.Name = "btnInventoryContents";
+            this.btnInventoryContents.Size = new System.Drawing.Size(184, 187);
+            this.btnInventoryContents.TabIndex = 0;
+            this.btnInventoryContents.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnInventoryContents, "Inventory Stock");
+            this.btnInventoryContents.UseVisualStyleBackColor = true;
+            this.btnInventoryContents.Click += new System.EventHandler(this.btnInventoryContents_Click);
+            // 
             // btnManageIngerdint
             // 
             this.btnManageIngerdint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnManageIngerdint.BackgroundImage")));
@@ -511,12 +543,12 @@
             this.btnManageIngerdint.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnManageIngerdint.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnManageIngerdint.Image = global::AuntRosieApplication.Properties.Resources.ingredients;
-            this.btnManageIngerdint.Location = new System.Drawing.Point(389, 9);
+            this.btnManageIngerdint.Location = new System.Drawing.Point(383, 9);
             this.btnManageIngerdint.Name = "btnManageIngerdint";
             this.btnManageIngerdint.Size = new System.Drawing.Size(184, 187);
-            this.btnManageIngerdint.TabIndex = 3;
+            this.btnManageIngerdint.TabIndex = 2;
             this.btnManageIngerdint.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolTip1.SetToolTip(this.btnManageIngerdint, "Suppliers");
+            this.toolTip1.SetToolTip(this.btnManageIngerdint, "Ingredents");
             this.btnManageIngerdint.UseVisualStyleBackColor = true;
             this.btnManageIngerdint.Click += new System.EventHandler(this.btnManageIngerdint_Click);
             // 
@@ -527,10 +559,10 @@
             this.btnInventoryMain.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnInventoryMain.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnInventoryMain.Image = global::AuntRosieApplication.Properties.Resources.squared_menu;
-            this.btnInventoryMain.Location = new System.Drawing.Point(579, 9);
+            this.btnInventoryMain.Location = new System.Drawing.Point(763, 9);
             this.btnInventoryMain.Name = "btnInventoryMain";
             this.btnInventoryMain.Size = new System.Drawing.Size(184, 187);
-            this.btnInventoryMain.TabIndex = 2;
+            this.btnInventoryMain.TabIndex = 4;
             this.btnInventoryMain.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnInventoryMain, "Main Panel");
             this.btnInventoryMain.UseVisualStyleBackColor = true;
@@ -543,12 +575,12 @@
             this.btnSuppliers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSuppliers.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnSuppliers.Image = global::AuntRosieApplication.Properties.Resources.supplier__1_;
-            this.btnSuppliers.Location = new System.Drawing.Point(199, 9);
+            this.btnSuppliers.Location = new System.Drawing.Point(573, 9);
             this.btnSuppliers.Name = "btnSuppliers";
             this.btnSuppliers.Size = new System.Drawing.Size(184, 187);
-            this.btnSuppliers.TabIndex = 1;
+            this.btnSuppliers.TabIndex = 3;
             this.btnSuppliers.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolTip1.SetToolTip(this.btnSuppliers, "Ingredients");
+            this.toolTip1.SetToolTip(this.btnSuppliers, "Suppliers");
             this.btnSuppliers.UseVisualStyleBackColor = true;
             this.btnSuppliers.Click += new System.EventHandler(this.btnSuppliers_Click);
             // 
@@ -559,10 +591,10 @@
             this.btnInventoryIn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnInventoryIn.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnInventoryIn.Image = global::AuntRosieApplication.Properties.Resources.move_stock;
-            this.btnInventoryIn.Location = new System.Drawing.Point(9, 9);
+            this.btnInventoryIn.Location = new System.Drawing.Point(193, 9);
             this.btnInventoryIn.Name = "btnInventoryIn";
             this.btnInventoryIn.Size = new System.Drawing.Size(184, 187);
-            this.btnInventoryIn.TabIndex = 0;
+            this.btnInventoryIn.TabIndex = 1;
             this.btnInventoryIn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnInventoryIn, "Inventory-In");
             this.btnInventoryIn.UseVisualStyleBackColor = true;
@@ -616,6 +648,22 @@
             this.btnSale.UseVisualStyleBackColor = true;
             this.btnSale.Click += new System.EventHandler(this.btnSale_Click);
             // 
+            // btnNotification
+            // 
+            this.btnNotification.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnNotification.Enabled = false;
+            this.btnNotification.FlatAppearance.BorderSize = 0;
+            this.btnNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotification.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnNotification.Image = global::AuntRosieApplication.Properties.Resources.appointment_reminders;
+            this.btnNotification.Location = new System.Drawing.Point(100, 2);
+            this.btnNotification.Name = "btnNotification";
+            this.btnNotification.Size = new System.Drawing.Size(54, 48);
+            this.btnNotification.TabIndex = 9;
+            this.btnNotification.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnNotification, "Notifications");
+            this.btnNotification.UseVisualStyleBackColor = true;
+            // 
             // btnShowMain
             // 
             this.btnShowMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -640,7 +688,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnExit.Image = global::AuntRosieApplication.Properties.Resources.shutdown;
-            this.btnExit.Location = new System.Drawing.Point(113, 0);
+            this.btnExit.Location = new System.Drawing.Point(153, 0);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(54, 48);
             this.btnExit.TabIndex = 8;
@@ -656,7 +704,7 @@
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnHelp.Image = global::AuntRosieApplication.Properties.Resources.question_mark;
-            this.btnHelp.Location = new System.Drawing.Point(56, 0);
+            this.btnHelp.Location = new System.Drawing.Point(52, 2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(54, 48);
             this.btnHelp.TabIndex = 7;
@@ -770,7 +818,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1403, 788);
             this.Controls.Add(this.pnlReportQuery);
             this.Controls.Add(this.pnlKitchen);
             this.Controls.Add(this.pnlEmp);
@@ -854,5 +902,8 @@
         private System.Windows.Forms.Button btnProduction;
         private System.Windows.Forms.Button btnManageIngerdint;
         private System.Windows.Forms.ToolStripMenuItem ingredintsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tmnInventoryStock;
+        private System.Windows.Forms.Button btnInventoryContents;
+        private System.Windows.Forms.Button btnNotification;
     }
 }
