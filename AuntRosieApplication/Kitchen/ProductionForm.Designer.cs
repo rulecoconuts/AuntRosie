@@ -48,12 +48,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlButton = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.pnlButton.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -69,11 +69,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Sienna;
             this.label3.Location = new System.Drawing.Point(116, 143);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 22);
+            this.label3.Size = new System.Drawing.Size(88, 22);
             this.label3.TabIndex = 9;
             this.label3.Text = "Quantity";
             // 
@@ -100,11 +100,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Sienna;
             this.label1.Location = new System.Drawing.Point(136, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 22);
+            this.label1.Size = new System.Drawing.Size(63, 22);
             this.label1.TabIndex = 13;
             this.label1.Text = "Event";
             // 
@@ -127,9 +127,9 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(625, 24);
+            this.btnClose.Location = new System.Drawing.Point(628, 25);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(58, 52);
+            this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 7;
             this.toolTip1.SetToolTip(this.btnClose, "Close");
             this.btnClose.UseVisualStyleBackColor = false;
@@ -141,9 +141,9 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
-            this.btnSave.Location = new System.Drawing.Point(217, 3);
+            this.btnSave.Location = new System.Drawing.Point(164, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(97, 72);
+            this.btnSave.Size = new System.Drawing.Size(76, 63);
             this.btnSave.TabIndex = 24;
             this.btnSave.Text = "6";
             this.toolTip1.SetToolTip(this.btnSave, "Save");
@@ -154,9 +154,9 @@
             this.btnNew.FlatAppearance.BorderSize = 0;
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
-            this.btnNew.Location = new System.Drawing.Point(22, 3);
+            this.btnNew.Location = new System.Drawing.Point(3, 3);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(97, 72);
+            this.btnNew.Size = new System.Drawing.Size(76, 63);
             this.btnNew.TabIndex = 0;
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.btnNew, "New");
@@ -178,10 +178,11 @@
             // 
             this.lblProductSize.AutoSize = true;
             this.lblProductSize.BackColor = System.Drawing.Color.Transparent;
-            this.lblProductSize.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.lblProductSize.Location = new System.Drawing.Point(154, 138);
+            this.lblProductSize.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblProductSize.ForeColor = System.Drawing.Color.Sienna;
+            this.lblProductSize.Location = new System.Drawing.Point(148, 138);
             this.lblProductSize.Name = "lblProductSize";
-            this.lblProductSize.Size = new System.Drawing.Size(123, 22);
+            this.lblProductSize.Size = new System.Drawing.Size(133, 22);
             this.lblProductSize.TabIndex = 14;
             this.lblProductSize.Text = "Product  Size";
             // 
@@ -197,10 +198,11 @@
             // 
             this.lblProductName.AutoSize = true;
             this.lblProductName.BackColor = System.Drawing.Color.Transparent;
-            this.lblProductName.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.lblProductName.Location = new System.Drawing.Point(154, 98);
+            this.lblProductName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblProductName.ForeColor = System.Drawing.Color.Sienna;
+            this.lblProductName.Location = new System.Drawing.Point(145, 98);
             this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(126, 22);
+            this.lblProductName.Size = new System.Drawing.Size(136, 22);
             this.lblProductName.TabIndex = 15;
             this.lblProductName.Text = "ProductName";
             // 
@@ -216,10 +218,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label2.Location = new System.Drawing.Point(135, 168);
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Sienna;
+            this.label2.Location = new System.Drawing.Point(121, 166);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 22);
+            this.label2.Size = new System.Drawing.Size(160, 22);
             this.label2.TabIndex = 26;
             this.label2.Text = "Production Date";
             // 
@@ -245,8 +248,8 @@
             // label5
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Sienna;
             this.label5.Location = new System.Drawing.Point(140, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(294, 56);
@@ -261,16 +264,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(480, 118);
             this.dataGridView1.TabIndex = 0;
             // 
-            // panel2
+            // pnlButton
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.btnSave);
-            this.panel2.Controls.Add(this.btnClear);
-            this.panel2.Controls.Add(this.btnNew);
-            this.panel2.Location = new System.Drawing.Point(171, 503);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(330, 80);
-            this.panel2.TabIndex = 28;
+            this.pnlButton.BackColor = System.Drawing.Color.Transparent;
+            this.pnlButton.Controls.Add(this.btnSave);
+            this.pnlButton.Controls.Add(this.btnClear);
+            this.pnlButton.Controls.Add(this.btnNew);
+            this.pnlButton.Location = new System.Drawing.Point(234, 524);
+            this.pnlButton.Name = "pnlButton";
+            this.pnlButton.Size = new System.Drawing.Size(247, 69);
+            this.pnlButton.TabIndex = 28;
             // 
             // btnClear
             // 
@@ -278,36 +281,36 @@
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
-            this.btnClear.Location = new System.Drawing.Point(114, 3);
+            this.btnClear.Location = new System.Drawing.Point(82, 3);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(97, 72);
+            this.btnClear.Size = new System.Drawing.Size(76, 63);
             this.btnClear.TabIndex = 15;
             this.btnClear.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // lblTitle
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Algerian", 20.25F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label6.Location = new System.Drawing.Point(35, 25);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(178, 30);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Production";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Algerian", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.lblTitle.Location = new System.Drawing.Point(35, 25);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(178, 30);
+            this.lblTitle.TabIndex = 29;
+            this.lblTitle.Text = "Production";
             // 
             // frmProduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(708, 605);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.pnlButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
@@ -323,7 +326,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel2.ResumeLayout(false);
+            this.pnlButton.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,7 +353,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel pnlButton;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -63,15 +63,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuntRosieDBDataSet.cs">
+      <DependentUpon>AuntRosieDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="AuntRosieDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AuntRosieDBDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="AuntRosieDBDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AuntRosieDBDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Classes\DBMethod.cs" />
     <Compile Include="Employment\ManageEmpForm.cs">
@@ -118,9 +116,11 @@
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
@@ -128,11 +128,23 @@
     <Compile Include="HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventory\IngredientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\IngredientsForm.Designer.cs">
+      <DependentUpon>IngredientsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventory\InventoryInForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventory\InventoryInForm.Designer.cs">
       <DependentUpon>InventoryInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\InventoryStockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\InventoryStockForm.Designer.cs">
+      <DependentUpon>InventoryStockForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventory\SuppliersForm.cs">
       <SubType>Form</SubType>
@@ -184,12 +196,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\IngredientsForm.resx">
+      <DependentUpon>IngredientsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\InventoryInForm.resx">
       <DependentUpon>InventoryInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\InventoryStockForm.resx">
+      <DependentUpon>InventoryStockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\SuppliersForm.resx">
       <DependentUpon>SuppliersForm.cs</DependentUpon>
@@ -205,14 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="AuntRosieDBDataSet.xsc">
       <DependentUpon>AuntRosieDBDataSet.xsd</DependentUpon>
     </None>
@@ -224,21 +238,15 @@
     <None Include="AuntRosieDBDataSet.xss">
       <DependentUpon>AuntRosieDBDataSet.xsd</DependentUpon>
     </None>
-    <None Include="AuntRosieDBDataSet1.xsc">
-      <DependentUpon>AuntRosieDBDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="AuntRosieDBDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AuntRosieDBDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="AuntRosieDBDataSet1.xss">
-      <DependentUpon>AuntRosieDBDataSet1.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -357,23 +365,15 @@
     <None Include="Resources\warehouse-1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AuntRosieDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="AuntRosieDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>AuntRosieDB.mdf</DependentUpon>
-    </Content>
+    <None Include="Resources\sweet.png" />
     <None Include="Resources\login-rounded-right.png" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\ButtonBack.png" />
     <None Include="Resources\add-shopping-cart.png" />
     <None Include="Resources\low-importance.png" />
     <None Include="Resources\macos-close.png" />
-    <None Include="Resources\background2.png" />
     <None Include="Resources\close-sign.png" />
     <None Include="Resources\background1.jpg" />
-    <None Include="Resources\background2.jpg" />
     <None Include="Resources\sweet.jpg" />
     <None Include="Resources\sweet-easter-cake-light-gray-background-spikelets-rye-concept-bright-holiday_121946-1332.jpg" />
     <None Include="Resources\download.jpg" />
@@ -415,6 +415,21 @@
       <Project>{1abd60a6-2a4b-449a-9ea8-b54b384560fe}</Project>
       <Name>AuntRosieEntities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AuntRosieDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AuntRosieDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>AuntRosieDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="Resources\background2 .jpg" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\appointment-reminders.png" />
+    <None Include="Resources\full-trash.png" />
+    <None Include="Resources\ingredients.png" />
+    <None Include="Resources\background2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -51,8 +51,8 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Sienna;
             this.label2.Location = new System.Drawing.Point(25, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(213, 29);
@@ -80,9 +80,9 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(506, 12);
+            this.btnClose.Location = new System.Drawing.Point(511, 25);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(58, 52);
+            this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 138;
             this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
             this.btnClose.UseVisualStyleBackColor = false;
@@ -132,8 +132,8 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Sienna;
             this.label1.Location = new System.Drawing.Point(421, 80);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(213, 29);
@@ -144,10 +144,10 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.lblName.Location = new System.Drawing.Point(2, 33);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(151, 22);
+            this.lblName.Size = new System.Drawing.Size(159, 22);
             this.lblName.TabIndex = 107;
             this.lblName.Tag = "";
             this.lblName.Text = "Employee Name";
@@ -164,11 +164,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.Sienna;
             this.label7.Location = new System.Drawing.Point(93, 74);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 22);
+            this.label7.Size = new System.Drawing.Size(66, 22);
             this.label7.TabIndex = 122;
             this.label7.Text = "Hours";
             // 
@@ -216,6 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(585, 603);
             this.Controls.Add(this.btnClose);
@@ -227,6 +228,7 @@
             this.Controls.Add(this.grbNew);
             this.Controls.Add(this.label2);
             this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.Color.Sienna;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmOrganizeEventStep2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

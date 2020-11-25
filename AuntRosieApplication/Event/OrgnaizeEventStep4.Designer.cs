@@ -60,8 +60,8 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Sienna;
             this.label1.Location = new System.Drawing.Point(230, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 29);
@@ -110,8 +110,8 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Sienna;
             this.label2.Location = new System.Drawing.Point(6, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(213, 29);
@@ -169,8 +169,8 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Sienna;
             this.label3.Location = new System.Drawing.Point(6, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(213, 29);
@@ -193,9 +193,9 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(506, 12);
+            this.btnClose.Location = new System.Drawing.Point(511, 25);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(58, 52);
+            this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 140;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -204,6 +204,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(585, 603);
             this.Controls.Add(this.label4);
@@ -215,6 +216,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnFinish);
             this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.Color.Sienna;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmOrganizeEventStep4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

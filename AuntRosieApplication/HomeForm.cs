@@ -184,7 +184,7 @@ namespace AuntRosieApp
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this.Controls.Count.ToString());
+            //MessageBox.Show(this.Controls.Count.ToString());
         }
 
         private void frmHome_MouseEnter(object sender, EventArgs e)
@@ -318,13 +318,13 @@ namespace AuntRosieApp
 
         private void btnSuppliers_Click(object sender, EventArgs e)
         {
-            AuntRosieApplication.Inventory.SuppliersForm form = new AuntRosieApplication.Inventory.SuppliersForm();
+            AuntRosieApplication.Inventory.frmSupplier form = new AuntRosieApplication.Inventory.frmSupplier();
             ShowForm(form);
         }
 
         private void tmnManageProduct_Click(object sender, EventArgs e)
         {
-            AuntRosieApplication.Inventory.SuppliersForm form = new AuntRosieApplication.Inventory.SuppliersForm();
+            AuntRosieApplication.Inventory.frmSupplier form = new AuntRosieApplication.Inventory.frmSupplier();
             ShowForm(form);
         }
 
@@ -361,6 +361,29 @@ namespace AuntRosieApp
         {
             AuntRosieApplication.Event.frmOrganizeEvent form = new AuntRosieApplication.Event.frmOrganizeEvent();
             ShowForm(form);
+        }
+
+        private void btnManageIngerdint_Click(object sender, EventArgs e)
+        {
+         
+            ShowForm(new AuntRosieApplication.Inventory.frmIngredients());
+        }
+
+        private void ingredintsToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+        {
+            btnManageIngerdint.Focus();
+        }
+
+        private void btnInventoryContents_Click(object sender, EventArgs e)
+        {
+           
+            ShowForm(new AuntRosieApplication.Inventory.frmInventoryStock());
+
+        }
+
+        private void tmnInventoryStock_MouseEnter(object sender, EventArgs e)
+        {
+            btnInventoryContents.Focus();
         }
     }
 }

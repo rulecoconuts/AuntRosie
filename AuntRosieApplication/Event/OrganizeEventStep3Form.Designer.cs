@@ -53,8 +53,8 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Sienna;
             this.label2.Location = new System.Drawing.Point(23, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(213, 29);
@@ -80,9 +80,9 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(506, 12);
+            this.btnClose.Location = new System.Drawing.Point(503, 29);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(58, 52);
+            this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 139;
             this.toolTip1.SetToolTip(this.btnClose, "Close the screen");
             this.btnClose.UseVisualStyleBackColor = false;
@@ -131,8 +131,8 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Sienna;
             this.label1.Location = new System.Drawing.Point(315, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(213, 29);
@@ -151,11 +151,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.Sienna;
             this.label7.Location = new System.Drawing.Point(66, 124);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 22);
+            this.label7.Size = new System.Drawing.Size(88, 22);
             this.label7.TabIndex = 122;
             this.label7.Text = "Quantity";
             // 
@@ -171,10 +171,10 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.lblName.Location = new System.Drawing.Point(13, 33);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(131, 22);
+            this.lblName.Size = new System.Drawing.Size(141, 22);
             this.lblName.TabIndex = 107;
             this.lblName.Tag = "";
             this.lblName.Text = "Product Name";
@@ -190,6 +190,7 @@
             this.grbNew.Controls.Add(this.btnAddLocation);
             this.grbNew.Controls.Add(this.cmbProductName);
             this.grbNew.Controls.Add(this.lblName);
+            this.grbNew.ForeColor = System.Drawing.Color.Sienna;
             this.grbNew.Location = new System.Drawing.Point(27, 114);
             this.grbNew.Name = "grbNew";
             this.grbNew.Size = new System.Drawing.Size(534, 350);
@@ -208,10 +209,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(26, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 22);
+            this.label3.Size = new System.Drawing.Size(128, 22);
             this.label3.TabIndex = 124;
             this.label3.Tag = "";
             this.label3.Text = "Product Size";
@@ -236,6 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(585, 603);
             this.Controls.Add(this.btnClose);
@@ -247,6 +249,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grbNew);
             this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.Color.Sienna;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmOrganizeEventStep3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

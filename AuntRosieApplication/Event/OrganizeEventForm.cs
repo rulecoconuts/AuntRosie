@@ -61,5 +61,10 @@ namespace AuntRosieApplication.Event
         {
             this.Close();
         }
+
+        private void pnlNewLoc_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
