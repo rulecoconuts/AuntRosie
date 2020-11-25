@@ -54,6 +54,8 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.dtpProductionTime = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtpExpiry = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).BeginInit();
             this.panel2.SuspendLayout();
@@ -332,6 +334,25 @@
             this.dtpProductionTime.Size = new System.Drawing.Size(278, 26);
             this.dtpProductionTime.TabIndex = 143;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label7.Location = new System.Drawing.Point(135, 236);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(138, 22);
+            this.label7.TabIndex = 145;
+            this.label7.Text = "Expiration Date";
+            // 
+            // dtpExpiry
+            // 
+            this.dtpExpiry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpExpiry.Location = new System.Drawing.Point(287, 234);
+            this.dtpExpiry.Name = "dtpExpiry";
+            this.dtpExpiry.Size = new System.Drawing.Size(278, 26);
+            this.dtpExpiry.TabIndex = 144;
+            // 
             // frmProduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,6 +362,8 @@
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(708, 656);
             this.ControlBox = false;
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dtpExpiry);
             this.Controls.Add(this.dtpProductionTime);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbProductName);
@@ -394,5 +417,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpProductionTime;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dtpExpiry;
     }
 }

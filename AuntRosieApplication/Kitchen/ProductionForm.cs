@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using AuntRosieEntities;
 
 namespace AuntRosieApplication.Kitchen
@@ -35,6 +36,7 @@ namespace AuntRosieApplication.Kitchen
             /*cmbEvent.DisplayMember = "ToString()";*/
         }
 
+        #region helper-functions
         private void loadCmbs()
         {
             productItems = ProductItem.GetProductItems();
@@ -53,11 +55,65 @@ namespace AuntRosieApplication.Kitchen
             {
                 cmbEvent.Items.Add(ev);
             }
-            if(cmbEvent.Items.Count > 0)
+            if (cmbEvent.Items.Count > 0)
             {
                 cmbEvent.SelectedIndex = 0;
             }
         }
+
+        private bool validateForm()
+        {
+            return validateDates() & validateEvent();
+        }
+
+        private bool validateDates()
+        {
+            return validateProductionDateNTime() & validateExpiryDate();
+        }
+
+        private bool validateProductionDateNTime()
+        {
+            if(dtpProductionDate.Value.Date > DateTime.Now.Date)
+            {
+                errorProvider1.SetError(dtpProductionDate, "Production date cannot be in the future");
+                return false;
+            }
+            else if(dtpProductionTime.Value.TimeOfDay > DateTime.Now.TimeOfDay)
+            {
+                errorProvider1.SetError(dtpProductionTime, "Production time cannot be in the future");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool validateExpiryDate()
+        {
+            if (dtpExpiry.Value < DateTime.Now)
+            {
+                errorProvider1.SetError(dtpExpiry, "Expiry date cannot be in the past");
+                return false;
+            }
+            
+            return true;
+        }
+
+        private bool validateEvent()
+        {
+            if(cmbEvent.Text.Trim() == "")
+            {
+                errorProvider1.SetError(cmbEvent, "Please select an event");
+                return false;
+            }
+            return true;
+        }
+
+        private void addProductionToEvent()
+        {
+
+        }
+
+        #endregion
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -91,14 +147,32 @@ namespace AuntRosieApplication.Kitchen
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
-            int productItem = (cmbProductName.SelectedItem as ProductItem).Id;
-            DateTime date = dtpProductionDate.Value.Date + dtpProductionTime.Value.TimeOfDay;
-            Production prodToBeCreated = new Production();
-            prodToBeCreated.ProductItemID = productItem;
-            prodToBeCreated.ProductionDate = date;
-            prodToBeCreated.Quantity = Convert.ToInt16(txtQuantity.Text);
-
-            prodToBeCreated.Create();
+            if (validateForm())
+            {
+                ProductItem selectedProductItem = (cmbProductName.SelectedItem as ProductItem);
+                int productItem = selectedProductItem.Id;
+                DateTime date = dtpProductionDate.Value.Date + dtpProductionTime.Value.TimeOfDay;
+                try
+                {
+                    Production prodToBeCreated = new Production();
+                    prodToBeCreated.ProductItemID = productItem;
+                    prodToBeCreated.ProductionDate = date;
+                    prodToBeCreated.Quantity = Convert.ToInt16(txtQuantity.Text);
+                    prodToBeCreated.ExpiryDate = dtpExpiry.Value.Date;
+                    prodToBeCreated.Create();
+                }
+                catch(SqlException se)
+                {
+                    if(se.Message.Contains("duplicate key"))
+                    {
+                        errorProvider1.SetError(cmbProductName, $"Production of ${selectedProductItem} already exists");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Something went wrong. We are fixing the issue");
+                }
+            }
         }
 
         private void lblProductName_Click(object sender, EventArgs e)

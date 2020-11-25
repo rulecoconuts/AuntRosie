@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Data;
 
+using System.ComponentModel;
+
 namespace AuntRosieEntities
 {
     public class Production : RosieEntity
@@ -35,7 +37,9 @@ namespace AuntRosieEntities
             }
         }
 
+        [Browsable(false)]
         public long Id { get => id; }
+        [Browsable(false)]
         public int ProductItemID { get => productItemID; set => productItemID = value; }
         public DateTime ProductionDate { get => productionDate; set => productionDate = value; }
         public short Quantity { get => quantity; set => quantity = value; }
