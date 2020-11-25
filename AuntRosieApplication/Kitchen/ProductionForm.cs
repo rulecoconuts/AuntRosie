@@ -49,7 +49,7 @@ namespace AuntRosieApplication.Kitchen
 
         private void loadEventCmb(DateTime earliestDate)
         {
-            cmbEvent.Items.Clear();
+            /*cmbEvent.Items.Clear();
             cmbEvent.Text = "";
             foreach (RosieEvent ev in RosieEvent.GetEvents(earliestDate))
             {
@@ -58,17 +58,34 @@ namespace AuntRosieApplication.Kitchen
             if (cmbEvent.Items.Count > 0)
             {
                 cmbEvent.SelectedIndex = 0;
-            }
+            }*/
         }
 
         private bool validateForm()
         {
-            return validateDates() & validateEvent();
+            return validateDates() & validateEvent() & validateQty();
         }
 
         private bool validateDates()
         {
             return validateProductionDateNTime() & validateExpiryDate();
+        }
+
+        private bool validateQty()
+        {
+            long quantity = 0;
+            if(!long.TryParse(txtQuantity.Text, out quantity))
+            {
+                errorProvider1.SetError(txtQuantity, "Quantity must be a whole number");
+                return false;
+            }
+            else if(quantity > short.MaxValue || quantity < 0)
+            {
+                errorProvider1.SetError(txtQuantity, $"Quantity must be between {0} and {short.MaxValue}");
+                return false;
+            }
+            errorProvider1.SetError(txtQuantity, "");
+            return true;
         }
 
         private bool validateProductionDateNTime()
@@ -84,6 +101,8 @@ namespace AuntRosieApplication.Kitchen
                 return false;
             }
 
+            errorProvider1.SetError(dtpProductionTime, "");
+
             return true;
         }
 
@@ -94,23 +113,35 @@ namespace AuntRosieApplication.Kitchen
                 errorProvider1.SetError(dtpExpiry, "Expiry date cannot be in the past");
                 return false;
             }
-            
+
+            errorProvider1.SetError(dtpExpiry, "");
+
             return true;
         }
 
         private bool validateEvent()
         {
-            if(cmbEvent.Text.Trim() == "")
+            /*if(cmbEvent.Text.Trim() == "")
             {
                 errorProvider1.SetError(cmbEvent, "Please select an event");
                 return false;
-            }
+            }*/
             return true;
         }
 
         private void addProductionToEvent()
         {
+            try
+            {
 
+            }
+            catch(SqlException se)
+            {
+                if(se.Message.Contains("duplicate key"))
+                {
+                    //errorProvider1.SetError(cmbEvent, "");
+                }
+            }
         }
 
         #endregion
@@ -160,6 +191,8 @@ namespace AuntRosieApplication.Kitchen
                     prodToBeCreated.Quantity = Convert.ToInt16(txtQuantity.Text);
                     prodToBeCreated.ExpiryDate = dtpExpiry.Value.Date;
                     prodToBeCreated.Create();
+
+                    lblMsg.Text = "Successfully recorded production";
                 }
                 catch(SqlException se)
                 {
@@ -168,10 +201,10 @@ namespace AuntRosieApplication.Kitchen
                         errorProvider1.SetError(cmbProductName, $"Production of ${selectedProductItem} already exists");
                     }
                 }
-                catch
+                /*catch(Exception)
                 {
                     MessageBox.Show("Something went wrong. We are fixing the issue");
-                }
+                }*/
             }
         }
 
@@ -182,13 +215,22 @@ namespace AuntRosieApplication.Kitchen
 
         private void cmbEvent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblLoc.Text = $"Event Location: {(cmbEvent.SelectedItem as RosieEvent).EventLocation}";
+            //lblLoc.Text = $"Event Location: {(cmbEvent.SelectedItem as RosieEvent).EventLocation}";
         }
 
         private void dtpProductionDate_ValueChanged(object sender, EventArgs e)
         {
             
             loadEventCmb(dtpProductionDate.Value);
+        }
+
+        private void txtQuantity_TextChanged(object sender, EventArgs e)
+        {
+            if(txtQuantity.Text.Length > 5)
+            {
+                txtQuantity.Text = txtQuantity.Text.Substring(0, 5);
+                txtQuantity.SelectionStart = txtQuantity.Text.Length;
+            }
         }
     }
 }

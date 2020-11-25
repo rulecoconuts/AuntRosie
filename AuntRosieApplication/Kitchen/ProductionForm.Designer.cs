@@ -32,19 +32,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
-            this.cmbEvent = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btn = new System.Windows.Forms.Button();
             this.lblProductName = new System.Windows.Forms.Label();
             this.dtpProductionDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblLoc = new System.Windows.Forms.Label();
-            this.dtgProduction = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,8 +49,7 @@
             this.dtpProductionTime = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpExpiry = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).BeginInit();
+            this.lblMsg = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -77,9 +69,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F);
             this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label3.Location = new System.Drawing.Point(116, 143);
+            this.label3.Location = new System.Drawing.Point(122, 369);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 22);
             this.label3.TabIndex = 9;
@@ -88,34 +81,11 @@
             // txtQuantity
             // 
             this.txtQuantity.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.txtQuantity.Location = new System.Drawing.Point(204, 140);
+            this.txtQuantity.Location = new System.Drawing.Point(210, 366);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(131, 29);
             this.txtQuantity.TabIndex = 4;
-            // 
-            // cmbEvent
-            // 
-            this.cmbEvent.AutoCompleteCustomSource.AddRange(new string[] {
-            "Pies",
-            "Preserves"});
-            this.cmbEvent.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEvent.FormattingEnabled = true;
-            this.cmbEvent.Location = new System.Drawing.Point(204, 28);
-            this.cmbEvent.Name = "cmbEvent";
-            this.cmbEvent.Size = new System.Drawing.Size(230, 31);
-            this.cmbEvent.TabIndex = 3;
-            this.cmbEvent.SelectedIndexChanged += new System.EventHandler(this.cmbEvent_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label1.Location = new System.Drawing.Point(136, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 22);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Event";
+            this.txtQuantity.TextChanged += new System.EventHandler(this.txtQuantity_TextChanged);
             // 
             // btnClose
             // 
@@ -146,38 +116,12 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnNew
-            // 
-            this.btnNew.FlatAppearance.BorderSize = 0;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Image = global::AuntRosieApplication.Properties.Resources.plus_2_math;
-            this.btnNew.Location = new System.Drawing.Point(22, 3);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(97, 72);
-            this.btnNew.TabIndex = 0;
-            this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.toolTip1.SetToolTip(this.btnNew, "New");
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // btn
-            // 
-            this.btn.FlatAppearance.BorderSize = 0;
-            this.btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn.Image = global::AuntRosieApplication.Properties.Resources.low_importance;
-            this.btn.Location = new System.Drawing.Point(380, 135);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(54, 38);
-            this.btn.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.btn, "Add");
-            this.btn.UseVisualStyleBackColor = true;
-            // 
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
             this.lblProductName.BackColor = System.Drawing.Color.Transparent;
             this.lblProductName.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.lblProductName.Location = new System.Drawing.Point(199, 98);
+            this.lblProductName.Location = new System.Drawing.Point(128, 119);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(76, 22);
             this.lblProductName.TabIndex = 15;
@@ -187,9 +131,9 @@
             // dtpProductionDate
             // 
             this.dtpProductionDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpProductionDate.Location = new System.Drawing.Point(287, 166);
+            this.dtpProductionDate.Location = new System.Drawing.Point(210, 172);
             this.dtpProductionDate.Name = "dtpProductionDate";
-            this.dtpProductionDate.Size = new System.Drawing.Size(278, 26);
+            this.dtpProductionDate.Size = new System.Drawing.Size(382, 26);
             this.dtpProductionDate.TabIndex = 5;
             this.dtpProductionDate.ValueChanged += new System.EventHandler(this.dtpProductionDate_ValueChanged);
             // 
@@ -198,59 +142,20 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label2.Location = new System.Drawing.Point(135, 168);
+            this.label2.Location = new System.Drawing.Point(58, 174);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 22);
             this.label2.TabIndex = 26;
             this.label2.Text = "Production Date";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.lblLoc);
-            this.groupBox1.Controls.Add(this.btn);
-            this.groupBox1.Controls.Add(this.dtgProduction);
-            this.groupBox1.Controls.Add(this.cmbEvent);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtQuantity);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.Goldenrod;
-            this.groupBox1.Location = new System.Drawing.Point(83, 260);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(529, 310);
-            this.groupBox1.TabIndex = 27;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Events Quantity";
-            // 
-            // lblLoc
-            // 
-            this.lblLoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblLoc.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.lblLoc.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblLoc.Location = new System.Drawing.Point(140, 72);
-            this.lblLoc.Name = "lblLoc";
-            this.lblLoc.Size = new System.Drawing.Size(294, 56);
-            this.lblLoc.TabIndex = 14;
-            this.lblLoc.Text = "Event Location:   ";
-            // 
-            // dtgProduction
-            // 
-            this.dtgProduction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProduction.Location = new System.Drawing.Point(15, 178);
-            this.dtgProduction.Name = "dtgProduction";
-            this.dtgProduction.Size = new System.Drawing.Size(480, 118);
-            this.dtgProduction.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.btnClear);
-            this.panel2.Controls.Add(this.btnNew);
-            this.panel2.Location = new System.Drawing.Point(171, 565);
+            this.panel2.Location = new System.Drawing.Point(110, 466);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(330, 80);
+            this.panel2.Size = new System.Drawing.Size(422, 80);
             this.panel2.TabIndex = 28;
             // 
             // btnClear
@@ -303,7 +208,7 @@
             // 
             this.cmbProductName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProductName.FormattingEnabled = true;
-            this.cmbProductName.Location = new System.Drawing.Point(287, 94);
+            this.cmbProductName.Location = new System.Drawing.Point(210, 115);
             this.cmbProductName.Name = "cmbProductName";
             this.cmbProductName.Size = new System.Drawing.Size(382, 31);
             this.cmbProductName.TabIndex = 141;
@@ -317,7 +222,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label5.Location = new System.Drawing.Point(131, 202);
+            this.label5.Location = new System.Drawing.Point(58, 237);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(148, 22);
             this.label5.TabIndex = 142;
@@ -328,10 +233,10 @@
             this.dtpProductionTime.CustomFormat = "hh:mm tt";
             this.dtpProductionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpProductionTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpProductionTime.Location = new System.Drawing.Point(287, 202);
+            this.dtpProductionTime.Location = new System.Drawing.Point(210, 237);
             this.dtpProductionTime.Name = "dtpProductionTime";
             this.dtpProductionTime.ShowUpDown = true;
-            this.dtpProductionTime.Size = new System.Drawing.Size(278, 26);
+            this.dtpProductionTime.Size = new System.Drawing.Size(382, 26);
             this.dtpProductionTime.TabIndex = 143;
             // 
             // label7
@@ -339,7 +244,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label7.Location = new System.Drawing.Point(135, 236);
+            this.label7.Location = new System.Drawing.Point(68, 303);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(138, 22);
             this.label7.TabIndex = 145;
@@ -348,10 +253,20 @@
             // dtpExpiry
             // 
             this.dtpExpiry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpExpiry.Location = new System.Drawing.Point(287, 234);
+            this.dtpExpiry.Location = new System.Drawing.Point(210, 303);
             this.dtpExpiry.Name = "dtpExpiry";
-            this.dtpExpiry.Size = new System.Drawing.Size(278, 26);
+            this.dtpExpiry.Size = new System.Drawing.Size(382, 26);
             this.dtpExpiry.TabIndex = 144;
+            // 
+            // lblMsg
+            // 
+            this.lblMsg.BackColor = System.Drawing.Color.Transparent;
+            this.lblMsg.ForeColor = System.Drawing.Color.Green;
+            this.lblMsg.Location = new System.Drawing.Point(72, 426);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(520, 23);
+            this.lblMsg.TabIndex = 146;
+            this.lblMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmProduction
             // 
@@ -360,17 +275,19 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(708, 656);
+            this.ClientSize = new System.Drawing.Size(708, 558);
             this.ControlBox = false;
+            this.Controls.Add(this.lblMsg);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpExpiry);
             this.Controls.Add(this.dtpProductionTime);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbProductName);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpProductionDate);
             this.Controls.Add(this.lblProductName);
@@ -378,9 +295,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProduction";
             this.Load += new System.EventHandler(this.frmProduction_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -396,18 +310,11 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtQuantity;
-        private System.Windows.Forms.ComboBox cmbEvent;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.DateTimePicker dtpProductionDate;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblLoc;
-        private System.Windows.Forms.Button btn;
-        private System.Windows.Forms.DataGridView dtgProduction;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label6;
@@ -419,5 +326,6 @@
         private System.Windows.Forms.DateTimePicker dtpProductionTime;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpExpiry;
+        private System.Windows.Forms.Label lblMsg;
     }
 }

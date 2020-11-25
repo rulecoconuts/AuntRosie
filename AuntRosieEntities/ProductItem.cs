@@ -173,12 +173,14 @@ namespace AuntRosieEntities
             if (retrieveIdPrepCmd is null)
             {
                 retrieveIdPrepCmd = new SqlCommand(null, Connector.Connection);
-                retrieveIdPrepCmd.CommandText = "select [ProductID], [SizeID], [Price] from [tblProductItem] where [ProductItemID] = @ID; " +
-                    "OUTPUT INSERTED";
+                retrieveIdPrepCmd.CommandText = "select [ProductID], [SizeID], [Price] from [tblProductItem]" +
+                    " where [ProductItemID] = @ID;";
 
 
                 SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int, 0);
                 idParam.Value = id;
+
+                retrieveIdPrepCmd.Parameters.Add(idParam);
 
                 retrieveIdPrepCmd.Prepare();
             }

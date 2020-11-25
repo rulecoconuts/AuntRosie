@@ -24,6 +24,10 @@ namespace AuntRosieEntities
 
         private static SqlCommand retrieveNamePrepCmd = null;
 
+        private static SqlCommand createPrepCmd = null;
+        private static SqlCommand deletePrepCmd = null;
+        private static SqlCommand updatePrepCmd = null;
+
         public ProductItem ProductItem
         {
             get
@@ -52,7 +56,41 @@ namespace AuntRosieEntities
 
         public override void Create(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (createPrepCmd is null)
+            {
+                createPrepCmd = new SqlCommand(null, Connector.Connection);
+                createPrepCmd.CommandText = "insert into [tblProduction]([ProductItemID], [ProductionQuantity], [ExpiryDate], [ProductionDate]) " +
+                    "values (@product, @qty, @expDate, @prodDate)";
+
+
+                SqlParameter productItemParam = new SqlParameter("@product", SqlDbType.Int, 0);
+                productItemParam.Value = ProductItemID;
+
+                SqlParameter qtyParam = new SqlParameter("@qty", SqlDbType.SmallInt, 0);
+                qtyParam.Value = Quantity;
+
+                SqlParameter expParam = new SqlParameter("@expDate", SqlDbType.Date, 0);
+                expParam.Value = ExpiryDate.Date;
+
+                SqlParameter productionDateParam = new SqlParameter("@prodDate", SqlDbType.DateTime, 0);
+                productionDateParam.Value = ProductionDate;
+
+                createPrepCmd.Parameters.Add(productItemParam);
+                createPrepCmd.Parameters.Add(qtyParam);
+                createPrepCmd.Parameters.Add(expParam);
+                createPrepCmd.Parameters.Add(productionDateParam);
+
+                createPrepCmd.Prepare();
+            }
+            else
+            {
+                createPrepCmd.Parameters["@product"].Value = ProductItemID;
+                createPrepCmd.Parameters["@qty"].Value = Quantity;
+                createPrepCmd.Parameters["@expDate"].Value = ExpiryDate;
+                createPrepCmd.Parameters["@prodDate"].Value = ProductionDate;
+            }
+
+            id = Connector.Insert(createPrepCmd, true, transaction);
         }
 
         public override void Delete(SqlTransaction transaction = null)
