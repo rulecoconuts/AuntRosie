@@ -136,7 +136,7 @@
             this.radAll.AutoSize = true;
             this.radAll.Checked = true;
             this.radAll.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radAll.Location = new System.Drawing.Point(26, 21);
+            this.radAll.Location = new System.Drawing.Point(17, 21);
             this.radAll.Name = "radAll";
             this.radAll.Size = new System.Drawing.Size(139, 26);
             this.radAll.TabIndex = 4;
@@ -173,6 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(550, 608);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);

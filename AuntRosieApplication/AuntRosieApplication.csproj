@@ -421,6 +421,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Resources\background2 .jpg" />
     <None Include="Resources\appointment-reminders.png" />
     <None Include="Resources\full-trash.png" />
     <None Include="Resources\ingredients.png" />

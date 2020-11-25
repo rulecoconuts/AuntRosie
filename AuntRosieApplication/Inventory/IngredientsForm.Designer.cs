@@ -124,7 +124,7 @@
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Algerian", 20.25F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.lblTitle.Location = new System.Drawing.Point(82, 42);
+            this.lblTitle.Location = new System.Drawing.Point(100, 42);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(313, 30);
             this.lblTitle.TabIndex = 111;
@@ -311,6 +311,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(534, 450);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pnlButton);
