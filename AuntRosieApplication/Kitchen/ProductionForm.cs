@@ -38,11 +38,25 @@ namespace AuntRosieApplication.Kitchen
         private void loadCmbs()
         {
             productItems = ProductItem.GetProductItems();
-            events = RosieEvent.GetEvents(DateTime.Now);
 
             cmbProductName.DataSource = productItems;
             cmbProductName.DisplayMember = "Product.Name";
-            cmbEvent.DataSource = events;
+
+            loadEventCmb(DateTime.Now);
+        }
+
+        private void loadEventCmb(DateTime earliestDate)
+        {
+            cmbEvent.Items.Clear();
+            cmbEvent.Text = "";
+            foreach (RosieEvent ev in RosieEvent.GetEvents(earliestDate))
+            {
+                cmbEvent.Items.Add(ev);
+            }
+            if(cmbEvent.Items.Count > 0)
+            {
+                cmbEvent.SelectedIndex = 0;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -77,7 +91,14 @@ namespace AuntRosieApplication.Kitchen
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
+            int productItem = (cmbProductName.SelectedItem as ProductItem).Id;
+            DateTime date = dtpProductionDate.Value.Date + dtpProductionTime.Value.TimeOfDay;
+            Production prodToBeCreated = new Production();
+            prodToBeCreated.ProductItemID = productItem;
+            prodToBeCreated.ProductionDate = date;
+            prodToBeCreated.Quantity = Convert.ToInt16(txtQuantity.Text);
 
+            prodToBeCreated.Create();
         }
 
         private void lblProductName_Click(object sender, EventArgs e)
@@ -88,6 +109,12 @@ namespace AuntRosieApplication.Kitchen
         private void cmbEvent_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblLoc.Text = $"Event Location: {(cmbEvent.SelectedItem as RosieEvent).EventLocation}";
+        }
+
+        private void dtpProductionDate_ValueChanged(object sender, EventArgs e)
+        {
+            
+            loadEventCmb(dtpProductionDate.Value);
         }
     }
 }

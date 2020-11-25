@@ -44,18 +44,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblLoc = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgProduction = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbProductName = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpProductionTime = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -128,7 +132,6 @@
             // 
             // btnSave
             // 
-            this.btnSave.Enabled = false;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
@@ -186,6 +189,7 @@
             this.dtpProductionDate.Name = "dtpProductionDate";
             this.dtpProductionDate.Size = new System.Drawing.Size(278, 26);
             this.dtpProductionDate.TabIndex = 5;
+            this.dtpProductionDate.ValueChanged += new System.EventHandler(this.dtpProductionDate_ValueChanged);
             // 
             // label2
             // 
@@ -203,14 +207,14 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.lblLoc);
             this.groupBox1.Controls.Add(this.btn);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dtgProduction);
             this.groupBox1.Controls.Add(this.cmbEvent);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtQuantity);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Goldenrod;
-            this.groupBox1.Location = new System.Drawing.Point(83, 198);
+            this.groupBox1.Location = new System.Drawing.Point(83, 260);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(529, 310);
             this.groupBox1.TabIndex = 27;
@@ -228,13 +232,13 @@
             this.lblLoc.TabIndex = 14;
             this.lblLoc.Text = "Event Location:   ";
             // 
-            // dataGridView1
+            // dtgProduction
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 178);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(480, 118);
-            this.dataGridView1.TabIndex = 0;
+            this.dtgProduction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgProduction.Location = new System.Drawing.Point(15, 178);
+            this.dtgProduction.Name = "dtgProduction";
+            this.dtgProduction.Size = new System.Drawing.Size(480, 118);
+            this.dtgProduction.TabIndex = 0;
             // 
             // panel2
             // 
@@ -242,14 +246,13 @@
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.btnClear);
             this.panel2.Controls.Add(this.btnNew);
-            this.panel2.Location = new System.Drawing.Point(171, 503);
+            this.panel2.Location = new System.Drawing.Point(171, 565);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(330, 80);
             this.panel2.TabIndex = 28;
             // 
             // btnClear
             // 
-            this.btnClear.Enabled = false;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
@@ -303,6 +306,32 @@
             this.cmbProductName.Size = new System.Drawing.Size(382, 31);
             this.cmbProductName.TabIndex = 141;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label5.Location = new System.Drawing.Point(131, 202);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(148, 22);
+            this.label5.TabIndex = 142;
+            this.label5.Text = "Production Time";
+            // 
+            // dtpProductionTime
+            // 
+            this.dtpProductionTime.CustomFormat = "hh:mm tt";
+            this.dtpProductionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpProductionTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpProductionTime.Location = new System.Drawing.Point(287, 202);
+            this.dtpProductionTime.Name = "dtpProductionTime";
+            this.dtpProductionTime.ShowUpDown = true;
+            this.dtpProductionTime.Size = new System.Drawing.Size(278, 26);
+            this.dtpProductionTime.TabIndex = 143;
+            // 
             // frmProduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,8 +339,10 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(708, 605);
+            this.ClientSize = new System.Drawing.Size(708, 656);
             this.ControlBox = false;
+            this.Controls.Add(this.dtpProductionTime);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbProductName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -326,11 +357,12 @@
             this.Load += new System.EventHandler(this.frmProduction_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,12 +384,15 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblLoc;
         private System.Windows.Forms.Button btn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgProduction;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cmbProductName;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpProductionTime;
     }
 }

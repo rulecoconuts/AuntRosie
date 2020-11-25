@@ -24,6 +24,7 @@ namespace AuntRosieEntities
         private static SqlCommand createPrepCmd = null;
         private static SqlCommand deletePrepCmd = null;
         private static SqlCommand updatePrepCmd = null;
+        private static SqlCommand getEventsPrepCmd = null;
 
         public EventLocation EventLocation
         {
@@ -173,9 +174,26 @@ namespace AuntRosieEntities
         {
             List<RosieEvent> items = new List<RosieEvent>();
 
+            if(getEventsPrepCmd is null)
+            {
+                getEventsPrepCmd = new SqlCommand(null, Connector.Connection);
+                getEventsPrepCmd.CommandText = "select [EventID], [EventName], [LocationID], [EventDate], [EventType] " +
+                    "from [tblEvent] where [EventDate] >= @date";
+
+                SqlParameter dateParam = new SqlParameter("@date", SqlDbType.Date, 0);
+                dateParam.Value = earliestDate.Date;
+
+                getEventsPrepCmd.Parameters.Add(dateParam);
+
+                getEventsPrepCmd.Prepare();
+            }
+            else
+            {
+                getEventsPrepCmd.Parameters["@date"].Value = earliestDate.Date;
+            }
+
             //Process result
-            SqlDataReader reader = Connector.Retrieve("select [EventID], [EventName], [LocationID], [EventDate], [EventType] " +
-                    $"from [tblEvent] where [EventDate] >= '{earliestDate.ToString()}'");
+            SqlDataReader reader = Connector.Retrieve(getEventsPrepCmd);
             while (reader.HasRows && reader.Read())
             {
                 RosieEvent evnt = new RosieEvent();
