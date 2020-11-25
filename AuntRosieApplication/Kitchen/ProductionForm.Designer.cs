@@ -31,19 +31,19 @@
             this.components = new System.ComponentModel.Container();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtQuntity = new System.Windows.Forms.TextBox();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.cmbEvent = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn = new System.Windows.Forms.Button();
             this.lblProductName = new System.Windows.Forms.Label();
             this.dtpProductionDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblLoc = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
@@ -79,13 +79,13 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Quantity";
             // 
-            // txtQuntity
+            // txtQuantity
             // 
-            this.txtQuntity.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.txtQuntity.Location = new System.Drawing.Point(204, 140);
-            this.txtQuntity.Name = "txtQuntity";
-            this.txtQuntity.Size = new System.Drawing.Size(131, 29);
-            this.txtQuntity.TabIndex = 4;
+            this.txtQuantity.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.txtQuantity.Location = new System.Drawing.Point(204, 140);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(131, 29);
+            this.txtQuantity.TabIndex = 4;
             // 
             // cmbEvent
             // 
@@ -98,6 +98,7 @@
             this.cmbEvent.Name = "cmbEvent";
             this.cmbEvent.Size = new System.Drawing.Size(230, 31);
             this.cmbEvent.TabIndex = 3;
+            this.cmbEvent.SelectedIndexChanged += new System.EventHandler(this.cmbEvent_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -154,17 +155,17 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // button1
+            // btn
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::AuntRosieApplication.Properties.Resources.low_importance;
-            this.button1.Location = new System.Drawing.Point(380, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(54, 38);
-            this.button1.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.button1, "Add");
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn.FlatAppearance.BorderSize = 0;
+            this.btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn.Image = global::AuntRosieApplication.Properties.Resources.low_importance;
+            this.btn.Location = new System.Drawing.Point(380, 135);
+            this.btn.Name = "btn";
+            this.btn.Size = new System.Drawing.Size(54, 38);
+            this.btn.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.btn, "Add");
+            this.btn.UseVisualStyleBackColor = true;
             // 
             // lblProductName
             // 
@@ -200,13 +201,13 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.lblLoc);
+            this.groupBox1.Controls.Add(this.btn);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.cmbEvent);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtQuntity);
+            this.groupBox1.Controls.Add(this.txtQuantity);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Goldenrod;
             this.groupBox1.Location = new System.Drawing.Point(83, 198);
@@ -216,16 +217,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Events Quantity";
             // 
-            // label5
+            // lblLoc
             // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label5.Location = new System.Drawing.Point(140, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(294, 56);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Event Location:   ";
+            this.lblLoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLoc.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblLoc.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblLoc.Location = new System.Drawing.Point(140, 72);
+            this.lblLoc.Name = "lblLoc";
+            this.lblLoc.Size = new System.Drawing.Size(294, 56);
+            this.lblLoc.TabIndex = 14;
+            this.lblLoc.Text = "Event Location:   ";
             // 
             // dataGridView1
             // 
@@ -342,15 +343,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtQuntity;
+        private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.ComboBox cmbEvent;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.DateTimePicker dtpProductionDate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblLoc;
+        private System.Windows.Forms.Button btn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Panel panel2;

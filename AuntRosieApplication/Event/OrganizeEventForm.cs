@@ -232,12 +232,14 @@ namespace AuntRosieApplication.Event
                 ev.LocationId = (cmbLocations.SelectedItem as EventLocation).Id;
                 ev.Name = txtEventName.Text;
                 ev.Type = ((KeyValuePair<string, EventType>)cmbTypes.SelectedItem).Value;
-                SqlTransaction transaction = RosieEntity.Connector.Connection.BeginTransaction();
+                //SqlTransaction transaction = RosieEntity.Connector.Connection.BeginTransaction();
                 ev.Create();
+
+                RosieEvent createdEvent = RosieEvent.Retrieve(ev.EventDate, ev.LocationId);
 
                 this.Close();
 
-                frmOrganizeEventStep2 form = new frmOrganizeEventStep2(ev, transaction);
+                frmOrganizeEventStep2 form = new frmOrganizeEventStep2(createdEvent, transaction);
                 form.ShowDialog();
             }
 

@@ -32,9 +32,6 @@ namespace AuntRosieApplication.Kitchen
             DBConnector conn = new DBConnector(conStr);
             RosieEntity.Connector = conn;
             loadCmbs();
-            cmbProductName.DataSource = productItems;
-            cmbProductName.DisplayMember = "Product.Name";
-            cmbEvent.DataSource = events;
             /*cmbEvent.DisplayMember = "ToString()";*/
         }
 
@@ -42,6 +39,10 @@ namespace AuntRosieApplication.Kitchen
         {
             productItems = ProductItem.GetProductItems();
             events = RosieEvent.GetEvents(DateTime.Now);
+
+            cmbProductName.DataSource = productItems;
+            cmbProductName.DisplayMember = "Product.Name";
+            cmbEvent.DataSource = events;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -82,6 +83,11 @@ namespace AuntRosieApplication.Kitchen
         private void lblProductName_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbEvent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblLoc.Text = $"Event Location: {(cmbEvent.SelectedItem as RosieEvent).EventLocation}";
         }
     }
 }
