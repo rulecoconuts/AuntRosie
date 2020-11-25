@@ -20,6 +20,12 @@ namespace AuntRosieApplication
         private void Form1_Load(object sender, EventArgs e)
         {
             FillCombBox();
+            String DatabasePath = Application.StartupPath;
+            int x = DatabasePath.IndexOf("bin");
+            DatabasePath = DatabasePath.Substring(0,x-1);
+            String conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + DatabasePath +
+              @"\AuntRosieDB.mdf;Integrated Security=True;Connect Timeout=30";
+            MessageBox.Show(conStr);
         }
 
         private void FillCombBox()
@@ -43,13 +49,13 @@ namespace AuntRosieApplication
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           //AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
+            AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
            
-           // Object obj = comboBox1.Items[comboBox1.SelectedIndex];
+             Object obj = comboBox1.Items[comboBox1.SelectedIndex];
 
-           // itm = (AuntRosieApplication.Classes.ListItem)obj;
+             itm = (AuntRosieApplication.Classes.ListItem)obj;
 
-           // //MessageBox.Show(itm.id + ", " + itm.name);
+           MessageBox.Show(itm.id + ", " + itm.name);
            // MessageBox.Show(comboBox1.Items[comboBox1.SelectedIndex].ToString());
         }
        

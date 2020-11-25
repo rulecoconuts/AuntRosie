@@ -24,6 +24,8 @@ namespace AuntRosieApplication.Kitchen
 
         private void frmProduction_Load(object sender, EventArgs e)
         {
+            lblTitle.Left = (this.Width - lblTitle.Width) / 2;
+            pnlButton.Left = (this.Width - pnlButton.Width) / 2;
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             String DatabasePath = System.IO.Directory.GetCurrentDirectory();
             int x = DatabasePath.IndexOf("bin");
