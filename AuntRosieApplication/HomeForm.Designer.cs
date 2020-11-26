@@ -44,6 +44,7 @@
             this.btnEmployment = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
             this.pnlKitchen = new System.Windows.Forms.Panel();
+            this.btnViewProduction = new System.Windows.Forms.Button();
             this.btnProduction = new System.Windows.Forms.Button();
             this.btnKitchenMain = new System.Windows.Forms.Button();
             this.btnKitchenProduct = new System.Windows.Forms.Button();
@@ -79,12 +80,12 @@
             this.tmnOrginizeEvent = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnExpenses = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnKitchen = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewProductionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnProducation = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnManage = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnQueriesAndReports = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnReports = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnQueries = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnViewProduction = new System.Windows.Forms.Button();
             this.pnlInventory.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlKitchen.SuspendLayout();
@@ -317,6 +318,22 @@
             this.pnlKitchen.TabIndex = 9;
             this.pnlKitchen.Visible = false;
             this.pnlKitchen.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlKitchen_Paint);
+            // 
+            // btnViewProduction
+            // 
+            this.btnViewProduction.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnViewProduction.BackgroundImage")));
+            this.btnViewProduction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnViewProduction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnViewProduction.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnViewProduction.Image = global::AuntRosieApplication.Properties.Resources.time_machine__v2;
+            this.btnViewProduction.Location = new System.Drawing.Point(14, 9);
+            this.btnViewProduction.Name = "btnViewProduction";
+            this.btnViewProduction.Size = new System.Drawing.Size(184, 187);
+            this.btnViewProduction.TabIndex = 5;
+            this.btnViewProduction.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnViewProduction, "View Production");
+            this.btnViewProduction.UseVisualStyleBackColor = true;
+            this.btnViewProduction.Click += new System.EventHandler(this.btnViewProduction_Click);
             // 
             // btnProduction
             // 
@@ -763,6 +780,7 @@
             // tmnKitchen
             // 
             this.tmnKitchen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewProductionsToolStripMenuItem,
             this.tmnProducation,
             this.tmnManage});
             this.tmnKitchen.ForeColor = System.Drawing.Color.DarkGoldenrod;
@@ -771,11 +789,21 @@
             this.tmnKitchen.Text = "Kitchen";
             this.tmnKitchen.MouseEnter += new System.EventHandler(this.kitchenToolStripMenuItem_MouseEnter);
             // 
+            // viewProductionsToolStripMenuItem
+            // 
+            this.viewProductionsToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.viewProductionsToolStripMenuItem.Name = "viewProductionsToolStripMenuItem";
+            this.viewProductionsToolStripMenuItem.Size = new System.Drawing.Size(312, 30);
+            this.viewProductionsToolStripMenuItem.Text = "View Productions";
+            this.viewProductionsToolStripMenuItem.Click += new System.EventHandler(this.btnViewProduction_Click);
+            this.viewProductionsToolStripMenuItem.MouseEnter += new System.EventHandler(this.viewProductionsToolStripMenuItem_MouseEnter);
+            this.viewProductionsToolStripMenuItem.MouseLeave += new System.EventHandler(this.viewProductionsToolStripMenuItem_MouseLeave);
+            // 
             // tmnProducation
             // 
             this.tmnProducation.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnProducation.Name = "tmnProducation";
-            this.tmnProducation.Size = new System.Drawing.Size(304, 30);
+            this.tmnProducation.Size = new System.Drawing.Size(312, 30);
             this.tmnProducation.Text = "Producation";
             this.tmnProducation.Click += new System.EventHandler(this.btnProduction_Click);
             this.tmnProducation.MouseEnter += new System.EventHandler(this.tmnProducation_MouseEnter);
@@ -785,7 +813,7 @@
             // 
             this.tmnManage.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnManage.Name = "tmnManage";
-            this.tmnManage.Size = new System.Drawing.Size(304, 30);
+            this.tmnManage.Size = new System.Drawing.Size(312, 30);
             this.tmnManage.Text = "Manage Product";
             this.tmnManage.Click += new System.EventHandler(this.tmnManageProduct_Click);
             this.tmnManage.MouseEnter += new System.EventHandler(this.tmnManage_MouseEnter);
@@ -819,22 +847,6 @@
             this.tmnQueries.Text = "Queries";
             this.tmnQueries.MouseEnter += new System.EventHandler(this.tmnQueries_MouseEnter);
             this.tmnQueries.MouseLeave += new System.EventHandler(this.tmnQueries_MouseLeave);
-            // 
-            // btnViewProduction
-            // 
-            this.btnViewProduction.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnViewProduction.BackgroundImage")));
-            this.btnViewProduction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnViewProduction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnViewProduction.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.btnViewProduction.Image = global::AuntRosieApplication.Properties.Resources.question_mark;
-            this.btnViewProduction.Location = new System.Drawing.Point(14, 9);
-            this.btnViewProduction.Name = "btnViewProduction";
-            this.btnViewProduction.Size = new System.Drawing.Size(184, 187);
-            this.btnViewProduction.TabIndex = 4;
-            this.btnViewProduction.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolTip1.SetToolTip(this.btnViewProduction, "Production");
-            this.btnViewProduction.UseVisualStyleBackColor = true;
-            this.btnViewProduction.Click += new System.EventHandler(this.btnViewProduction_Click);
             // 
             // frmHome
             // 
@@ -930,5 +942,6 @@
         private System.Windows.Forms.Button btnInventoryContents;
         private System.Windows.Forms.Button btnNotification;
         private System.Windows.Forms.Button btnViewProduction;
+        private System.Windows.Forms.ToolStripMenuItem viewProductionsToolStripMenuItem;
     }
 }

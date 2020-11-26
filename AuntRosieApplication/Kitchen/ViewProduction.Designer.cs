@@ -30,9 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.chkAllProducts = new System.Windows.Forms.CheckBox();
             this.chkAllTypes = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -48,7 +47,6 @@
             this.tblProductionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblProductionTableAdapter = new AuntRosieApplication.AuntRosieDBDataSetTableAdapters.tblProductionTableAdapter();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).BeginInit();
@@ -59,24 +57,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 78);
             this.panel1.TabIndex = 141;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::AuntRosieApplication.Properties.Resources.Production_Lines;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 139;
-            this.pictureBox1.TabStop = false;
             // 
             // btnClose
             // 
@@ -91,17 +77,17 @@
             this.btnClose.TabIndex = 7;
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // label6
+            // lblTitle
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(77, 43);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(264, 32);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Production History";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Algerian", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.lblTitle.Location = new System.Drawing.Point(12, 31);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(300, 30);
+            this.lblTitle.TabIndex = 29;
+            this.lblTitle.Text = "Production History";
             // 
             // chkAllProducts
             // 
@@ -262,7 +248,6 @@
             this.Load += new System.EventHandler(this.ViewProduction_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).EndInit();
@@ -276,9 +261,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.CheckBox chkAllProducts;
         private System.Windows.Forms.CheckBox chkAllTypes;
         private System.Windows.Forms.Panel panel2;

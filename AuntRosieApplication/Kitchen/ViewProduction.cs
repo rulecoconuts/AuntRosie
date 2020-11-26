@@ -20,10 +20,12 @@ namespace AuntRosieApplication.Kitchen
 
         private void ViewProduction_Load(object sender, EventArgs e)
         {
+             
             // TODO: This line of code loads data into the 'auntRosieDBDataSet.tblProduction' table. You can move, or remove it, as needed.
             //this.tblProductionTableAdapter.Fill(this.auntRosieDBDataSet.tblProduction);
             cmbType.DataSource = new string[]{ "Pie", "Pickle"};
 
+            lblTitle.Left = (this.Width - lblTitle.Width) / 2;
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             String DatabasePath = System.IO.Directory.GetCurrentDirectory();
             int x = DatabasePath.IndexOf("bin");
@@ -58,5 +60,7 @@ namespace AuntRosieApplication.Kitchen
                 loadDTG(Production.GetProductions(cmbType.Text.ToLower()));
             }
         }
+
+        
     }
 }

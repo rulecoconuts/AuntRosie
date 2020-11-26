@@ -392,5 +392,15 @@ namespace AuntRosieApp
             AuntRosieApplication.Kitchen.frmViewProduction form = new AuntRosieApplication.Kitchen.frmViewProduction();
             ShowForm(form);
         }
+
+        private void viewProductionsToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+        {
+            btnViewProduction.Focus();
+        }
+
+        private void viewProductionsToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            btnKitchenMain.Focus();
+        }
     }
 }
