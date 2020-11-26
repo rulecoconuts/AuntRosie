@@ -206,5 +206,46 @@ namespace AuntRosieEntities
 
             return type;
         }
+
+        
+
+
+/// <summary>
+/// Get Ingredint type
+/// //Mervat November ,19
+/// </summary>
+/// <param name="conStr"></param>
+/// <returns></returns>
+        public static DataTable GetAllIngredintType(String conStr)
+        {
+            // Declare the connection
+            SqlConnection dbConnection = new SqlConnection(conStr);
+
+            // Create new SQL command
+            SqlCommand command = new SqlCommand("SELECT * FROM [tblIngredientType]", dbConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            // Declare a DataTable object that will hold the return value
+            DataTable IngredintTypeTable = new DataTable();
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                adapter.Fill(IngredintTypeTable);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+            // Return the populated DataTable
+            return IngredintTypeTable;
+        }
+
     }
 }
