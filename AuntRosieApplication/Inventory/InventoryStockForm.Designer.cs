@@ -192,9 +192,9 @@
             this.chkAllTypies.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.chkAllTypies.Location = new System.Drawing.Point(328, 91);
             this.chkAllTypies.Name = "chkAllTypies";
-            this.chkAllTypies.Size = new System.Drawing.Size(111, 26);
+            this.chkAllTypies.Size = new System.Drawing.Size(107, 26);
             this.chkAllTypies.TabIndex = 142;
-            this.chkAllTypies.Text = "All Typies";
+            this.chkAllTypies.Text = "All Types";
             this.chkAllTypies.UseVisualStyleBackColor = false;
             this.chkAllTypies.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -209,9 +209,9 @@
             this.chkAllIngrdient.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.chkAllIngrdient.Location = new System.Drawing.Point(327, 172);
             this.chkAllIngrdient.Name = "chkAllIngrdient";
-            this.chkAllIngrdient.Size = new System.Drawing.Size(139, 26);
+            this.chkAllIngrdient.Size = new System.Drawing.Size(150, 26);
             this.chkAllIngrdient.TabIndex = 143;
-            this.chkAllIngrdient.Text = "All Ingrdients";
+            this.chkAllIngrdient.Text = "All Ingredients";
             this.chkAllIngrdient.UseVisualStyleBackColor = false;
             // 
             // chkExpierd
