@@ -16,8 +16,19 @@ namespace AuntRosieApplication.Kitchen
         public frmViewProduction()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
+        protected override void OnPaint(PaintEventArgs e) { }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
         private void ViewProduction_Load(object sender, EventArgs e)
         {
              

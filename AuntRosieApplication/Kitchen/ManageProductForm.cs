@@ -26,6 +26,17 @@ namespace AuntRosieApp.Kitchen
             pnlButton.Left = (this.Width - pnlButton.Width) / 2;
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
 
+            this.DoubleBuffered = true;
+        }
+        protected override void OnPaint(PaintEventArgs e) { }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
 
         private void frmManageProduct_FormClosed(object sender, FormClosedEventArgs e)
