@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngredients));
             this.label16 = new System.Windows.Forms.Label();
             this.txtstoringNote = new System.Windows.Forms.TextBox();
             this.cmbtype = new System.Windows.Forms.ComboBox();
@@ -132,7 +133,7 @@
             // 
             // pnlNewType
             // 
-            this.pnlNewType.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+            this.pnlNewType.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlNewType.BackgroundImage")));
             this.pnlNewType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlNewType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlNewType.Controls.Add(this.label12);
@@ -324,6 +325,7 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.txtNewIngredintName);
             this.Controls.Add(this.label14);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmIngredients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

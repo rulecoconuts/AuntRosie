@@ -26,7 +26,19 @@ namespace AuntRosieApplication.Event
         public frmOrganizeEvent()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+        protected override void OnPaint(PaintEventArgs e) { }
+
 
         public frmOrganizeEvent(RosieEvent curEvent, SqlTransaction transaction)
         {

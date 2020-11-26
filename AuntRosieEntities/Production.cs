@@ -142,5 +142,73 @@ namespace AuntRosieEntities
 
             return production;
         }
+
+        /// <summary>
+        /// Get a list of all production records
+        /// </summary>
+        /// <param name="productionId"></param>
+        /// <returns></returns>
+        public static List<Production> GetProductions()
+        {
+            List<Production> items = new List<Production>();
+
+            //Process result
+            SqlDataReader reader = Connector.Retrieve("select [ProductionID], [ProductItemID], [ProductionDate], " +
+                "[ProductionQuantity], [ExpiryDate] from [tblProduction]");
+
+            while (reader.HasRows && reader.Read())
+            {
+                Production productionItem = new Production();
+                productionItem.SetID(reader.GetInt64(0));
+                productionItem.ProductItemID = reader.GetInt32(1);
+                productionItem.ProductionDate = reader.GetDateTime(2);
+                productionItem.Quantity = reader.GetInt16(3);
+                productionItem.ExpiryDate = reader.GetDateTime(4);
+
+                items.Add(productionItem);
+            }
+
+            reader.Close();
+
+            return items;
+        }
+
+        /// <summary>
+        /// Get a list of all production records
+        /// </summary>
+        /// <param name="productionId"></param>
+        /// <returns></returns>
+        public static List<Production> GetProductions(string productType)
+        {
+            List<Production> items = new List<Production>();
+
+            //Process result
+            SqlDataReader reader = Connector.Retrieve("select prdtn.[ProductionID], prdtn.[ProductItemID], prdtn.[ProductionDate], " +
+                "prdtn.[ProductionQuantity], prdtn.[ExpiryDate] from [tblProduction] prdtn " +
+                "inner join [tblProductItem] prdi on prdi.[ProductItemID] = prdtn.[ProductItemID] " +
+                "inner join [tblProduct] prd on prd.[ProductID] = prdi.[ProductID] " +
+                $"where prd.[ProductType] = '{productType}'");
+
+            while (reader.HasRows && reader.Read())
+            {
+                Production productionItem = new Production();
+                productionItem.SetID(reader.GetInt64(0));
+                productionItem.ProductItemID = reader.GetInt32(1);
+                productionItem.ProductionDate = reader.GetDateTime(2);
+                productionItem.Quantity = reader.GetInt16(3);
+                productionItem.ExpiryDate = reader.GetDateTime(4);
+
+                items.Add(productionItem);
+            }
+
+            reader.Close();
+
+            return items;
+        }
+
+        public override string ToString()
+        {
+            return $"{ProductItem} {Quantity} {ProductionDate} {ExpiryDate}";
+        }
     }
 }

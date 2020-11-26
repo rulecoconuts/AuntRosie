@@ -20,10 +20,25 @@ namespace AuntRosieApplication.Kitchen
         public frmGiveProductSize()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+        }
+        protected override void OnPaint(PaintEventArgs e) { }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
 
         private void frmGiveProductSize_Load(object sender, EventArgs e)
         {
+            lblTitle.Left = (this.Width - lblTitle.Width) / 2;
+            pnlButton.Left = (this.Width - pnlButton.Width) / 2;
+
+
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             String DatabasePath = System.IO.Directory.GetCurrentDirectory();
             int x = DatabasePath.IndexOf("bin");
@@ -83,6 +98,11 @@ namespace AuntRosieApplication.Kitchen
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lblMsg_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

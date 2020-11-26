@@ -32,6 +32,17 @@ namespace AuntRosieApplication.Inventory
         public frmSupplier()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+        }
+        protected override void OnPaint(PaintEventArgs e) { }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -56,7 +67,7 @@ namespace AuntRosieApplication.Inventory
                    (Classes.DBMethod.GetConnectionString()), cmbSupplierName);
                 btnNew.Focus();
             }
-
+            this.Visible = true;
         }
 
         private void btnNew_Click(object sender, EventArgs e)

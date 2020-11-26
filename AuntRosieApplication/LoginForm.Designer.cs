@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.pnlLoginBox = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -42,7 +43,7 @@
             // pnlLoginBox
             // 
             this.pnlLoginBox.BackColor = System.Drawing.Color.Transparent;
-            this.pnlLoginBox.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+            this.pnlLoginBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlLoginBox.BackgroundImage")));
             this.pnlLoginBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlLoginBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlLoginBox.Controls.Add(this.textBox1);
@@ -56,6 +57,7 @@
             this.pnlLoginBox.Name = "pnlLoginBox";
             this.pnlLoginBox.Size = new System.Drawing.Size(460, 356);
             this.pnlLoginBox.TabIndex = 0;
+            this.pnlLoginBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLoginBox_Paint);
             // 
             // textBox1
             // 

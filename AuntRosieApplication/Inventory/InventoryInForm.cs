@@ -19,8 +19,19 @@ namespace AuntRosieApplication.Inventory
         public InventoryInForm()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
+        protected override void OnPaint(PaintEventArgs e) { }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -123,7 +134,7 @@ namespace AuntRosieApplication.Inventory
             btnNew.Focus();
             DBMethod.relocation(pnlNewType, this);
             DBMethod.relocation(pnlNewIngredint, this);
-            this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+           this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             cmbType.Items.Clear();
           Classes.DBMethod.FillCombBox( AuntRosieEntities.IngredientType.GetAllIngredintType
                (Classes.DBMethod.GetConnectionString()),cmbType);
@@ -135,6 +146,8 @@ namespace AuntRosieApplication.Inventory
                 (Classes.DBMethod.GetConnectionString()), cmbSupplier);
 
             Classes.DBMethod.FillPaymentmethodCombo(cmbPaymentMethod);
+
+            this.Visible = true;
         }
 
         private void btnNewIngredintClose_Click_1(object sender, EventArgs e)

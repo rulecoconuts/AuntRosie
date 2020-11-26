@@ -43,6 +43,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtPhone = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtSupplierFirstName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -50,6 +51,12 @@
             this.txtSupplierLastName = new System.Windows.Forms.TextBox();
             this.cmbSupplierName = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnClancel = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.pnlButton = new System.Windows.Forms.Panel();
             this.txtName = new System.Windows.Forms.TextBox();
             this.errNmae = new System.Windows.Forms.ErrorProvider(this.components);
@@ -61,13 +68,6 @@
             this.errCity = new System.Windows.Forms.ErrorProvider(this.components);
             this.errStreet = new System.Windows.Forms.ErrorProvider(this.components);
             this.errPostal = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnClancel = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlButton.SuspendLayout();
@@ -201,7 +201,6 @@
             this.cmbProvinces.Name = "cmbProvinces";
             this.cmbProvinces.Size = new System.Drawing.Size(275, 31);
             this.cmbProvinces.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.cmbProvinces, "Enter The supplier Province");
             this.cmbProvinces.SelectedIndexChanged += new System.EventHandler(this.cmbProvinces_SelectedIndexChanged);
             // 
             // label1
@@ -218,9 +217,9 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.txtPhone);
             this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.txtSupplierFirstName);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
@@ -244,7 +243,6 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(275, 29);
             this.txtPhone.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.txtPhone, "Enter The contact person phone");
             this.txtPhone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtPhone_MaskInputRejected);
             // 
             // label8
@@ -258,6 +256,16 @@
             this.label8.TabIndex = 48;
             this.label8.Text = "Email";
             // 
+            // txtEmail
+            // 
+            this.txtEmail.Enabled = false;
+            this.txtEmail.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(216, 129);
+            this.txtEmail.MaxLength = 255;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(275, 29);
+            this.txtEmail.TabIndex = 5;
+            // 
             // txtSupplierFirstName
             // 
             this.txtSupplierFirstName.Enabled = false;
@@ -267,7 +275,6 @@
             this.txtSupplierFirstName.Name = "txtSupplierFirstName";
             this.txtSupplierFirstName.Size = new System.Drawing.Size(275, 29);
             this.txtSupplierFirstName.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.txtSupplierFirstName, "Enter The contact person first name");
             // 
             // label9
             // 
@@ -311,7 +318,6 @@
             this.txtSupplierLastName.Name = "txtSupplierLastName";
             this.txtSupplierLastName.Size = new System.Drawing.Size(275, 29);
             this.txtSupplierLastName.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.txtSupplierLastName, "Enter The contact person last name");
             // 
             // cmbSupplierName
             // 
@@ -325,65 +331,6 @@
             this.toolTip1.SetToolTip(this.cmbSupplierName, "Choose the supplier name");
             this.cmbSupplierName.Visible = false;
             this.cmbSupplierName.SelectedIndexChanged += new System.EventHandler(this.cmbSupplierName_SelectedIndexChanged);
-            // 
-            // pnlButton
-            // 
-            this.pnlButton.BackColor = System.Drawing.Color.Transparent;
-            this.pnlButton.Controls.Add(this.btnClancel);
-            this.pnlButton.Controls.Add(this.btnNew);
-            this.pnlButton.Controls.Add(this.btnEdit);
-            this.pnlButton.Controls.Add(this.btnSave);
-            this.pnlButton.Controls.Add(this.btnDelete);
-            this.pnlButton.Location = new System.Drawing.Point(98, 495);
-            this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(425, 66);
-            this.pnlButton.TabIndex = 11;
-            // 
-            // txtName
-            // 
-            this.txtName.Enabled = false;
-            this.txtName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(248, 111);
-            this.txtName.MaxLength = 50;
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(275, 29);
-            this.txtName.TabIndex = 1;
-            // 
-            // errNmae
-            // 
-            this.errNmae.ContainerControl = this;
-            // 
-            // errFname
-            // 
-            this.errFname.ContainerControl = this;
-            // 
-            // errLname
-            // 
-            this.errLname.ContainerControl = this;
-            // 
-            // errPhone
-            // 
-            this.errPhone.ContainerControl = this;
-            // 
-            // errEmail
-            // 
-            this.errEmail.ContainerControl = this;
-            // 
-            // errProvince
-            // 
-            this.errProvince.ContainerControl = this;
-            // 
-            // errCity
-            // 
-            this.errCity.ContainerControl = this;
-            // 
-            // errStreet
-            // 
-            this.errStreet.ContainerControl = this;
-            // 
-            // errPostal
-            // 
-            this.errPostal.ContainerControl = this;
             // 
             // btnClancel
             // 
@@ -473,13 +420,64 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // txtEmail
+            // pnlButton
             // 
-            this.txtEmail.Location = new System.Drawing.Point(216, 136);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(275, 29);
-            this.txtEmail.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.txtEmail, "Enter The contact person email address");
+            this.pnlButton.BackColor = System.Drawing.Color.Transparent;
+            this.pnlButton.Controls.Add(this.btnClancel);
+            this.pnlButton.Controls.Add(this.btnNew);
+            this.pnlButton.Controls.Add(this.btnEdit);
+            this.pnlButton.Controls.Add(this.btnSave);
+            this.pnlButton.Controls.Add(this.btnDelete);
+            this.pnlButton.Location = new System.Drawing.Point(98, 495);
+            this.pnlButton.Name = "pnlButton";
+            this.pnlButton.Size = new System.Drawing.Size(425, 66);
+            this.pnlButton.TabIndex = 11;
+            // 
+            // txtName
+            // 
+            this.txtName.Enabled = false;
+            this.txtName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(248, 111);
+            this.txtName.MaxLength = 50;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(275, 29);
+            this.txtName.TabIndex = 1;
+            // 
+            // errNmae
+            // 
+            this.errNmae.ContainerControl = this;
+            // 
+            // errFname
+            // 
+            this.errFname.ContainerControl = this;
+            // 
+            // errLname
+            // 
+            this.errLname.ContainerControl = this;
+            // 
+            // errPhone
+            // 
+            this.errPhone.ContainerControl = this;
+            // 
+            // errEmail
+            // 
+            this.errEmail.ContainerControl = this;
+            // 
+            // errProvince
+            // 
+            this.errProvince.ContainerControl = this;
+            // 
+            // errCity
+            // 
+            this.errCity.ContainerControl = this;
+            // 
+            // errStreet
+            // 
+            this.errStreet.ContainerControl = this;
+            // 
+            // errPostal
+            // 
+            this.errPostal.ContainerControl = this;
             // 
             // frmSupplier
             // 
@@ -531,6 +529,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtSupplierFirstName;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -559,6 +558,5 @@
         private System.Windows.Forms.ErrorProvider errStreet;
         private System.Windows.Forms.ErrorProvider errPostal;
         private System.Windows.Forms.MaskedTextBox txtPostalCode;
-        private System.Windows.Forms.TextBox txtEmail;
     }
 }

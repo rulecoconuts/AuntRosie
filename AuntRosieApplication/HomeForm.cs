@@ -13,16 +13,23 @@ namespace AuntRosieApp
         public frmHome()
         {
             InitializeComponent();
-            this.Visible = false;
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            this.DoubleBuffered = true;
         }
- 
-
+        protected override void OnPaint(PaintEventArgs e) { }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
         private void frmHome_Load(object sender, EventArgs e)
         {
            
-
             ShowMainMenu();
-           
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.sweet;
             this.DoubleBuffered = false;
             relocation(pnlMain);
@@ -93,6 +100,7 @@ namespace AuntRosieApp
 
         private  void ShowForm( Form  form)
         {
+            HidePanels();
             form.TopLevel = false;
             this.Controls.Add(form);
             form.Left = (this.Width - form.Width) / 2;
@@ -100,7 +108,8 @@ namespace AuntRosieApp
             form.Show();
             form.Activate();
             form.Focus();
-            HidePanels();
+          
+            
             mnuMain.Visible = false;
             btnShowMain.Enabled = true;
         }
@@ -389,10 +398,25 @@ namespace AuntRosieApp
             btnInventoryContents.Focus();
         }
 
-        private void btnMinmize_Click(object sender, EventArgs e)
+        private void btnViewProduction_Click(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Kitchen.frmViewProduction form = new AuntRosieApplication.Kitchen.frmViewProduction();
+            ShowForm(form);
+        }
+
+        private void viewProductionsToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+        {
+            btnViewProduction.Focus();
+        }
+
+        private void viewProductionsToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            btnKitchenMain.Focus();
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-
         }
     }
 }
