@@ -59,7 +59,7 @@ namespace AuntRosieEntities
             }
             else
             {
-                createPrepCmd.Parameters["name"].Value = Name;
+                createPrepCmd.Parameters["@name"].Value = Name;
             }
 
             id = Convert.ToInt16(Connector.Insert(createPrepCmd, true, transaction));
@@ -86,7 +86,7 @@ namespace AuntRosieEntities
             }
             else
             {
-                deletePrepCmd.Parameters["ID"].Value = Id;
+                deletePrepCmd.Parameters["@ID"].Value = Id;
             }
 
             Connector.Delete(deletePrepCmd, transaction);
@@ -118,8 +118,8 @@ namespace AuntRosieEntities
             }
             else
             {
-                updatePrepCmd.Parameters["ID"].Value = Id;
-                updatePrepCmd.Parameters["name"].Value = Name;
+                updatePrepCmd.Parameters["@ID"].Value = Id;
+                updatePrepCmd.Parameters["@name"].Value = Name;
             }
 
             Connector.Update(updatePrepCmd, transaction);
@@ -150,7 +150,7 @@ namespace AuntRosieEntities
             }
             else
             {
-                retrieveNamePrepCmd.Parameters["name"].Value = name;
+                retrieveNamePrepCmd.Parameters["@name"].Value = name;
             }
 
             //Process result
@@ -191,7 +191,7 @@ namespace AuntRosieEntities
             }
             else
             {
-                retrieveIdPrepCmd.Parameters["ID"].Value = id;
+                retrieveIdPrepCmd.Parameters["@ID"].Value = id;
             }
 
             //Process result
