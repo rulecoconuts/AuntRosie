@@ -38,9 +38,9 @@
             this.lblProductName = new System.Windows.Forms.Label();
             this.dtpProductionDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlButton = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbProductName = new System.Windows.Forms.ComboBox();
@@ -50,7 +50,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dtpExpiry = new System.Windows.Forms.DateTimePicker();
             this.lblMsg = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
+            this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -148,15 +148,15 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Production Date";
             // 
-            // panel2
+            // pnlButton
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.btnSave);
-            this.panel2.Controls.Add(this.btnClear);
-            this.panel2.Location = new System.Drawing.Point(110, 466);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(422, 80);
-            this.panel2.TabIndex = 28;
+            this.pnlButton.BackColor = System.Drawing.Color.Transparent;
+            this.pnlButton.Controls.Add(this.btnSave);
+            this.pnlButton.Controls.Add(this.btnClear);
+            this.pnlButton.Location = new System.Drawing.Point(110, 466);
+            this.pnlButton.Name = "pnlButton";
+            this.pnlButton.Size = new System.Drawing.Size(422, 80);
+            this.pnlButton.TabIndex = 28;
             // 
             // btnClear
             // 
@@ -170,17 +170,17 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // label6
+            // lblTitle
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(77, 43);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(161, 32);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Production";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblTitle.Location = new System.Drawing.Point(77, 43);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(161, 32);
+            this.lblTitle.TabIndex = 29;
+            this.lblTitle.Text = "Production";
             // 
             // pictureBox1
             // 
@@ -198,7 +198,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(708, 78);
@@ -286,7 +286,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtQuantity);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpProductionDate);
@@ -295,7 +295,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProduction";
             this.Load += new System.EventHandler(this.frmProduction_Load);
-            this.panel2.ResumeLayout(false);
+            this.pnlButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -316,8 +316,8 @@
         private System.Windows.Forms.DateTimePicker dtpProductionDate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel pnlButton;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cmbProductName;
