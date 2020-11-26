@@ -261,7 +261,7 @@
             this.txtEmail.Enabled = false;
             this.txtEmail.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(216, 129);
-            this.txtEmail.MaxLength = 5;
+            this.txtEmail.MaxLength = 255;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(275, 29);
             this.txtEmail.TabIndex = 5;

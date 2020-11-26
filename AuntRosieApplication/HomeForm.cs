@@ -386,5 +386,11 @@ namespace AuntRosieApp
         {
             btnInventoryContents.Focus();
         }
+
+        private void btnViewProduction_Click(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Kitchen.frmViewProduction form = new AuntRosieApplication.Kitchen.frmViewProduction();
+            ShowForm(form);
+        }
     }
 }
