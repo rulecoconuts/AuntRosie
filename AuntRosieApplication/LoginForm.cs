@@ -35,8 +35,10 @@ namespace AuntRosieApplication
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            this.Hide();
             AuntRosieApp.frmHome form = new AuntRosieApp.frmHome();
             form.ShowDialog();
+           
         }
     }
 }

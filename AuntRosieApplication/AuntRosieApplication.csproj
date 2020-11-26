@@ -425,6 +425,7 @@
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
     <Content Include="Resources\background2 .jpg" />
+    <None Include="Resources\minimize-window.png" />
     <None Include="Resources\print.png" />
     <None Include="Resources\appointment-reminders.png" />
     <None Include="Resources\full-trash.png" />

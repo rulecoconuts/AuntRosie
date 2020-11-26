@@ -19,6 +19,8 @@ namespace AuntRosieApp
 
         private void frmHome_Load(object sender, EventArgs e)
         {
+           
+
             ShowMainMenu();
            
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.sweet;
@@ -384,6 +386,12 @@ namespace AuntRosieApp
         private void tmnInventoryStock_MouseEnter(object sender, EventArgs e)
         {
             btnInventoryContents.Focus();
+        }
+
+        private void btnMinmize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
         }
     }
 }

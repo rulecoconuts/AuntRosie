@@ -493,6 +493,16 @@ namespace AuntRosieApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minimize_window {
+            get {
+                object obj = ResourceManager.GetObject("minimize_window", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap move_stock {
             get {
                 object obj = ResourceManager.GetObject("move_stock", resourceCulture);
