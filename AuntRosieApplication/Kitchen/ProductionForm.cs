@@ -20,8 +20,19 @@ namespace AuntRosieApplication.Kitchen
         public frmProduction()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
+        protected override void OnPaint(PaintEventArgs e) { }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
         private void frmProduction_Load(object sender, EventArgs e)
         {
              lblTitle.Left = (this.Width - lblTitle.Width) / 2;
@@ -233,6 +244,11 @@ namespace AuntRosieApplication.Kitchen
                 txtQuantity.Text = txtQuantity.Text.Substring(0, 5);
                 txtQuantity.SelectionStart = txtQuantity.Text.Length;
             }
+        }
+
+        private void lblMsg_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

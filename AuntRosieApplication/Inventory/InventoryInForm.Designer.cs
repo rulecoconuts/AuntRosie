@@ -119,7 +119,7 @@
             this.btnNewTypeCancel.BackColor = System.Drawing.Color.Transparent;
             this.btnNewTypeCancel.FlatAppearance.BorderSize = 0;
             this.btnNewTypeCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewTypeCancel.Image = global::AuntRosieApplication.Properties.Resources.file_delete;
+            this.btnNewTypeCancel.Image = global::AuntRosieApplication.Properties.Resources.eraser;
             this.btnNewTypeCancel.Location = new System.Drawing.Point(183, 140);
             this.btnNewTypeCancel.Name = "btnNewTypeCancel";
             this.btnNewTypeCancel.Size = new System.Drawing.Size(63, 55);
@@ -148,7 +148,6 @@
             this.btnAddType.BackColor = System.Drawing.Color.Transparent;
             this.btnAddType.FlatAppearance.BorderSize = 0;
             this.btnAddType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddType.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
             this.btnAddType.Location = new System.Drawing.Point(342, 96);
             this.btnAddType.Name = "btnAddType";
             this.btnAddType.Size = new System.Drawing.Size(40, 31);
@@ -173,7 +172,7 @@
             this.btnNewIngredintCancel.BackColor = System.Drawing.Color.Transparent;
             this.btnNewIngredintCancel.FlatAppearance.BorderSize = 0;
             this.btnNewIngredintCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewIngredintCancel.Image = global::AuntRosieApplication.Properties.Resources.file_delete;
+            this.btnNewIngredintCancel.Image = global::AuntRosieApplication.Properties.Resources.eraser;
             this.btnNewIngredintCancel.Location = new System.Drawing.Point(219, 213);
             this.btnNewIngredintCancel.Name = "btnNewIngredintCancel";
             this.btnNewIngredintCancel.Size = new System.Drawing.Size(63, 55);
@@ -211,7 +210,6 @@
             this.btnAddIngredint.BackColor = System.Drawing.Color.Transparent;
             this.btnAddIngredint.FlatAppearance.BorderSize = 0;
             this.btnAddIngredint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddIngredint.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
             this.btnAddIngredint.Location = new System.Drawing.Point(448, 64);
             this.btnAddIngredint.Name = "btnAddIngredint";
             this.btnAddIngredint.Size = new System.Drawing.Size(40, 31);
@@ -225,7 +223,6 @@
             this.btnAddSupplier.BackColor = System.Drawing.Color.Transparent;
             this.btnAddSupplier.FlatAppearance.BorderSize = 0;
             this.btnAddSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddSupplier.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
             this.btnAddSupplier.Location = new System.Drawing.Point(448, 107);
             this.btnAddSupplier.Name = "btnAddSupplier";
             this.btnAddSupplier.Size = new System.Drawing.Size(40, 31);
@@ -604,15 +601,13 @@
             // 
             // pnlNewType
             // 
-            this.pnlNewType.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             this.pnlNewType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlNewType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlNewType.Controls.Add(this.label12);
             this.pnlNewType.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewType.Controls.Add(this.btnNewTypetSave);
             this.pnlNewType.Controls.Add(this.label11);
             this.pnlNewType.Controls.Add(this.txtxNewType);
-            this.pnlNewType.Location = new System.Drawing.Point(20, 86);
+            this.pnlNewType.Location = new System.Drawing.Point(155, 18);
             this.pnlNewType.Name = "pnlNewType";
             this.pnlNewType.Size = new System.Drawing.Size(379, 245);
             this.pnlNewType.TabIndex = 22;
@@ -656,7 +651,6 @@
             // pnlNewIngredint
             // 
             this.pnlNewIngredint.BackColor = System.Drawing.Color.LemonChiffon;
-            this.pnlNewIngredint.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             this.pnlNewIngredint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlNewIngredint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlNewIngredint.Controls.Add(this.btnAddType);
@@ -669,7 +663,7 @@
             this.pnlNewIngredint.Controls.Add(this.btnNewIngredintSave);
             this.pnlNewIngredint.Controls.Add(this.label14);
             this.pnlNewIngredint.Controls.Add(this.txtNewIngredintName);
-            this.pnlNewIngredint.Location = new System.Drawing.Point(229, 29);
+            this.pnlNewIngredint.Location = new System.Drawing.Point(21, 4);
             this.pnlNewIngredint.Name = "pnlNewIngredint";
             this.pnlNewIngredint.Size = new System.Drawing.Size(403, 296);
             this.pnlNewIngredint.TabIndex = 16;

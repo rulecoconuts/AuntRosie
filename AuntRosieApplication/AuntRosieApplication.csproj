@@ -383,7 +383,6 @@
     <None Include="Resources\warehouse-1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\sweet.png" />
     <None Include="Resources\login-rounded-right.png" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\ButtonBack.png" />
@@ -392,8 +391,6 @@
     <None Include="Resources\macos-close.png" />
     <None Include="Resources\close-sign.png" />
     <None Include="Resources\background1.jpg" />
-    <None Include="Resources\sweet.jpg" />
-    <None Include="Resources\sweet-easter-cake-light-gray-background-spikelets-rye-concept-bright-holiday_121946-1332.jpg" />
     <None Include="Resources\download.jpg" />
     <None Include="Resources\download.png" />
     <None Include="Resources\checked-2.png" />
@@ -442,13 +439,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
-    <Content Include="Resources\background2 .jpg" />
+    <None Include="Resources\background2 .jpg" />
+    <None Include="Resources\sweet.png" />
+    <None Include="Resources\background2.jpg" />
+    <None Include="Resources\minimize-window.png" />
     <None Include="Resources\time-machine--v2.png" />
     <None Include="Resources\print.png" />
     <None Include="Resources\appointment-reminders.png" />
     <None Include="Resources\full-trash.png" />
     <None Include="Resources\ingredients.png" />
-    <None Include="Resources\background2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

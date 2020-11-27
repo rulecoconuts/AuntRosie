@@ -15,6 +15,17 @@ namespace AuntRosieApplication.Event
         public frmOrganizeEventStep3()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+        }
+        protected override void OnPaint(PaintEventArgs e) { }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
 
         private void txtEventName_TextChanged(object sender, EventArgs e)
@@ -44,6 +55,11 @@ namespace AuntRosieApplication.Event
         private void frmOrganizeEventStep3_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

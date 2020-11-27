@@ -570,7 +570,7 @@
             this.pnlExit.Controls.Add(this.btnHelp);
             this.pnlExit.Location = new System.Drawing.Point(12, 642);
             this.pnlExit.Name = "pnlExit";
-            this.pnlExit.Size = new System.Drawing.Size(210, 53);
+            this.pnlExit.Size = new System.Drawing.Size(207, 53);
             this.pnlExit.TabIndex = 10;
             // 
             // btnNotification
@@ -613,7 +613,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnExit.Image = global::AuntRosieApplication.Properties.Resources.shutdown;
-            this.btnExit.Location = new System.Drawing.Point(153, 0);
+            this.btnExit.Location = new System.Drawing.Point(153, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(54, 48);
             this.btnExit.TabIndex = 8;
@@ -641,7 +641,7 @@
             // mnuMain
             // 
             this.mnuMain.BackColor = System.Drawing.Color.Transparent;
-            this.mnuMain.Font = new System.Drawing.Font("Algerian", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mnuMain.Font = new System.Drawing.Font("Algerian", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tmnInventory,
             this.tmnEmployment,
@@ -651,7 +651,7 @@
             this.tmnQueriesAndReports});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(1447, 34);
+            this.mnuMain.Size = new System.Drawing.Size(1447, 32);
             this.mnuMain.TabIndex = 11;
             this.mnuMain.Text = "menuStrip1";
             // 
@@ -664,7 +664,7 @@
             this.tmnManageProduct});
             this.tmnInventory.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnInventory.Name = "tmnInventory";
-            this.tmnInventory.Size = new System.Drawing.Size(271, 30);
+            this.tmnInventory.Size = new System.Drawing.Size(240, 28);
             this.tmnInventory.Text = "Inventory control";
             this.tmnInventory.Click += new System.EventHandler(this.inventoryToolStripMenuItem_Click);
             this.tmnInventory.MouseEnter += new System.EventHandler(this.inventoryToolStripMenuItem_MouseEnter);
@@ -673,7 +673,7 @@
             // 
             this.tmnInventoryStock.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnInventoryStock.Name = "tmnInventoryStock";
-            this.tmnInventoryStock.Size = new System.Drawing.Size(301, 30);
+            this.tmnInventoryStock.Size = new System.Drawing.Size(272, 28);
             this.tmnInventoryStock.Text = "Inventory Stock";
             this.tmnInventoryStock.Click += new System.EventHandler(this.btnInventoryContents_Click);
             this.tmnInventoryStock.MouseEnter += new System.EventHandler(this.tmnInventoryStock_MouseEnter);
@@ -683,7 +683,7 @@
             // 
             this.tmnInventoryIn.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnInventoryIn.Name = "tmnInventoryIn";
-            this.tmnInventoryIn.Size = new System.Drawing.Size(301, 30);
+            this.tmnInventoryIn.Size = new System.Drawing.Size(272, 28);
             this.tmnInventoryIn.Text = "Inventory-In";
             this.tmnInventoryIn.Click += new System.EventHandler(this.btnInventoryIn_Click);
             this.tmnInventoryIn.MouseEnter += new System.EventHandler(this.tmnInventoryIn_MouseEnter);
@@ -693,7 +693,7 @@
             // 
             this.ingredintsToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.ingredintsToolStripMenuItem.Name = "ingredintsToolStripMenuItem";
-            this.ingredintsToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
+            this.ingredintsToolStripMenuItem.Size = new System.Drawing.Size(272, 28);
             this.ingredintsToolStripMenuItem.Text = "ingredients";
             this.ingredintsToolStripMenuItem.Click += new System.EventHandler(this.btnManageIngerdint_Click);
             this.ingredintsToolStripMenuItem.MouseEnter += new System.EventHandler(this.ingredintsToolStripMenuItem_MouseEnter);
@@ -703,7 +703,7 @@
             // 
             this.tmnManageProduct.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnManageProduct.Name = "tmnManageProduct";
-            this.tmnManageProduct.Size = new System.Drawing.Size(301, 30);
+            this.tmnManageProduct.Size = new System.Drawing.Size(272, 28);
             this.tmnManageProduct.Text = "Suppliers";
             this.tmnManageProduct.Click += new System.EventHandler(this.btnSuppliers_Click);
             this.tmnManageProduct.MouseEnter += new System.EventHandler(this.tmnManageProduct_MouseEnter);
@@ -716,7 +716,7 @@
             this.tmnManageEmployee});
             this.tmnEmployment.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnEmployment.Name = "tmnEmployment";
-            this.tmnEmployment.Size = new System.Drawing.Size(185, 30);
+            this.tmnEmployment.Size = new System.Drawing.Size(162, 28);
             this.tmnEmployment.Text = "Employment";
             this.tmnEmployment.MouseEnter += new System.EventHandler(this.employmentToolStripMenuItem_MouseEnter);
             // 
@@ -724,7 +724,7 @@
             // 
             this.mnuPayroll.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.mnuPayroll.Name = "mnuPayroll";
-            this.mnuPayroll.Size = new System.Drawing.Size(324, 30);
+            this.mnuPayroll.Size = new System.Drawing.Size(290, 28);
             this.mnuPayroll.Text = "Payroll";
             this.mnuPayroll.Click += new System.EventHandler(this.btnPayroll_Click);
             this.mnuPayroll.MouseEnter += new System.EventHandler(this.mnuPayroll_MouseEnter);
@@ -734,7 +734,7 @@
             // 
             this.tmnManageEmployee.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnManageEmployee.Name = "tmnManageEmployee";
-            this.tmnManageEmployee.Size = new System.Drawing.Size(324, 30);
+            this.tmnManageEmployee.Size = new System.Drawing.Size(290, 28);
             this.tmnManageEmployee.Text = "Manage Employee";
             this.tmnManageEmployee.Click += new System.EventHandler(this.btnManagEmp_Click);
             this.tmnManageEmployee.MouseEnter += new System.EventHandler(this.tmnManageEmployee_MouseEnter);
@@ -747,7 +747,7 @@
             this.tmnOrginizeEvent});
             this.tmnEvent.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnEvent.Name = "tmnEvent";
-            this.tmnEvent.Size = new System.Drawing.Size(102, 30);
+            this.tmnEvent.Size = new System.Drawing.Size(91, 28);
             this.tmnEvent.Text = "Event";
             this.tmnEvent.Click += new System.EventHandler(this.tmnEvent_Click);
             this.tmnEvent.MouseEnter += new System.EventHandler(this.eventToolStripMenuItem_MouseEnter);
@@ -756,7 +756,7 @@
             // 
             this.tmnSales.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnSales.Name = "tmnSales";
-            this.tmnSales.Size = new System.Drawing.Size(281, 30);
+            this.tmnSales.Size = new System.Drawing.Size(254, 28);
             this.tmnSales.Text = "Sales";
             this.tmnSales.MouseEnter += new System.EventHandler(this.tmnSales_MouseEnter);
             this.tmnSales.MouseLeave += new System.EventHandler(this.tmnOrginizeEvent_MouseLeave);
@@ -765,7 +765,7 @@
             // 
             this.tmnOrginizeEvent.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnOrginizeEvent.Name = "tmnOrginizeEvent";
-            this.tmnOrginizeEvent.Size = new System.Drawing.Size(281, 30);
+            this.tmnOrginizeEvent.Size = new System.Drawing.Size(254, 28);
             this.tmnOrginizeEvent.Text = "Orginize Event";
             this.tmnOrginizeEvent.MouseEnter += new System.EventHandler(this.tmnOrginizeEvent_MouseEnter);
             this.tmnOrginizeEvent.MouseLeave += new System.EventHandler(this.tmnOrginizeEvent_MouseLeave);
@@ -774,7 +774,7 @@
             // 
             this.tmnExpenses.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnExpenses.Name = "tmnExpenses";
-            this.tmnExpenses.Size = new System.Drawing.Size(148, 30);
+            this.tmnExpenses.Size = new System.Drawing.Size(133, 28);
             this.tmnExpenses.Text = "Expenses";
             // 
             // tmnKitchen
@@ -785,7 +785,7 @@
             this.tmnManage});
             this.tmnKitchen.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnKitchen.Name = "tmnKitchen";
-            this.tmnKitchen.Size = new System.Drawing.Size(126, 30);
+            this.tmnKitchen.Size = new System.Drawing.Size(112, 28);
             this.tmnKitchen.Text = "Kitchen";
             this.tmnKitchen.MouseEnter += new System.EventHandler(this.kitchenToolStripMenuItem_MouseEnter);
             // 
@@ -793,7 +793,7 @@
             // 
             this.viewProductionsToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.viewProductionsToolStripMenuItem.Name = "viewProductionsToolStripMenuItem";
-            this.viewProductionsToolStripMenuItem.Size = new System.Drawing.Size(312, 30);
+            this.viewProductionsToolStripMenuItem.Size = new System.Drawing.Size(282, 28);
             this.viewProductionsToolStripMenuItem.Text = "View Productions";
             this.viewProductionsToolStripMenuItem.Click += new System.EventHandler(this.btnViewProduction_Click);
             this.viewProductionsToolStripMenuItem.MouseEnter += new System.EventHandler(this.viewProductionsToolStripMenuItem_MouseEnter);
@@ -803,7 +803,7 @@
             // 
             this.tmnProducation.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnProducation.Name = "tmnProducation";
-            this.tmnProducation.Size = new System.Drawing.Size(312, 30);
+            this.tmnProducation.Size = new System.Drawing.Size(282, 28);
             this.tmnProducation.Text = "Producation";
             this.tmnProducation.Click += new System.EventHandler(this.btnProduction_Click);
             this.tmnProducation.MouseEnter += new System.EventHandler(this.tmnProducation_MouseEnter);
@@ -813,7 +813,7 @@
             // 
             this.tmnManage.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnManage.Name = "tmnManage";
-            this.tmnManage.Size = new System.Drawing.Size(312, 30);
+            this.tmnManage.Size = new System.Drawing.Size(282, 28);
             this.tmnManage.Text = "Manage Product";
             this.tmnManage.Click += new System.EventHandler(this.tmnManageProduct_Click);
             this.tmnManage.MouseEnter += new System.EventHandler(this.tmnManage_MouseEnter);
@@ -826,7 +826,7 @@
             this.tmnQueries});
             this.tmnQueriesAndReports.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnQueriesAndReports.Name = "tmnQueriesAndReports";
-            this.tmnQueriesAndReports.Size = new System.Drawing.Size(297, 30);
+            this.tmnQueriesAndReports.Size = new System.Drawing.Size(264, 28);
             this.tmnQueriesAndReports.Text = "Queries and Reports";
             this.tmnQueriesAndReports.MouseEnter += new System.EventHandler(this.queriesAndReportsToolStripMenuItem_MouseEnter);
             // 
@@ -834,7 +834,7 @@
             // 
             this.tmnReports.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnReports.Name = "tmnReports";
-            this.tmnReports.Size = new System.Drawing.Size(192, 30);
+            this.tmnReports.Size = new System.Drawing.Size(175, 28);
             this.tmnReports.Text = "Reports";
             this.tmnReports.MouseEnter += new System.EventHandler(this.tmnReports_MouseEnter);
             this.tmnReports.MouseLeave += new System.EventHandler(this.tmnQueries_MouseLeave);
@@ -843,7 +843,7 @@
             // 
             this.tmnQueries.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnQueries.Name = "tmnQueries";
-            this.tmnQueries.Size = new System.Drawing.Size(192, 30);
+            this.tmnQueries.Size = new System.Drawing.Size(175, 28);
             this.tmnQueries.Text = "Queries";
             this.tmnQueries.MouseEnter += new System.EventHandler(this.tmnQueries_MouseEnter);
             this.tmnQueries.MouseLeave += new System.EventHandler(this.tmnQueries_MouseLeave);
@@ -864,11 +864,12 @@
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.mnuMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuMain;
             this.MinimizeBox = false;
             this.Name = "frmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HomeForm";
+            this.Text = "Aunt Rosie\'s Application";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.MouseEnter += new System.EventHandler(this.frmHome_MouseEnter);

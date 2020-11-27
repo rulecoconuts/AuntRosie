@@ -257,6 +257,7 @@
             this.lblMsg.Size = new System.Drawing.Size(520, 23);
             this.lblMsg.TabIndex = 146;
             this.lblMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMsg.Click += new System.EventHandler(this.lblMsg_Click);
             // 
             // frmProduction
             // 

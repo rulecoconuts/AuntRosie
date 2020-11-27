@@ -106,7 +106,7 @@
             this.grdStock.Location = new System.Drawing.Point(29, 285);
             this.grdStock.Name = "grdStock";
             this.grdStock.ReadOnly = true;
-            this.grdStock.Size = new System.Drawing.Size(799, 320);
+            this.grdStock.Size = new System.Drawing.Size(784, 320);
             this.grdStock.TabIndex = 6;
             this.grdStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -115,7 +115,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnDestroy);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(659, 212);
+            this.panel1.Location = new System.Drawing.Point(656, 212);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(157, 67);
             this.panel1.TabIndex = 3;
