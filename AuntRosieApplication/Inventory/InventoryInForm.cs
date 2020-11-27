@@ -86,6 +86,7 @@ namespace AuntRosieApplication.Inventory
         private void btnNewIngredintCancel_Click(object sender, EventArgs e)
         {
             pnlNewIngredint.Visible = false;
+            pnlMain.Enabled = true;
         }
 
         private void btnNewIngredintClose_Click(object sender, EventArgs e)
@@ -314,8 +315,8 @@ namespace AuntRosieApplication.Inventory
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
-                  // MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show(ex.Message);
+                  MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
             }
