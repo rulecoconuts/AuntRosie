@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using AuntRosieApplication.Classes;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using AuntRosieEntities;
 
 namespace AuntRosieApplication.Inventory
 {
@@ -17,6 +18,7 @@ namespace AuntRosieApplication.Inventory
     {
         private int numberOfItemsPerPage = 0;
         private int numberOfItemsPrintedSoFar = 0;
+        private string expierdWhere = String.Empty;
 
         public string SelectSQLCmmand = "SELECT        tblSupplier.SupplierName, tblIngredientType.TypeName, tblIngredient.IngredientName, tblIngredientInventory.PurchaseDate, tblIngredientInventory.ExpiryDate, tblIngredientInventory.Quantity, tblIngredientInventory.Unit, "+
                        "  tblIngredientInventory.Cost "+
@@ -50,7 +52,9 @@ namespace AuntRosieApplication.Inventory
         private void frmInventoryStock_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'auntRosieDBDataSet.StockQuery' table. You can move, or remove it, as needed.
-            
+            //this.stockQueryTableAdapter.Fill(this.auntRosieDBDataSet.StockQuery);
+            // TODO: This line of code loads data into the 'auntRosieDBDataSet.StockQuery' table. You can move, or remove it, as needed.
+
             // TODO: This line of code loads data into the 'auntRosieDBDataSet.StockQuery' table. You can move, or remove it, as needed.
 
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
@@ -110,19 +114,7 @@ namespace AuntRosieApplication.Inventory
             grdStock.DataSource = ds;
             grdStock.DataMember = "Stock_query";
         }
-
-        private void radExpry_CheckedChanged(object sender, EventArgs e)
-        {
-
-            if (grdStock.Rows.Count == 0)
-            {
-                btnDestroy.Enabled = true;
-            }
-            {
-                MessageBox.Show("No Expierd Items ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
+ 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             string curdhead = "Inventory Stock";
@@ -212,6 +204,21 @@ namespace AuntRosieApplication.Inventory
 
         private void btnDestroy_Click(object sender, EventArgs e)
         {
+            string updateSQLText = "Update [tblIngredientInventory]  Set tblIngredientInventory.Quantity=0 " +
+                "where  (tblIngredientInventory.Quantity > 0)  " + expierdWhere;
+            
+            if (InventoryIngredient.RidOutExpierd(DBMethod.GetConnectionString(), updateSQLText))
+            {
+                MessageBox.Show("Selected expired items have been rid out", "Confirmation"
+                    , MessageBoxButtons.OK, MessageBoxIcon.Information);
+                chkExpierd_CheckedChanged(sender, e);
+
+            }
+            else
+            {
+                MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
@@ -232,6 +239,7 @@ namespace AuntRosieApplication.Inventory
                 cmbName.Enabled = false;
                 chkAllIngrdient.Enabled = false;
                 FillGridStock(SelectSQLCmmand + OrderSQLCmmand);
+                chkExpierd.Checked = false;
 
             }
         }
@@ -246,7 +254,8 @@ namespace AuntRosieApplication.Inventory
                    // MessageBox.Show(SelectSQLCmmand + whereExpirySQLSelect + OrderSQLCmmand);
 
                     FillGridStock(SelectSQLCmmand + whereExpirySQLSelect + OrderSQLCmmand);
-                   
+                    expierdWhere = whereExpirySQLSelect;
+
                 }
                 else
                 {
@@ -254,17 +263,29 @@ namespace AuntRosieApplication.Inventory
                     {
                         string wherSQLCmmand = " and  tblIngredientInventory.IngredientID= " + DBMethod.GetSelectedItemID(cmbType) + " ";
                         FillGridStock(SelectSQLCmmand + wherSQLCmmand + whereExpirySQLSelect + OrderSQLCmmand);
-              
+                        expierdWhere = wherSQLCmmand + whereExpirySQLSelect;
+
+
                     }
                     else
                     {
                         string wherSQLCmmand = " and  tblIngredient.IngredientTypeID= " + DBMethod.GetSelectedItemID(cmbType) + " ";
                         FillGridStock(SelectSQLCmmand + wherSQLCmmand+  whereExpirySQLSelect+ OrderSQLCmmand);
+                        expierdWhere = wherSQLCmmand + whereExpirySQLSelect;
 
                     }
                 }
                  
-
+                if ( grdStock.Rows.Count==0)
+                {
+                    MessageBox.Show("No Expired items in the inventory", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnDestroy.Enabled = false;
+                }
+                else
+                {
+                    btnDestroy.Enabled = true;
+                    btnDestroy.Focus();
+                }
 
             }
             else
@@ -291,6 +312,8 @@ namespace AuntRosieApplication.Inventory
                         FillGridStock(SelectSQLCmmand + wherSQLCmmand + OrderSQLCmmand);
 
                     }
+
+                   
                 }
 
 

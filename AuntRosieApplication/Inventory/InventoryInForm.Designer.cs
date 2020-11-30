@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryInForm));
             this.lblTitle = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnNewTypeCancel = new System.Windows.Forms.Button();
@@ -146,11 +147,13 @@
             // btnAddType
             // 
             this.btnAddType.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddType.BackgroundImage = global::AuntRosieApplication.Properties.Resources.plus__2_;
+            this.btnAddType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAddType.FlatAppearance.BorderSize = 0;
             this.btnAddType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddType.Location = new System.Drawing.Point(342, 96);
+            this.btnAddType.Location = new System.Drawing.Point(344, 98);
             this.btnAddType.Name = "btnAddType";
-            this.btnAddType.Size = new System.Drawing.Size(40, 31);
+            this.btnAddType.Size = new System.Drawing.Size(29, 31);
             this.btnAddType.TabIndex = 19;
             this.toolTip1.SetToolTip(this.btnAddType, "Add new  Ingredient Type");
             this.btnAddType.UseVisualStyleBackColor = false;
@@ -197,6 +200,7 @@
             // 
             // txtNewIngredintName
             // 
+            this.txtNewIngredintName.BackColor = System.Drawing.SystemColors.Info;
             this.txtNewIngredintName.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtNewIngredintName.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtNewIngredintName.Location = new System.Drawing.Point(132, 64);
@@ -208,11 +212,13 @@
             // btnAddIngredint
             // 
             this.btnAddIngredint.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddIngredint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddIngredint.BackgroundImage")));
+            this.btnAddIngredint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAddIngredint.FlatAppearance.BorderSize = 0;
             this.btnAddIngredint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddIngredint.Location = new System.Drawing.Point(448, 64);
+            this.btnAddIngredint.Location = new System.Drawing.Point(437, 64);
             this.btnAddIngredint.Name = "btnAddIngredint";
-            this.btnAddIngredint.Size = new System.Drawing.Size(40, 31);
+            this.btnAddIngredint.Size = new System.Drawing.Size(34, 31);
             this.btnAddIngredint.TabIndex = 103;
             this.toolTip1.SetToolTip(this.btnAddIngredint, "Add new  Ingredient");
             this.btnAddIngredint.UseVisualStyleBackColor = false;
@@ -221,11 +227,13 @@
             // btnAddSupplier
             // 
             this.btnAddSupplier.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddSupplier.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddSupplier.BackgroundImage")));
+            this.btnAddSupplier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAddSupplier.FlatAppearance.BorderSize = 0;
             this.btnAddSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddSupplier.Location = new System.Drawing.Point(448, 107);
+            this.btnAddSupplier.Location = new System.Drawing.Point(437, 107);
             this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(40, 31);
+            this.btnAddSupplier.Size = new System.Drawing.Size(34, 31);
             this.btnAddSupplier.TabIndex = 105;
             this.toolTip1.SetToolTip(this.btnAddSupplier, "Add new Supplier");
             this.btnAddSupplier.UseVisualStyleBackColor = false;
@@ -329,6 +337,7 @@
             // 
             // txtQuantity
             // 
+            this.txtQuantity.BackColor = System.Drawing.SystemColors.Info;
             this.txtQuantity.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtQuantity.Location = new System.Drawing.Point(183, 153);
             this.txtQuantity.Name = "txtQuantity";
@@ -338,6 +347,7 @@
             // 
             // txtCost
             // 
+            this.txtCost.BackColor = System.Drawing.SystemColors.Info;
             this.txtCost.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtCost.Location = new System.Drawing.Point(183, 188);
             this.txtCost.Name = "txtCost";
@@ -388,6 +398,7 @@
             // 
             // cmbPaymentMethod
             // 
+            this.cmbPaymentMethod.BackColor = System.Drawing.SystemColors.Info;
             this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPaymentMethod.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPaymentMethod.FormattingEnabled = true;
@@ -458,6 +469,7 @@
             this.cmbUnit.AutoCompleteCustomSource.AddRange(new string[] {
             "Pies",
             "Preserves"});
+            this.cmbUnit.BackColor = System.Drawing.SystemColors.Info;
             this.cmbUnit.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUnit.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cmbUnit.FormattingEnabled = true;
@@ -476,6 +488,7 @@
             // 
             // cmbSupplier
             // 
+            this.cmbSupplier.BackColor = System.Drawing.SystemColors.Info;
             this.cmbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSupplier.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSupplier.FormattingEnabled = true;
@@ -498,6 +511,7 @@
             // 
             // cmbType
             // 
+            this.cmbType.BackColor = System.Drawing.SystemColors.Info;
             this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbType.FormattingEnabled = true;
@@ -520,6 +534,7 @@
             // 
             // cmbName
             // 
+            this.cmbName.BackColor = System.Drawing.SystemColors.Info;
             this.cmbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbName.FormattingEnabled = true;
@@ -601,13 +616,14 @@
             // 
             // pnlNewType
             // 
+            this.pnlNewType.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             this.pnlNewType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlNewType.Controls.Add(this.label12);
             this.pnlNewType.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewType.Controls.Add(this.btnNewTypetSave);
             this.pnlNewType.Controls.Add(this.label11);
             this.pnlNewType.Controls.Add(this.txtxNewType);
-            this.pnlNewType.Location = new System.Drawing.Point(155, 18);
+            this.pnlNewType.Location = new System.Drawing.Point(12, 328);
             this.pnlNewType.Name = "pnlNewType";
             this.pnlNewType.Size = new System.Drawing.Size(379, 245);
             this.pnlNewType.TabIndex = 22;
@@ -640,6 +656,7 @@
             // 
             // txtxNewType
             // 
+            this.txtxNewType.BackColor = System.Drawing.SystemColors.Info;
             this.txtxNewType.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtxNewType.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtxNewType.Location = new System.Drawing.Point(105, 98);
@@ -651,6 +668,7 @@
             // pnlNewIngredint
             // 
             this.pnlNewIngredint.BackColor = System.Drawing.Color.LemonChiffon;
+            this.pnlNewIngredint.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             this.pnlNewIngredint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlNewIngredint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlNewIngredint.Controls.Add(this.btnAddType);
@@ -663,7 +681,7 @@
             this.pnlNewIngredint.Controls.Add(this.btnNewIngredintSave);
             this.pnlNewIngredint.Controls.Add(this.label14);
             this.pnlNewIngredint.Controls.Add(this.txtNewIngredintName);
-            this.pnlNewIngredint.Location = new System.Drawing.Point(21, 4);
+            this.pnlNewIngredint.Location = new System.Drawing.Point(583, 389);
             this.pnlNewIngredint.Name = "pnlNewIngredint";
             this.pnlNewIngredint.Size = new System.Drawing.Size(403, 296);
             this.pnlNewIngredint.TabIndex = 16;
@@ -698,12 +716,13 @@
             // 
             // txtstoringNote
             // 
+            this.txtstoringNote.BackColor = System.Drawing.SystemColors.Info;
             this.txtstoringNote.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtstoringNote.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtstoringNote.Location = new System.Drawing.Point(58, 157);
             this.txtstoringNote.Multiline = true;
             this.txtstoringNote.Name = "txtstoringNote";
-            this.txtstoringNote.Size = new System.Drawing.Size(292, 50);
+            this.txtstoringNote.Size = new System.Drawing.Size(315, 50);
             this.txtstoringNote.TabIndex = 20;
             // 
             // label15

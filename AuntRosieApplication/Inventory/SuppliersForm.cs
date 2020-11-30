@@ -286,8 +286,8 @@ namespace AuntRosieApplication.Inventory
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
-                // MessageBox.Show("Sorry! An internal error has been happening", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.Message);
+                  MessageBox.Show("This supplier could not be deleted ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 

@@ -20,9 +20,7 @@ namespace AuntRosieEntities
         private long supplierID;
         ///  
         private static SqlCommand createPrepCmd = null;
-        private static SqlCommand deletePrepCmd = null;
-        private static SqlCommand updatePrepCmd = null;
-
+        
         public string Unit { get => unit; set => unit = value; }
         public long IngredientID { get => ingredientID; set => ingredientID = value; }
         public DateTime PurchaseDate { get => purchaseDate; set => purchaseDate = value; }
@@ -112,7 +110,34 @@ namespace AuntRosieEntities
         {
             throw new NotImplementedException();
         }
+         public  static bool RidOutExpierd( String conStr, string updateSqlText) 
+        {
+            bool returnValue = false;
+            SqlConnection dbConnection = new SqlConnection(conStr);
 
+            // Create new SQL command and assign it paramaters
+            SqlCommand command = new SqlCommand(updateSqlText, dbConnection);
+
+            // Try to open a connection to the database and update the record. Return result.
+            try
+            {
+                dbConnection.Open();
+                if (command.ExecuteNonQuery() > 0)
+                {
+                    returnValue = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                returnValue = false;     }
+            finally
+            {
+                dbConnection.Close();
+            }
+            return returnValue;
+
+
+        }
         public override void Update(SqlTransaction transaction = null)
         {
             throw new NotImplementedException();

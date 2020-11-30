@@ -45,8 +45,13 @@
             this.chkAllTypies = new System.Windows.Forms.CheckBox();
             this.chkAllIngrdient = new System.Windows.Forms.CheckBox();
             this.chkExpierd = new System.Windows.Forms.CheckBox();
+            this.stockQueryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.auntRosieDBDataSet = new AuntRosieApplication.AuntRosieDBDataSet();
+            this.stockQueryTableAdapter = new AuntRosieApplication.AuntRosieDBDataSetTableAdapters.StockQueryTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.grdStock)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stockQueryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label15
@@ -55,7 +60,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.Sienna;
-            this.label15.Location = new System.Drawing.Point(165, 124);
+            this.label15.Location = new System.Drawing.Point(220, 124);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(155, 22);
             this.label15.TabIndex = 104;
@@ -66,7 +71,7 @@
             this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(328, 123);
+            this.cmbType.Location = new System.Drawing.Point(383, 123);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(235, 31);
             this.cmbType.TabIndex = 1;
@@ -78,7 +83,7 @@
             this.cmbName.Enabled = false;
             this.cmbName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbName.FormattingEnabled = true;
-            this.cmbName.Location = new System.Drawing.Point(326, 209);
+            this.cmbName.Location = new System.Drawing.Point(381, 209);
             this.cmbName.Name = "cmbName";
             this.cmbName.Size = new System.Drawing.Size(235, 31);
             this.cmbName.TabIndex = 2;
@@ -90,7 +95,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Sienna;
-            this.label1.Location = new System.Drawing.Point(159, 209);
+            this.label1.Location = new System.Drawing.Point(214, 209);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 22);
             this.label1.TabIndex = 107;
@@ -102,11 +107,12 @@
             this.grdStock.AllowUserToDeleteRows = false;
             this.grdStock.AllowUserToOrderColumns = true;
             this.grdStock.BackgroundColor = System.Drawing.Color.FloralWhite;
+            this.grdStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdStock.Location = new System.Drawing.Point(29, 285);
+            this.grdStock.Location = new System.Drawing.Point(45, 285);
             this.grdStock.Name = "grdStock";
             this.grdStock.ReadOnly = true;
-            this.grdStock.Size = new System.Drawing.Size(784, 320);
+            this.grdStock.Size = new System.Drawing.Size(832, 305);
             this.grdStock.TabIndex = 6;
             this.grdStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -115,7 +121,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnDestroy);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(656, 212);
+            this.panel1.Location = new System.Drawing.Point(720, 212);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(157, 67);
             this.panel1.TabIndex = 3;
@@ -166,7 +172,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(766, 24);
+            this.btnClose.Location = new System.Drawing.Point(824, 24);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 141;
@@ -190,7 +196,7 @@
             this.chkAllTypies.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkAllTypies.Font = new System.Drawing.Font("Arial", 14.25F);
             this.chkAllTypies.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.chkAllTypies.Location = new System.Drawing.Point(328, 91);
+            this.chkAllTypies.Location = new System.Drawing.Point(383, 91);
             this.chkAllTypies.Name = "chkAllTypies";
             this.chkAllTypies.Size = new System.Drawing.Size(107, 26);
             this.chkAllTypies.TabIndex = 142;
@@ -207,7 +213,7 @@
             this.chkAllIngrdient.Enabled = false;
             this.chkAllIngrdient.Font = new System.Drawing.Font("Arial", 14.25F);
             this.chkAllIngrdient.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.chkAllIngrdient.Location = new System.Drawing.Point(327, 172);
+            this.chkAllIngrdient.Location = new System.Drawing.Point(382, 172);
             this.chkAllIngrdient.Name = "chkAllIngrdient";
             this.chkAllIngrdient.Size = new System.Drawing.Size(150, 26);
             this.chkAllIngrdient.TabIndex = 143;
@@ -220,7 +226,7 @@
             this.chkExpierd.BackColor = System.Drawing.Color.Transparent;
             this.chkExpierd.Font = new System.Drawing.Font("Arial", 14.25F);
             this.chkExpierd.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.chkExpierd.Location = new System.Drawing.Point(328, 253);
+            this.chkExpierd.Location = new System.Drawing.Point(383, 253);
             this.chkExpierd.Name = "chkExpierd";
             this.chkExpierd.Size = new System.Drawing.Size(194, 26);
             this.chkExpierd.TabIndex = 144;
@@ -228,12 +234,26 @@
             this.chkExpierd.UseVisualStyleBackColor = false;
             this.chkExpierd.CheckedChanged += new System.EventHandler(this.chkExpierd_CheckedChanged);
             // 
+            // stockQueryBindingSource
+            // 
+            this.stockQueryBindingSource.DataMember = "StockQuery";
+            this.stockQueryBindingSource.DataSource = this.auntRosieDBDataSet;
+            // 
+            // auntRosieDBDataSet
+            // 
+            this.auntRosieDBDataSet.DataSetName = "AuntRosieDBDataSet";
+            this.auntRosieDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // stockQueryTableAdapter
+            // 
+            this.stockQueryTableAdapter.ClearBeforeFill = true;
+            // 
             // frmInventoryStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(840, 626);
+            this.ClientSize = new System.Drawing.Size(916, 626);
             this.Controls.Add(this.chkExpierd);
             this.Controls.Add(this.chkAllIngrdient);
             this.Controls.Add(this.chkAllTypies);
@@ -253,6 +273,8 @@
             this.Load += new System.EventHandler(this.frmInventoryStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdStock)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.stockQueryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,5 +297,8 @@
         private System.Windows.Forms.CheckBox chkAllTypies;
         private System.Windows.Forms.CheckBox chkAllIngrdient;
         private System.Windows.Forms.CheckBox chkExpierd;
+        private AuntRosieDBDataSet auntRosieDBDataSet;
+        private System.Windows.Forms.BindingSource stockQueryBindingSource;
+        private AuntRosieDBDataSetTableAdapters.StockQueryTableAdapter stockQueryTableAdapter;
     }
 }
