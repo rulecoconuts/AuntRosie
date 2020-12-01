@@ -31,7 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.cmbName = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpBasic = new System.Windows.Forms.GroupBox();
+            this.txtPhone = new System.Windows.Forms.MaskedTextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -46,58 +47,42 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCity = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpAdd = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.cmbProvinces = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnClancel = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.pnlButton = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radFullTime = new System.Windows.Forms.RadioButton();
-            this.radPartTime = new System.Windows.Forms.RadioButton();
-            this.cmbRole = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtPhone = new System.Windows.Forms.MaskedTextBox();
-            this.cmbProvinces = new System.Windows.Forms.ComboBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider7 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider8 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider9 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.grPInfo = new System.Windows.Forms.GroupBox();
             this.pnlFullTimeData = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtsalary = new System.Windows.Forms.TextBox();
             this.dtpEmploymentDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.radFullTime = new System.Windows.Forms.RadioButton();
+            this.radPartTime = new System.Windows.Forms.RadioButton();
+            this.cmbRole = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.erPEmployeeForm = new System.Windows.Forms.ErrorProvider(this.components);
+            this.grpBasic.SuspendLayout();
+            this.grpAdd.SuspendLayout();
             this.pnlButton.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider9)).BeginInit();
+            this.grPInfo.SuspendLayout();
             this.pnlFullTimeData.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erPEmployeeForm)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbName
             // 
+            this.cmbName.BackColor = System.Drawing.SystemColors.Info;
             this.cmbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbName.FormattingEnabled = true;
@@ -105,6 +90,7 @@
             this.cmbName.Name = "cmbName";
             this.cmbName.Size = new System.Drawing.Size(350, 31);
             this.cmbName.TabIndex = 61;
+            this.cmbName.SelectedIndexChanged += new System.EventHandler(this.cmbName_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -117,27 +103,39 @@
             this.label8.TabIndex = 48;
             this.label8.Text = "Email";
             // 
-            // groupBox2
+            // grpBasic
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.txtPhone);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.txtEmail);
-            this.groupBox2.Controls.Add(this.txtFirstName);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.txtLastName);
-            this.groupBox2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.Goldenrod;
-            this.groupBox2.Location = new System.Drawing.Point(33, 117);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(651, 167);
-            this.groupBox2.TabIndex = 60;
-            this.groupBox2.TabStop = false;
+            this.grpBasic.BackColor = System.Drawing.Color.Transparent;
+            this.grpBasic.Controls.Add(this.txtPhone);
+            this.grpBasic.Controls.Add(this.label8);
+            this.grpBasic.Controls.Add(this.txtEmail);
+            this.grpBasic.Controls.Add(this.txtFirstName);
+            this.grpBasic.Controls.Add(this.label9);
+            this.grpBasic.Controls.Add(this.label10);
+            this.grpBasic.Controls.Add(this.label11);
+            this.grpBasic.Controls.Add(this.txtLastName);
+            this.grpBasic.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBasic.ForeColor = System.Drawing.Color.Goldenrod;
+            this.grpBasic.Location = new System.Drawing.Point(33, 117);
+            this.grpBasic.Name = "grpBasic";
+            this.grpBasic.Size = new System.Drawing.Size(651, 167);
+            this.grpBasic.TabIndex = 60;
+            this.grpBasic.TabStop = false;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.BackColor = System.Drawing.SystemColors.Info;
+            this.txtPhone.Enabled = false;
+            this.txtPhone.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhone.Location = new System.Drawing.Point(185, 98);
+            this.txtPhone.Mask = "(999)-000-0000";
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(353, 29);
+            this.txtPhone.TabIndex = 65;
             // 
             // txtEmail
             // 
+            this.txtEmail.BackColor = System.Drawing.SystemColors.Info;
             this.txtEmail.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtEmail.Location = new System.Drawing.Point(185, 133);
             this.txtEmail.Name = "txtEmail";
@@ -146,6 +144,7 @@
             // 
             // txtFirstName
             // 
+            this.txtFirstName.BackColor = System.Drawing.SystemColors.Info;
             this.txtFirstName.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtFirstName.Location = new System.Drawing.Point(185, 28);
             this.txtFirstName.Name = "txtFirstName";
@@ -187,6 +186,7 @@
             // 
             // txtLastName
             // 
+            this.txtLastName.BackColor = System.Drawing.SystemColors.Info;
             this.txtLastName.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtLastName.Location = new System.Drawing.Point(185, 63);
             this.txtLastName.Name = "txtLastName";
@@ -230,6 +230,7 @@
             // 
             // txtStreet
             // 
+            this.txtStreet.BackColor = System.Drawing.SystemColors.Info;
             this.txtStreet.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtStreet.Location = new System.Drawing.Point(105, 93);
             this.txtStreet.Name = "txtStreet";
@@ -271,31 +272,56 @@
             // 
             // txtCity
             // 
+            this.txtCity.BackColor = System.Drawing.SystemColors.Info;
             this.txtCity.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtCity.Location = new System.Drawing.Point(105, 58);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(175, 29);
             this.txtCity.TabIndex = 7;
             // 
-            // groupBox1
+            // grpAdd
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
-            this.groupBox1.Controls.Add(this.cmbProvinces);
-            this.groupBox1.Controls.Add(this.txtPostalCode);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtStreet);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtCity);
-            this.groupBox1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.Goldenrod;
-            this.groupBox1.Location = new System.Drawing.Point(33, 285);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 197);
-            this.groupBox1.TabIndex = 59;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Address";
+            this.grpAdd.BackColor = System.Drawing.Color.Transparent;
+            this.grpAdd.Controls.Add(this.maskedTextBox1);
+            this.grpAdd.Controls.Add(this.cmbProvinces);
+            this.grpAdd.Controls.Add(this.txtPostalCode);
+            this.grpAdd.Controls.Add(this.label3);
+            this.grpAdd.Controls.Add(this.label6);
+            this.grpAdd.Controls.Add(this.txtStreet);
+            this.grpAdd.Controls.Add(this.label5);
+            this.grpAdd.Controls.Add(this.txtCity);
+            this.grpAdd.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpAdd.ForeColor = System.Drawing.Color.Goldenrod;
+            this.grpAdd.Location = new System.Drawing.Point(33, 285);
+            this.grpAdd.Name = "grpAdd";
+            this.grpAdd.Size = new System.Drawing.Size(301, 197);
+            this.grpAdd.TabIndex = 59;
+            this.grpAdd.TabStop = false;
+            this.grpAdd.Text = "Address";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.maskedTextBox1.Enabled = false;
+            this.maskedTextBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(105, 134);
+            this.maskedTextBox1.Mask = "L0L0L0";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(175, 29);
+            this.maskedTextBox1.TabIndex = 67;
+            // 
+            // cmbProvinces
+            // 
+            this.cmbProvinces.BackColor = System.Drawing.SystemColors.Info;
+            this.cmbProvinces.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProvinces.Enabled = false;
+            this.cmbProvinces.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbProvinces.FormattingEnabled = true;
+            this.cmbProvinces.ItemHeight = 23;
+            this.cmbProvinces.Location = new System.Drawing.Point(105, 17);
+            this.cmbProvinces.Name = "cmbProvinces";
+            this.cmbProvinces.Size = new System.Drawing.Size(175, 31);
+            this.cmbProvinces.TabIndex = 66;
             // 
             // btnClose
             // 
@@ -312,19 +338,20 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnCancel
+            // btnClancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.Enabled = false;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Image = global::AuntRosieApplication.Properties.Resources.eraser;
-            this.btnCancel.Location = new System.Drawing.Point(250, 1);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(79, 61);
-            this.btnCancel.TabIndex = 13;
-            this.toolTip1.SetToolTip(this.btnCancel, "Clear");
-            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnClancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnClancel.Enabled = false;
+            this.btnClancel.FlatAppearance.BorderSize = 0;
+            this.btnClancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClancel.Image = global::AuntRosieApplication.Properties.Resources.eraser;
+            this.btnClancel.Location = new System.Drawing.Point(250, 1);
+            this.btnClancel.Name = "btnClancel";
+            this.btnClancel.Size = new System.Drawing.Size(79, 61);
+            this.btnClancel.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.btnClancel, "Clear");
+            this.btnClancel.UseVisualStyleBackColor = false;
+            this.btnClancel.Click += new System.EventHandler(this.btnClancel_Click);
             // 
             // btnNew
             // 
@@ -339,6 +366,7 @@
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.btnNew, "New");
             this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnEdit
             // 
@@ -367,6 +395,7 @@
             this.btnSave.TabIndex = 12;
             this.toolTip1.SetToolTip(this.btnSave, "Save");
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDelete
             // 
@@ -380,11 +409,12 @@
             this.btnDelete.TabIndex = 11;
             this.toolTip1.SetToolTip(this.btnDelete, "Delete");
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // pnlButton
             // 
             this.pnlButton.BackColor = System.Drawing.Color.Transparent;
-            this.pnlButton.Controls.Add(this.btnCancel);
+            this.pnlButton.Controls.Add(this.btnClancel);
             this.pnlButton.Controls.Add(this.btnNew);
             this.pnlButton.Controls.Add(this.btnEdit);
             this.pnlButton.Controls.Add(this.btnSave);
@@ -394,145 +424,22 @@
             this.pnlButton.Size = new System.Drawing.Size(425, 66);
             this.pnlButton.TabIndex = 62;
             // 
-            // groupBox3
+            // grPInfo
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.pnlFullTimeData);
-            this.groupBox3.Controls.Add(this.radFullTime);
-            this.groupBox3.Controls.Add(this.radPartTime);
-            this.groupBox3.Controls.Add(this.cmbRole);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.Goldenrod;
-            this.groupBox3.Location = new System.Drawing.Point(341, 285);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(339, 197);
-            this.groupBox3.TabIndex = 60;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Emploment Information";
-            // 
-            // radFullTime
-            // 
-            this.radFullTime.AutoSize = true;
-            this.radFullTime.Checked = true;
-            this.radFullTime.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radFullTime.ForeColor = System.Drawing.Color.Sienna;
-            this.radFullTime.Location = new System.Drawing.Point(52, 23);
-            this.radFullTime.Name = "radFullTime";
-            this.radFullTime.Size = new System.Drawing.Size(97, 27);
-            this.radFullTime.TabIndex = 65;
-            this.radFullTime.TabStop = true;
-            this.radFullTime.Text = "Full Time";
-            this.radFullTime.UseVisualStyleBackColor = true;
-            // 
-            // radPartTime
-            // 
-            this.radPartTime.AutoSize = true;
-            this.radPartTime.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radPartTime.ForeColor = System.Drawing.Color.Sienna;
-            this.radPartTime.Location = new System.Drawing.Point(171, 23);
-            this.radPartTime.Name = "radPartTime";
-            this.radPartTime.Size = new System.Drawing.Size(99, 27);
-            this.radPartTime.TabIndex = 64;
-            this.radPartTime.Text = "Part Time";
-            this.radPartTime.UseVisualStyleBackColor = true;
-            // 
-            // cmbRole
-            // 
-            this.cmbRole.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(98, 58);
-            this.cmbRole.Name = "cmbRole";
-            this.cmbRole.Size = new System.Drawing.Size(222, 31);
-            this.cmbRole.TabIndex = 62;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Sienna;
-            this.label12.Location = new System.Drawing.Point(48, 61);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 23);
-            this.label12.TabIndex = 43;
-            this.label12.Text = "Role";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblName);
-            this.panel1.Controls.Add(this.cmbName);
-            this.panel1.Location = new System.Drawing.Point(43, 65);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(528, 46);
-            this.panel1.TabIndex = 64;
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Enabled = false;
-            this.txtPhone.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Location = new System.Drawing.Point(185, 98);
-            this.txtPhone.Mask = "(999)-000-0000";
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(353, 29);
-            this.txtPhone.TabIndex = 65;
-            // 
-            // cmbProvinces
-            // 
-            this.cmbProvinces.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbProvinces.Enabled = false;
-            this.cmbProvinces.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbProvinces.FormattingEnabled = true;
-            this.cmbProvinces.ItemHeight = 23;
-            this.cmbProvinces.Location = new System.Drawing.Point(105, 17);
-            this.cmbProvinces.Name = "cmbProvinces";
-            this.cmbProvinces.Size = new System.Drawing.Size(175, 31);
-            this.cmbProvinces.TabIndex = 66;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Enabled = false;
-            this.maskedTextBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(105, 134);
-            this.maskedTextBox1.Mask = "L0L0L0";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(175, 29);
-            this.maskedTextBox1.TabIndex = 67;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // errorProvider2
-            // 
-            this.errorProvider2.ContainerControl = this;
-            // 
-            // errorProvider3
-            // 
-            this.errorProvider3.ContainerControl = this;
-            // 
-            // errorProvider4
-            // 
-            this.errorProvider4.ContainerControl = this;
-            // 
-            // errorProvider5
-            // 
-            this.errorProvider5.ContainerControl = this;
-            // 
-            // errorProvider6
-            // 
-            this.errorProvider6.ContainerControl = this;
-            // 
-            // errorProvider7
-            // 
-            this.errorProvider7.ContainerControl = this;
-            // 
-            // errorProvider8
-            // 
-            this.errorProvider8.ContainerControl = this;
-            // 
-            // errorProvider9
-            // 
-            this.errorProvider9.ContainerControl = this;
+            this.grPInfo.BackColor = System.Drawing.Color.Transparent;
+            this.grPInfo.Controls.Add(this.pnlFullTimeData);
+            this.grPInfo.Controls.Add(this.radFullTime);
+            this.grPInfo.Controls.Add(this.radPartTime);
+            this.grPInfo.Controls.Add(this.cmbRole);
+            this.grPInfo.Controls.Add(this.label12);
+            this.grPInfo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grPInfo.ForeColor = System.Drawing.Color.Goldenrod;
+            this.grPInfo.Location = new System.Drawing.Point(341, 285);
+            this.grPInfo.Name = "grPInfo";
+            this.grPInfo.Size = new System.Drawing.Size(339, 197);
+            this.grPInfo.TabIndex = 60;
+            this.grPInfo.TabStop = false;
+            this.grPInfo.Text = "Emploment Information";
             // 
             // pnlFullTimeData
             // 
@@ -570,6 +477,7 @@
             // 
             // txtsalary
             // 
+            this.txtsalary.BackColor = System.Drawing.SystemColors.Info;
             this.txtsalary.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtsalary.Location = new System.Drawing.Point(89, 9);
             this.txtsalary.Name = "txtsalary";
@@ -595,6 +503,72 @@
             this.label2.TabIndex = 67;
             this.label2.Text = "Employment Date";
             // 
+            // radFullTime
+            // 
+            this.radFullTime.AutoSize = true;
+            this.radFullTime.Checked = true;
+            this.radFullTime.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radFullTime.ForeColor = System.Drawing.Color.Sienna;
+            this.radFullTime.Location = new System.Drawing.Point(52, 23);
+            this.radFullTime.Name = "radFullTime";
+            this.radFullTime.Size = new System.Drawing.Size(97, 27);
+            this.radFullTime.TabIndex = 65;
+            this.radFullTime.TabStop = true;
+            this.radFullTime.Text = "Full Time";
+            this.radFullTime.UseVisualStyleBackColor = true;
+            this.radFullTime.CheckedChanged += new System.EventHandler(this.radFullTime_CheckedChanged);
+            // 
+            // radPartTime
+            // 
+            this.radPartTime.AutoSize = true;
+            this.radPartTime.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radPartTime.ForeColor = System.Drawing.Color.Sienna;
+            this.radPartTime.Location = new System.Drawing.Point(171, 23);
+            this.radPartTime.Name = "radPartTime";
+            this.radPartTime.Size = new System.Drawing.Size(99, 27);
+            this.radPartTime.TabIndex = 64;
+            this.radPartTime.Text = "Part Time";
+            this.radPartTime.UseVisualStyleBackColor = true;
+            this.radPartTime.CheckedChanged += new System.EventHandler(this.radPartTime_CheckedChanged);
+            // 
+            // cmbRole
+            // 
+            this.cmbRole.BackColor = System.Drawing.SystemColors.Info;
+            this.cmbRole.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbRole.FormattingEnabled = true;
+            this.cmbRole.Items.AddRange(new object[] {
+            "Kitchen assistants",
+            "Helper"});
+            this.cmbRole.Location = new System.Drawing.Point(98, 58);
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(222, 31);
+            this.cmbRole.TabIndex = 62;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Sienna;
+            this.label12.Location = new System.Drawing.Point(48, 61);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 23);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "Role";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblName);
+            this.panel1.Controls.Add(this.cmbName);
+            this.panel1.Location = new System.Drawing.Point(33, 65);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(651, 46);
+            this.panel1.TabIndex = 64;
+            // 
+            // erPEmployeeForm
+            // 
+            this.erPEmployeeForm.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.erPEmployeeForm.ContainerControl = this;
+            // 
             // frmManagEmp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -605,10 +579,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.grPInfo);
             this.Controls.Add(this.pnlButton);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpBasic);
+            this.Controls.Add(this.grpAdd);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Sienna;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -616,26 +590,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageEmpForm";
             this.Load += new System.EventHandler(this.frmManagEmp_Load);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpBasic.ResumeLayout(false);
+            this.grpBasic.PerformLayout();
+            this.grpAdd.ResumeLayout(false);
+            this.grpAdd.PerformLayout();
             this.pnlButton.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider9)).EndInit();
+            this.grPInfo.ResumeLayout(false);
+            this.grPInfo.PerformLayout();
             this.pnlFullTimeData.ResumeLayout(false);
             this.pnlFullTimeData.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erPEmployeeForm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -644,7 +610,7 @@
         #endregion
         private System.Windows.Forms.ComboBox cmbName;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpBasic;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label9;
@@ -659,15 +625,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCity;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpAdd;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel pnlButton;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnClancel;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grPInfo;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.RadioButton radFullTime;
         private System.Windows.Forms.RadioButton radPartTime;
@@ -677,15 +643,7 @@
         private System.Windows.Forms.MaskedTextBox txtPhone;
         private System.Windows.Forms.ComboBox cmbProvinces;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ErrorProvider errorProvider2;
-        private System.Windows.Forms.ErrorProvider errorProvider3;
-        private System.Windows.Forms.ErrorProvider errorProvider4;
-        private System.Windows.Forms.ErrorProvider errorProvider5;
-        private System.Windows.Forms.ErrorProvider errorProvider6;
-        private System.Windows.Forms.ErrorProvider errorProvider7;
-        private System.Windows.Forms.ErrorProvider errorProvider8;
-        private System.Windows.Forms.ErrorProvider errorProvider9;
+        private System.Windows.Forms.ErrorProvider erPEmployeeForm;
         private System.Windows.Forms.Panel pnlFullTimeData;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;

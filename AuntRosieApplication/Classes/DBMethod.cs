@@ -73,6 +73,21 @@ namespace AuntRosieApplication.Classes
             }
         }
 
+        public static void FillCombBoxPerson(DataTable dt, ComboBox cmb)
+
+        {
+            if (dt != null)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
+                    itm.name = row[1].ToString()+ " "+ row[2].ToString();
+                    itm.id = row[0].ToString();
+                    cmb.Items.Add((Object)itm);
+                }
+            }
+        }
+
         public static String GetProvinceName(string provinceId)
         {
 

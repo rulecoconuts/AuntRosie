@@ -172,7 +172,6 @@ namespace AuntRosieEntities
                     "[SupplierPhone]=@phone,[SupplierProvince]=@province,[SupplierCity]=@city,[SupplierStreet]=@street ," +
                     "[SupplierPostalCode]=@postal,[SupplierEmail]=@email where [SupplierID] = @id";
 
-
                 SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
                 nameParam.Value = Name;
                 updatePrepCmd.Parameters.Add(nameParam);
