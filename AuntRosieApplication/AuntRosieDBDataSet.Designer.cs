@@ -21580,23 +21580,16 @@ ORDER BY tblIngredientInventory.ExpiryDate";
             this._commandCollection[0].CommandText = @"SELECT        tblEmployee.EmployeeFirstName, tblPayroll.PaymentDate, tblEmployee.EmployeeLastName, tblPayroll.Amount, tblPayroll.PaymentMethod
 FROM            tblEmployee INNER JOIN
                          tblPayroll ON tblEmployee.EmployeeID = tblPayroll.EmployeeID
-WHERE        (tblPayroll.PaymentDate = @Param1)";
+WHERE        (tblPayroll.PaymentDate = { fn CURDATE() })";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AuntRosieDBDataSet.payrollDataTable dataTable, string Param1) {
+        public virtual int Fill(AuntRosieDBDataSet.payrollDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Param1 == null)) {
-                throw new global::System.ArgumentNullException("Param1");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
-            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -21608,14 +21601,8 @@ WHERE        (tblPayroll.PaymentDate = @Param1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AuntRosieDBDataSet.payrollDataTable GetData(string Param1) {
+        public virtual AuntRosieDBDataSet.payrollDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Param1 == null)) {
-                throw new global::System.ArgumentNullException("Param1");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
-            }
             AuntRosieDBDataSet.payrollDataTable dataTable = new AuntRosieDBDataSet.payrollDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

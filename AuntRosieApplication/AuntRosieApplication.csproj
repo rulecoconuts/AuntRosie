@@ -444,9 +444,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
-    <None Include="Resources\background2 .jpg" />
-    <None Include="Resources\sweet.png" />
     <None Include="Resources\background2.jpg" />
+    <None Include="Resources\sweet.png" />
     <None Include="Resources\minimize-window.png" />
     <None Include="Resources\time-machine--v2.png" />
     <None Include="Resources\print.png" />

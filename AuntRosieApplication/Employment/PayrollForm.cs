@@ -18,6 +18,8 @@ namespace AuntRosieApplication.Employment
 {
     public partial class frmPayroll : Form
     {
+        private string sqlText = null;
+        private DateTime payDate = DateTime.Today.Date;
         public frmPayroll()
         { 
             this.DoubleBuffered = true;
@@ -39,45 +41,58 @@ namespace AuntRosieApplication.Employment
         {
             this.Close();
         }
-
+        private void relocation(Panel pnl)
+        {
+            //relocation the login pannel 
+            pnl.Left = (this.Width - pnl.Width) / 2;
+            pnl.Top = (this.Height - pnl.Height) / 2;
+        }
         private void frmPayroll_Load(object sender, EventArgs e)
         {
             lblTitle.Left = (this.Width - lblTitle.Width) / 2;
-            
+            relocation(pnlMain);
+            pnlMain.Top = pnlMain.Top + 20;
+            relocation(pnlPaymentDate);
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             Classes.DBMethod.FillCombBoxPerson(AuntRosieEntities.Employee.GetAllEmployeesByType
                      (Classes.DBMethod.GetConnectionString(),"F"), cmbfullEmp);
             Classes.DBMethod.FillCombBoxPerson(AuntRosieEntities.Employee.GetAllEmployeesByType
                  (Classes.DBMethod.GetConnectionString(),"P"), cmbPartEmp);
             Classes.DBMethod.FillPaymentmethodCombo(cmbPaymentMethod);
+             
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            
+                if (isValidFullPayroll())
+                {
+                   try
             {
-                EmployeePay empPayt = new EmployeePay();
-                empPayt.EmployeeID= (long)Convert.ToDouble(DBMethod.GetSelectedItemID(cmbfullEmp));
-                empPayt.ThisPaymentMethod = DBMethod.GetSelectedItemID(cmbPaymentMethod);
-                empPayt.FromDate =dtpFormDate.Value;
-                empPayt.ToDate = dtpToDate.Value;
-                empPayt.Amount = Convert.ToDouble(lblFullAmount.Text.Trim());
-                empPayt.PaymentDate = DateTime.Today.Date;
-                
-                DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
-                RosieEntity.Connector = conn;
-                empPayt.Create();
-                MessageBox.Show("The ingredient quantity has successfully stocked into the inventory", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        EmployeePay empPayt = new EmployeePay();
+                        empPayt.EmployeeID = (long)Convert.ToDouble(DBMethod.GetSelectedItemID(cmbfullEmp));
+                        empPayt.ThisPaymentMethod = DBMethod.GetSelectedItemID(cmbPaymentMethod);
+                        empPayt.FromDate = dtpFormDate.Value;
+                        empPayt.ToDate = dtpToDate.Value;
+                        empPayt.Amount = Convert.ToDouble(lblFullAmount.Text.Trim());
+                        empPayt.PaymentDate = DateTime.Today.Date;
+
+                        DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                        RosieEntity.Connector = conn;
+                        empPayt.Create();
+                        MessageBox.Show("The ingredient quantity has successfully stocked into the inventory", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FillPayGrid(sqlText);
+                    }catch (Exception ex)
+            {
+                 //MessageBox.Show(ex.Message);
+                MessageBox.Show("The Employee's payroll has been registered for this payment date", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
-            catch (Exception ex)
-            {
-                 MessageBox.Show(ex.Message);
-                //MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+         
+                }
             }
-        }
+            
 
         private void dtpToDate_ValueChanged(object sender, EventArgs e)
         {
@@ -87,8 +102,9 @@ namespace AuntRosieApplication.Employment
         private void cmbfullEmp_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (lblDays.Text.Length > 0)
-            {
+            if (lblDays.Text.Trim()!="")
+
+            { 
                 try
                 {
 
@@ -113,7 +129,8 @@ namespace AuntRosieApplication.Employment
             }
             else
             {
-                MessageBox.Show("From Date should be before To Date ", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                errPayroll.SetError(dtpFormDate, " Select From Date value to detrmin the days");
+                errPayroll.SetError(dtpToDate, " Select  To Date value to detrmin the days");
 
 
             }
@@ -153,8 +170,13 @@ namespace AuntRosieApplication.Employment
 
         private void cmbPartEmp_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtwage.Text = "";
+            lblHour.Text = "";
+            lblPartAmount.Text = "";
+           
             if (lblDays.Text.Length > 0)
             {
+                txtwage.Focus();
                 SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
 
                 // Create new SQL command
@@ -225,6 +247,241 @@ namespace AuntRosieApplication.Employment
                     lblPartAmount.Text = string.Format("{0:0.00}", hours * wage);
                 }
             }
+       
+        
+      }
+
+        private void FillPayGrid(string sql)
+        {
+
+            string connectionString = DBMethod.GetConnectionString();
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlDataAdapter dataadapter = new SqlDataAdapter(sql, connection);
+            DataSet ds = new DataSet();
+            connection.Open();
+            dataadapter.Fill(ds, "Payroll");
+            connection.Close();
+            grdPayroll.DataSource = ds;
+            grdPayroll.DataMember = "Payroll";
+        }
+
+        private void radNew_CheckedChanged(object sender, EventArgs e)
+        {
+            payDate = DateTime.Today.Date;
+            cmbPaymentDate.Items.Clear();
+        }
+
+        private void radExists_CheckedChanged(object sender, EventArgs e)
+        {
+            GetPaymentDate();
+        }
+
+        private void GetPaymentDate()
+        {
+            SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
+
+            // Create new SQL command
+            SqlCommand command = new SqlCommand("SELECT DISTINCT PaymentDate AS Expr1 FROM tblPayroll", dbConnection);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            // Declare a DataTable object that will hold the return value
+            DataTable dt = new DataTable();
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No previous payroll are registered", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    radNew.Checked = true;
+                    radExists.Checked = false;
+                }
+                else
+                {
+                    cmbPaymentDate.Enabled = true;
+                    cmbPaymentDate.Focus();
+                }
+                if (dt != null)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {    DateTime date= DateTime.Parse(row[0].ToString());
+                        AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
+                        itm.name =  date.Date.ToShortDateString();
+                        itm.id = date.Date.ToShortDateString();
+                        cmbPaymentDate.Items.Add((Object)itm);
+
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+
+        }
+
+        private void btnOkay_Click(object sender, EventArgs e)
+        {
+            if (radExists.Checked && cmbPaymentDate.Text == "")
+            {
+                errPayroll.SetError(cmbPaymentDate, "Choose pauroll date");
+            }
+            else
+            {
+                pnlMain.Enabled = true;
+                pnlPaymentDate.Visible = false;
+                sqlText = " SELECT  tblEmployee.EmployeeFirstName, tblPayroll.PaymentDate, tblEmployee.EmployeeLastName," +
+                    " tblPayroll.Amount, tblPayroll.PaymentMethod FROM tblEmployee INNER JOIN " +
+                         " tblPayroll ON tblEmployee.EmployeeID = tblPayroll.EmployeeID WHERE(tblPayroll.PaymentDate ='" + payDate.ToShortDateString()+ "')";
+                FillPayGrid(sqlText);
+            }
+            lblPaymentDate.Text = payDate.ToShortDateString();
+        }
+
+        private void cmbPaymentDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            payDate = DateTime.Parse(cmbPaymentDate.SelectedItem.ToString());
+        }
+
+        private void btnAddPart_Click(object sender, EventArgs e)
+        {
+          
+                if (isValidPartPayroll())
+                {
+                   
+                     
+                         try
+            { EmployeePay empPayt = new EmployeePay();
+                        empPayt.EmployeeID = (long)Convert.ToDouble(DBMethod.GetSelectedItemID(cmbPartEmp));
+                        empPayt.ThisPaymentMethod = DBMethod.GetSelectedItemID(cmbPaymentMethod);
+                        empPayt.FromDate = dtpFormDate.Value;
+                        empPayt.ToDate = dtpToDate.Value;
+                        empPayt.Amount = Convert.ToDouble(lblPartAmount.Text.Trim());
+                        empPayt.PaymentDate = DateTime.Today.Date;
+
+                        DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                        RosieEntity.Connector = conn;
+                        empPayt.Create();
+                        MessageBox.Show("The ingredient quantity has successfully stocked into the inventory", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FillPayGrid(sqlText);
+                    }catch (Exception ex)
+            {
+                        //MessageBox.Show(ex.Message);
+                        MessageBox.Show("You can't add this payroll record, The Employee's payroll has been registered ", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                 
+            }
+            
+        }
+        private bool isValidPartPayroll()
+        {
+
+            errPayroll.Clear();
+            bool isValid = true;
+            if (cmbPartEmp.Text == "")
+            {
+                errPayroll.SetError(cmbPartEmp, " Select The employee name");
+                isValid = false;
+
+            }
+            if (lblDays.Text.Trim()!="")
+            if ( int.Parse(lblDays.Text)<1)
+            {
+                errPayroll.SetError(dtpFormDate, " Select From Date value to detrmin the days");
+                    errPayroll.SetError(dtpToDate, " Select  To Date value to detrmin the days");
+                    isValid = false;
+            }
+
+            if (txtwage.Text.Trim() != "")
+                if (double.Parse(txtwage.Text) < 0)
+                {
+                    errPayroll.SetError(txtwage, " Enter wage as the numeric value");
+                    
+                    isValid = false;
+                }
+
+            if (txtwage.Text.Trim() == "")
+            {
+                errPayroll.SetError(txtwage, " Enter wage as the numeric value");
+
+                isValid = false;
+            }
+
+                if (lblDays.Text.Trim() == "")
+            {    
+                errPayroll.SetError(dtpFormDate, " Select From Date value to detrmin the days");
+                errPayroll.SetError(dtpToDate, " Select  To Date value to detrmin the days");
+                isValid = false;
+            }
+
+            if (cmbPaymentMethod.Text=="")
+            {
+                errPayroll.SetError(cmbPaymentMethod, " SelectThe payment method");
+                isValid = false;
+
+            }
+
+            return isValid;
+        }
+
+        private bool isValidFullPayroll()
+        {
+
+            errPayroll.Clear();
+            bool isValid = true;
+            if (cmbfullEmp.Text == "")
+            {
+                errPayroll.SetError(cmbfullEmp, " Select The employee name");
+
+                isValid = false;
+            }
+             
+                if (lblDays.Text.Trim() != "")
+                if (int.Parse(lblDays.Text) < 1)
+                {
+                    errPayroll.SetError(dtpFormDate, " Select From Date value to detrmin the days");
+                    errPayroll.SetError(dtpToDate, " Select  To Date value to detrmin the days");
+                    isValid = false;
+                }
+
+            if (lblDays.Text.Trim() == "")
+            {
+                errPayroll.SetError(dtpFormDate, " Select From Date value to detrmin the days");
+                errPayroll.SetError(dtpToDate, " Select  To Date value to detrmin the days");
+                isValid = false;
+            }
+
+            if (cmbPaymentMethod.Text == "")
+            {
+                errPayroll.SetError(cmbPaymentMethod, " SelectThe payment method");
+                isValid = false;
+
+            }
+
+            return isValid;
+        }
+
+        private void pnlPaymentDate_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

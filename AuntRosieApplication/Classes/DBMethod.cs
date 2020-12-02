@@ -15,7 +15,7 @@ namespace AuntRosieApplication.Classes
        public  static  string[,] provincesArray = new string[,] {
                 { "Newfoundland and Labrador","NL"},
 {"Prince Edward Island", "PE" },
-{" Nova Scotia","NS" },
+{"Nova Scotia","NS" },
 {"New Brunswick","NB" },
 {"Quebec","QC" },
 {"Ontario", "ON" },

@@ -124,7 +124,7 @@ namespace AuntRosieApp
 
         private void btnKitchenMain_Click(object sender, EventArgs e)
         {
-            BackToMain(pnlInventory);
+            BackToMain(pnlKitchen);
         }
 
         private void btnEventMAin_Click(object sender, EventArgs e)
