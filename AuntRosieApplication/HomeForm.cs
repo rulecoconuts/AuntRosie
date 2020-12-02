@@ -354,7 +354,7 @@ namespace AuntRosieApp
 
         private void btnManagEmp_Click(object sender, EventArgs e)
         {
-            AuntRosieApplication.Employment.frmManagEmp form  = new AuntRosieApplication.Employment.frmManagEmp();
+            AuntRosieApplication.Employment.frmManageEmp form  = new AuntRosieApplication.Employment.frmManageEmp();
             ShowForm(form);
         }
 

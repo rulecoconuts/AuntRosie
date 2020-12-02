@@ -18,8 +18,9 @@ namespace AuntRosieApplication.Inventory
         public bool isNewIngrdent = false;
         public InventoryInForm()
         {
+           
+            this.DoubleBuffered = true; 
             InitializeComponent();
-            this.DoubleBuffered = true;
         }
         protected override void OnPaint(PaintEventArgs e) { }
 
@@ -63,18 +64,18 @@ namespace AuntRosieApplication.Inventory
             if (txtNewIngredintName.Text.Length < 3)
             {
                 isvalid = false;
-                errIngredientName.SetError(txtNewIngredintName, "Ingredient Name could not be less than 3 letters");
+                errInventoryIn.SetError(txtNewIngredintName, "Ingredient Name could not be less than 3 letters");
             }
             if (cmbNewtype.Text.Length ==0)
             {
                 isvalid = false;
-                errIngredientType.SetError(cmbNewtype, "Ingredient should has a type");
+                errInventoryIn.SetError(cmbNewtype, "Ingredient should has a type");
 
             }
             if (txtstoringNote.Text.Length == 0)
             {
                 isvalid = false;
-                errCost.SetError(txtstoringNote, "Sorting note could not be empty");
+                errInventoryIn.SetError(txtstoringNote, "Sorting note could not be empty");
 
             }
              
@@ -210,7 +211,7 @@ namespace AuntRosieApplication.Inventory
 
             else
             {
-                errIngredientType.SetError(txtxNewType, "Ingredient Type Name could not contain less than 3 character");
+                errInventoryIn.SetError(txtxNewType, "Ingredient Type Name could not contain less than 3 character");
                 txtxNewType.Focus();
             }
         }
@@ -327,54 +328,54 @@ namespace AuntRosieApplication.Inventory
             bool isValid = true;
             if (cmbName.SelectedItem==null)
             {
-                errIngredientName.SetError(cmbName, "Choose the ingredent name ");
+                errInventoryIn.SetError(cmbName, "Choose the ingredent name ");
                 isValid = false;
 
             }
             if (cmbType.SelectedItem == null)
             {
-                errIngredientName.SetError(cmbType, "Choose the ingredent Type ");
+                errInventoryIn.SetError(cmbType, "Choose the ingredent Type ");
                 isValid = false;
 
             }
             if (cmbSupplier.SelectedItem == null)
             {
-                errIngredientName.SetError(cmbSupplier, "Choose the  supplier ");
+                errInventoryIn.SetError(cmbSupplier, "Choose the  supplier ");
                 isValid = false;
 
             }
             if (cmbPaymentMethod.SelectedItem == null)
             {
-               errorPayment.SetError(cmbPaymentMethod, "Choose the  supplier ");
+               errInventoryIn.SetError(cmbPaymentMethod, "Choose the  supplier ");
                 isValid = false;
 
             }
             if  (dtpPurchaseDate.Value.Date > DateTime.Today.Date)
             {
                 MessageBox.Show(dtpPurchaseDate.Value + "'" + DateTime.Today);
-               errPurchaseDate.SetError(dtpPurchaseDate, "Please check the purchase date, the date could not be after today");
+                errInventoryIn.SetError(dtpPurchaseDate, "Please check the purchase date, the date could not be after today");
                 isValid = false;
 
             }
             if (dtpExpiryDate.Value.Date < DateTime.Today.Date)
             {
-                errEpiryDate.SetError(dtpExpiryDate, "Please check the expiry date, the date could not be before today");
+                errInventoryIn.SetError(dtpExpiryDate, "Please check the expiry date, the date could not be before today");
                 isValid = false;
 
             }
             double x;
             if (!double.TryParse(txtCost.Text, out x)) {
-                errCost.SetError(txtCost, "Please check the cost value, , it should be numeric");
+                errInventoryIn.SetError(txtCost, "Please check the cost value, , it should be numeric");
                 isValid = false; }
             if (!double.TryParse(txtQuantity.Text, out x))
             {
-                errCost.SetError(txtQuantity, "Please check the qunity value, it should be numeric");
+                errInventoryIn.SetError(txtQuantity, "Please check the qunity value, it should be numeric");
                 isValid = false;
             }
 
             if (cmbUnit.SelectedItem == null)
             {
-                errUnit.SetError(cmbUnit, "Please check the qunity value, it should be numeric");
+                errInventoryIn.SetError(cmbUnit, "Please check the qunity value, it should be numeric");
                 isValid = false;
             }
             return isValid;

@@ -11,14 +11,15 @@ using AuntRosieEntities;
 using AuntRosieApplication.Classes;
 namespace AuntRosieApplication.Employment
 {
-    public partial class frmManagEmp : Form
+    public partial class frmManageEmp : Form
     {
         public string OpStatus = string.Empty;
         public string EmpType = "F";
         public static String ExOpStatus = null;
-        public frmManagEmp()
+        public frmManageEmp()
         {
             this.DoubleBuffered = true;
+            InitializeComponent();
         }
         protected override void OnPaint(PaintEventArgs e) { }
         protected override CreateParams CreateParams
@@ -44,7 +45,7 @@ namespace AuntRosieApplication.Employment
             radFullTime.Checked = true;
             radPartTime.Checked = false;
             pnlFullTimeData.Enabled = true;
-
+            Classes.DBMethod.FillProvinces(cmbProvinces);
             Classes.DBMethod.FillCombBoxPerson(AuntRosieEntities.Employee.GetAllEmployees
                   (Classes.DBMethod.GetConnectionString()), cmbName);
             btnNew.Focus();
@@ -67,7 +68,8 @@ namespace AuntRosieApplication.Employment
             btnEdit.Enabled = false;
             btnDelete.Enabled = false;
             cmbName.Visible = false;
-             
+            txtPostalCode.Enabled = true;
+            pnlEmployeeName.Visible = false;
             clearTextBox();
             txtFirstName.Focus();
 
@@ -145,7 +147,8 @@ namespace AuntRosieApplication.Employment
                 clearTextBox();
                 cmbName.Visible = false;
                 cmbName.Items.Clear();
-        
+                pnlEmployeeName.Visible = false;
+
                 Classes.DBMethod.FillCombBoxPerson(AuntRosieEntities.Employee.GetAllEmployees
              (Classes.DBMethod.GetConnectionString()), cmbName);
 
@@ -183,9 +186,14 @@ namespace AuntRosieApplication.Employment
             insertEmployee.Phone = txtPhone.Text.Trim();
             insertEmployee.Email = txtEmail.Text.Trim();
             insertEmployee.City = txtCity.Text.Trim();
-            insertEmployee.Role = cmbRole.Text.Trim();
-            insertEmployee.Type = EmpType;
+            insertEmployee.Role = cmbRole.SelectedItem.ToString();
+            insertEmployee.Type = EmpType.Trim();
+            if (EmpType=="F")
+            {
+                insertEmployee.Salary = Convert.ToDouble(txtsalary.Text.Trim());
+                insertEmployee.EmploymentDate = dtpEmploymentDate.Value.Date;
 
+            }
 
             AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
             Object obj = cmbProvinces.Items[cmbProvinces.SelectedIndex];
@@ -208,8 +216,8 @@ namespace AuntRosieApplication.Employment
             catch (Exception ex)
             {
 
-                //MessageBox.Show(ex.Message);
-                MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
+               // MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
@@ -241,6 +249,12 @@ namespace AuntRosieApplication.Employment
             object obj2 = cmbName.Items[cmbName.SelectedIndex];
             itm2 = (AuntRosieApplication.Classes.ListItem)obj2;
             updateEmployee.Id = (long)Convert.ToDouble(itm2.id);
+            if (EmpType == "F")
+            {
+                updateEmployee.Salary = Convert.ToDouble(txtsalary.Text.Trim());
+                updateEmployee.EmploymentDate = dtpEmploymentDate.Value.Date;
+
+            }
 
             try
             {
@@ -256,8 +270,8 @@ namespace AuntRosieApplication.Employment
             catch (Exception ex)
             {
 
-                // MessageBox.Show(ex.Message);
-                MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
+                //MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
@@ -284,8 +298,8 @@ namespace AuntRosieApplication.Employment
             catch (Exception ex)
             {
 
-                //MessageBox.Show(ex.Message);
-                MessageBox.Show("This Employee could not be deleted ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
+                //MessageBox.Show("This Employee could not be deleted ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
@@ -303,6 +317,9 @@ namespace AuntRosieApplication.Employment
             cmbProvinces.Enabled = true;
             txtCity.Enabled = true;
             pnlFullTimeData.Enabled = true;
+            grpBasic.Enabled = true;
+            grPInfo.Enabled = true;
+            grpAdd.Enabled = true;
             
 
 
@@ -332,8 +349,12 @@ namespace AuntRosieApplication.Employment
             txtStreet.Enabled = false;
             cmbProvinces.Enabled = false;
             txtCity.Enabled = false;
+            txtPostalCode.Enabled = false;
             pnlFullTimeData.Enabled = false;
-           
+            grpBasic.Enabled = false;
+            grPInfo.Enabled = false;
+            grpAdd.Enabled = false;
+
 
 
         }
@@ -385,7 +406,29 @@ namespace AuntRosieApplication.Employment
                 isValid = false;
 
             }
+            if (cmbRole.Text.Trim().Length ==0)
+            {
+                erPEmployeeForm.SetError(cmbRole, "Choose the employee role");
+                isValid = false;
 
+            }
+           if (EmpType=="F")
+            {
+                if (dtpEmploymentDate.Value.Date > DateTime.Today.Date)
+                {
+                    erPEmployeeForm.SetError(dtpEmploymentDate, "Please check the employment date, the date could not be after today date");
+                    isValid = false;
+
+                }
+                double x;
+                if (!double.TryParse(txtsalary.Text, out x))
+                {
+                    erPEmployeeForm.SetError(txtsalary, "Please check the salary value, , it should be numeric");
+                    isValid = false;
+                }
+
+
+            }
 
             return isValid;
         }
@@ -393,24 +436,44 @@ namespace AuntRosieApplication.Employment
 
         private void cmbName_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
 
-            DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
-            RosieEntity.Connector = conn;
-            Employee employee = Employee.Retrieve(DBMethod.GetSelectedItemID(cmbName));
+                DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                RosieEntity.Connector = conn;
+                Employee employee = Employee.Retrieve(DBMethod.GetSelectedItemID(cmbName));
+                 MessageBox.Show(employee.EmploymentDate.Date.ToString());
 
-            
-            txtFirstName.Text = employee.FirstName;
-            txtLastName.Text = employee.LastName;
-            txtPhone.Text = employee.Phone;
-            txtEmail.Text = employee.Email;
-            txtCity.Text = employee.City;
-            AuntRosieApplication.Classes.ListItem itm2 = new AuntRosieApplication.Classes.ListItem();
-            itm2.id = employee.Province;
-            itm2.name = Classes.DBMethod.GetProvinceName(itm2.id);
-            cmbProvinces.SelectedItem = itm2;
-            cmbProvinces.Text = Classes.DBMethod.GetProvinceName(itm2.id);
-            txtStreet.Text = employee.Street;
-            txtPostalCode.Text = employee.PostalCode;
+                txtFirstName.Text = employee.FirstName;
+                txtLastName.Text = employee.LastName;
+                txtPhone.Text = employee.Phone;
+                txtEmail.Text = employee.Email;
+                txtCity.Text = employee.City;
+                AuntRosieApplication.Classes.ListItem itm2 = new AuntRosieApplication.Classes.ListItem();
+                itm2.id = employee.Province;
+                itm2.name = Classes.DBMethod.GetProvinceName(itm2.id);
+                cmbProvinces.SelectedItem = itm2;
+                cmbProvinces.Text = Classes.DBMethod.GetProvinceName(itm2.id);
+                txtStreet.Text = employee.Street;
+                txtPostalCode.Text = employee.PostalCode;
+                if (employee.Type == "F")
+                {
+                    radFullTime.Checked = true;
+                  txtsalary.Text= employee.Salary.ToString();
+                  dtpEmploymentDate.Value =employee.EmploymentDate.Date;
+
+                }
+                else
+                {
+
+                    txtsalary.Text = "";
+                    dtpEmploymentDate.Value = DateTime.Today.Date;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
 
         }
 
@@ -426,12 +489,14 @@ namespace AuntRosieApplication.Employment
             btnDelete.Enabled = false;
             cmbName.Visible = true;
             radPartTime.Enabled = false;
+            pnlEmployeeName.Visible = true;
             cmbName.Focus();
         }
 
         private void btnClancel_Click(object sender, EventArgs e)
         {
             TextBoxDisEnabled();
+            pnlEmployeeName.Visible = false;
             btnClancel.Enabled = false;
             btnSave.Enabled = false;
             btnNew.Focus();
@@ -453,6 +518,7 @@ namespace AuntRosieApplication.Employment
         private void btnDelete_Click(object sender, EventArgs e)
         {
             OpStatus = "delete";
+            pnlEmployeeName.Visible = true;
             TextBoxDisEnabled();
             btnClancel.Enabled = true;
             btnSave.Enabled = true;
@@ -466,14 +532,58 @@ namespace AuntRosieApplication.Employment
 
         private void radFullTime_CheckedChanged(object sender, EventArgs e)
         {
+            if(radFullTime.Checked)
+            {
+                pnlFullTimeData.Enabled = true;
             cmbRole.SelectedItem = cmbRole.Items[0];
             EmpType = "F";
+            }
+            else
+            {
+                pnlFullTimeData.Enabled = false;
+            }
         }
 
         private void radPartTime_CheckedChanged(object sender, EventArgs e)
         {
-            pnlFullTimeData.Enabled = false;
-            EmpType = "P";
+            if (radPartTime.Checked)
+            {
+                pnlFullTimeData.Enabled = false;
+                pnlFullTimeData.Enabled = false;
+                EmpType = "P";
+            }
+            else
+            {
+                pnlFullTimeData.Enabled = true;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(EmpType.ToString());
+            MessageBox.Show(cmbRole.SelectedItem.ToString());
+        }
+
+        private void txtsalary_MouseLeave(object sender, EventArgs e)
+        {
+            double sal;
+            if (txtsalary.Text.Trim().Length > 0)
+            {
+                if (double.TryParse(txtsalary.Text, out sal))
+                {
+                    txtsalary.Text = string.Format("{0:0.00}", sal);
+                }
+            }
+        }
+
+        private void dtpEmploymentDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtStreet_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

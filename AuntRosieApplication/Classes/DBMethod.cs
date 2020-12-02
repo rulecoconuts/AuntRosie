@@ -17,14 +17,14 @@ namespace AuntRosieApplication.Classes
 {"Prince Edward Island", "PE" },
 {" Nova Scotia","NS" },
 {"New Brunswick","NB" },
-{" Quebec","QC" },
+{"Quebec","QC" },
 {"Ontario", "ON" },
-{" Manitoba","MB" },
+{"Manitoba","MB" },
 {"Saskatchewan", "SK" },
 {"Alberta","AB" },
-{" British Columbia","BC" },
+{"British Columbia","BC" },
 { "Yukon", "YT" },
-{" Northwest Territories","NT" },
+{"Northwest Territories","NT" },
 { "Nunavut","NU"}
             };
 
@@ -103,11 +103,14 @@ namespace AuntRosieApplication.Classes
 
  public  static string GetSelectedItemID(ComboBox cmb )
         {
-             
-            AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
-            Object obj = cmb.Items[cmb.SelectedIndex];
-            itm = (Classes.ListItem)obj;
-            return itm.id;
+            if (cmb.SelectedIndex > -1)
+            {
+                AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
+                Object obj = cmb.Items[cmb.SelectedIndex];
+                itm = (Classes.ListItem)obj;
+                return itm.id;
+            }
+            return null;
         }
 
         public  static void relocation(Panel pnl, Form frm)

@@ -17,8 +17,9 @@ namespace AuntRosieApplication.Inventory
         public static String OpStatus = null;
         public frmIngredients()
         {
+            this.DoubleBuffered = true; 
             InitializeComponent();
-            this.DoubleBuffered = true;
+           
         }
         protected override void OnPaint(PaintEventArgs e) { }
         protected override CreateParams CreateParams

@@ -1,6 +1,6 @@
 ﻿namespace AuntRosieApplication.Employment
 {
-    partial class frmManagEmp
+    partial class frmManageEmp
     {
         /// <summary>
         /// Required designer variable.
@@ -43,12 +43,12 @@
             this.lblName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtStreet = new System.Windows.Forms.TextBox();
-            this.txtPostalCode = new System.Windows.Forms.Label();
+            this.lblPostalCode = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.grpAdd = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtPostalCode = new System.Windows.Forms.MaskedTextBox();
             this.cmbProvinces = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnClose = new System.Windows.Forms.Button();
@@ -69,14 +69,14 @@
             this.radPartTime = new System.Windows.Forms.RadioButton();
             this.cmbRole = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlEmployeeName = new System.Windows.Forms.Panel();
             this.erPEmployeeForm = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpBasic.SuspendLayout();
             this.grpAdd.SuspendLayout();
             this.pnlButton.SuspendLayout();
             this.grPInfo.SuspendLayout();
             this.pnlFullTimeData.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlEmployeeName.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erPEmployeeForm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,12 +114,13 @@
             this.grpBasic.Controls.Add(this.label10);
             this.grpBasic.Controls.Add(this.label11);
             this.grpBasic.Controls.Add(this.txtLastName);
+            this.grpBasic.Enabled = false;
             this.grpBasic.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBasic.ForeColor = System.Drawing.Color.Goldenrod;
             this.grpBasic.Location = new System.Drawing.Point(33, 117);
             this.grpBasic.Name = "grpBasic";
             this.grpBasic.Size = new System.Drawing.Size(651, 167);
-            this.grpBasic.TabIndex = 60;
+            this.grpBasic.TabIndex = 0;
             this.grpBasic.TabStop = false;
             // 
             // txtPhone
@@ -131,7 +132,7 @@
             this.txtPhone.Mask = "(999)-000-0000";
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(353, 29);
-            this.txtPhone.TabIndex = 65;
+            this.txtPhone.TabIndex = 3;
             // 
             // txtEmail
             // 
@@ -140,7 +141,7 @@
             this.txtEmail.Location = new System.Drawing.Point(185, 133);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(353, 29);
-            this.txtEmail.TabIndex = 5;
+            this.txtEmail.TabIndex = 4;
             // 
             // txtFirstName
             // 
@@ -149,7 +150,7 @@
             this.txtFirstName.Location = new System.Drawing.Point(185, 28);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(353, 29);
-            this.txtFirstName.TabIndex = 2;
+            this.txtFirstName.TabIndex = 1;
             // 
             // label9
             // 
@@ -191,7 +192,7 @@
             this.txtLastName.Location = new System.Drawing.Point(185, 63);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(353, 29);
-            this.txtLastName.TabIndex = 3;
+            this.txtLastName.TabIndex = 2;
             // 
             // lblTitle
             // 
@@ -236,17 +237,18 @@
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(175, 29);
             this.txtStreet.TabIndex = 8;
+            this.txtStreet.TextChanged += new System.EventHandler(this.txtStreet_TextChanged);
             // 
-            // txtPostalCode
+            // lblPostalCode
             // 
-            this.txtPostalCode.AutoSize = true;
-            this.txtPostalCode.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPostalCode.ForeColor = System.Drawing.Color.Sienna;
-            this.txtPostalCode.Location = new System.Drawing.Point(6, 134);
-            this.txtPostalCode.Name = "txtPostalCode";
-            this.txtPostalCode.Size = new System.Drawing.Size(101, 23);
-            this.txtPostalCode.TabIndex = 48;
-            this.txtPostalCode.Text = "Postal Code";
+            this.lblPostalCode.AutoSize = true;
+            this.lblPostalCode.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPostalCode.ForeColor = System.Drawing.Color.Sienna;
+            this.lblPostalCode.Location = new System.Drawing.Point(6, 134);
+            this.lblPostalCode.Name = "lblPostalCode";
+            this.lblPostalCode.Size = new System.Drawing.Size(101, 23);
+            this.lblPostalCode.TabIndex = 48;
+            this.lblPostalCode.Text = "Postal Code";
             // 
             // label6
             // 
@@ -282,33 +284,34 @@
             // grpAdd
             // 
             this.grpAdd.BackColor = System.Drawing.Color.Transparent;
-            this.grpAdd.Controls.Add(this.maskedTextBox1);
-            this.grpAdd.Controls.Add(this.cmbProvinces);
             this.grpAdd.Controls.Add(this.txtPostalCode);
+            this.grpAdd.Controls.Add(this.cmbProvinces);
+            this.grpAdd.Controls.Add(this.lblPostalCode);
             this.grpAdd.Controls.Add(this.label3);
             this.grpAdd.Controls.Add(this.label6);
             this.grpAdd.Controls.Add(this.txtStreet);
             this.grpAdd.Controls.Add(this.label5);
             this.grpAdd.Controls.Add(this.txtCity);
+            this.grpAdd.Enabled = false;
             this.grpAdd.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpAdd.ForeColor = System.Drawing.Color.Goldenrod;
             this.grpAdd.Location = new System.Drawing.Point(33, 285);
             this.grpAdd.Name = "grpAdd";
             this.grpAdd.Size = new System.Drawing.Size(301, 197);
-            this.grpAdd.TabIndex = 59;
+            this.grpAdd.TabIndex = 5;
             this.grpAdd.TabStop = false;
             this.grpAdd.Text = "Address";
             // 
-            // maskedTextBox1
+            // txtPostalCode
             // 
-            this.maskedTextBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.maskedTextBox1.Enabled = false;
-            this.maskedTextBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(105, 134);
-            this.maskedTextBox1.Mask = "L0L0L0";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(175, 29);
-            this.maskedTextBox1.TabIndex = 67;
+            this.txtPostalCode.BackColor = System.Drawing.SystemColors.Info;
+            this.txtPostalCode.Enabled = false;
+            this.txtPostalCode.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPostalCode.Location = new System.Drawing.Point(105, 134);
+            this.txtPostalCode.Mask = "L0L0L0";
+            this.txtPostalCode.Name = "txtPostalCode";
+            this.txtPostalCode.Size = new System.Drawing.Size(175, 29);
+            this.txtPostalCode.TabIndex = 9;
             // 
             // cmbProvinces
             // 
@@ -321,7 +324,7 @@
             this.cmbProvinces.Location = new System.Drawing.Point(105, 17);
             this.cmbProvinces.Name = "cmbProvinces";
             this.cmbProvinces.Size = new System.Drawing.Size(175, 31);
-            this.cmbProvinces.TabIndex = 66;
+            this.cmbProvinces.TabIndex = 6;
             // 
             // btnClose
             // 
@@ -348,7 +351,7 @@
             this.btnClancel.Location = new System.Drawing.Point(250, 1);
             this.btnClancel.Name = "btnClancel";
             this.btnClancel.Size = new System.Drawing.Size(79, 61);
-            this.btnClancel.TabIndex = 13;
+            this.btnClancel.TabIndex = 20;
             this.toolTip1.SetToolTip(this.btnClancel, "Clear");
             this.btnClancel.UseVisualStyleBackColor = false;
             this.btnClancel.Click += new System.EventHandler(this.btnClancel_Click);
@@ -362,7 +365,7 @@
             this.btnNew.Location = new System.Drawing.Point(3, 1);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(79, 61);
-            this.btnNew.TabIndex = 9;
+            this.btnNew.TabIndex = 17;
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.btnNew, "New");
             this.btnNew.UseVisualStyleBackColor = false;
@@ -377,7 +380,7 @@
             this.btnEdit.Location = new System.Drawing.Point(88, 1);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(79, 61);
-            this.btnEdit.TabIndex = 10;
+            this.btnEdit.TabIndex = 18;
             this.toolTip1.SetToolTip(this.btnEdit, "Edit");
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -392,7 +395,7 @@
             this.btnSave.Location = new System.Drawing.Point(335, 1);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(79, 61);
-            this.btnSave.TabIndex = 12;
+            this.btnSave.TabIndex = 21;
             this.toolTip1.SetToolTip(this.btnSave, "Save");
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -406,7 +409,7 @@
             this.btnDelete.Location = new System.Drawing.Point(166, 2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(79, 61);
-            this.btnDelete.TabIndex = 11;
+            this.btnDelete.TabIndex = 19;
             this.toolTip1.SetToolTip(this.btnDelete, "Delete");
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -422,7 +425,7 @@
             this.pnlButton.Location = new System.Drawing.Point(146, 497);
             this.pnlButton.Name = "pnlButton";
             this.pnlButton.Size = new System.Drawing.Size(425, 66);
-            this.pnlButton.TabIndex = 62;
+            this.pnlButton.TabIndex = 16;
             // 
             // grPInfo
             // 
@@ -432,12 +435,13 @@
             this.grPInfo.Controls.Add(this.radPartTime);
             this.grPInfo.Controls.Add(this.cmbRole);
             this.grPInfo.Controls.Add(this.label12);
+            this.grPInfo.Enabled = false;
             this.grPInfo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grPInfo.ForeColor = System.Drawing.Color.Goldenrod;
             this.grPInfo.Location = new System.Drawing.Point(341, 285);
             this.grPInfo.Name = "grPInfo";
             this.grPInfo.Size = new System.Drawing.Size(339, 197);
-            this.grPInfo.TabIndex = 60;
+            this.grPInfo.TabIndex = 10;
             this.grPInfo.TabStop = false;
             this.grPInfo.Text = "Emploment Information";
             // 
@@ -482,7 +486,8 @@
             this.txtsalary.Location = new System.Drawing.Point(89, 9);
             this.txtsalary.Name = "txtsalary";
             this.txtsalary.Size = new System.Drawing.Size(148, 29);
-            this.txtsalary.TabIndex = 68;
+            this.txtsalary.TabIndex = 14;
+            this.txtsalary.MouseLeave += new System.EventHandler(this.txtsalary_MouseLeave);
             // 
             // dtpEmploymentDate
             // 
@@ -490,7 +495,8 @@
             this.dtpEmploymentDate.Location = new System.Drawing.Point(19, 66);
             this.dtpEmploymentDate.Name = "dtpEmploymentDate";
             this.dtpEmploymentDate.Size = new System.Drawing.Size(292, 26);
-            this.dtpEmploymentDate.TabIndex = 70;
+            this.dtpEmploymentDate.TabIndex = 15;
+            this.dtpEmploymentDate.ValueChanged += new System.EventHandler(this.dtpEmploymentDate_ValueChanged);
             // 
             // label2
             // 
@@ -512,7 +518,7 @@
             this.radFullTime.Location = new System.Drawing.Point(52, 23);
             this.radFullTime.Name = "radFullTime";
             this.radFullTime.Size = new System.Drawing.Size(97, 27);
-            this.radFullTime.TabIndex = 65;
+            this.radFullTime.TabIndex = 11;
             this.radFullTime.TabStop = true;
             this.radFullTime.Text = "Full Time";
             this.radFullTime.UseVisualStyleBackColor = true;
@@ -526,7 +532,7 @@
             this.radPartTime.Location = new System.Drawing.Point(171, 23);
             this.radPartTime.Name = "radPartTime";
             this.radPartTime.Size = new System.Drawing.Size(99, 27);
-            this.radPartTime.TabIndex = 64;
+            this.radPartTime.TabIndex = 12;
             this.radPartTime.Text = "Part Time";
             this.radPartTime.UseVisualStyleBackColor = true;
             this.radPartTime.CheckedChanged += new System.EventHandler(this.radPartTime_CheckedChanged);
@@ -542,7 +548,7 @@
             this.cmbRole.Location = new System.Drawing.Point(98, 58);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(222, 31);
-            this.cmbRole.TabIndex = 62;
+            this.cmbRole.TabIndex = 13;
             // 
             // label12
             // 
@@ -555,28 +561,30 @@
             this.label12.TabIndex = 43;
             this.label12.Text = "Role";
             // 
-            // panel1
+            // pnlEmployeeName
             // 
-            this.panel1.Controls.Add(this.lblName);
-            this.panel1.Controls.Add(this.cmbName);
-            this.panel1.Location = new System.Drawing.Point(33, 65);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(651, 46);
-            this.panel1.TabIndex = 64;
+            this.pnlEmployeeName.BackColor = System.Drawing.Color.Transparent;
+            this.pnlEmployeeName.Controls.Add(this.lblName);
+            this.pnlEmployeeName.Controls.Add(this.cmbName);
+            this.pnlEmployeeName.Location = new System.Drawing.Point(33, 65);
+            this.pnlEmployeeName.Name = "pnlEmployeeName";
+            this.pnlEmployeeName.Size = new System.Drawing.Size(651, 46);
+            this.pnlEmployeeName.TabIndex = 64;
+            this.pnlEmployeeName.Visible = false;
             // 
             // erPEmployeeForm
             // 
             this.erPEmployeeForm.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.erPEmployeeForm.ContainerControl = this;
             // 
-            // frmManagEmp
+            // frmManageEmp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(721, 588);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlEmployeeName);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.grPInfo);
@@ -586,7 +594,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Sienna;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmManagEmp";
+            this.Name = "frmManageEmp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageEmpForm";
             this.Load += new System.EventHandler(this.frmManagEmp_Load);
@@ -599,8 +607,8 @@
             this.grPInfo.PerformLayout();
             this.pnlFullTimeData.ResumeLayout(false);
             this.pnlFullTimeData.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlEmployeeName.ResumeLayout(false);
+            this.pnlEmployeeName.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erPEmployeeForm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -621,7 +629,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtStreet;
-        private System.Windows.Forms.Label txtPostalCode;
+        private System.Windows.Forms.Label lblPostalCode;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCity;
@@ -639,10 +647,10 @@
         private System.Windows.Forms.RadioButton radPartTime;
         private System.Windows.Forms.ComboBox cmbRole;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlEmployeeName;
         private System.Windows.Forms.MaskedTextBox txtPhone;
         private System.Windows.Forms.ComboBox cmbProvinces;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txtPostalCode;
         private System.Windows.Forms.ErrorProvider erPEmployeeForm;
         private System.Windows.Forms.Panel pnlFullTimeData;
         private System.Windows.Forms.Label label7;

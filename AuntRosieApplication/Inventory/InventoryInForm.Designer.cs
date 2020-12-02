@@ -67,16 +67,7 @@
             this.cmbName = new System.Windows.Forms.ComboBox();
             this.lblName = new System.Windows.Forms.Label();
             this.pnlButton = new System.Windows.Forms.Panel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.errIngredientType = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errIngredientName = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errSupplierName = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errQuantity = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errUnit = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errCost = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errPurchaseDate = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errEpiryDate = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorPayment = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errInventoryIn = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlNewType = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -90,15 +81,7 @@
             this.pnlMain.SuspendLayout();
             this.pnlSubMain.SuspendLayout();
             this.pnlButton.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errIngredientType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errIngredientName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errSupplierName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errUnit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errCost)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errPurchaseDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errEpiryDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errInventoryIn)).BeginInit();
             this.pnlNewType.SuspendLayout();
             this.pnlNewIngredint.SuspendLayout();
             this.SuspendLayout();
@@ -413,7 +396,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Sienna;
-            this.label6.Location = new System.Drawing.Point(-5, 232);
+            this.label6.Location = new System.Drawing.Point(3, 232);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(166, 22);
             this.label6.TabIndex = 119;
@@ -564,55 +547,10 @@
             this.pnlButton.Size = new System.Drawing.Size(251, 67);
             this.pnlButton.TabIndex = 9;
             // 
-            // contextMenuStrip1
+            // errInventoryIn
             // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // errIngredientType
-            // 
-            this.errIngredientType.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errIngredientType.ContainerControl = this;
-            // 
-            // errIngredientName
-            // 
-            this.errIngredientName.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errIngredientName.ContainerControl = this;
-            // 
-            // errSupplierName
-            // 
-            this.errSupplierName.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errSupplierName.ContainerControl = this;
-            // 
-            // errQuantity
-            // 
-            this.errQuantity.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errQuantity.ContainerControl = this;
-            // 
-            // errUnit
-            // 
-            this.errUnit.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errUnit.ContainerControl = this;
-            // 
-            // errCost
-            // 
-            this.errCost.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errCost.ContainerControl = this;
-            // 
-            // errPurchaseDate
-            // 
-            this.errPurchaseDate.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errPurchaseDate.ContainerControl = this;
-            // 
-            // errEpiryDate
-            // 
-            this.errEpiryDate.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errEpiryDate.ContainerControl = this;
-            // 
-            // errorPayment
-            // 
-            this.errorPayment.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorPayment.ContainerControl = this;
+            this.errInventoryIn.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errInventoryIn.ContainerControl = this;
             // 
             // pnlNewType
             // 
@@ -771,15 +709,7 @@
             this.pnlSubMain.ResumeLayout(false);
             this.pnlSubMain.PerformLayout();
             this.pnlButton.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errIngredientType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errIngredientName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errSupplierName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errUnit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errCost)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errPurchaseDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errEpiryDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errInventoryIn)).EndInit();
             this.pnlNewType.ResumeLayout(false);
             this.pnlNewType.PerformLayout();
             this.pnlNewIngredint.ResumeLayout(false);
@@ -814,16 +744,7 @@
         private System.Windows.Forms.ComboBox cmbNewtype;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button btnAddType;
-        private System.Windows.Forms.ErrorProvider errIngredientType;
-        private System.Windows.Forms.ErrorProvider errIngredientName;
-        private System.Windows.Forms.ErrorProvider errSupplierName;
-        private System.Windows.Forms.ErrorProvider errQuantity;
-        private System.Windows.Forms.ErrorProvider errUnit;
-        private System.Windows.Forms.ErrorProvider errCost;
-        private System.Windows.Forms.ErrorProvider errPurchaseDate;
-        private System.Windows.Forms.ErrorProvider errEpiryDate;
         private System.Windows.Forms.Panel pnlSubMain;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.TextBox txtCost;
@@ -846,6 +767,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbName;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.ErrorProvider errorPayment;
+        private System.Windows.Forms.ErrorProvider errInventoryIn;
     }
 }

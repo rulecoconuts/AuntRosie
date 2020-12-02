@@ -108,13 +108,14 @@
             this.grdStock.AllowUserToAddRows = false;
             this.grdStock.AllowUserToDeleteRows = false;
             this.grdStock.AllowUserToOrderColumns = true;
-            this.grdStock.BackgroundColor = System.Drawing.Color.FloralWhite;
+            this.grdStock.BackgroundColor = System.Drawing.SystemColors.Info;
             this.grdStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdStock.Location = new System.Drawing.Point(45, 309);
+            this.grdStock.Location = new System.Drawing.Point(56, 289);
             this.grdStock.Name = "grdStock";
             this.grdStock.ReadOnly = true;
-            this.grdStock.Size = new System.Drawing.Size(832, 305);
+            this.grdStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdStock.Size = new System.Drawing.Size(810, 294);
             this.grdStock.TabIndex = 6;
             this.grdStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -123,9 +124,9 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnDestroy);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(717, 236);
+            this.panel1.Location = new System.Drawing.Point(731, 223);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(157, 67);
+            this.panel1.Size = new System.Drawing.Size(135, 58);
             this.panel1.TabIndex = 3;
             // 
             // btnDestroy
@@ -134,7 +135,7 @@
             this.btnDestroy.Enabled = false;
             this.btnDestroy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDestroy.Image = global::AuntRosieApplication.Properties.Resources.full_trash;
-            this.btnDestroy.Location = new System.Drawing.Point(22, 3);
+            this.btnDestroy.Location = new System.Drawing.Point(3, 3);
             this.btnDestroy.Name = "btnDestroy";
             this.btnDestroy.Size = new System.Drawing.Size(63, 55);
             this.btnDestroy.TabIndex = 22;
@@ -147,7 +148,7 @@
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::AuntRosieApplication.Properties.Resources.print;
-            this.button1.Location = new System.Drawing.Point(91, 3);
+            this.button1.Location = new System.Drawing.Point(72, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(63, 55);
             this.button1.TabIndex = 23;

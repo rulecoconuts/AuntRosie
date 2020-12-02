@@ -30,9 +30,9 @@ namespace AuntRosieApplication.Inventory
             }
         }
         public frmSupplier()
-        {
+        { this.DoubleBuffered = true;
             InitializeComponent();
-            this.DoubleBuffered = true;
+           
         }
         protected override void OnPaint(PaintEventArgs e) { }
         protected override CreateParams CreateParams

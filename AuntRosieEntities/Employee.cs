@@ -11,10 +11,12 @@ namespace AuntRosieEntities
         private long id;
         private string type;
         private string role;
-        private Address address;
+        private Address address = new Address();
         private string email;
         private string phone;
         private static SqlCommand createPrepCmd = null;
+        private double salary;
+        private DateTime  employmentDate;
 
         /// <summary>
         /// Prepared statement to retrieve ingredient type by id
@@ -40,17 +42,34 @@ namespace AuntRosieEntities
         public string PostalCode { get => address.PostalCode; set => address.PostalCode = value; }
         public string Role { get => role; set => role = value; }
         public string Type { get => type ; set => type = value; }
+        public double Salary { get => salary; set => salary = value; }
+        public DateTime EmploymentDate{ get => employmentDate; set => employmentDate = value; }
 
         public override void Create(SqlTransaction transaction = null)
         {
             if (createPrepCmd is null)
             {
                 createPrepCmd = new SqlCommand(null, Connector.Connection);
-                createPrepCmd.CommandText = "insert into [tblEmployee]([EmployeeFirstName],[EmployeeLastName],[EmployeePhone]" +
-                    ",[EmployeeProvince],[EmployeeCity],[EmployeeStreet],[EmployeePostalCode], [EmployeeEmail] ,[EmployeeRole],[EmployeeType]) " +
-                    "values ( @fname, @lname,@phone," +
-                    "@province, @city,@street,@postal,@email,@rol, @type)";
-
+                if (Type == "F")
+                {
+                    createPrepCmd.CommandText = "insert into [tblEmployee]([EmployeeFirstName],[EmployeeLastName],[EmployeePhone]" +
+                      ",[EmployeeProvince],[EmployeeCity],[EmployeeStreet],[EmployeePostalCode]," +
+                      " [EmployeeEmail] ,[EmployeeRole],[EmployeeType],[EmploymentDate],[EmployeeSalary]) " +
+                      "values ( @fname, @lname,@phone, @province, @city,@street,@postal,@email,@role, @type,@date,@sal)";
+                    SqlParameter salParam = new SqlParameter("@sal", SqlDbType.Money, 20);
+                    salParam.Value = Salary;
+                    createPrepCmd.Parameters.Add(salParam);
+                    SqlParameter dateParam = new SqlParameter("@date", SqlDbType.Date);
+                    dateParam.Value = EmploymentDate;
+                    createPrepCmd.Parameters.Add(dateParam);
+                }
+                else
+                {
+                    createPrepCmd.CommandText = "insert into [tblEmployee]([EmployeeFirstName],[EmployeeLastName],[EmployeePhone]" +
+                                          ",[EmployeeProvince],[EmployeeCity],[EmployeeStreet],[EmployeePostalCode], [EmployeeEmail] ,[EmployeeRole],[EmployeeType]) " +
+                                          "values ( @fname, @lname,@phone," +
+                                          "@province, @city,@street,@postal,@email,@role, @type)";
+                }
 
                 SqlParameter fNameParam = new SqlParameter("@fname", SqlDbType.VarChar, 50);
                 fNameParam.Value = FirstName;
@@ -85,11 +104,11 @@ namespace AuntRosieEntities
                 createPrepCmd.Parameters.Add(postalParam);
 
                 SqlParameter roleParam = new SqlParameter("@role", SqlDbType.VarChar, 50);
-                roleParam.Value = PostalCode;
+                roleParam.Value = Role;
                 createPrepCmd.Parameters.Add(roleParam);
 
                 SqlParameter typeParam = new SqlParameter("@type", SqlDbType.VarChar, 1);
-                typeParam.Value = PostalCode;
+                typeParam.Value = Type;
                 createPrepCmd.Parameters.Add(typeParam);
 
 
@@ -109,6 +128,13 @@ namespace AuntRosieEntities
                 createPrepCmd.Parameters["@posal"].Value = PostalCode;
                 createPrepCmd.Parameters["@role"].Value = Role;
                 createPrepCmd.Parameters["@type"].Value = Type;
+
+                if(Type=="F")
+                {
+                    createPrepCmd.Parameters["@date"].Value = EmploymentDate;
+                    createPrepCmd.Parameters["@sal"].Value = Salary;
+
+                }
             }
 
             id = Convert.ToInt16(Connector.Insert(createPrepCmd, true, transaction));
@@ -121,7 +147,7 @@ namespace AuntRosieEntities
             if (deletePrepCmd is null)
             {
                 deletePrepCmd = new SqlCommand(null, Connector.Connection);
-                deletePrepCmd.CommandText = "delete from [tblEmployee] where [SupplierID] = @ID";
+                deletePrepCmd.CommandText = "delete from [tblEmployee] where [EmployeeID] = @ID";
 
 
                 SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
@@ -140,7 +166,7 @@ namespace AuntRosieEntities
         }
         ///
         /// <summary>
-        /// Get suppliers
+        /// Get Employee
         /// </summary>
         /// <param name="conStr"></param>
         /// <returns></returns>
@@ -175,17 +201,73 @@ namespace AuntRosieEntities
             return IngredintTypeTable;
         }
 
+        ///
+        /// <summary>
+        /// Get Employee
+        /// </summary>
+        /// <param name="conStr"></param>
+        /// <returns></returns>
+        public static DataTable GetAllEmployeesByType(String conStr, string emptype)
+        {
+            // Declare the connection
+            SqlConnection dbConnection = new SqlConnection(conStr);
+
+            // Create new SQL command
+            SqlCommand command = new SqlCommand("SELECT * FROM [tblEmployee] where (EmployeeType= '" +  emptype.Trim()+ "')", dbConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            // Declare a DataTable object that will hold the return value
+            DataTable IngredintTypeTable = new DataTable();
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                adapter.Fill(IngredintTypeTable);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+            // Return the populated DataTable
+            return IngredintTypeTable;
+        }
         public override void Update(SqlTransaction transaction = null)
         {
             if (updatePrepCmd is null)
             {
 
             updatePrepCmd = new SqlCommand(null, Connector.Connection);
-                updatePrepCmd.CommandText = "update [tblEmployee] set" +
-                    "[EmployeeFirstName]=@fname,[EmployeeLastName]= @lname," +
-                    "[EmployeePhone]=@phone,[EmployeeProvince]=@province,[EmployeeCity]=@city,[EmployeeStreet]=@street ," +
-                    "[EmployeePostalCode]=@postal,[EmployeeEmail] =@email ," +
-                    " EmployeeRole]=@role,[EmployeeType]=@type  where [SupplierID] = @id";
+                if (Type == "F")
+                {
+                    
+                    updatePrepCmd.CommandText = "update [tblEmployee] set" +
+                        "[EmployeeFirstName]=@fname,[EmployeeLastName]= @lname," +
+                        "[EmployeePhone]=@phone,[EmployeeProvince]=@province,[EmployeeCity]=@city,[EmployeeStreet]=@street ," +
+                        "[EmployeePostalCode]=@postal,[EmployeeEmail] =@email ," +
+                        " EmployeeRole]=@role,[EmployeeType]=@type ,[EmploymentDate]=@date, [EmployeeSalary]=@sal   where [EmployeerID] = @id";
+                    SqlParameter salParam = new SqlParameter("@sal", SqlDbType.Money, 20);
+                    salParam.Value = Salary;
+                    createPrepCmd.Parameters.Add(salParam);
+                    SqlParameter dateParam = new SqlParameter("@date", SqlDbType.Date);
+                    dateParam.Value = EmploymentDate;
+                    createPrepCmd.Parameters.Add(dateParam);
+
+                }
+                else
+                {
+                    updatePrepCmd.CommandText = "update [tblEmployee] set" +
+                        "[EmployeeFirstName]=@fname,[EmployeeLastName]= @lname," +
+                        "[EmployeePhone]=@phone,[EmployeeProvince]=@province,[EmployeeCity]=@city,[EmployeeStreet]=@street ," +
+                        "[EmployeePostalCode]=@postal,[EmployeeEmail] =@email ," +
+                        " EmployeeRole]=@role,[EmployeeType]=@type  where [EmployeerID] = @id";
+
+                }
 
 
                 SqlParameter fNameParam = new SqlParameter("@fname", SqlDbType.VarChar, 50);
@@ -221,11 +303,11 @@ namespace AuntRosieEntities
                 updatePrepCmd.Parameters.Add(postalParam);
 
                 SqlParameter roleParam = new SqlParameter("@role", SqlDbType.VarChar, 50);
-                roleParam.Value = PostalCode;
+                roleParam.Value = Role;
                 createPrepCmd.Parameters.Add(roleParam);
 
                 SqlParameter typeParam = new SqlParameter("@type", SqlDbType.VarChar, 1);
-                typeParam.Value = PostalCode;
+                typeParam.Value = Type;
                 createPrepCmd.Parameters.Add(typeParam);
 
                 SqlParameter idParam = new SqlParameter("@id", SqlDbType.BigInt, 0);
@@ -247,6 +329,12 @@ namespace AuntRosieEntities
                 createPrepCmd.Parameters["@role"].Value = Role;
                 createPrepCmd.Parameters["@type"].Value = Type;
                 updatePrepCmd.Parameters["@id"].Value = Id;
+                if (Type == "F")
+                {
+                    createPrepCmd.Parameters["@date"].Value = EmploymentDate;
+                    createPrepCmd.Parameters["@sal"].Value = Salary;
+
+                }
             }
 
             Connector.Update(updatePrepCmd, transaction);
@@ -267,7 +355,7 @@ namespace AuntRosieEntities
                 retrieveIdPrepCmd = new SqlCommand(null, Connector.Connection);
                 retrieveIdPrepCmd.CommandText = "select [EmployeeFirstName],[EmployeeLastName],[EmployeePhone]" +
                     ",[EmployeeProvince],[EmployeeCity],[EmployeeStreet],[EmployeePostalCode]," +
-                    " [EmployeeEmail] ,[EmployeeRole],[EmployeeType] from [tblEmployee]  where [SupplierID] = @id";
+                    " [EmployeeEmail] ,[EmployeeRole],[EmployeeType],[EmploymentDate],[EmployeeSalary] from [tblEmployee]  where [EmployeeID] = @id";
 
 
 
@@ -299,6 +387,13 @@ namespace AuntRosieEntities
                 emp.Email = reader.GetString(7);
                 emp.Role = reader.GetString(8);
                 emp.Type = reader.GetString(9);
+                if (emp.type == "F")
+                {
+                    emp.EmploymentDate = reader.GetDateTime(10).Date;
+                    //string retriveSal = reader.GetString(11);
+                    //emp.Salary =Convert.ToDouble(retriveSal)  ;
+                    emp.Salary = Convert.ToDouble(reader.GetDecimal(11));
+                }
 
             }
 
