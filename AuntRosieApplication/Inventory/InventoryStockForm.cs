@@ -100,11 +100,19 @@ namespace AuntRosieApplication.Inventory
 
         private void cmbName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            string wherSQLCmmand = " and  tblIngredientInventory.IngredientID= " + DBMethod.GetSelectedItemID(cmbName) + " ";
-            FillGridStock(SelectSQLCmmand + wherSQLCmmand + OrderSQLCmmand);
-            chkAllIngrdient.Checked = false;
-            GetQuantity();
+
+            try
+            {
+                string wherSQLCmmand = " and  tblIngredientInventory.IngredientID= " + DBMethod.GetSelectedItemID(cmbName) + " ";
+                FillGridStock(SelectSQLCmmand + wherSQLCmmand + OrderSQLCmmand);
+                chkAllIngrdient.Checked = false;
+                GetQuantity();
+            }
+            catch (Exception ex)
+            {
+
+
+            }
 
         }
         private void FillGridStock( string sql)

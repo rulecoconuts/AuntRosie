@@ -166,7 +166,7 @@ namespace AuntRosieApplication.Inventory
         private void btnNewTypeCancel_Click(object sender, EventArgs e)
         {
             pnlNewType.Visible = false;
-           
+            pnlNewIngredint.Visible = true;
         }
 
         private void txtxNewType_TextChanged(object sender, EventArgs e)
@@ -183,6 +183,7 @@ namespace AuntRosieApplication.Inventory
 
         private void btnNewTypetSave_Click(object sender, EventArgs e)
         {
+            pnlNewIngredint.Visible = true;
             IngredientType newType = new IngredientType();
             if (txtxNewType.Text.Length >= 3)
             {
@@ -289,6 +290,7 @@ namespace AuntRosieApplication.Inventory
 
         private void button1_Click(object sender, EventArgs e)
         {
+            pnlNewIngredint.Visible = false;
             ViewPanel( pnlNewType);
         }
 
@@ -311,8 +313,9 @@ namespace AuntRosieApplication.Inventory
                     DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
                     RosieEntity.Connector = conn;
                     InsertInventoryIngredient.Create();
+                    clearData();
                     MessageBox.Show("The ingredient quantity has successfully stocked into the inventory", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    
                 }
                 catch (Exception ex)
                 {
@@ -387,17 +390,7 @@ namespace AuntRosieApplication.Inventory
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            btnNew.Enabled = true;
-            btnNew.Focus();
-            pnlSubMain.Enabled = false;
-            cmbName.SelectedItem = null;
-            cmbType.SelectedItem = null;
-            cmbSupplier.SelectedItem = null;
-            txtQuantity.Text = string.Empty;
-            txtCost.Text = string.Empty;
-            cmbPaymentMethod.SelectedItem = null;
-            dtpPurchaseDate.Value = DateTime.Today;
-            dtpExpiryDate.Value = DateTime.Today;
+            clearData();
 
 
 
@@ -433,7 +426,25 @@ namespace AuntRosieApplication.Inventory
             }
 
         }
+         private void clearData()
+        {
+            btnNew.Enabled = true;
+            btnNew.Focus();
+            pnlSubMain.Enabled = false;
+            cmbName.SelectedItem = null;
+            cmbType.SelectedItem = null;
+            cmbSupplier.SelectedItem = null;
+            txtQuantity.Text = string.Empty;
+            txtCost.Text = string.Empty;
+            cmbPaymentMethod.SelectedItem = null;
+            dtpPurchaseDate.Value = DateTime.Today;
+            dtpExpiryDate.Value = DateTime.Today;
+            btnCancel.Enabled = false;
+            btnSave.Enabled = false;
 
+
+
+        }
         private void pnlNewIngredint_Paint(object sender, PaintEventArgs e)
         {
 

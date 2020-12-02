@@ -78,12 +78,14 @@
             this.txtstoringNote = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.auntRosieDBDataSet1 = new AuntRosieApplication.AuntRosieDBDataSet();
             this.pnlMain.SuspendLayout();
             this.pnlSubMain.SuspendLayout();
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errInventoryIn)).BeginInit();
             this.pnlNewType.SuspendLayout();
             this.pnlNewIngredint.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -115,7 +117,6 @@
             // btnNewTypetSave
             // 
             this.btnNewTypetSave.BackColor = System.Drawing.Color.Transparent;
-            this.btnNewTypetSave.Enabled = false;
             this.btnNewTypetSave.FlatAppearance.BorderSize = 0;
             this.btnNewTypetSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewTypetSave.Image = global::AuntRosieApplication.Properties.Resources.save;
@@ -554,14 +555,14 @@
             // 
             // pnlNewType
             // 
-            this.pnlNewType.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+            this.pnlNewType.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlNewType.BackgroundImage")));
             this.pnlNewType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlNewType.Controls.Add(this.label12);
             this.pnlNewType.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewType.Controls.Add(this.btnNewTypetSave);
             this.pnlNewType.Controls.Add(this.label11);
             this.pnlNewType.Controls.Add(this.txtxNewType);
-            this.pnlNewType.Location = new System.Drawing.Point(12, 328);
+            this.pnlNewType.Location = new System.Drawing.Point(12, 17);
             this.pnlNewType.Name = "pnlNewType";
             this.pnlNewType.Size = new System.Drawing.Size(379, 245);
             this.pnlNewType.TabIndex = 22;
@@ -606,7 +607,7 @@
             // pnlNewIngredint
             // 
             this.pnlNewIngredint.BackColor = System.Drawing.Color.LemonChiffon;
-            this.pnlNewIngredint.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+            this.pnlNewIngredint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlNewIngredint.BackgroundImage")));
             this.pnlNewIngredint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlNewIngredint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlNewIngredint.Controls.Add(this.btnAddType);
@@ -619,7 +620,7 @@
             this.pnlNewIngredint.Controls.Add(this.btnNewIngredintSave);
             this.pnlNewIngredint.Controls.Add(this.label14);
             this.pnlNewIngredint.Controls.Add(this.txtNewIngredintName);
-            this.pnlNewIngredint.Location = new System.Drawing.Point(583, 389);
+            this.pnlNewIngredint.Location = new System.Drawing.Point(171, 12);
             this.pnlNewIngredint.Name = "pnlNewIngredint";
             this.pnlNewIngredint.Size = new System.Drawing.Size(403, 296);
             this.pnlNewIngredint.TabIndex = 16;
@@ -687,6 +688,11 @@
             this.label14.TabIndex = 103;
             this.label14.Text = "Name";
             // 
+            // auntRosieDBDataSet1
+            // 
+            this.auntRosieDBDataSet1.DataSetName = "AuntRosieDBDataSet";
+            this.auntRosieDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // InventoryInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -694,8 +700,8 @@
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(609, 569);
-            this.Controls.Add(this.pnlNewIngredint);
             this.Controls.Add(this.pnlNewType);
+            this.Controls.Add(this.pnlNewIngredint);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
@@ -714,6 +720,7 @@
             this.pnlNewType.PerformLayout();
             this.pnlNewIngredint.ResumeLayout(false);
             this.pnlNewIngredint.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -768,5 +775,6 @@
         private System.Windows.Forms.ComboBox cmbName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.ErrorProvider errInventoryIn;
+        private AuntRosieDBDataSet auntRosieDBDataSet1;
     }
 }
