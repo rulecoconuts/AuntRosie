@@ -18,8 +18,8 @@ namespace AuntRosieApplication
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmLogin());
             Application.Run(new AuntRosieApp.frmHome());
-        
-        // Application.Run(new  AuntRosieApplication.Inventory.frmInventoryStock());
-    }
+
+            // Application.Run(new  AuntRosieApplication.Inventory.frmInventoryStock());
+        }
     }
 }
