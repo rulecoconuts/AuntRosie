@@ -47,6 +47,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlSubMain = new System.Windows.Forms.Panel();
+            this.lblUnit = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtCost = new System.Windows.Forms.TextBox();
             this.dtpExpiryDate = new System.Windows.Forms.DateTimePicker();
@@ -57,9 +58,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbUnit = new System.Windows.Forms.ComboBox();
             this.cmbSupplier = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbType = new System.Windows.Forms.ComboBox();
@@ -67,6 +66,8 @@
             this.cmbName = new System.Windows.Forms.ComboBox();
             this.lblName = new System.Windows.Forms.Label();
             this.pnlButton = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbUnit = new System.Windows.Forms.ComboBox();
             this.errInventoryIn = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlNewType = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -135,9 +136,9 @@
             this.btnAddType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAddType.FlatAppearance.BorderSize = 0;
             this.btnAddType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddType.Location = new System.Drawing.Point(344, 98);
+            this.btnAddType.Location = new System.Drawing.Point(348, 96);
             this.btnAddType.Name = "btnAddType";
-            this.btnAddType.Size = new System.Drawing.Size(29, 31);
+            this.btnAddType.Size = new System.Drawing.Size(35, 31);
             this.btnAddType.TabIndex = 19;
             this.toolTip1.SetToolTip(this.btnAddType, "Add new  Ingredient Type");
             this.btnAddType.UseVisualStyleBackColor = false;
@@ -160,7 +161,7 @@
             this.btnNewIngredintCancel.FlatAppearance.BorderSize = 0;
             this.btnNewIngredintCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewIngredintCancel.Image = global::AuntRosieApplication.Properties.Resources.eraser;
-            this.btnNewIngredintCancel.Location = new System.Drawing.Point(219, 213);
+            this.btnNewIngredintCancel.Location = new System.Drawing.Point(231, 258);
             this.btnNewIngredintCancel.Name = "btnNewIngredintCancel";
             this.btnNewIngredintCancel.Size = new System.Drawing.Size(63, 55);
             this.btnNewIngredintCancel.TabIndex = 22;
@@ -174,7 +175,7 @@
             this.btnNewIngredintSave.FlatAppearance.BorderSize = 0;
             this.btnNewIngredintSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewIngredintSave.Image = global::AuntRosieApplication.Properties.Resources.save;
-            this.btnNewIngredintSave.Location = new System.Drawing.Point(141, 213);
+            this.btnNewIngredintSave.Location = new System.Drawing.Point(163, 258);
             this.btnNewIngredintSave.Name = "btnNewIngredintSave";
             this.btnNewIngredintSave.Size = new System.Drawing.Size(63, 55);
             this.btnNewIngredintSave.TabIndex = 21;
@@ -293,6 +294,7 @@
             // 
             // pnlSubMain
             // 
+            this.pnlSubMain.Controls.Add(this.lblUnit);
             this.pnlSubMain.Controls.Add(this.txtQuantity);
             this.pnlSubMain.Controls.Add(this.txtCost);
             this.pnlSubMain.Controls.Add(this.dtpExpiryDate);
@@ -303,10 +305,8 @@
             this.pnlSubMain.Controls.Add(this.label6);
             this.pnlSubMain.Controls.Add(this.label3);
             this.pnlSubMain.Controls.Add(this.label5);
-            this.pnlSubMain.Controls.Add(this.label8);
             this.pnlSubMain.Controls.Add(this.label7);
             this.pnlSubMain.Controls.Add(this.btnAddIngredint);
-            this.pnlSubMain.Controls.Add(this.cmbUnit);
             this.pnlSubMain.Controls.Add(this.btnAddSupplier);
             this.pnlSubMain.Controls.Add(this.cmbSupplier);
             this.pnlSubMain.Controls.Add(this.label2);
@@ -319,13 +319,24 @@
             this.pnlSubMain.Size = new System.Drawing.Size(528, 358);
             this.pnlSubMain.TabIndex = 100;
             // 
+            // lblUnit
+            // 
+            this.lblUnit.AutoSize = true;
+            this.lblUnit.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblUnit.ForeColor = System.Drawing.Color.Sienna;
+            this.lblUnit.Location = new System.Drawing.Point(413, 156);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(25, 22);
+            this.lblUnit.TabIndex = 122;
+            this.lblUnit.Text = "...";
+            // 
             // txtQuantity
             // 
             this.txtQuantity.BackColor = System.Drawing.SystemColors.Info;
             this.txtQuantity.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtQuantity.Location = new System.Drawing.Point(183, 153);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(100, 29);
+            this.txtQuantity.Size = new System.Drawing.Size(224, 29);
             this.txtQuantity.TabIndex = 4;
             this.txtQuantity.Leave += new System.EventHandler(this.txtQuantity_Leave);
             // 
@@ -426,17 +437,6 @@
             this.label5.TabIndex = 117;
             this.label5.Text = "Cost";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.Sienna;
-            this.label8.Location = new System.Drawing.Point(307, 155);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 22);
-            this.label8.TabIndex = 113;
-            this.label8.Text = "Unit";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -447,28 +447,6 @@
             this.label7.Size = new System.Drawing.Size(88, 22);
             this.label7.TabIndex = 112;
             this.label7.Text = "Quantity";
-            // 
-            // cmbUnit
-            // 
-            this.cmbUnit.AutoCompleteCustomSource.AddRange(new string[] {
-            "Pies",
-            "Preserves"});
-            this.cmbUnit.BackColor = System.Drawing.SystemColors.Info;
-            this.cmbUnit.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbUnit.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cmbUnit.FormattingEnabled = true;
-            this.cmbUnit.Items.AddRange(new object[] {
-            "Kg",
-            "g",
-            "ml",
-            "L",
-            "lb",
-            "oz",
-            "item"});
-            this.cmbUnit.Location = new System.Drawing.Point(359, 151);
-            this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Size = new System.Drawing.Size(112, 31);
-            this.cmbUnit.TabIndex = 5;
             // 
             // cmbSupplier
             // 
@@ -526,6 +504,7 @@
             this.cmbName.Name = "cmbName";
             this.cmbName.Size = new System.Drawing.Size(235, 31);
             this.cmbName.TabIndex = 2;
+            this.cmbName.SelectedIndexChanged += new System.EventHandler(this.cmbName_SelectedIndexChanged);
             // 
             // lblName
             // 
@@ -548,6 +527,40 @@
             this.pnlButton.Size = new System.Drawing.Size(251, 67);
             this.pnlButton.TabIndex = 9;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.Sienna;
+            this.label8.Location = new System.Drawing.Point(63, 144);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 22);
+            this.label8.TabIndex = 113;
+            this.label8.Text = "Unit";
+            // 
+            // cmbUnit
+            // 
+            this.cmbUnit.AutoCompleteCustomSource.AddRange(new string[] {
+            "Pies",
+            "Preserves"});
+            this.cmbUnit.BackColor = System.Drawing.SystemColors.Info;
+            this.cmbUnit.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUnit.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cmbUnit.FormattingEnabled = true;
+            this.cmbUnit.Items.AddRange(new object[] {
+            "Kg",
+            "g",
+            "ml",
+            "L",
+            "lb",
+            "oz",
+            "item"});
+            this.cmbUnit.Location = new System.Drawing.Point(132, 133);
+            this.cmbUnit.Name = "cmbUnit";
+            this.cmbUnit.Size = new System.Drawing.Size(112, 31);
+            this.cmbUnit.TabIndex = 5;
+            // 
             // errInventoryIn
             // 
             this.errInventoryIn.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
@@ -555,14 +568,14 @@
             // 
             // pnlNewType
             // 
-            this.pnlNewType.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlNewType.BackgroundImage")));
+            this.pnlNewType.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             this.pnlNewType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlNewType.Controls.Add(this.label12);
             this.pnlNewType.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewType.Controls.Add(this.btnNewTypetSave);
             this.pnlNewType.Controls.Add(this.label11);
             this.pnlNewType.Controls.Add(this.txtxNewType);
-            this.pnlNewType.Location = new System.Drawing.Point(12, 17);
+            this.pnlNewType.Location = new System.Drawing.Point(292, 4);
             this.pnlNewType.Name = "pnlNewType";
             this.pnlNewType.Size = new System.Drawing.Size(379, 245);
             this.pnlNewType.TabIndex = 22;
@@ -607,7 +620,7 @@
             // pnlNewIngredint
             // 
             this.pnlNewIngredint.BackColor = System.Drawing.Color.LemonChiffon;
-            this.pnlNewIngredint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlNewIngredint.BackgroundImage")));
+            this.pnlNewIngredint.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             this.pnlNewIngredint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlNewIngredint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlNewIngredint.Controls.Add(this.btnAddType);
@@ -620,9 +633,11 @@
             this.pnlNewIngredint.Controls.Add(this.btnNewIngredintSave);
             this.pnlNewIngredint.Controls.Add(this.label14);
             this.pnlNewIngredint.Controls.Add(this.txtNewIngredintName);
-            this.pnlNewIngredint.Location = new System.Drawing.Point(171, 12);
+            this.pnlNewIngredint.Controls.Add(this.label8);
+            this.pnlNewIngredint.Controls.Add(this.cmbUnit);
+            this.pnlNewIngredint.Location = new System.Drawing.Point(12, 94);
             this.pnlNewIngredint.Name = "pnlNewIngredint";
-            this.pnlNewIngredint.Size = new System.Drawing.Size(403, 296);
+            this.pnlNewIngredint.Size = new System.Drawing.Size(465, 337);
             this.pnlNewIngredint.TabIndex = 16;
             this.pnlNewIngredint.Visible = false;
             this.pnlNewIngredint.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlNewIngredint_Paint);
@@ -647,7 +662,7 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.Sienna;
-            this.label16.Location = new System.Drawing.Point(54, 130);
+            this.label16.Location = new System.Drawing.Point(65, 177);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(136, 22);
             this.label16.TabIndex = 105;
@@ -658,10 +673,10 @@
             this.txtstoringNote.BackColor = System.Drawing.SystemColors.Info;
             this.txtstoringNote.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtstoringNote.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtstoringNote.Location = new System.Drawing.Point(58, 157);
+            this.txtstoringNote.Location = new System.Drawing.Point(133, 202);
             this.txtstoringNote.Multiline = true;
             this.txtstoringNote.Name = "txtstoringNote";
-            this.txtstoringNote.Size = new System.Drawing.Size(315, 50);
+            this.txtstoringNote.Size = new System.Drawing.Size(234, 50);
             this.txtstoringNote.TabIndex = 20;
             // 
             // label15
@@ -670,7 +685,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.Sienna;
-            this.label15.Location = new System.Drawing.Point(54, 93);
+            this.label15.Location = new System.Drawing.Point(63, 105);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(56, 22);
             this.label15.TabIndex = 102;
@@ -682,7 +697,7 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.Sienna;
-            this.label14.Location = new System.Drawing.Point(57, 71);
+            this.label14.Location = new System.Drawing.Point(63, 71);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(62, 22);
             this.label14.TabIndex = 103;
@@ -776,5 +791,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.ErrorProvider errInventoryIn;
         private AuntRosieDBDataSet auntRosieDBDataSet1;
+        private System.Windows.Forms.Label lblUnit;
     }
 }

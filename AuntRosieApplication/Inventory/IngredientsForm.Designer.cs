@@ -55,6 +55,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.errMeesage = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbUnit = new System.Windows.Forms.ComboBox();
             this.pnlNewType.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlButton.SuspendLayout();
@@ -169,6 +171,8 @@
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.Transparent;
+            this.pnlMain.Controls.Add(this.label8);
+            this.pnlMain.Controls.Add(this.cmbUnit);
             this.pnlMain.Controls.Add(this.cmbName);
             this.pnlMain.Controls.Add(this.pnlButton);
             this.pnlMain.Controls.Add(this.btnAddType);
@@ -302,7 +306,7 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.Sienna;
-            this.label16.Location = new System.Drawing.Point(20, 120);
+            this.label16.Location = new System.Drawing.Point(20, 175);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(136, 22);
             this.label16.TabIndex = 120;
@@ -325,10 +329,10 @@
             this.txtstoringNote.BackColor = System.Drawing.SystemColors.Info;
             this.txtstoringNote.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtstoringNote.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtstoringNote.Location = new System.Drawing.Point(162, 117);
+            this.txtstoringNote.Location = new System.Drawing.Point(162, 158);
             this.txtstoringNote.Multiline = true;
             this.txtstoringNote.Name = "txtstoringNote";
-            this.txtstoringNote.Size = new System.Drawing.Size(210, 157);
+            this.txtstoringNote.Size = new System.Drawing.Size(210, 134);
             this.txtstoringNote.TabIndex = 5;
             this.toolTip1.SetToolTip(this.txtstoringNote, "Enter storing note ");
             // 
@@ -349,7 +353,7 @@
             this.txtNewIngredintName.BackColor = System.Drawing.SystemColors.Info;
             this.txtNewIngredintName.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtNewIngredintName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtNewIngredintName.Location = new System.Drawing.Point(162, 85);
+            this.txtNewIngredintName.Location = new System.Drawing.Point(162, 86);
             this.txtNewIngredintName.Name = "txtNewIngredintName";
             this.txtNewIngredintName.Size = new System.Drawing.Size(210, 29);
             this.txtNewIngredintName.TabIndex = 4;
@@ -371,6 +375,40 @@
             // 
             this.errMeesage.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errMeesage.ContainerControl = this;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.Sienna;
+            this.label8.Location = new System.Drawing.Point(93, 132);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 22);
+            this.label8.TabIndex = 122;
+            this.label8.Text = "Unit";
+            // 
+            // cmbUnit
+            // 
+            this.cmbUnit.AutoCompleteCustomSource.AddRange(new string[] {
+            "Pies",
+            "Preserves"});
+            this.cmbUnit.BackColor = System.Drawing.SystemColors.Info;
+            this.cmbUnit.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUnit.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cmbUnit.FormattingEnabled = true;
+            this.cmbUnit.Items.AddRange(new object[] {
+            "Kg",
+            "g",
+            "ml",
+            "L",
+            "lb",
+            "oz",
+            "item"});
+            this.cmbUnit.Location = new System.Drawing.Point(162, 121);
+            this.cmbUnit.Name = "cmbUnit";
+            this.cmbUnit.Size = new System.Drawing.Size(112, 31);
+            this.cmbUnit.TabIndex = 121;
             // 
             // frmIngredients
             // 
@@ -426,5 +464,7 @@
         private System.Windows.Forms.ErrorProvider errMeesage;
         private System.Windows.Forms.ComboBox cmbName;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbUnit;
     }
 }

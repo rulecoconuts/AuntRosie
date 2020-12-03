@@ -94,7 +94,7 @@ namespace AuntRosieApplication.Inventory
                     newIngredient.Name = txtNewIngredintName.Text.Trim();
                     newIngredient.IngredientTypeId = (short)Convert.ToDouble(DBMethod.GetSelectedItemID(cmbType));
                     newIngredient.StoringNote = txtstoringNote.Text;
-
+                    newIngredient.Unit = cmbUnit.Text.Trim();
                     DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
                     RosieEntity.Connector = conn;
                     newIngredient.Create();
@@ -142,7 +142,11 @@ namespace AuntRosieApplication.Inventory
                 errMeesage.SetError(txtstoringNote, "Sorting note could not be empty");
 
             }
-
+            if (cmbUnit.SelectedItem == null)
+            {
+                errMeesage.SetError(cmbUnit, "Please check the qunity value, it should be numeric");
+                isvalid = false;
+            }
             return isvalid;
         }
 
@@ -297,7 +301,7 @@ namespace AuntRosieApplication.Inventory
 
             updateIngredient.Name = txtNewIngredintName.Text;
             updateIngredient.StoringNote = txtstoringNote.Text;
-
+            updateIngredient.Unit = cmbUnit.Text.Trim();
              
        
             AuntRosieApplication.Classes.ListItem itm2 = new AuntRosieApplication.Classes.ListItem();

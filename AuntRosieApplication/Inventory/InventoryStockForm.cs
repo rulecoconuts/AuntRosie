@@ -20,7 +20,7 @@ namespace AuntRosieApplication.Inventory
         private int numberOfItemsPrintedSoFar = 0;
         private string expierdWhere = String.Empty;
 
-        public string SelectSQLCmmand = "SELECT        tblSupplier.SupplierName, tblIngredientType.TypeName, tblIngredient.IngredientName, tblIngredientInventory.PurchaseDate, tblIngredientInventory.ExpiryDate, tblIngredientInventory.Quantity, tblIngredientInventory.Unit, "+
+        public string SelectSQLCmmand = "SELECT        tblSupplier.SupplierName, tblIngredientType.TypeName, tblIngredient.IngredientName, tblIngredientInventory.PurchaseDate, tblIngredientInventory.ExpiryDate, tblIngredientInventory.Quantity, tblIngredient.Unit, "+
                        "  tblIngredientInventory.Cost "+
                        " FROM            tblSupplier INNER JOIN "+
                        "  tblIngredientInventory ON tblSupplier.SupplierID = tblIngredientInventory.SupplierID INNER JOIN "+
@@ -53,11 +53,7 @@ namespace AuntRosieApplication.Inventory
 
         private void frmInventoryStock_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'auntRosieDBDataSet.StockQuery' table. You can move, or remove it, as needed.
-            //this.stockQueryTableAdapter.Fill(this.auntRosieDBDataSet.StockQuery);
-            // TODO: This line of code loads data into the 'auntRosieDBDataSet.StockQuery' table. You can move, or remove it, as needed.
-
-            // TODO: This line of code loads data into the 'auntRosieDBDataSet.StockQuery' table. You can move, or remove it, as needed.
+             
 
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
 
@@ -312,9 +308,11 @@ namespace AuntRosieApplication.Inventory
             SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
 
             // Create new SQL command
-            SqlCommand command = new SqlCommand("SELECT  SUM(Quantity) AS Expr1, Unit, IngredientID  FROM  " +
-                " tblIngredientInventory  GROUP BY Unit, IngredientID HAVING(IngredientID = " +DBMethod.GetSelectedItemID(cmbName)  + ") ", dbConnection);
-          
+            SqlCommand command = new SqlCommand("SELECT  SUM(Quantity) AS Expr1, Unit, tblIngredientInventory.IngredientID  FROM  " +
+                " ( tblIngredientInventory  INNER JOIN " +
+                       "  tblIngredient ON tblIngredient.IngredientID = tblIngredientInventory.IngredientID ) " +
+                       " GROUP BY Unit, tblIngredientInventory.IngredientID  HAVING (tblIngredientInventory.IngredientID = " + DBMethod.GetSelectedItemID(cmbName)  + ") ", dbConnection);
+           
             SqlDataAdapter adapter = new SqlDataAdapter(command);
 
             // Declare a DataTable object that will hold the return value
@@ -346,7 +344,7 @@ namespace AuntRosieApplication.Inventory
             }
             catch (Exception ex)
             {
-                 
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -362,11 +360,11 @@ namespace AuntRosieApplication.Inventory
             SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
 
             // Create new SQL command
-            SqlCommand command = new SqlCommand("SELECT    SUM(tblIngredientInventory.Quantity) AS Expr1, tblIngredientInventory.Unit, tblIngredientType.IngredientTypeID"+
+            SqlCommand command = new SqlCommand("SELECT    SUM(tblIngredientInventory.Quantity) AS Expr1, tblIngredient.Unit, tblIngredientType.IngredientTypeID"+
                  "  FROM            tblIngredientInventory INNER JOIN "+
                 " tblIngredient ON tblIngredientInventory.IngredientID = tblIngredient.IngredientID INNER JOIN " +
                         " tblIngredientType ON tblIngredient.IngredientTypeID = tblIngredientType.IngredientTypeID "+
-                             "GROUP BY tblIngredientInventory.Unit, tblIngredientType.IngredientTypeID" +
+                             "GROUP BY tblIngredient.Unit, tblIngredientType.IngredientTypeID" +
                  " HAVING(tblIngredientType.IngredientTypeID = " + DBMethod.GetSelectedItemID(cmbType) + ") ", dbConnection);
 
             SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -399,7 +397,7 @@ namespace AuntRosieApplication.Inventory
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
             finally
             {

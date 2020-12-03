@@ -78,7 +78,12 @@ namespace AuntRosieApplication.Inventory
                 errInventoryIn.SetError(txtstoringNote, "Sorting note could not be empty");
 
             }
-             
+            if (cmbUnit.SelectedItem == null)
+            {
+                errInventoryIn.SetError(cmbUnit, "Please check the qunity value, it should be numeric");
+                isvalid = false;
+            }
+
             return isvalid;
         }
          
@@ -206,7 +211,7 @@ namespace AuntRosieApplication.Inventory
                 cmbNewtype.Items.Clear();
                 Classes.DBMethod.FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
                      (Classes.DBMethod.GetConnectionString()), cmbNewtype);
-                cmbNewtype.SelectedItem = cmbType.Items[cmbNewtype.Items.Count - 1];
+                cmbNewtype.SelectedItem = cmbNewtype.Items[cmbNewtype.Items.Count - 1];
 
             }
 
@@ -261,9 +266,10 @@ namespace AuntRosieApplication.Inventory
             if (IsValidIngredent())
             {
                 newIngredient.Name = txtNewIngredintName.Text.Trim();
-
+                newIngredient.Unit = cmbUnit.Text.Trim();
                 newIngredient.IngredientTypeId = (short) Convert.ToDouble(DBMethod.GetSelectedItemID(cmbNewtype)) ;
                 newIngredient.StoringNote = txtstoringNote.Text;
+                newIngredient.Unit = cmbUnit.Text.Trim();
                 DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
                 RosieEntity.Connector = conn;
                 newIngredient.Create();
@@ -309,7 +315,7 @@ namespace AuntRosieApplication.Inventory
                     InsertInventoryIngredient.ExpiryDate = dtpExpiryDate.Value;
                     InsertInventoryIngredient.Quantity = Convert.ToDouble(txtQuantity.Text.Trim());
                     InsertInventoryIngredient.Cost = Convert.ToDouble(txtCost.Text.Trim());
-                    InsertInventoryIngredient.Unit = cmbUnit.Text.Trim();
+                   
                     DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
                     RosieEntity.Connector = conn;
                     InsertInventoryIngredient.Create();
@@ -376,11 +382,7 @@ namespace AuntRosieApplication.Inventory
                 isValid = false;
             }
 
-            if (cmbUnit.SelectedItem == null)
-            {
-                errInventoryIn.SetError(cmbUnit, "Please check the qunity value, it should be numeric");
-                isValid = false;
-            }
+           
             return isValid;
         }
         private void cmbPaymentMethod_SelectedIndexChanged(object sender, EventArgs e)
@@ -447,6 +449,28 @@ namespace AuntRosieApplication.Inventory
         }
         private void pnlNewIngredint_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void cmbName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbName.SelectedItem != null)
+            {
+                try
+                {
+                    DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                    RosieEntity.Connector = conn;
+
+                    Ingredient ingredent = Ingredient.Retrieve((long)Convert.ToDouble(DBMethod.GetSelectedItemID(cmbName)));
+
+                    lblUnit.Text = ingredent.Unit;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
 
         }
     }
