@@ -118,6 +118,12 @@ namespace AuntRosieApplication {
         
         private global::System.Data.DataRelation relationFK_tblSaleProducts_Sale;
         
+        private global::System.Data.DataRelation relationFK_tblEmployeeHours_Employee1;
+        
+        private global::System.Data.DataRelation relationFK_tblEventPayroll_Employee1;
+        
+        private global::System.Data.DataRelation relationFK_tblFullTimeEmployee_Employee1;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -836,6 +842,9 @@ namespace AuntRosieApplication {
             this.relationFK_tblSale_Customer = this.Relations["FK_tblSale_Customer"];
             this.relationFK_tblSaleProducts_EventProduct = this.Relations["FK_tblSaleProducts_EventProduct"];
             this.relationFK_tblSaleProducts_Sale = this.Relations["FK_tblSaleProducts_Sale"];
+            this.relationFK_tblEmployeeHours_Employee1 = this.Relations["FK_tblEmployeeHours_Employee1"];
+            this.relationFK_tblEventPayroll_Employee1 = this.Relations["FK_tblEventPayroll_Employee1"];
+            this.relationFK_tblFullTimeEmployee_Employee1 = this.Relations["FK_tblFullTimeEmployee_Employee1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -984,6 +993,18 @@ namespace AuntRosieApplication {
                         this.tabletblSale.SaleIDColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblSaleProducts.SaleIDColumn}, false);
             this.Relations.Add(this.relationFK_tblSaleProducts_Sale);
+            this.relationFK_tblEmployeeHours_Employee1 = new global::System.Data.DataRelation("FK_tblEmployeeHours_Employee1", new global::System.Data.DataColumn[] {
+                        this.tablepayroll.EmployeeIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletblEmployeeHours.EmployeeIDColumn}, false);
+            this.Relations.Add(this.relationFK_tblEmployeeHours_Employee1);
+            this.relationFK_tblEventPayroll_Employee1 = new global::System.Data.DataRelation("FK_tblEventPayroll_Employee1", new global::System.Data.DataColumn[] {
+                        this.tablepayroll.EmployeeIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletblEventPayroll.EmployeeIDColumn}, false);
+            this.Relations.Add(this.relationFK_tblEventPayroll_Employee1);
+            this.relationFK_tblFullTimeEmployee_Employee1 = new global::System.Data.DataRelation("FK_tblFullTimeEmployee_Employee1", new global::System.Data.DataColumn[] {
+                        this.tablepayroll.EmployeeIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletblFullTimeEmployee.EmployeeIDColumn}, false);
+            this.Relations.Add(this.relationFK_tblFullTimeEmployee_Employee1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9075,6 +9096,12 @@ namespace AuntRosieApplication {
             
             private global::System.Data.DataColumn columnPaymentMethod;
             
+            private global::System.Data.DataColumn columnEmployeeID;
+            
+            private global::System.Data.DataColumn columnFromDate;
+            
+            private global::System.Data.DataColumn columnToDate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public payrollDataTable() {
@@ -9150,6 +9177,30 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EmployeeIDColumn {
+                get {
+                    return this.columnEmployeeID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FromDateColumn {
+                get {
+                    return this.columnFromDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ToDateColumn {
+                get {
+                    return this.columnToDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -9185,14 +9236,17 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public payrollRow AddpayrollRow(string EmployeeFirstName, System.DateTime PaymentDate, string EmployeeLastName, decimal Amount, string PaymentMethod) {
+            public payrollRow AddpayrollRow(string EmployeeFirstName, System.DateTime PaymentDate, string EmployeeLastName, decimal Amount, string PaymentMethod, System.DateTime FromDate, System.DateTime ToDate) {
                 payrollRow rowpayrollRow = ((payrollRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         EmployeeFirstName,
                         PaymentDate,
                         EmployeeLastName,
                         Amount,
-                        PaymentMethod};
+                        PaymentMethod,
+                        null,
+                        FromDate,
+                        ToDate};
                 rowpayrollRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpayrollRow);
                 return rowpayrollRow;
@@ -9220,6 +9274,9 @@ namespace AuntRosieApplication {
                 this.columnEmployeeLastName = base.Columns["EmployeeLastName"];
                 this.columnAmount = base.Columns["Amount"];
                 this.columnPaymentMethod = base.Columns["PaymentMethod"];
+                this.columnEmployeeID = base.Columns["EmployeeID"];
+                this.columnFromDate = base.Columns["FromDate"];
+                this.columnToDate = base.Columns["ToDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9235,6 +9292,12 @@ namespace AuntRosieApplication {
                 base.Columns.Add(this.columnAmount);
                 this.columnPaymentMethod = new global::System.Data.DataColumn("PaymentMethod", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaymentMethod);
+                this.columnEmployeeID = new global::System.Data.DataColumn("EmployeeID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmployeeID);
+                this.columnFromDate = new global::System.Data.DataColumn("FromDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFromDate);
+                this.columnToDate = new global::System.Data.DataColumn("ToDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnToDate);
                 this.columnEmployeeFirstName.AllowDBNull = false;
                 this.columnEmployeeFirstName.MaxLength = 50;
                 this.columnPaymentDate.AllowDBNull = false;
@@ -9242,6 +9305,13 @@ namespace AuntRosieApplication {
                 this.columnAmount.AllowDBNull = false;
                 this.columnPaymentMethod.AllowDBNull = false;
                 this.columnPaymentMethod.MaxLength = 1;
+                this.columnEmployeeID.AutoIncrement = true;
+                this.columnEmployeeID.AutoIncrementSeed = -1;
+                this.columnEmployeeID.AutoIncrementStep = -1;
+                this.columnEmployeeID.AllowDBNull = false;
+                this.columnEmployeeID.ReadOnly = true;
+                this.columnFromDate.AllowDBNull = false;
+                this.columnToDate.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9799,6 +9869,17 @@ namespace AuntRosieApplication {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_tblEmployeeHours_Event"]);
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public payrollRow payrollRow {
+                get {
+                    return ((payrollRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblEmployeeHours_Employee1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblEmployeeHours_Employee1"]);
+                }
+            }
         }
         
         /// <summary>
@@ -10162,6 +10243,17 @@ namespace AuntRosieApplication {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_tblEventPayroll_Employee"]);
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public payrollRow payrollRow {
+                get {
+                    return ((payrollRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblEventPayroll_Employee1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblEventPayroll_Employee1"]);
+                }
+            }
         }
         
         /// <summary>
@@ -10333,6 +10425,17 @@ namespace AuntRosieApplication {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_tblFullTimeEmployee_Employee"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public payrollRow payrollRow {
+                get {
+                    return ((payrollRow)(this.GetParentRow(this.Table.ParentRelations["FK_tblFullTimeEmployee_Employee1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tblFullTimeEmployee_Employee1"]);
                 }
             }
         }
@@ -11812,6 +11915,39 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public long EmployeeID {
+                get {
+                    return ((long)(this[this.tablepayroll.EmployeeIDColumn]));
+                }
+                set {
+                    this[this.tablepayroll.EmployeeIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime FromDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tablepayroll.FromDateColumn]));
+                }
+                set {
+                    this[this.tablepayroll.FromDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime ToDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tablepayroll.ToDateColumn]));
+                }
+                set {
+                    this[this.tablepayroll.ToDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsEmployeeLastNameNull() {
                 return this.IsNull(this.tablepayroll.EmployeeLastNameColumn);
             }
@@ -11820,6 +11956,39 @@ namespace AuntRosieApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetEmployeeLastNameNull() {
                 this[this.tablepayroll.EmployeeLastNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public tblEmployeeHoursRow[] GettblEmployeeHoursRows() {
+                if ((this.Table.ChildRelations["FK_tblEmployeeHours_Employee1"] == null)) {
+                    return new tblEmployeeHoursRow[0];
+                }
+                else {
+                    return ((tblEmployeeHoursRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblEmployeeHours_Employee1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public tblEventPayrollRow[] GettblEventPayrollRows() {
+                if ((this.Table.ChildRelations["FK_tblEventPayroll_Employee1"] == null)) {
+                    return new tblEventPayrollRow[0];
+                }
+                else {
+                    return ((tblEventPayrollRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblEventPayroll_Employee1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public tblFullTimeEmployeeRow[] GettblFullTimeEmployeeRows() {
+                if ((this.Table.ChildRelations["FK_tblFullTimeEmployee_Employee1"] == null)) {
+                    return new tblFullTimeEmployeeRow[0];
+                }
+                else {
+                    return ((tblFullTimeEmployeeRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tblFullTimeEmployee_Employee1"])));
+                }
             }
         }
         
@@ -21561,6 +21730,9 @@ ORDER BY tblIngredientInventory.ExpiryDate";
             tableMapping.ColumnMappings.Add("EmployeeLastName", "EmployeeLastName");
             tableMapping.ColumnMappings.Add("Amount", "Amount");
             tableMapping.ColumnMappings.Add("PaymentMethod", "PaymentMethod");
+            tableMapping.ColumnMappings.Add("EmployeeID", "EmployeeID");
+            tableMapping.ColumnMappings.Add("FromDate", "FromDate");
+            tableMapping.ColumnMappings.Add("ToDate", "ToDate");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -21568,7 +21740,7 @@ ORDER BY tblIngredientInventory.ExpiryDate";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::AuntRosieApplication.Properties.Settings.Default.AuntRosieDBConnectionString;
+            this._connection.ConnectionString = global::AuntRosieApplication.Properties.Settings.Default.AuntRosieDBConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21577,7 +21749,7 @@ ORDER BY tblIngredientInventory.ExpiryDate";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        tblEmployee.EmployeeFirstName, tblPayroll.PaymentDate, tblEmployee.EmployeeLastName, tblPayroll.Amount, tblPayroll.PaymentMethod
+            this._commandCollection[0].CommandText = @"SELECT        tblEmployee.EmployeeFirstName, tblPayroll.PaymentDate, tblEmployee.EmployeeLastName, tblPayroll.Amount, tblPayroll.PaymentMethod, tblEmployee.EmployeeID, tblPayroll.FromDate, tblPayroll.ToDate
 FROM            tblEmployee INNER JOIN
                          tblPayroll ON tblEmployee.EmployeeID = tblPayroll.EmployeeID
 WHERE        (tblPayroll.PaymentDate = { fn CURDATE() })";

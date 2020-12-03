@@ -81,8 +81,10 @@ namespace AuntRosieApplication.Employment
                         DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
                         RosieEntity.Connector = conn;
                         empPayt.Create();
-                        MessageBox.Show("The ingredient quantity has successfully stocked into the inventory", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
                         FillPayGrid(sqlText);
+                    cmbfullEmp.SelectedItem = null;
+                    lblFullAmount.Text = "";
                     }catch (Exception ex)
             {
                  //MessageBox.Show(ex.Message);
@@ -342,8 +344,8 @@ namespace AuntRosieApplication.Employment
             {
                 pnlMain.Enabled = true;
                 pnlPaymentDate.Visible = false;
-                sqlText = " SELECT  tblEmployee.EmployeeFirstName, tblPayroll.PaymentDate, tblEmployee.EmployeeLastName," +
-                    " tblPayroll.Amount, tblPayroll.PaymentMethod FROM tblEmployee INNER JOIN " +
+                sqlText = " SELECT  tblEmployee.EmployeeFirstName, tblPayroll.PaymentDate, tblEmployee.EmployeeLastName, tblPayroll.Amount, tblPayroll.PaymentMethod, tblEmployee.EmployeeID, tblPayroll.FromDate, tblPayroll.ToDate"+
+" FROM tblEmployee INNER JOIN " +
                          " tblPayroll ON tblEmployee.EmployeeID = tblPayroll.EmployeeID WHERE(tblPayroll.PaymentDate ='" + payDate.ToShortDateString()+ "')";
                 FillPayGrid(sqlText);
             }
@@ -374,9 +376,13 @@ namespace AuntRosieApplication.Employment
                         DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
                         RosieEntity.Connector = conn;
                         empPayt.Create();
-                        MessageBox.Show("The ingredient quantity has successfully stocked into the inventory", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        FillPayGrid(sqlText);
-                    }catch (Exception ex)
+                                     FillPayGrid(sqlText);
+                    cmbPartEmp.SelectedItem = null;
+                    lblPartAmount.Text = "";
+                    lblHour.Text = "";
+                    txtwage.Text = "";
+                }
+                catch (Exception ex)
             {
                         //MessageBox.Show(ex.Message);
                         MessageBox.Show("You can't add this payroll record, The Employee's payroll has been registered ", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -448,11 +454,25 @@ namespace AuntRosieApplication.Employment
 
                 isValid = false;
             }
-             
-                if (lblDays.Text.Trim() != "")
+
+            if (dtpFormDate.Value.Date > DateTime.Today.Date)
+            {
+                errPayroll.SetError(dtpFormDate, " From Date should be before today date");
+                 
+                isValid = false;
+            }
+
+            if (dtpToDate.Value.Date > DateTime.Today.Date)
+            {
+                errPayroll.SetError(dtpToDate, " To Date should be before today date");
+
+                isValid = false;
+            }
+
+            if (lblDays.Text.Trim() != "")
                 if (int.Parse(lblDays.Text) < 1)
                 {
-                    errPayroll.SetError(dtpFormDate, " Select From Date value to detrmin the days");
+                    errPayroll.SetError(dtpFormDate, " Select From Date value to detrmin the days ");
                     errPayroll.SetError(dtpToDate, " Select  To Date value to detrmin the days");
                     isValid = false;
                 }
@@ -481,6 +501,48 @@ namespace AuntRosieApplication.Employment
 
         private void pnlMain_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void grdPayroll_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == grdPayroll.Columns["Delete"].Index)
+            {
+                DelPayroll(grdPayroll.Rows[e.RowIndex].Cells[0].Value.ToString());
+                FillPayGrid(sqlText);
+                 
+            }
+        }
+
+        private  void DelPayroll(string id)
+        {
+            SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
+
+            // Create new SQL command
+            SqlCommand command = new SqlCommand(" Delete from tblPayroll where EmployeeId=" + id + 
+                "and PaymentDate='" +payDate+ "'", dbConnection);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            // Declare a DataTable object that will hold the return value
+            
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+
 
         }
     }

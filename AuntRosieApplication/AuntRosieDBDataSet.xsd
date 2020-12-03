@@ -2,9 +2,10 @@
 <xs:schema id="AuntRosieDBDataSet" targetNamespace="http://tempuri.org/AuntRosieDBDataSet.xsd" xmlns:mstns="http://tempuri.org/AuntRosieDBDataSet.xsd" xmlns="http://tempuri.org/AuntRosieDBDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="AuntRosieDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AuntRosieDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AuntRosieApplication.Properties.Settings.GlobalReference.Default.AuntRosieDBConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="AuntRosieDBConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AuntRosieDBConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AuntRosieApplication.Properties.Settings.GlobalReference.Default.AuntRosieDBConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblCustomerTableAdapter" GeneratorDataComponentClassName="tblCustomerTableAdapter" Name="tblCustomer" UserDataComponentName="tblCustomerTableAdapter">
@@ -1475,10 +1476,10 @@ ORDER BY tblIngredientInventory.ExpiryDate</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="payrollTableAdapter" GeneratorDataComponentClassName="payrollTableAdapter" Name="payroll" UserDataComponentName="payrollTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AuntRosieDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AuntRosieDBConnectionString1 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        tblEmployee.EmployeeFirstName, tblPayroll.PaymentDate, tblEmployee.EmployeeLastName, tblPayroll.Amount, tblPayroll.PaymentMethod
+                    <CommandText>SELECT        tblEmployee.EmployeeFirstName, tblPayroll.PaymentDate, tblEmployee.EmployeeLastName, tblPayroll.Amount, tblPayroll.PaymentMethod, tblEmployee.EmployeeID, tblPayroll.FromDate, tblPayroll.ToDate
 FROM            tblEmployee INNER JOIN
                          tblPayroll ON tblEmployee.EmployeeID = tblPayroll.EmployeeID
 WHERE        (tblPayroll.PaymentDate = { fn CURDATE() })</CommandText>
@@ -1493,6 +1494,9 @@ WHERE        (tblPayroll.PaymentDate = { fn CURDATE() })</CommandText>
               <Mapping SourceColumn="EmployeeLastName" DataSetColumn="EmployeeLastName" />
               <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
               <Mapping SourceColumn="PaymentMethod" DataSetColumn="PaymentMethod" />
+              <Mapping SourceColumn="EmployeeID" DataSetColumn="EmployeeID" />
+              <Mapping SourceColumn="FromDate" DataSetColumn="FromDate" />
+              <Mapping SourceColumn="ToDate" DataSetColumn="ToDate" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -2106,6 +2110,9 @@ WHERE        (tblPayroll.PaymentDate = { fn CURDATE() })</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="EmployeeID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" msprop:Generator_UserColumnName="EmployeeID" type="xs:long" />
+              <xs:element name="FromDate" msprop:Generator_ColumnVarNameInTable="columnFromDate" msprop:Generator_ColumnPropNameInRow="FromDate" msprop:Generator_ColumnPropNameInTable="FromDateColumn" msprop:Generator_UserColumnName="FromDate" type="xs:dateTime" />
+              <xs:element name="ToDate" msprop:Generator_ColumnVarNameInTable="columnToDate" msprop:Generator_ColumnPropNameInRow="ToDate" msprop:Generator_ColumnPropNameInTable="ToDateColumn" msprop:Generator_UserColumnName="ToDate" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -2235,6 +2242,9 @@ WHERE        (tblPayroll.PaymentDate = { fn CURDATE() })</CommandText>
       <msdata:Relationship name="FK_tblSale_Customer" msdata:parent="tblCustomer" msdata:child="tblSale" msdata:parentkey="CustomerID" msdata:childkey="CustomerID" msprop:Generator_UserChildTable="tblSale" msprop:Generator_ChildPropName="GettblSaleRows" msprop:Generator_UserRelationName="FK_tblSale_Customer" msprop:Generator_ParentPropName="tblCustomerRow" msprop:Generator_RelationVarName="relationFK_tblSale_Customer" msprop:Generator_UserParentTable="tblCustomer" />
       <msdata:Relationship name="FK_tblSaleProducts_EventProduct" msdata:parent="tblEventProduct" msdata:child="tblSaleProducts" msdata:parentkey="EventProductID" msdata:childkey="EventProductID" msprop:Generator_UserChildTable="tblSaleProducts" msprop:Generator_ChildPropName="GettblSaleProductsRows" msprop:Generator_UserRelationName="FK_tblSaleProducts_EventProduct" msprop:Generator_ParentPropName="tblEventProductRow" msprop:Generator_RelationVarName="relationFK_tblSaleProducts_EventProduct" msprop:Generator_UserParentTable="tblEventProduct" />
       <msdata:Relationship name="FK_tblSaleProducts_Sale" msdata:parent="tblSale" msdata:child="tblSaleProducts" msdata:parentkey="SaleID" msdata:childkey="SaleID" msprop:Generator_UserChildTable="tblSaleProducts" msprop:Generator_ChildPropName="GettblSaleProductsRows" msprop:Generator_UserRelationName="FK_tblSaleProducts_Sale" msprop:Generator_ParentPropName="tblSaleRow" msprop:Generator_RelationVarName="relationFK_tblSaleProducts_Sale" msprop:Generator_UserParentTable="tblSale" />
+      <msdata:Relationship name="FK_tblEmployeeHours_Employee1" msdata:parent="payroll" msdata:child="tblEmployeeHours" msdata:parentkey="EmployeeID" msdata:childkey="EmployeeID" msprop:Generator_UserChildTable="tblEmployeeHours" msprop:Generator_ChildPropName="GettblEmployeeHoursRows" msprop:Generator_UserRelationName="FK_tblEmployeeHours_Employee1" msprop:Generator_ParentPropName="payrollRow" msprop:Generator_RelationVarName="relationFK_tblEmployeeHours_Employee1" msprop:Generator_UserParentTable="payroll" />
+      <msdata:Relationship name="FK_tblEventPayroll_Employee1" msdata:parent="payroll" msdata:child="tblEventPayroll" msdata:parentkey="EmployeeID" msdata:childkey="EmployeeID" msprop:Generator_UserChildTable="tblEventPayroll" msprop:Generator_ChildPropName="GettblEventPayrollRows" msprop:Generator_UserRelationName="FK_tblEventPayroll_Employee1" msprop:Generator_ParentPropName="payrollRow" msprop:Generator_RelationVarName="relationFK_tblEventPayroll_Employee1" msprop:Generator_UserParentTable="payroll" />
+      <msdata:Relationship name="FK_tblFullTimeEmployee_Employee1" msdata:parent="payroll" msdata:child="tblFullTimeEmployee" msdata:parentkey="EmployeeID" msdata:childkey="EmployeeID" msprop:Generator_UserChildTable="tblFullTimeEmployee" msprop:Generator_ChildPropName="GettblFullTimeEmployeeRows" msprop:Generator_UserRelationName="FK_tblFullTimeEmployee_Employee1" msprop:Generator_ParentPropName="payrollRow" msprop:Generator_RelationVarName="relationFK_tblFullTimeEmployee_Employee1" msprop:Generator_UserParentTable="payroll" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
