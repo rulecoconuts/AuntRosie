@@ -264,6 +264,9 @@
     <EmbeddedResource Include="Inventory\SuppliersForm.resx">
       <DependentUpon>SuppliersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen\AddProduct.resx">
+      <DependentUpon>AddProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Kitchen\GiveProductSizeForm.resx">
       <DependentUpon>GiveProductSizeForm.cs</DependentUpon>
     </EmbeddedResource>
