@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportVewierForm));
             this.crvReports = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.SuspendLayout();
             // 
             // crvReports
             // 
             this.crvReports.ActiveViewIndex = -1;
-            this.crvReports.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crvReports.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.crvReports.Cursor = System.Windows.Forms.Cursors.Default;
             this.crvReports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crvReports.Location = new System.Drawing.Point(0, 0);
@@ -49,9 +50,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 555);
             this.Controls.Add(this.crvReports);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportVewierForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ReportVewierForm";
+            this.Text = "Aunt Roise\'s Report Vewier";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ReportVewierForm_Load);
             this.ResumeLayout(false);
