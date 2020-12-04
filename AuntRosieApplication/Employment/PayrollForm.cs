@@ -221,7 +221,7 @@ namespace AuntRosieApplication.Employment
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                   // MessageBox.Show(ex.Message);
                 }
                 finally
                 {
