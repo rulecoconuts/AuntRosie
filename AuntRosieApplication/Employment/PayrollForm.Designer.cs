@@ -29,15 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPayroll));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitle = new System.Windows.Forms.Label();
             this.errPayroll = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnOkay = new System.Windows.Forms.Button();
             this.lblPaymentDate = new System.Windows.Forms.Label();
             this.payrollBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.auntRosieDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.auntRosieDBDataSet = new AuntRosieApplication.AuntRosieDBDataSet();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.grdPayroll = new System.Windows.Forms.DataGridView();
+            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fromDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label13 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cmbPaymentMethod = new System.Windows.Forms.ComboBox();
@@ -72,26 +82,16 @@
             this.radExists = new System.Windows.Forms.RadioButton();
             this.radNew = new System.Windows.Forms.RadioButton();
             this.label14 = new System.Windows.Forms.Label();
-            this.grdPayroll = new System.Windows.Forms.DataGridView();
-            this.auntRosieDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.auntRosieDBDataSet = new AuntRosieApplication.AuntRosieDBDataSet();
             this.payrollTableAdapter = new AuntRosieApplication.AuntRosieDBDataSetTableAdapters.payrollTableAdapter();
-            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fromDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.errPayroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.payrollBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).BeginInit();
             this.pnlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPayroll)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlPaymentDate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdPayroll)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -142,6 +142,16 @@
             this.payrollBindingSource.DataMember = "payroll";
             this.payrollBindingSource.DataSource = this.auntRosieDBDataSetBindingSource;
             // 
+            // auntRosieDBDataSetBindingSource
+            // 
+            this.auntRosieDBDataSetBindingSource.DataSource = this.auntRosieDBDataSet;
+            this.auntRosieDBDataSetBindingSource.Position = 0;
+            // 
+            // auntRosieDBDataSet
+            // 
+            this.auntRosieDBDataSet.DataSetName = "AuntRosieDBDataSet";
+            this.auntRosieDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.Transparent;
@@ -166,6 +176,88 @@
             this.pnlMain.Size = new System.Drawing.Size(845, 595);
             this.pnlMain.TabIndex = 123;
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
+            // 
+            // grdPayroll
+            // 
+            this.grdPayroll.AllowUserToAddRows = false;
+            this.grdPayroll.AllowUserToDeleteRows = false;
+            this.grdPayroll.AutoGenerateColumns = false;
+            this.grdPayroll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdPayroll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.employeeIDDataGridViewTextBoxColumn,
+            this.employeeFirstNameDataGridViewTextBoxColumn,
+            this.employeeLastNameDataGridViewTextBoxColumn,
+            this.fromDateDataGridViewTextBoxColumn,
+            this.toDateDataGridViewTextBoxColumn,
+            this.amountDataGridViewTextBoxColumn,
+            this.Delete});
+            this.grdPayroll.DataSource = this.payrollBindingSource;
+            this.grdPayroll.Location = new System.Drawing.Point(102, 405);
+            this.grdPayroll.Name = "grdPayroll";
+            this.grdPayroll.ReadOnly = true;
+            this.grdPayroll.Size = new System.Drawing.Size(696, 150);
+            this.grdPayroll.TabIndex = 125;
+            this.grdPayroll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPayroll_CellContentClick);
+            // 
+            // employeeIDDataGridViewTextBoxColumn
+            // 
+            this.employeeIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "EmployeeID";
+            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "EmployeeID";
+            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
+            this.employeeIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeIDDataGridViewTextBoxColumn.Width = 89;
+            // 
+            // employeeFirstNameDataGridViewTextBoxColumn
+            // 
+            this.employeeFirstNameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeFirstName";
+            this.employeeFirstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
+            this.employeeFirstNameDataGridViewTextBoxColumn.Name = "employeeFirstNameDataGridViewTextBoxColumn";
+            this.employeeFirstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // employeeLastNameDataGridViewTextBoxColumn
+            // 
+            this.employeeLastNameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeLastName";
+            this.employeeLastNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
+            this.employeeLastNameDataGridViewTextBoxColumn.Name = "employeeLastNameDataGridViewTextBoxColumn";
+            this.employeeLastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fromDateDataGridViewTextBoxColumn
+            // 
+            this.fromDateDataGridViewTextBoxColumn.DataPropertyName = "FromDate";
+            this.fromDateDataGridViewTextBoxColumn.HeaderText = "FromDate";
+            this.fromDateDataGridViewTextBoxColumn.Name = "fromDateDataGridViewTextBoxColumn";
+            this.fromDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // toDateDataGridViewTextBoxColumn
+            // 
+            this.toDateDataGridViewTextBoxColumn.DataPropertyName = "ToDate";
+            this.toDateDataGridViewTextBoxColumn.HeaderText = "ToDate";
+            this.toDateDataGridViewTextBoxColumn.Name = "toDateDataGridViewTextBoxColumn";
+            this.toDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Delete
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Delete.Text = "Delete";
+            this.Delete.ToolTipText = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 50;
             // 
             // label13
             // 
@@ -570,101 +662,9 @@
             this.label14.Tag = "";
             this.label14.Text = "Payment Date";
             // 
-            // grdPayroll
-            // 
-            this.grdPayroll.AllowUserToAddRows = false;
-            this.grdPayroll.AllowUserToDeleteRows = false;
-            this.grdPayroll.AutoGenerateColumns = false;
-            this.grdPayroll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdPayroll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.employeeIDDataGridViewTextBoxColumn,
-            this.employeeFirstNameDataGridViewTextBoxColumn,
-            this.employeeLastNameDataGridViewTextBoxColumn,
-            this.fromDateDataGridViewTextBoxColumn,
-            this.toDateDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn,
-            this.Delete});
-            this.grdPayroll.DataSource = this.payrollBindingSource;
-            this.grdPayroll.Location = new System.Drawing.Point(102, 405);
-            this.grdPayroll.Name = "grdPayroll";
-            this.grdPayroll.ReadOnly = true;
-            this.grdPayroll.Size = new System.Drawing.Size(696, 150);
-            this.grdPayroll.TabIndex = 125;
-            this.grdPayroll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPayroll_CellContentClick);
-            // 
-            // auntRosieDBDataSetBindingSource
-            // 
-            this.auntRosieDBDataSetBindingSource.DataSource = this.auntRosieDBDataSet;
-            this.auntRosieDBDataSetBindingSource.Position = 0;
-            // 
-            // auntRosieDBDataSet
-            // 
-            this.auntRosieDBDataSet.DataSetName = "AuntRosieDBDataSet";
-            this.auntRosieDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // payrollTableAdapter
             // 
             this.payrollTableAdapter.ClearBeforeFill = true;
-            // 
-            // employeeIDDataGridViewTextBoxColumn
-            // 
-            this.employeeIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "EmployeeID";
-            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "EmployeeID";
-            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
-            this.employeeIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.employeeIDDataGridViewTextBoxColumn.Width = 89;
-            // 
-            // employeeFirstNameDataGridViewTextBoxColumn
-            // 
-            this.employeeFirstNameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeFirstName";
-            this.employeeFirstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
-            this.employeeFirstNameDataGridViewTextBoxColumn.Name = "employeeFirstNameDataGridViewTextBoxColumn";
-            this.employeeFirstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // employeeLastNameDataGridViewTextBoxColumn
-            // 
-            this.employeeLastNameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeLastName";
-            this.employeeLastNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
-            this.employeeLastNameDataGridViewTextBoxColumn.Name = "employeeLastNameDataGridViewTextBoxColumn";
-            this.employeeLastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fromDateDataGridViewTextBoxColumn
-            // 
-            this.fromDateDataGridViewTextBoxColumn.DataPropertyName = "FromDate";
-            this.fromDateDataGridViewTextBoxColumn.HeaderText = "FromDate";
-            this.fromDateDataGridViewTextBoxColumn.Name = "fromDateDataGridViewTextBoxColumn";
-            this.fromDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // toDateDataGridViewTextBoxColumn
-            // 
-            this.toDateDataGridViewTextBoxColumn.DataPropertyName = "ToDate";
-            this.toDateDataGridViewTextBoxColumn.HeaderText = "ToDate";
-            this.toDateDataGridViewTextBoxColumn.Name = "toDateDataGridViewTextBoxColumn";
-            this.toDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Delete
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Delete.Text = "Delete";
-            this.Delete.ToolTipText = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
-            this.Delete.Width = 50;
             // 
             // frmPayroll
             // 
@@ -685,17 +685,17 @@
             this.Load += new System.EventHandler(this.frmPayroll_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errPayroll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.payrollBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPayroll)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.pnlPaymentDate.ResumeLayout(false);
             this.pnlPaymentDate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdPayroll)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
