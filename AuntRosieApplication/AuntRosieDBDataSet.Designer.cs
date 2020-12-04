@@ -21894,8 +21894,8 @@ SELECT SupplierID, SupplierName, ContactPersonFirstName, ContactPersonLastName, 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        tblSupplier.SupplierName, tblIngredientType.TypeName, tblIngredient.IngredientName, tblIngredientInventory.PurchaseDate, tblIngredientInventory.ExpiryDate, tblIngredientInventory.Quantity, tblIngredientInventory.Unit, 
-                         tblIngredientInventory.Cost
+            this._commandCollection[0].CommandText = @"SELECT        tblSupplier.SupplierName, tblIngredientType.TypeName, tblIngredient.IngredientName, tblIngredientInventory.PurchaseDate, tblIngredientInventory.ExpiryDate, tblIngredientInventory.Quantity, tblIngredientInventory.Cost, 
+                         tblIngredient.Unit
 FROM            tblSupplier INNER JOIN
                          tblIngredientInventory ON tblSupplier.SupplierID = tblIngredientInventory.SupplierID INNER JOIN
                          tblIngredient ON tblIngredientInventory.IngredientID = tblIngredient.IngredientID INNER JOIN

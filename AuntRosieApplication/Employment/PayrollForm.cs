@@ -103,38 +103,40 @@ namespace AuntRosieApplication.Employment
 
         private void cmbfullEmp_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (lblDays.Text.Trim()!="")
-
-            { 
-                try
-                {
-
-                    DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
-                    RosieEntity.Connector = conn;
-                    Employee employee = Employee.Retrieve(DBMethod.GetSelectedItemID(cmbfullEmp));
-
-
-                    double sal = employee.Salary;
-
-                    double amount = (sal / 365) * getDays();
-                    lblFullAmount.Text = String.Format("{0:0.0}", amount.ToString("N"));
-
-
-
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
-            }
-            else
+            if (cmbfullEmp.SelectedItem != null)
             {
-                errPayroll.SetError(dtpFormDate, " Select From Date value to detrmin the days");
-                errPayroll.SetError(dtpToDate, " Select  To Date value to detrmin the days");
+                if (lblDays.Text.Trim() != "")
+
+                {
+                    try
+                    {
+
+                        DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                        RosieEntity.Connector = conn;
+                        Employee employee = Employee.Retrieve(DBMethod.GetSelectedItemID(cmbfullEmp));
 
 
+                        double sal = employee.Salary;
+
+                        double amount = (sal / 365) * getDays();
+                        lblFullAmount.Text = String.Format("{0:0.0}", amount.ToString("N"));
+
+
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString());
+                    }
+                }
+                else
+                {
+                    errPayroll.SetError(dtpFormDate, " Select From Date value to detrmin the days");
+                    errPayroll.SetError(dtpToDate, " Select  To Date value to detrmin the days");
+
+
+                }
             }
         }
         private int getDays()
@@ -172,10 +174,11 @@ namespace AuntRosieApplication.Employment
 
         private void cmbPartEmp_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbPartEmp.SelectedItem != null) {  
             txtwage.Text = "";
             lblHour.Text = "";
             lblPartAmount.Text = "";
-           
+
             if (lblDays.Text.Length > 0)
             {
                 txtwage.Focus();
@@ -234,6 +237,7 @@ namespace AuntRosieApplication.Employment
 
 
             }
+        }
         }
 
         private void txtwage_Leave(object sender, EventArgs e)
