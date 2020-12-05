@@ -23,7 +23,7 @@ namespace AuntRosieApp.Kitchen
         private void frmManageProduct_Load(object sender, EventArgs e)
         {
             lblTitle.Left = (this.Width - lblTitle.Width) / 2;
-            pnlButton.Left = (this.Width - pnlButton.Width) / 2;
+            /*pnlButton.Left = (this.Width - pnlButton.Width) / 2;*/
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
 
             this.DoubleBuffered = true;
@@ -57,6 +57,14 @@ namespace AuntRosieApp.Kitchen
         private void btnNew_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNew_Click_1(object sender, EventArgs e)
+        {
+            Form frm = new AuntRosieApplication.Kitchen.frmAddProduct();
+            this.Close();
+            frm.ShowDialog();
+            
         }
     }
 }

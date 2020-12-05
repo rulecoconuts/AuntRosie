@@ -68,19 +68,20 @@
             this.btnNew.BackColor = System.Drawing.Color.Teal;
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnNew.Location = new System.Drawing.Point(127, 284);
+            this.btnNew.Location = new System.Drawing.Point(156, 284);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(145, 64);
             this.btnNew.TabIndex = 65;
             this.btnNew.Text = "Create Product";
             this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click_1);
             // 
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.Teal;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnEdit.Location = new System.Drawing.Point(718, 284);
+            this.btnEdit.Location = new System.Drawing.Point(638, 284);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(145, 64);
             this.btnEdit.TabIndex = 66;
