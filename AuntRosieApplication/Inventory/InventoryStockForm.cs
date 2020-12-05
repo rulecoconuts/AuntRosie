@@ -265,6 +265,8 @@ namespace AuntRosieApplication.Inventory
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            DBMethod.Reptype = "All-Stock";
             (new ReportVewierForm()).ShowDialog();
 
 

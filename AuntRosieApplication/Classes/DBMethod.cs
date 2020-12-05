@@ -11,6 +11,7 @@ namespace AuntRosieApplication.Classes
     class DBMethod
     {
 
+        public static string Reptype = null;
        public static ListItem selectedListItem = new ListItem();
        public  static  string[,] provincesArray = new string[,] {
                 { "Newfoundland and Labrador","NL"},

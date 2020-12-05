@@ -155,7 +155,7 @@ namespace AuntRosieApp
 
         private void btnQueryAndreport_Click(object sender, EventArgs e)
         {
-            ShowPnlel(pnlReportQuery);
+            ShowForm(new AuntRosieApplication.Reports.frmReports());
         }
 
         private void btnReportMain_Click(object sender, EventArgs e)
@@ -417,6 +417,16 @@ namespace AuntRosieApp
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            ShowForm(new AuntRosieApplication.Reports.frmReports());
+        }
+
+        private void tmnQueriesAndReports_Click(object sender, EventArgs e)
+        {
+            ShowForm(new AuntRosieApplication.Reports.frmReports());
         }
     }
 }

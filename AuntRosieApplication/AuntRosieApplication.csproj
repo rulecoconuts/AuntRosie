@@ -83,6 +83,12 @@
       <DependentUpon>AuntRosieDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Classes\DBMethod.cs" />
+    <Compile Include="EmpEventRep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpEventRep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Employment\ManageEmpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,12 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LowStockRep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LowStockRep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportDataSet.cs">
@@ -214,6 +226,10 @@
       <DependentUpon>StockReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="EmpEventRep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EmpEventRep.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employment\ManageEmpForm.resx">
       <DependentUpon>ManageEmpForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +280,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LowStockRep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LowStockRep.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -486,6 +506,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\workers-male.png" />
     <None Include="Resources\price-comparison.png" />
     <None Include="Resources\low-battery.png" />
     <None Include="Resources\clothes-tag.png" />
