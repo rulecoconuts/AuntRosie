@@ -61,10 +61,26 @@ namespace AuntRosieApp.Kitchen
 
         private void btnNew_Click_1(object sender, EventArgs e)
         {
-            Form frm = new AuntRosieApplication.Kitchen.frmAddProduct();
+            AuntRosieApplication.Kitchen.frmAddProduct frm = new AuntRosieApplication.Kitchen.frmAddProduct();
+            frm.Left = (this.Width - frm.Width) / 2;
             this.Close();
-            frm.ShowDialog();
             
+            //frm.Top = (this.Height - frm.Height) / 2;
+            //frm.Activate();
+            frm.Show();
+
+            
+        }
+
+        private void btnAddProductSize_Click(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Kitchen.frmGiveProductSize frm = new AuntRosieApplication.Kitchen.frmGiveProductSize();
+            frm.Left = (this.Width - frm.Width) / 2;
+            this.Close();
+
+            //frm.Top = (this.Height - frm.Height) / 2;
+            //frm.Activate();
+            frm.Show();
         }
     }
 }

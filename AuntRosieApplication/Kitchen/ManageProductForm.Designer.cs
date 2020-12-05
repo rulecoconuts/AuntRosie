@@ -34,6 +34,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAddProductSize = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -81,12 +82,25 @@
             this.btnEdit.BackColor = System.Drawing.Color.Teal;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnEdit.Location = new System.Drawing.Point(638, 284);
+            this.btnEdit.Location = new System.Drawing.Point(320, 284);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(145, 64);
             this.btnEdit.TabIndex = 66;
             this.btnEdit.Text = "Manage Existing Products";
             this.btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // btnAddProductSize
+            // 
+            this.btnAddProductSize.BackColor = System.Drawing.Color.Teal;
+            this.btnAddProductSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddProductSize.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnAddProductSize.Location = new System.Drawing.Point(156, 372);
+            this.btnAddProductSize.Name = "btnAddProductSize";
+            this.btnAddProductSize.Size = new System.Drawing.Size(145, 64);
+            this.btnAddProductSize.TabIndex = 67;
+            this.btnAddProductSize.Text = "Add Product Sizes";
+            this.btnAddProductSize.UseVisualStyleBackColor = false;
+            this.btnAddProductSize.Click += new System.EventHandler(this.btnAddProductSize_Click);
             // 
             // frmManageProduct
             // 
@@ -95,6 +109,7 @@
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(967, 739);
+            this.Controls.Add(this.btnAddProductSize);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnClose);
@@ -117,5 +132,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnAddProductSize;
     }
 }
