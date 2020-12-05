@@ -121,7 +121,7 @@
             this.btnOkay.Name = "btnOkay";
             this.btnOkay.Size = new System.Drawing.Size(79, 61);
             this.btnOkay.TabIndex = 129;
-            this.toolTip1.SetToolTip(this.btnOkay, "Delete");
+            this.toolTip1.SetToolTip(this.btnOkay, "Next");
             this.btnOkay.UseVisualStyleBackColor = false;
             this.btnOkay.Click += new System.EventHandler(this.btnOkay_Click);
             // 
@@ -631,7 +631,7 @@
             this.radExists.Name = "radExists";
             this.radExists.Size = new System.Drawing.Size(178, 28);
             this.radExists.TabIndex = 127;
-            this.radExists.Text = "Pervious Payroll";
+            this.radExists.Text = "Previous Payroll";
             this.radExists.UseVisualStyleBackColor = false;
             this.radExists.CheckedChanged += new System.EventHandler(this.radExists_CheckedChanged);
             // 

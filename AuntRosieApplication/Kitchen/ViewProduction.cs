@@ -76,5 +76,20 @@ namespace AuntRosieApplication.Kitchen
         {
             this.Close();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            loadDTG(Production.GetProductions(dtpFrom.Value, dtpTo.Value));
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            loadDTG(Production.GetProductions(dtpFrom.Value, dtpTo.Value));
+        }
     }
 }

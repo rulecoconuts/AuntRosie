@@ -35,23 +35,26 @@
             this.chkAllProducts = new System.Windows.Forms.CheckBox();
             this.chkAllTypes = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnDestroy = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbName = new System.Windows.Forms.ComboBox();
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.dtgProduction = new System.Windows.Forms.DataGridView();
-            this.auntRosieDBDataSet = new AuntRosieApplication.AuntRosieDBDataSet();
-            this.auntRosieDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblProductionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.auntRosieDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.auntRosieDBDataSet = new AuntRosieApplication.AuntRosieDBDataSet();
             this.tblProductionTableAdapter = new AuntRosieApplication.AuntRosieDBDataSetTableAdapters.tblProductionTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblProductionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,7 +64,7 @@
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 78);
+            this.panel1.Size = new System.Drawing.Size(830, 78);
             this.panel1.TabIndex = 141;
             // 
             // btnClose
@@ -71,7 +74,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(730, 11);
+            this.btnClose.Location = new System.Drawing.Point(769, 11);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(58, 52);
             this.btnClose.TabIndex = 7;
@@ -99,7 +102,7 @@
             this.chkAllProducts.Enabled = false;
             this.chkAllProducts.Font = new System.Drawing.Font("Arial", 14.25F);
             this.chkAllProducts.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.chkAllProducts.Location = new System.Drawing.Point(241, 184);
+            this.chkAllProducts.Location = new System.Drawing.Point(580, 86);
             this.chkAllProducts.Name = "chkAllProducts";
             this.chkAllProducts.Size = new System.Drawing.Size(131, 26);
             this.chkAllProducts.TabIndex = 150;
@@ -114,7 +117,7 @@
             this.chkAllTypes.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkAllTypes.Font = new System.Drawing.Font("Arial", 14.25F);
             this.chkAllTypes.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.chkAllTypes.Location = new System.Drawing.Point(242, 103);
+            this.chkAllTypes.Location = new System.Drawing.Point(215, 96);
             this.chkAllTypes.Name = "chkAllTypes";
             this.chkAllTypes.Size = new System.Drawing.Size(107, 26);
             this.chkAllTypes.TabIndex = 149;
@@ -124,31 +127,18 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.btnDestroy);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(573, 224);
+            this.panel2.Location = new System.Drawing.Point(628, 221);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(157, 67);
+            this.panel2.Size = new System.Drawing.Size(122, 67);
             this.panel2.TabIndex = 146;
-            // 
-            // btnDestroy
-            // 
-            this.btnDestroy.BackColor = System.Drawing.Color.Transparent;
-            this.btnDestroy.Enabled = false;
-            this.btnDestroy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDestroy.Image = global::AuntRosieApplication.Properties.Resources.full_trash;
-            this.btnDestroy.Location = new System.Drawing.Point(22, 3);
-            this.btnDestroy.Name = "btnDestroy";
-            this.btnDestroy.Size = new System.Drawing.Size(63, 55);
-            this.btnDestroy.TabIndex = 22;
-            this.btnDestroy.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::AuntRosieApplication.Properties.Resources.print;
-            this.button1.Location = new System.Drawing.Point(91, 3);
+            this.button1.Location = new System.Drawing.Point(29, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(63, 55);
             this.button1.TabIndex = 23;
@@ -160,7 +150,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Sienna;
-            this.label1.Location = new System.Drawing.Point(73, 221);
+            this.label1.Location = new System.Drawing.Point(456, 129);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 22);
             this.label1.TabIndex = 148;
@@ -172,7 +162,7 @@
             this.cmbName.Enabled = false;
             this.cmbName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbName.FormattingEnabled = true;
-            this.cmbName.Location = new System.Drawing.Point(240, 221);
+            this.cmbName.Location = new System.Drawing.Point(579, 123);
             this.cmbName.Name = "cmbName";
             this.cmbName.Size = new System.Drawing.Size(235, 31);
             this.cmbName.TabIndex = 145;
@@ -182,7 +172,7 @@
             this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(242, 135);
+            this.cmbType.Location = new System.Drawing.Point(215, 128);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(235, 31);
             this.cmbType.TabIndex = 144;
@@ -194,7 +184,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.Sienna;
-            this.label15.Location = new System.Drawing.Point(79, 136);
+            this.label15.Location = new System.Drawing.Point(52, 129);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(135, 22);
             this.label15.TabIndex = 147;
@@ -210,20 +200,63 @@
             this.dtgProduction.Size = new System.Drawing.Size(753, 327);
             this.dtgProduction.TabIndex = 151;
             // 
-            // auntRosieDBDataSet
+            // tblProductionBindingSource
             // 
-            this.auntRosieDBDataSet.DataSetName = "AuntRosieDBDataSet";
-            this.auntRosieDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.tblProductionBindingSource.DataMember = "tblProduction";
+            this.tblProductionBindingSource.DataSource = this.auntRosieDBDataSetBindingSource;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Sienna;
+            this.label2.Location = new System.Drawing.Point(52, 179);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(223, 22);
+            this.label2.TabIndex = 152;
+            this.label2.Text = "From (production date)";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Sienna;
+            this.label3.Location = new System.Drawing.Point(77, 227);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(198, 22);
+            this.label3.TabIndex = 153;
+            this.label3.Text = "To (production date)";
+            // 
+            // dtpFrom
+            // 
+            this.dtpFrom.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFrom.Location = new System.Drawing.Point(282, 179);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(200, 29);
+            this.dtpFrom.TabIndex = 154;
+            this.dtpFrom.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // dtpTo
+            // 
+            this.dtpTo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpTo.Location = new System.Drawing.Point(282, 227);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(200, 29);
+            this.dtpTo.TabIndex = 155;
+            this.dtpTo.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // auntRosieDBDataSetBindingSource
             // 
             this.auntRosieDBDataSetBindingSource.DataSource = this.auntRosieDBDataSet;
             this.auntRosieDBDataSetBindingSource.Position = 0;
             // 
-            // tblProductionBindingSource
+            // auntRosieDBDataSet
             // 
-            this.tblProductionBindingSource.DataMember = "tblProduction";
-            this.tblProductionBindingSource.DataSource = this.auntRosieDBDataSetBindingSource;
+            this.auntRosieDBDataSet.DataSetName = "AuntRosieDBDataSet";
+            this.auntRosieDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tblProductionTableAdapter
             // 
@@ -233,7 +266,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 633);
+            this.ClientSize = new System.Drawing.Size(830, 633);
+            this.Controls.Add(this.dtpTo);
+            this.Controls.Add(this.dtpFrom);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dtgProduction);
             this.Controls.Add(this.chkAllProducts);
             this.Controls.Add(this.chkAllTypes);
@@ -251,9 +288,9 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblProductionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,7 +304,6 @@
         private System.Windows.Forms.CheckBox chkAllProducts;
         private System.Windows.Forms.CheckBox chkAllTypes;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnDestroy;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbName;
@@ -278,5 +314,9 @@
         private AuntRosieDBDataSet auntRosieDBDataSet;
         private System.Windows.Forms.BindingSource tblProductionBindingSource;
         private AuntRosieDBDataSetTableAdapters.tblProductionTableAdapter tblProductionTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
+        private System.Windows.Forms.DateTimePicker dtpTo;
     }
 }
