@@ -38,9 +38,9 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.pnlButton = new System.Windows.Forms.Panel();
+            this.btnEditNew = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.cmbType = new System.Windows.Forms.ComboBox();
-            this.btnEditNew = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtSize = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
@@ -79,7 +79,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.Location = new System.Drawing.Point(0, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(821, 78);
             this.panel1.TabIndex = 142;
@@ -155,6 +155,18 @@
             this.pnlButton.Size = new System.Drawing.Size(437, 80);
             this.pnlButton.TabIndex = 151;
             // 
+            // btnEditNew
+            // 
+            this.btnEditNew.BackColor = System.Drawing.Color.FloralWhite;
+            this.btnEditNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditNew.Font = new System.Drawing.Font("Arial Narrow", 14.25F);
+            this.btnEditNew.Location = new System.Drawing.Point(269, 17);
+            this.btnEditNew.Name = "btnEditNew";
+            this.btnEditNew.Size = new System.Drawing.Size(156, 38);
+            this.btnEditNew.TabIndex = 25;
+            this.btnEditNew.Text = "Edit Newly Added";
+            this.btnEditNew.UseVisualStyleBackColor = false;
+            // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -172,18 +184,6 @@
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(409, 31);
             this.cmbType.TabIndex = 153;
-            // 
-            // btnEditNew
-            // 
-            this.btnEditNew.BackColor = System.Drawing.Color.FloralWhite;
-            this.btnEditNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditNew.Font = new System.Drawing.Font("Arial Narrow", 14.25F);
-            this.btnEditNew.Location = new System.Drawing.Point(269, 17);
-            this.btnEditNew.Name = "btnEditNew";
-            this.btnEditNew.Size = new System.Drawing.Size(156, 38);
-            this.btnEditNew.TabIndex = 25;
-            this.btnEditNew.Text = "Edit Newly Added";
-            this.btnEditNew.UseVisualStyleBackColor = false;
             // 
             // errorProvider1
             // 

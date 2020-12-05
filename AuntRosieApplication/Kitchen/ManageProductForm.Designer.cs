@@ -88,6 +88,7 @@
             this.btnEdit.TabIndex = 66;
             this.btnEdit.Text = "Manage Existing Products";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAddProductSize
             // 

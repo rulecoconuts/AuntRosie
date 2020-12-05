@@ -62,7 +62,7 @@ namespace AuntRosieApp.Kitchen
         private void btnNew_Click_1(object sender, EventArgs e)
         {
             AuntRosieApplication.Kitchen.frmAddProduct frm = new AuntRosieApplication.Kitchen.frmAddProduct();
-            frm.Left = (this.Width - frm.Width) / 2;
+            frm.Left = (this.Parent.Width - frm.Width) / 2;
             this.Close();
             
             //frm.Top = (this.Height - frm.Height) / 2;
@@ -75,7 +75,18 @@ namespace AuntRosieApp.Kitchen
         private void btnAddProductSize_Click(object sender, EventArgs e)
         {
             AuntRosieApplication.Kitchen.frmGiveProductSize frm = new AuntRosieApplication.Kitchen.frmGiveProductSize();
-            frm.Left = (this.Width - frm.Width) / 2;
+            frm.Left = (this.Parent.Width - frm.Width) / 2;
+            this.Close();
+
+            //frm.Top = (this.Height - frm.Height) / 2;
+            //frm.Activate();
+            frm.Show();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Kitchen.frmUpdateProduct frm = new AuntRosieApplication.Kitchen.frmUpdateProduct();
+            frm.Left = (this.Parent.Width - frm.Width) / 2;
             this.Close();
 
             //frm.Top = (this.Height - frm.Height) / 2;

@@ -202,6 +202,12 @@
       <DependentUpon>ProductionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\ListItem.cs" />
+    <Compile Include="Kitchen\UpdateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\UpdateProduct.Designer.cs">
+      <DependentUpon>UpdateProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kitchen\ViewProduction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Kitchen\ProductionForm.resx">
       <DependentUpon>ProductionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen\UpdateProduct.resx">
+      <DependentUpon>UpdateProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kitchen\ViewProduction.resx">
       <DependentUpon>ViewProduction.cs</DependentUpon>

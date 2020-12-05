@@ -109,9 +109,9 @@ namespace AuntRosieApplication.Kitchen
 
         private void txtSize_TextChanged(object sender, EventArgs e)
         {
-            if (txtName.Text.Length > 20)
+            if (txtSize.Text.Length > 20)
             {
-                txtName.Text = txtName.Text.Substring(0, txtSize.Text.Length - 1);
+                txtSize.Text = txtSize.Text.Substring(0, txtSize.Text.Length - 1);
                 errorProvider1.SetError(txtSize, "Name cannot be greater than 20");
             }
             else
