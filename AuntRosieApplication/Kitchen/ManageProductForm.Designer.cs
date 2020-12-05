@@ -145,6 +145,7 @@
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.btnNew, "New");
             this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnEdit
             // 

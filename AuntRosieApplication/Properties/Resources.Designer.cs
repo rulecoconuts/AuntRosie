@@ -213,6 +213,16 @@ namespace AuntRosieApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clothes_tag {
+            get {
+                object obj = ResourceManager.GetObject("clothes_tag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap confetti {
             get {
                 object obj = ResourceManager.GetObject("confetti", resourceCulture);
@@ -482,6 +492,16 @@ namespace AuntRosieApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap low_battery {
+            get {
+                object obj = ResourceManager.GetObject("low_battery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap low_importance {
             get {
                 object obj = ResourceManager.GetObject("low_importance", resourceCulture);
@@ -595,6 +615,16 @@ namespace AuntRosieApplication.Properties {
         internal static System.Drawing.Bitmap plus_2_math {
             get {
                 object obj = ResourceManager.GetObject("plus_2_math", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap price_comparison {
+            get {
+                object obj = ResourceManager.GetObject("price_comparison", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

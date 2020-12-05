@@ -14,6 +14,7 @@ namespace AuntRosieEntities
         private string name;
         private short ingredientTypeId;
         private string storingNote;
+        private string unit;
 
         private static SqlCommand createPrepCmd = null;
         private static SqlCommand deletePrepCmd = null;
@@ -38,10 +39,11 @@ namespace AuntRosieEntities
             }
         }
 
-        public long Id { get => id; }
+        public long Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public short IngredientTypeId { get => ingredientTypeId; set => ingredientTypeId = value; }
         public string StoringNote { get => storingNote; set => storingNote = value; }
+        public string Unit { get => unit; set => unit = value; }
 
         private void SetID(long id)
         {
@@ -57,11 +59,15 @@ namespace AuntRosieEntities
             if (createPrepCmd is null)
             {
                 createPrepCmd = new SqlCommand(null, Connector.Connection);
-                createPrepCmd.CommandText = "insert into [tblIngredient]([IngredientName], [StoringNote], [IngredientTypeID]) values (@name, @note, @type)";
+                createPrepCmd.CommandText = "insert into [tblIngredient]([IngredientName], [StoringNote], [IngredientTypeID],[Unit])" +
+                    " values (@name, @note, @type,@unit)";
 
 
                 SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
                 nameParam.Value = Name;
+                SqlParameter unitParam = new SqlParameter("@unit", SqlDbType.VarChar, 20);
+                unitParam.Value = Unit;
+                createPrepCmd.Parameters.Add(unitParam);
 
                 SqlParameter noteParam = new SqlParameter("@note", SqlDbType.Text, (int)Math.Pow(2, 31) - 1);
                 noteParam.Value = StoringNote;
@@ -80,6 +86,7 @@ namespace AuntRosieEntities
                 createPrepCmd.Parameters["@name"].Value = Name;
                 createPrepCmd.Parameters["@note"].Value = StoringNote;
                 createPrepCmd.Parameters["@type"].Value = IngredientTypeId;
+                createPrepCmd.Parameters["@unit"].Value = Unit;
             }
 
             id = Convert.ToInt64(Connector.Insert(createPrepCmd, true, transaction));
@@ -99,7 +106,6 @@ namespace AuntRosieEntities
 
                 SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
                 idParam.Value = Id;
-
                 deletePrepCmd.Parameters.Add(idParam);
 
                 
@@ -122,7 +128,8 @@ namespace AuntRosieEntities
             if (updatePrepCmd is null)
             {
                 updatePrepCmd = new SqlCommand(null, Connector.Connection);
-                updatePrepCmd.CommandText = "update [tblIngredient] set [IngredientName] = @name, [StoringNote] = @note, [IngredientTypeID] = @type where [InventoryID] = @ID";
+                updatePrepCmd.CommandText = "update [tblIngredient] set [IngredientName] = @name, [StoringNote] = @note , [Unit]=@unit " +
+                    "where [IngredientID] = @ID";
 
 
                 SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
@@ -131,12 +138,16 @@ namespace AuntRosieEntities
                 SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
                 nameParam.Value = Name;
 
-                SqlParameter typeParam = new SqlParameter("@type", SqlDbType.SmallInt, 0);
-                typeParam.Value = IngredientTypeId;
+                SqlParameter noteParam = new SqlParameter("@note", SqlDbType.Text, (int)Math.Pow(2, 31) - 1);
+                noteParam.Value = Name;
+
+                SqlParameter unitParam = new SqlParameter("@unit", SqlDbType.VarChar, 20);
+                unitParam.Value = Unit;
+                updatePrepCmd.Parameters.Add(unitParam);
 
                 updatePrepCmd.Parameters.Add(idParam);
                 updatePrepCmd.Parameters.Add(nameParam);
-                updatePrepCmd.Parameters.Add(typeParam);
+                updatePrepCmd.Parameters.Add(noteParam);
 
                 updatePrepCmd.Prepare();
             }
@@ -144,55 +155,56 @@ namespace AuntRosieEntities
             {
                 updatePrepCmd.Parameters["@ID"].Value = Id;
                 updatePrepCmd.Parameters["@name"].Value = Name;
-                updatePrepCmd.Parameters["@type"].Value = IngredientTypeId;
+                updatePrepCmd.Parameters["@note"].Value = IngredientTypeId;
+                updatePrepCmd.Parameters["@unit"].Value = Unit;
             }
             
 
             Connector.Update(updatePrepCmd, transaction);
         }
 
-        /// <summary>
-        /// Retrieve an ingredient from the database by name
-        /// </summary>
-        /// <param name="name">Name of the ingredient to retrieve</param>
-        /// <returns></returns>
-        public static Ingredient Retrieve(string name)
-        {
-            Ingredient ingredient = null;
+        ///// <summary>
+        ///// Retrieve an ingredient from the database by name
+        ///// </summary>
+        ///// <param name="name">Name of the ingredient to retrieve</param>
+        ///// <returns></returns>
+        //public static Ingredient Retrieve(string name)
+        //{
+        //    Ingredient ingredient = null;
 
-            //Prepare statement
-            if (retrieveNamePrepCmd is null)
-            {
-                retrieveNamePrepCmd = new SqlCommand(null, Connector.Connection);
-                retrieveNamePrepCmd.CommandText = "select [IngredientID], [StoringNote], [IngredientTypeID] from [tblIngredient] where [IngredientName] = @name";
+        //    //Prepare statement
+        //    if (retrieveNamePrepCmd is null)
+        //    {
+        //        retrieveNamePrepCmd = new SqlCommand(null, Connector.Connection);
+        //        retrieveNamePrepCmd.CommandText = "select [IngredientID], [StoringNote], [IngredientTypeID], [Unit] from [tblIngredient] where [IngredientName] = @name";
 
 
-                SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
-                nameParam.Value = name;
+        //        SqlParameter nameParam = new SqlParameter("@name", SqlDbType.VarChar, 50);
+        //        nameParam.Value = name;
 
-                retrieveNamePrepCmd.Prepare();
-            }
-            else
-            {
-                retrieveNamePrepCmd.Parameters["name"].Value = name;
-            }
+        //        retrieveNamePrepCmd.Prepare();
+        //    }
+        //    else
+        //    {
+        //        retrieveNamePrepCmd.Parameters["name"].Value = name;
+        //    }
 
-            //Process result
-            SqlDataReader reader = Connector.Retrieve(retrieveNamePrepCmd);
-            if (reader.HasRows)
-            {
-                reader.Read();
-                ingredient = new Ingredient();
-                ingredient.SetID(reader.GetInt64(0));
-                ingredient.Name = name;
-                ingredient.IngredientTypeId = reader.GetInt16(2);
-                ingredient.StoringNote = reader.GetString(1);
-            }
+        //    //Process result
+        //    SqlDataReader reader = Connector.Retrieve(retrieveNamePrepCmd);
+        //    if (reader.HasRows)
+        //    {
+        //        reader.Read();
+        //        ingredient = new Ingredient();
+        //        ingredient.SetID(reader.GetInt64(0));
+        //        ingredient.Name = name;
+        //        ingredient.IngredientTypeId = reader.GetInt16(2);
+        //        ingredient.StoringNote = reader.GetString(1);
+        //    }
 
-            reader.Close();
+        //    reader.Close();
 
-            return ingredient;
-        }
+        //    return ingredient;
+        //}
 
         /// <summary>
         /// Retrieve an ingredient from the database by ID
@@ -207,17 +219,17 @@ namespace AuntRosieEntities
             if (retrieveIdPrepCmd is null)
             {
                 retrieveIdPrepCmd = new SqlCommand(null, Connector.Connection);
-                retrieveIdPrepCmd.CommandText = "select [IngredientName], [StoringNote], [IngredientTypeID] from [tblIngredient] where [IngredientID] = @ID";
-
-
+                retrieveIdPrepCmd.CommandText = "select [IngredientName], [StoringNote], [IngredientTypeID], [Unit] " +
+                    "from [tblIngredient] where [IngredientID] = @ID";
                 SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
                 idParam.Value = id;
+                retrieveIdPrepCmd.Parameters.Add(idParam);
 
                 retrieveIdPrepCmd.Prepare();
             }
             else
             {
-                retrieveIdPrepCmd.Parameters["ID"].Value = id;
+                retrieveIdPrepCmd.Parameters["@ID"].Value = id;
             }
 
             //Process result
@@ -230,6 +242,7 @@ namespace AuntRosieEntities
                 ingredient.Name = reader.GetString(0);
                 ingredient.IngredientTypeId = reader.GetInt16(2);
                 ingredient.StoringNote = reader.GetString(1);
+                ingredient.Unit = reader.GetString(3);
             }
 
             reader.Close();

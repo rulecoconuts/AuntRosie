@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using AuntRosieApplication.Classes;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using AuntRosieEntities;
 
 namespace AuntRosieApplication.Inventory
 {
@@ -17,8 +18,9 @@ namespace AuntRosieApplication.Inventory
     {
         private int numberOfItemsPerPage = 0;
         private int numberOfItemsPrintedSoFar = 0;
+        private string expierdWhere = String.Empty;
 
-        public string SelectSQLCmmand = "SELECT        tblSupplier.SupplierName, tblIngredientType.TypeName, tblIngredient.IngredientName, tblIngredientInventory.PurchaseDate, tblIngredientInventory.ExpiryDate, tblIngredientInventory.Quantity, tblIngredientInventory.Unit, "+
+        public string SelectSQLCmmand = "SELECT        tblSupplier.SupplierName, tblIngredientType.TypeName, tblIngredient.IngredientName, tblIngredientInventory.PurchaseDate, tblIngredientInventory.ExpiryDate, tblIngredientInventory.Quantity, tblIngredient.Unit, "+
                        "  tblIngredientInventory.Cost "+
                        " FROM            tblSupplier INNER JOIN "+
                        "  tblIngredientInventory ON tblSupplier.SupplierID = tblIngredientInventory.SupplierID INNER JOIN "+
@@ -27,12 +29,26 @@ namespace AuntRosieApplication.Inventory
                         "WHERE         (tblIngredientInventory.Quantity > 0) ";
         public string OrderSQLCmmand = "  ORDER BY tblIngredientInventory.ExpiryDate ";
 
+        public static String reportSql = null;
+        public string ReportSql
+        {
+            get
+            {
+                return reportSql;
+            }
+            set
+            {
+                if (reportSql != value)
+                    reportSql = value;
+            }
+        }
 
 
         public frmInventoryStock()
         {
-            InitializeComponent();
             this.DoubleBuffered = true;
+            InitializeComponent();
+           
         }
         protected override void OnPaint(PaintEventArgs e) { }
 
@@ -49,9 +65,7 @@ namespace AuntRosieApplication.Inventory
 
         private void frmInventoryStock_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'auntRosieDBDataSet.StockQuery' table. You can move, or remove it, as needed.
-            
-            // TODO: This line of code loads data into the 'auntRosieDBDataSet.StockQuery' table. You can move, or remove it, as needed.
+             
 
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
 
@@ -60,7 +74,8 @@ namespace AuntRosieApplication.Inventory
             cmbType.Items.Clear();
             Classes.DBMethod.FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
                  (Classes.DBMethod.GetConnectionString()), cmbType);
-            FillGridStock(SelectSQLCmmand + OrderSQLCmmand );
+            ReportSql = SelectSQLCmmand + OrderSQLCmmand;
+            FillGridStock(ReportSql);
 
             this.Visible = true;
 
@@ -80,21 +95,36 @@ namespace AuntRosieApplication.Inventory
 
             chkAllIngrdient.Checked = false;
             string wherSQLCmmand = " and  tblIngredient.IngredientTypeID= " + DBMethod.GetSelectedItemID(cmbType) + " ";
-            FillGridStock(SelectSQLCmmand + wherSQLCmmand + OrderSQLCmmand);
+            ReportSql = SelectSQLCmmand + wherSQLCmmand + OrderSQLCmmand;
+            FillGridStock(ReportSql);
 
             chkAllTypies.Checked = false;
             cmbName.Enabled = true;
             chkAllIngrdient.Enabled = true;
             chkAllIngrdient.Checked = true;
+            GetQuantityType();
+            LblQuantity.Text = "";
 
 
         }
 
         private void cmbName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string wherSQLCmmand = " and  tblIngredientInventory.IngredientID= " + DBMethod.GetSelectedItemID(cmbName) + " ";
-            FillGridStock(SelectSQLCmmand + wherSQLCmmand + OrderSQLCmmand);
-            chkAllIngrdient.Checked = false;
+
+            try
+            {
+                string wherSQLCmmand = " and  tblIngredientInventory.IngredientID= " + DBMethod.GetSelectedItemID(cmbName) + " ";
+                ReportSql = SelectSQLCmmand + wherSQLCmmand + OrderSQLCmmand;
+                FillGridStock(ReportSql);
+                chkAllIngrdient.Checked = false;
+                GetQuantity();
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+
         }
         private void FillGridStock( string sql)
         {
@@ -110,47 +140,82 @@ namespace AuntRosieApplication.Inventory
             grdStock.DataSource = ds;
             grdStock.DataMember = "Stock_query";
         }
-
-        private void radExpry_CheckedChanged(object sender, EventArgs e)
-        {
-
-            if (grdStock.Rows.Count == 0)
-            {
-                btnDestroy.Enabled = true;
-            }
-            {
-                MessageBox.Show("No Expierd Items ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
+ 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            string curdhead = "Inventory Stock";
-            e.Graphics.DrawString(curdhead, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 350, 50);
+            string subTitle = "";
+            string quString = "";
+            if (chkExpierd.Checked)
+            {
+                subTitle = "Expired Items-";
+            }
+            else
+            {
+                subTitle = "Existing Items-";
+            }
 
+            if (chkAllTypies.Checked)
+            {
+                subTitle += " " + "- All";
+
+            }
+            else
+            {
+                subTitle += " " + cmbType.Text;
+
+                if (chkAllIngrdient.Checked)
+                {
+
+                    subTitle += " "  + " -All";
+                    quString = lblQuantityType.Text;
+
+
+                }
+                else
+                {
+                    subTitle +=  " (" + cmbName.Text+ ")";
+                    quString = LblQuantity.Text;
+                }
+            }
+
+            string projTitle = "Aunt Rosie's Inventory Stock";
+            e.Graphics.DrawString(projTitle, new System.Drawing.Font("Book Antiqua", 14, FontStyle.Bold), Brushes.Black, 300, 20);
+
+            string curdhead =  subTitle;
+            e.Graphics.DrawString(curdhead, new System.Drawing.Font("Book Antiqua", 12, FontStyle.Bold), Brushes.Black, 20, 50);
+
+            
+
+            string currentDate = DateTime.Today.Date.ToShortDateString();
+            e.Graphics.DrawString(currentDate, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Italic), Brushes.Black, 750 , 50);
+            if (quString != "")
+            {
+                quString = "Total Quantity: " + quString;
+                e.Graphics.DrawString(quString, new System.Drawing.Font("Book Antiqua", 10, FontStyle.Regular), Brushes.Black, 20, 75);
+            }
             string l1 = "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
             e.Graphics.DrawString(l1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 0, 100);
 
             //ExpiryDate, tblIngredientInventory.Quantity, tblIngredientInventory.Unit
             string g1 = "SupplierName ";
-            e.Graphics.DrawString(g1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 0, 140);
+            e.Graphics.DrawString(g1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 20, 140);
 
             string g2 = "TypeName";
-            e.Graphics.DrawString(g2, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 100, 140);
+            e.Graphics.DrawString(g2, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 120, 140);
 
             string g3 = "IngredientName";
-            e.Graphics.DrawString(g3, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 200, 140);
+            e.Graphics.DrawString(g3, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 220, 140);
 
             string g4 = "PurchaseDate";
-            e.Graphics.DrawString(g4, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 300, 140);
+            e.Graphics.DrawString(g4, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 320, 140);
 
             string g5 = "ExpiryDate";
-            e.Graphics.DrawString(g5, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 400, 140);
+            e.Graphics.DrawString(g5, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 420, 140);
 
             string g6 = "Quantity";
-            e.Graphics.DrawString(g6, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 500, 140);
+            e.Graphics.DrawString(g6, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 520, 140);
             string g7 ="Unit";
-            e.Graphics.DrawString(g7, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 600, 140);
+            e.Graphics.DrawString(g7, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 620, 140);
 
             string l2 = "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
             e.Graphics.DrawString(l2, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 0, 160);
@@ -167,13 +232,13 @@ namespace AuntRosieApplication.Inventory
                     {
 
                         height += grdStock.Rows[0].Height;
-                        e.Graphics.DrawString(grdStock.Rows[l].Cells[0].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(0, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
-                        e.Graphics.DrawString(grdStock.Rows[l].Cells[1].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(100, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
-                        e.Graphics.DrawString(grdStock.Rows[l].Cells[2].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(200, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
-                        e.Graphics.DrawString(grdStock.Rows[l].Cells[3].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(300, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
-                        e.Graphics.DrawString(grdStock.Rows[l].Cells[4].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(400, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
-                        e.Graphics.DrawString(grdStock.Rows[l].Cells[5].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(500, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
-                        e.Graphics.DrawString(grdStock.Rows[l].Cells[6].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(600, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
+                        e.Graphics.DrawString(grdStock.Rows[l].Cells[0].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(20, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
+                        e.Graphics.DrawString(grdStock.Rows[l].Cells[1].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(120, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
+                        e.Graphics.DrawString(grdStock.Rows[l].Cells[2].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(220, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
+                        e.Graphics.DrawString(grdStock.Rows[l].Cells[3].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(320, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
+                        e.Graphics.DrawString(grdStock.Rows[l].Cells[4].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(420, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
+                        e.Graphics.DrawString(grdStock.Rows[l].Cells[5].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(520, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
+                        e.Graphics.DrawString(grdStock.Rows[l].Cells[6].FormattedValue.ToString(), grdStock.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(620, height, grdStock.Columns[0].Width, grdStock.Rows[0].Height));
 
 
                     }
@@ -193,25 +258,44 @@ namespace AuntRosieApplication.Inventory
 
 
             }
+
             numberOfItemsPerPage = 0;
             numberOfItemsPrintedSoFar = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.PrintDialog PrintDialog1 = new PrintDialog();
-            PrintDialog1.AllowSomePages = true;
-            PrintDialog1.ShowHelp = true;
-            PrintDialog1.Document = printDocument1;
-            DialogResult result = PrintDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                printDocument1.Print();
-            }
+            (new ReportVewierForm()).ShowDialog();
+
+
+            //System.Windows.Forms.PrintDialog PrintDialog1 = new PrintDialog();
+            //PrintDialog1.AllowSomePages = true;
+            //PrintDialog1.ShowHelp = true;
+            //PrintDialog1.Document = printDocument1;
+            //DialogResult result = PrintDialog1.ShowDialog();
+            //if (result == DialogResult.OK)
+            //{
+            //    printDocument1.Print();
+            //}
         }
 
         private void btnDestroy_Click(object sender, EventArgs e)
         {
+            string updateSQLText = "Update [tblIngredientInventory]  Set tblIngredientInventory.Quantity=0 " +
+                "where  (tblIngredientInventory.Quantity > 0)  " + expierdWhere;
+            
+            if (InventoryIngredient.RidOutExpierd(DBMethod.GetConnectionString(), updateSQLText))
+            {
+                MessageBox.Show("Selected expired items have been rid out", "Confirmation"
+                    , MessageBoxButtons.OK, MessageBoxIcon.Information);
+                chkExpierd_CheckedChanged(sender, e);
+
+            }
+            else
+            {
+                MessageBox.Show("Sorry! An internal error has happened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
@@ -227,15 +311,120 @@ namespace AuntRosieApplication.Inventory
                 cmbType.Items.Clear();
                 Classes.DBMethod.FillCombBox(AuntRosieEntities.IngredientType.GetAllIngredintType
                      (Classes.DBMethod.GetConnectionString()), cmbType);
-                FillGridStock(SelectSQLCmmand + OrderSQLCmmand);
+                
                 cmbName.Items.Clear();
                 cmbName.Enabled = false;
                 chkAllIngrdient.Enabled = false;
-                FillGridStock(SelectSQLCmmand + OrderSQLCmmand);
-
+                ReportSql = SelectSQLCmmand + OrderSQLCmmand;
+                FillGridStock(ReportSql);
+                chkExpierd.Checked = false;
+                lblQuantityType.Text = "";
+                LblQuantity.Text = "";
             }
         }
+        private void GetQuantity()
+        {
+            SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
 
+            // Create new SQL command
+            SqlCommand command = new SqlCommand("SELECT  SUM(Quantity) AS Expr1, Unit, tblIngredientInventory.IngredientID  FROM  " +
+                " ( tblIngredientInventory  INNER JOIN " +
+                       "  tblIngredient ON tblIngredient.IngredientID = tblIngredientInventory.IngredientID ) " +
+                       " GROUP BY Unit, tblIngredientInventory.IngredientID  HAVING (tblIngredientInventory.IngredientID = " + DBMethod.GetSelectedItemID(cmbName)  + ") ", dbConnection);
+           
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            // Declare a DataTable object that will hold the return value
+            DataTable dt = new DataTable();
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                adapter.Fill(dt);
+               
+                if (dt.Rows.Count == 0)
+                   {
+                        LblQuantity.Text = "0.00";
+
+                    }
+
+                    if (dt != null)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                      
+                        LblQuantity.Text = row[0].ToString() + "  " +row[1].ToString() ;
+                        
+                    }
+                   
+                } 
+                  
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+
+        }
+
+
+        private void GetQuantityType()
+        {
+            SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
+
+            // Create new SQL command
+            SqlCommand command = new SqlCommand("SELECT    SUM(tblIngredientInventory.Quantity) AS Expr1, tblIngredient.Unit, tblIngredientType.IngredientTypeID"+
+                 "  FROM            tblIngredientInventory INNER JOIN "+
+                " tblIngredient ON tblIngredientInventory.IngredientID = tblIngredient.IngredientID INNER JOIN " +
+                        " tblIngredientType ON tblIngredient.IngredientTypeID = tblIngredientType.IngredientTypeID "+
+                             "GROUP BY tblIngredient.Unit, tblIngredientType.IngredientTypeID" +
+                 " HAVING(tblIngredientType.IngredientTypeID = " + DBMethod.GetSelectedItemID(cmbType) + ") ", dbConnection);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+           
+            // Declare a DataTable object that will hold the return value
+            DataTable dt = new DataTable();
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                adapter.Fill(dt);
+               
+               if (dt.Rows.Count==0)
+                {
+                    lblQuantityType.Text = "0.00";
+
+                }
+                if (dt != null)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+
+                        lblQuantityType.Text = row[0].ToString() + "  " + row[1].ToString();
+
+                    }
+                }
+                 
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+
+        }
         private void chkExpierd_CheckedChanged(object sender, EventArgs e)
         {
             if (chkExpierd.Checked)
@@ -243,28 +432,43 @@ namespace AuntRosieApplication.Inventory
                 string whereExpirySQLSelect= " and  tblIngredientInventory.ExpiryDate < '" + DateTime.Today.Date.ToShortDateString() + "' ";
                 if (chkAllTypies.Checked)
                 {
-                   // MessageBox.Show(SelectSQLCmmand + whereExpirySQLSelect + OrderSQLCmmand);
+                    // MessageBox.Show(SelectSQLCmmand + whereExpirySQLSelect + OrderSQLCmmand);
+                    ReportSql = SelectSQLCmmand + whereExpirySQLSelect + OrderSQLCmmand;
+                    FillGridStock(ReportSql);
+                    expierdWhere = whereExpirySQLSelect;
 
-                    FillGridStock(SelectSQLCmmand + whereExpirySQLSelect + OrderSQLCmmand);
-                   
                 }
                 else
                 {
                     if(chkAllIngrdient.Checked)
                     {
                         string wherSQLCmmand = " and  tblIngredientInventory.IngredientID= " + DBMethod.GetSelectedItemID(cmbType) + " ";
-                        FillGridStock(SelectSQLCmmand + wherSQLCmmand + whereExpirySQLSelect + OrderSQLCmmand);
-              
+                        ReportSql = SelectSQLCmmand + wherSQLCmmand + whereExpirySQLSelect + OrderSQLCmmand;
+                        FillGridStock(ReportSql);
+                        expierdWhere = wherSQLCmmand + whereExpirySQLSelect;
+                        GetQuantity();
+
                     }
                     else
                     {
-                        string wherSQLCmmand = " and  tblIngredient.IngredientTypeID= " + DBMethod.GetSelectedItemID(cmbType) + " ";
+                        string wherSQLCmmand = " and  tblIngredient.IngredientTypeID= " + DBMethod.GetSelectedItemID(cmbName) + " ";
                         FillGridStock(SelectSQLCmmand + wherSQLCmmand+  whereExpirySQLSelect+ OrderSQLCmmand);
+                        expierdWhere = wherSQLCmmand + whereExpirySQLSelect;
+                        GetQuantityType();
 
                     }
                 }
                  
-
+                if ( grdStock.Rows.Count==0)
+                {
+                    MessageBox.Show("No Expired items in the inventory", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnDestroy.Enabled = false;
+                }
+                else
+                {
+                    btnDestroy.Enabled = true;
+                    btnDestroy.Focus();
+                }
 
             }
             else
@@ -273,28 +477,47 @@ namespace AuntRosieApplication.Inventory
                 if (chkAllTypies.Checked)
                 {
                     // MessageBox.Show(SelectSQLCmmand + whereExpirySQLSelect + OrderSQLCmmand);
-
-                    FillGridStock(SelectSQLCmmand + OrderSQLCmmand);
+                    ReportSql = SelectSQLCmmand + OrderSQLCmmand;
+                    FillGridStock(ReportSql);
 
                 }
                 else
                 {
                     if (chkAllIngrdient.Checked)
                     {
-                        string wherSQLCmmand = " and  tblIngredientInventory.IngredientID= " + DBMethod.GetSelectedItemID(cmbType) + " ";
-                        FillGridStock(SelectSQLCmmand + wherSQLCmmand + OrderSQLCmmand);
-
+                        string wherSQLCmmand = " and  tblIngredientInventory.IngredientID= " + DBMethod.GetSelectedItemID(cmbName) + " ";
+                        ReportSql = SelectSQLCmmand + wherSQLCmmand + OrderSQLCmmand;
+                        FillGridStock(ReportSql);
+                        GetQuantity();
                     }
                     else
                     {
                         string wherSQLCmmand = " and  tblIngredient.IngredientTypeID= " + DBMethod.GetSelectedItemID(cmbType) + " ";
-                        FillGridStock(SelectSQLCmmand + wherSQLCmmand + OrderSQLCmmand);
-
-                    }
+                        ReportSql = SelectSQLCmmand + wherSQLCmmand + OrderSQLCmmand;
+                        FillGridStock(ReportSql);
+                        GetQuantityType();
+                    }                  
                 }
 
+            }
+        }
 
+        private void chkAllIngrdient_CheckedChanged(object sender, EventArgs e)
+        {
 
+            if (chkAllIngrdient.Checked)
+            {
+
+                cmbName.Items.Clear();
+                Classes.DBMethod.FillCombBox(AuntRosieEntities.Ingredient.GetAllIngredintsByType
+                  (Classes.DBMethod.GetConnectionString(), DBMethod.GetSelectedItemID(cmbType)), cmbName);            
+                string wherSQLCmmand = " and  tblIngredient.IngredientTypeID= " + DBMethod.GetSelectedItemID(cmbType) + " ";
+                ReportSql = SelectSQLCmmand + wherSQLCmmand + OrderSQLCmmand;
+                FillGridStock(ReportSql);        
+                cmbName.Enabled = true;
+                chkAllIngrdient.Enabled = true;            
+                GetQuantityType();
+                LblQuantity.Text = "";
             }
         }
     }

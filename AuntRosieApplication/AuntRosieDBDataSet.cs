@@ -6,3 +6,10 @@
     {
     }
 }
+
+namespace AuntRosieApplication.AuntRosieDBDataSetTableAdapters {
+    
+    
+    public partial class payrollTableAdapter {
+    }
+}

@@ -15,16 +15,13 @@ namespace AuntRosieEntities
         private DateTime expiryDate;
         private string paymentMethod;
         private double quantity;
-        private string unit;
+       
         private double cost;
         private long supplierID;
         ///  
         private static SqlCommand createPrepCmd = null;
-        private static SqlCommand deletePrepCmd = null;
-        private static SqlCommand updatePrepCmd = null;
-
-        public string Unit { get => unit; set => unit = value; }
-        public long IngredientID { get => ingredientID; set => ingredientID = value; }
+        
+          public long IngredientID { get => ingredientID; set => ingredientID = value; }
         public DateTime PurchaseDate { get => purchaseDate; set => purchaseDate = value; }
         public DateTime ExpiryDate { get => expiryDate; set => expiryDate = value; }
         public string ThisPaymentMethod { get => paymentMethod; set => paymentMethod = value; }
@@ -46,8 +43,8 @@ namespace AuntRosieEntities
             {
                 createPrepCmd = new SqlCommand(null, Connector.Connection);
                 createPrepCmd.CommandText = "insert into [tblIngredientInventory]([IngredientID]," +
-                    "[PurchaseDate],[ExpiryDate] ,[PaymentMethod],[Quantity],[Unit],[Cost],[SupplierID] )" +
-                    " values (@ingredientId,@purchaseDate,@expiryDate,@pymentMethod,@quantity,@unit,@cost,@supplierID)";
+                    "[PurchaseDate],[ExpiryDate] ,[PaymentMethod],[Quantity],[Cost],[SupplierID] )" +
+                    " values (@ingredientId,@purchaseDate,@expiryDate,@pymentMethod,@quantity,@cost,@supplierID)";
 
 
                 SqlParameter ingredientIdParam = new SqlParameter("@ingredientId", SqlDbType.BigInt );
@@ -74,9 +71,7 @@ namespace AuntRosieEntities
                 quantityParam.Value =Quantity;
                 createPrepCmd.Parameters.Add(quantityParam);
 
-                SqlParameter unitParam = new SqlParameter("@unit", SqlDbType.VarChar, 20);
-                unitParam.Value = Unit;
-                createPrepCmd.Parameters.Add(unitParam);
+                
 
                 SqlParameter costParam = new SqlParameter("@cost", SqlDbType.Money, 20);
                 costParam.Value = Cost;
@@ -100,7 +95,7 @@ namespace AuntRosieEntities
                 createPrepCmd.Parameters["@expiryDate"].Value = ExpiryDate;
                 createPrepCmd.Parameters["@pymentMethod"].Value = ThisPaymentMethod;
                 createPrepCmd.Parameters["@quantity"].Value = Quantity;
-                createPrepCmd.Parameters["@unit"].Value = Unit;
+               
                 createPrepCmd.Parameters["@supplierID"].Value = SupplierId;
             }
 
@@ -112,7 +107,34 @@ namespace AuntRosieEntities
         {
             throw new NotImplementedException();
         }
+         public  static bool RidOutExpierd( String conStr, string updateSqlText) 
+        {
+            bool returnValue = false;
+            SqlConnection dbConnection = new SqlConnection(conStr);
 
+            // Create new SQL command and assign it paramaters
+            SqlCommand command = new SqlCommand(updateSqlText, dbConnection);
+
+            // Try to open a connection to the database and update the record. Return result.
+            try
+            {
+                dbConnection.Open();
+                if (command.ExecuteNonQuery() > 0)
+                {
+                    returnValue = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                returnValue = false;     }
+            finally
+            {
+                dbConnection.Close();
+            }
+            return returnValue;
+
+
+        }
         public override void Update(SqlTransaction transaction = null)
         {
             throw new NotImplementedException();

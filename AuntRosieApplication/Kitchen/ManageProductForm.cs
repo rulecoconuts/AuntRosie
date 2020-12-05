@@ -53,5 +53,10 @@ namespace AuntRosieApp.Kitchen
         {
 
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

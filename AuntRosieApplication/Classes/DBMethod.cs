@@ -15,16 +15,16 @@ namespace AuntRosieApplication.Classes
        public  static  string[,] provincesArray = new string[,] {
                 { "Newfoundland and Labrador","NL"},
 {"Prince Edward Island", "PE" },
-{" Nova Scotia","NS" },
+{"Nova Scotia","NS" },
 {"New Brunswick","NB" },
-{" Quebec","QC" },
+{"Quebec","QC" },
 {"Ontario", "ON" },
-{" Manitoba","MB" },
+{"Manitoba","MB" },
 {"Saskatchewan", "SK" },
 {"Alberta","AB" },
-{" British Columbia","BC" },
+{"British Columbia","BC" },
 { "Yukon", "YT" },
-{" Northwest Territories","NT" },
+{"Northwest Territories","NT" },
 { "Nunavut","NU"}
             };
 
@@ -73,6 +73,21 @@ namespace AuntRosieApplication.Classes
             }
         }
 
+        public static void FillCombBoxPerson(DataTable dt, ComboBox cmb)
+
+        {
+            if (dt != null)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
+                    itm.name = row[1].ToString()+ " "+ row[2].ToString();
+                    itm.id = row[0].ToString();
+                    cmb.Items.Add((Object)itm);
+                }
+            }
+        }
+
         public static String GetProvinceName(string provinceId)
         {
 
@@ -88,11 +103,14 @@ namespace AuntRosieApplication.Classes
 
  public  static string GetSelectedItemID(ComboBox cmb )
         {
-             
-            AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
-            Object obj = cmb.Items[cmb.SelectedIndex];
-            itm = (Classes.ListItem)obj;
-            return itm.id;
+            if (cmb.SelectedIndex > -1)
+            {
+                AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
+                Object obj = cmb.Items[cmb.SelectedIndex];
+                itm = (Classes.ListItem)obj;
+                return itm.id;
+            }
+            return null;
         }
 
         public  static void relocation(Panel pnl, Form frm)

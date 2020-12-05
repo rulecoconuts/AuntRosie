@@ -206,6 +206,40 @@ namespace AuntRosieEntities
             return items;
         }
 
+        /// <summary>
+        /// Search by production date
+        /// </summary>
+        /// <param name="earliest"></param>
+        /// <param name="latest"></param>
+        /// <returns></returns>
+        public static List<Production> GetProductions(DateTime earliest, DateTime latest)
+        {
+            List<Production> items = new List<Production>();
+
+            //Process result
+            SqlDataReader reader = Connector.Retrieve("select prdtn.[ProductionID], prdtn.[ProductItemID], prdtn.[ProductionDate], " +
+                "prdtn.[ProductionQuantity], prdtn.[ExpiryDate] from [tblProduction] prdtn " +
+                "inner join [tblProductItem] prdi on prdi.[ProductItemID] = prdtn.[ProductItemID] " +
+                "inner join [tblProduct] prd on prd.[ProductID] = prdi.[ProductID] " +
+                $"where prdtn.[ProductionDate] >= '{earliest.Date}' and prdtn.[ProductionDate] <= '{latest.Date}'");
+
+            while (reader.HasRows && reader.Read())
+            {
+                Production productionItem = new Production();
+                productionItem.SetID(reader.GetInt64(0));
+                productionItem.ProductItemID = reader.GetInt32(1);
+                productionItem.ProductionDate = reader.GetDateTime(2);
+                productionItem.Quantity = reader.GetInt16(3);
+                productionItem.ExpiryDate = reader.GetDateTime(4);
+
+                items.Add(productionItem);
+            }
+
+            reader.Close();
+
+            return items;
+        }
+
         public override string ToString()
         {
             return $"{ProductItem} {Quantity} {ProductionDate} {ExpiryDate}";
