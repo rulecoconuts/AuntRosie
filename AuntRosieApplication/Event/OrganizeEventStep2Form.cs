@@ -94,5 +94,40 @@ namespace AuntRosieApplication.Event
         {
 
         }
+
+        private bool validate()
+        {
+            if(txtHours.Text.Length < 1)
+            {
+                errorProvider1.SetError(txtHours, "txtHours cannot be blank");
+                return false;
+            }
+            errorProvider1.SetError(txtHours, "");
+            return true;
+        }
+
+        private void btnAddLocation_Click(object sender, EventArgs e)
+        {
+            if (validate())
+            {
+                try
+                {
+                    EmployeeHours hourRecord = new EmployeeHours();
+                    hourRecord.Hours = Double.Parse(txtHours.Text);
+                    errorProvider1.SetError(cmbEmpName, "");
+                }
+                catch (SqlException se)
+                {
+                    if (se.Message.Contains("duplicate key"))
+                    {
+                        errorProvider1.SetError(cmbEmpName, "This employee has already been assigned to this event");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something went wrong");
+                }
+            }
+        }
     }
 }
