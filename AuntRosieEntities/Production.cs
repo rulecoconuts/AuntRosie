@@ -15,7 +15,7 @@ namespace AuntRosieEntities
         private int productItemID;
         private DateTime productionDate;
         private short quantity;
-        private DateTime expiryDate;
+        private DateTime? expiryDate;
 
         /// <summary>
         /// Prepared statement to retrieve product by id
@@ -47,7 +47,7 @@ namespace AuntRosieEntities
         public int ProductItemID { get => productItemID; set => productItemID = value; }
         public DateTime ProductionDate { get => productionDate; set => productionDate = value; }
         public short Quantity { get => quantity; set => quantity = value; }
-        public DateTime ExpiryDate { get => expiryDate; set => expiryDate = value; }
+        public DateTime? ExpiryDate { get => expiryDate; set => expiryDate = value; }
 
         private void SetID(long id)
         {
@@ -70,7 +70,7 @@ namespace AuntRosieEntities
                 qtyParam.Value = Quantity;
 
                 SqlParameter expParam = new SqlParameter("@expDate", SqlDbType.Date, 0);
-                expParam.Value = ExpiryDate.Date;
+                expParam.Value = ExpiryDate??ExpiryDate.Value.Date;
 
                 SqlParameter productionDateParam = new SqlParameter("@prodDate", SqlDbType.DateTime, 0);
                 productionDateParam.Value = ProductionDate;
@@ -95,12 +95,67 @@ namespace AuntRosieEntities
 
         public override void Delete(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (deletePrepCmd is null)
+            {
+                deletePrepCmd = new SqlCommand(null, Connector.Connection);
+                deletePrepCmd.CommandText = "delete from [tblProduction] where [ProductionID]=@ID";
+
+
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.BigInt, 0);
+                idParam.Value = Id;
+
+                deletePrepCmd.Prepare();
+            }
+            else
+            {
+                deletePrepCmd.Parameters["@ID"].Value = Id;
+            }
+
+            Connector.Delete(deletePrepCmd, transaction);
         }
 
         public override void Update(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (updatePrepCmd is null)
+            {
+                updatePrepCmd = new SqlCommand(null, Connector.Connection);
+                updatePrepCmd.CommandText = "update [tblProduction] set [ProductItemID]=@product, " +
+                    "[ProductionQuantity]=@qty, [ExpiryDate]=@expDate, [ProductionDate]=@prodDate where [ProductionID]=@ID";
+
+
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.BigInt, 0);
+                idParam.Value = Id;
+
+                SqlParameter productItemParam = new SqlParameter("@product", SqlDbType.Int, 0);
+                productItemParam.Value = ProductItemID;
+
+                SqlParameter qtyParam = new SqlParameter("@qty", SqlDbType.SmallInt, 0);
+                qtyParam.Value = Quantity;
+
+                SqlParameter expParam = new SqlParameter("@expDate", SqlDbType.Date, 0);
+                expParam.Value = ExpiryDate ?? ExpiryDate.Value.Date;
+
+                SqlParameter productionDateParam = new SqlParameter("@prodDate", SqlDbType.DateTime, 0);
+                productionDateParam.Value = ProductionDate;
+
+                updatePrepCmd.Parameters.Add(idParam);
+                updatePrepCmd.Parameters.Add(productItemParam);
+                updatePrepCmd.Parameters.Add(qtyParam);
+                updatePrepCmd.Parameters.Add(expParam);
+                updatePrepCmd.Parameters.Add(productionDateParam);
+
+                updatePrepCmd.Prepare();
+            }
+            else
+            {
+                updatePrepCmd.Parameters["@ID"].Value = Id;
+                updatePrepCmd.Parameters["@product"].Value = ProductItemID;
+                updatePrepCmd.Parameters["@qty"].Value = Quantity;
+                updatePrepCmd.Parameters["@expDate"].Value = ExpiryDate;
+                updatePrepCmd.Parameters["@prodDate"].Value = ProductionDate;
+            }
+
+            Connector.Update(updatePrepCmd, transaction);
         }
 
         public static Production Retrieve(long id)
@@ -155,6 +210,39 @@ namespace AuntRosieEntities
             //Process result
             SqlDataReader reader = Connector.Retrieve("select [ProductionID], [ProductItemID], [ProductionDate], " +
                 "[ProductionQuantity], [ExpiryDate] from [tblProduction]");
+
+            while (reader.HasRows && reader.Read())
+            {
+                Production productionItem = new Production();
+                productionItem.SetID(reader.GetInt64(0));
+                productionItem.ProductItemID = reader.GetInt32(1);
+                productionItem.ProductionDate = reader.GetDateTime(2);
+                productionItem.Quantity = reader.GetInt16(3);
+                productionItem.ExpiryDate = reader.GetDateTime(4);
+
+                items.Add(productionItem);
+            }
+
+            reader.Close();
+
+            return items;
+        }
+
+        /// <summary>
+        /// Get productions earlier than supplied date
+        /// </summary>
+        /// <param name="earliest">Earliest production date to return</param>
+        /// <returns></returns>
+        public static List<Production> GetProductions(DateTime earliest)
+        {
+            List<Production> items = new List<Production>();
+
+            //Process result
+            SqlDataReader reader = Connector.Retrieve("select prdtn.[ProductionID], prdtn.[ProductItemID], prdtn.[ProductionDate], " +
+                "prdtn.[ProductionQuantity], prdtn.[ExpiryDate] from [tblProduction] prdtn " +
+                "inner join [tblProductItem] prdi on prdi.[ProductItemID] = prdtn.[ProductItemID] " +
+                "inner join [tblProduct] prd on prd.[ProductID] = prdi.[ProductID] " +
+                $"where prdtn.[ProductionDate] >= '{earliest.Date}'");
 
             while (reader.HasRows && reader.Read())
             {
