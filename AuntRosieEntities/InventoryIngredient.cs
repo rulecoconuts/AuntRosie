@@ -17,6 +17,7 @@ namespace AuntRosieEntities
         private double quantity;
        
         private double cost;
+        private double unitPrice;
         private long supplierID;
         ///  
         private static SqlCommand createPrepCmd = null;
@@ -27,6 +28,7 @@ namespace AuntRosieEntities
         public string ThisPaymentMethod { get => paymentMethod; set => paymentMethod = value; }
         public double Quantity { get => quantity; set => quantity = value; }
         public double Cost { get => cost; set => cost = value; }
+        public double UnitPrice { get => unitPrice ; set => unitPrice = value; }
         public long SupplierId { get => supplierID; set => supplierID = value; }
 
 
@@ -43,8 +45,8 @@ namespace AuntRosieEntities
             {
                 createPrepCmd = new SqlCommand(null, Connector.Connection);
                 createPrepCmd.CommandText = "insert into [tblIngredientInventory]([IngredientID]," +
-                    "[PurchaseDate],[ExpiryDate] ,[PaymentMethod],[Quantity],[Cost],[SupplierID] )" +
-                    " values (@ingredientId,@purchaseDate,@expiryDate,@pymentMethod,@quantity,@cost,@supplierID)";
+                    "[PurchaseDate],[ExpiryDate] ,[PaymentMethod],[Quantity],[Cost],[SupplierID], [UnitPrice] )" +
+                    " values (@ingredientId,@purchaseDate,@expiryDate,@pymentMethod,@quantity,@cost,@supplierID, @unitPrice)";
 
 
                 SqlParameter ingredientIdParam = new SqlParameter("@ingredientId", SqlDbType.BigInt );
@@ -76,6 +78,9 @@ namespace AuntRosieEntities
                 SqlParameter costParam = new SqlParameter("@cost", SqlDbType.Money, 20);
                 costParam.Value = Cost;
                 createPrepCmd.Parameters.Add(costParam);
+                SqlParameter unitPriceParam = new SqlParameter("@unitPrice", SqlDbType.Money, 20);
+                unitPriceParam.Value = UnitPrice;
+                createPrepCmd.Parameters.Add(unitPriceParam);
 
                 SqlParameter supplierIDParam = new SqlParameter("@supplierID", SqlDbType.BigInt);
                 supplierIDParam.Value = SupplierId;
@@ -95,7 +100,8 @@ namespace AuntRosieEntities
                 createPrepCmd.Parameters["@expiryDate"].Value = ExpiryDate;
                 createPrepCmd.Parameters["@pymentMethod"].Value = ThisPaymentMethod;
                 createPrepCmd.Parameters["@quantity"].Value = Quantity;
-               
+                createPrepCmd.Parameters["@unitprice"].Value = UnitPrice;
+
                 createPrepCmd.Parameters["@supplierID"].Value = SupplierId;
             }
 

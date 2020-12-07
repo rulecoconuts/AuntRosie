@@ -60,7 +60,8 @@ namespace AuntRosieApplication.Reports
 
         private void btnChangeIngredientPrice_Click(object sender, EventArgs e)
         {
-
+            DBMethod.Reptype = "Diff-Price";
+            (new ReportVewierForm()).ShowDialog();
         }
 
         private void btnNutrition_Click(object sender, EventArgs e)

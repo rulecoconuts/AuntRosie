@@ -17,6 +17,8 @@ namespace AuntRosieApplication
         private ReportDataSetTableAdapters.StockReportTableAdapter aStockAdapter;
         private ReportDataSetTableAdapters.LowStockTableAdapter aLowStockAdapter;
         private ReportDataSetTableAdapters.EmpEventTableAdapter aEmpEventAdapter;
+        private ReportDataSetTableAdapters.ChangePriceTableAdapter aChangePriceAdapter;
+
         public ReportVewierForm()
         {
             InitializeComponent();
@@ -35,6 +37,8 @@ namespace AuntRosieApplication
             }
             else if (Classes.DBMethod.Reptype == "Emp-Event")
             { LoadEmpEvent(); }
+            else if (Classes.DBMethod.Reptype == "Diff-Price")
+            { LoadDiffPrice(); }
         }
         private void  LoadStockRep()
         {
@@ -113,10 +117,7 @@ namespace AuntRosieApplication
                 aDataSet = new ReportDataSet();
                 aEmpEventAdapter = new ReportDataSetTableAdapters.EmpEventTableAdapter();
                 //Fill the dataset 
-                // aStockAdapter.Adapter.SelectCommand = new System.Data.SqlClient.SqlCommand(AuntRosieApplication.Inventory.frmInventoryStock.reportSql);
-
-
-                aEmpEventAdapter.Fill(aDataSet.EmpEvent);
+                   aEmpEventAdapter.Fill(aDataSet.EmpEvent);
                 //Assign the filled dataset as the data source for the report
                 aEmpEventRep.SetDataSource(aDataSet);
                 //Set up the report viewer object on the form
@@ -132,6 +133,39 @@ namespace AuntRosieApplication
                 //or report generation and display based on the dataset
                 MessageBox.Show("Data Error Encountered" + ex.ToString(), "ERROR");
             }
+
+
+        }
+        private void LoadDiffPrice()
+        {
+
+            ChanagepriceRep aChangePriceRep = new ChanagepriceRep();
+
+            try
+            {
+
+                //Instantiate the dataset and table adapters
+                aDataSet = new ReportDataSet();
+                aChangePriceAdapter = new ReportDataSetTableAdapters.ChangePriceTableAdapter();
+
+                aChangePriceAdapter.Fill(aDataSet.ChangePrice);
+                //Assign the filled dataset as the data source for the report
+                aChangePriceRep.SetDataSource(aDataSet);
+                //Set up the report viewer object on the form
+                //show the runtime report object
+                crvReports.ReportSource = aChangePriceRep;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                //catch an exception thrown during data object intonation
+                //or report generation and display based on the dataset
+                MessageBox.Show("Data Error Encountered" + ex.ToString(), "ERROR");
+            }
+
+
 
 
         }

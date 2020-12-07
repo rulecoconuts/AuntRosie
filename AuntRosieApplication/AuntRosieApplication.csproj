@@ -90,6 +90,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AuntRosieDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ChanagepriceRep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChanagepriceRep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Classes\DBMethod.cs" />
     <Compile Include="EmpEventRep.cs">
       <AutoGen>True</AutoGen>
@@ -240,6 +246,10 @@
       <DependentUpon>StockReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="ChanagepriceRep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ChanagepriceRep.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmpEventRep.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EmpEventRep.cs</LastGenOutput>
