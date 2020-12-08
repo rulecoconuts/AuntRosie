@@ -11,7 +11,7 @@ namespace AuntRosieEntities
     public class EmployeeHours : RosieEntity
     {
         private long eventID;
-        private double hours;
+        private decimal hours;
         private bool isPaid;
         private long employeeID;
 
@@ -42,7 +42,7 @@ namespace AuntRosieEntities
         }
 
         public long EventID { get => eventID; set => eventID = value; }
-        public double Hours { get => hours; set => hours = value; }
+        public decimal Hours { get => hours; set => hours = value; }
         public bool IsPaid { get => isPaid; set => isPaid = value; }
         public long EmployeeID { get => employeeID; set => employeeID = value; }
 
@@ -64,6 +64,8 @@ namespace AuntRosieEntities
 
                 SqlParameter hoursParam = new SqlParameter("@hours", SqlDbType.Decimal, 0);
                 hoursParam.Value = Hours;
+                hoursParam.Precision = 26;
+                hoursParam.Scale = 2;
 
                 SqlParameter paidParam = new SqlParameter("@isPaid", SqlDbType.Bit, 1);
                 paidParam.Value = IsPaid;
@@ -88,7 +90,30 @@ namespace AuntRosieEntities
 
         public override void Delete(SqlTransaction transaction = null)
         {
-            throw new NotImplementedException();
+            if (deletePrepCmd is null)
+            {
+                deletePrepCmd = new SqlCommand(null, Connector.Connection);
+                deletePrepCmd.CommandText = "delete from [tblEmployeeHours] where [EmployeeID]=@employee and [EventID]=@event";
+
+
+                SqlParameter employeeParam = new SqlParameter("@employee", SqlDbType.BigInt, 50);
+                employeeParam.Value = EmployeeID;
+
+                SqlParameter eventParam = new SqlParameter("@event", SqlDbType.BigInt, 0);
+                eventParam.Value = EventID;
+
+                deletePrepCmd.Parameters.Add(employeeParam);
+                deletePrepCmd.Parameters.Add(eventParam);
+
+                deletePrepCmd.Prepare();
+            }
+            else
+            {
+                deletePrepCmd.Parameters["@employee"].Value = EmployeeID;
+                deletePrepCmd.Parameters["@event"].Value = EventID;
+            }
+
+            Connector.Delete(deletePrepCmd, transaction);
         }
 
         public override void Update(SqlTransaction transaction = null)
@@ -96,7 +121,7 @@ namespace AuntRosieEntities
             throw new NotImplementedException();
         }
 
-        public EmployeeHours Retrieve(long employeeID, long eventID)
+        public static EmployeeHours Retrieve(long employeeID, long eventID)
         {
             EmployeeHours hourRecord = null;
             if (retrievePrepCmd is null)
@@ -107,10 +132,10 @@ namespace AuntRosieEntities
 
 
                 SqlParameter employeeParam = new SqlParameter("@employee", SqlDbType.BigInt, 50);
-                employeeParam.Value = EventID;
+                employeeParam.Value = employeeID;
 
                 SqlParameter eventParam = new SqlParameter("@event", SqlDbType.Decimal, 0);
-                eventParam.Value = Hours;
+                eventParam.Value = eventID;
 
                 retrievePrepCmd.Parameters.Add(employeeParam);
                 retrievePrepCmd.Parameters.Add(eventParam);
@@ -118,8 +143,8 @@ namespace AuntRosieEntities
             }
             else
             {
-                retrievePrepCmd.Parameters["@employee"].Value = EmployeeID;
-                retrievePrepCmd.Parameters["@event"].Value = EventID;
+                retrievePrepCmd.Parameters["@employee"].Value = employeeID;
+                retrievePrepCmd.Parameters["@event"].Value = eventID;
             }
 
             SqlDataReader reader = Connector.Retrieve(retrievePrepCmd);
@@ -128,11 +153,33 @@ namespace AuntRosieEntities
                 hourRecord = new EmployeeHours();
                 hourRecord.EventID = eventID;
                 hourRecord.EmployeeID = employeeID;
-                hourRecord.Hours = reader.GetDouble(0);
+                hourRecord.Hours = reader.GetDecimal(0);
                 hourRecord.IsPaid = reader.GetBoolean(1);
             }
 
             return hourRecord; 
+        }
+
+        public static DataTable GetEmployeeHoursUpdateable(long eventID)
+        {
+            SqlCommand command = new SqlCommand("select e.[EmployeeID] as 'EmployeeID', e.[EmployeeFirstName] as 'FirstName', e.[EmployeeLastName] as 'LastName', eh.[Hours] as 'Hours' " +
+                "from [tblEmployeeHours] eh " +
+                "inner join [tblEmployee] e on e.[EmployeeID] = eh.[EmployeeID] " +
+                $"where eh.[EventID] = {eventID}", Connector.Connection);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+            DataTable table = new DataTable();
+
+            try
+            {
+                adapter.Fill(table);
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+
+            return table;
         }
     }
 }

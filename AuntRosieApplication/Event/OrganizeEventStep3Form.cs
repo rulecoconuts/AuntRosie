@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AuntRosieEntities;
 
 namespace AuntRosieApplication.Event
 {
@@ -55,10 +56,22 @@ namespace AuntRosieApplication.Event
         private void frmOrganizeEventStep3_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+            String DatabasePath = System.IO.Directory.GetCurrentDirectory();
+            int x = DatabasePath.IndexOf("bin");
+            DatabasePath = DatabasePath.Substring(0, x - 1);
+            String conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + DatabasePath +
+              @"\AuntRosieDB.mdf;Integrated Security=True;Connect Timeout=30";
+            DBConnector conn = new DBConnector(conStr);
+            RosieEntity.Connector = conn;
 
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddLocation_Click(object sender, EventArgs e)
         {
 
         }

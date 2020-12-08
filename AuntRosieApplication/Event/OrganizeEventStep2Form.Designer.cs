@@ -42,12 +42,19 @@
             this.txtHours = new System.Windows.Forms.TextBox();
             this.grbNew = new System.Windows.Forms.GroupBox();
             this.dtgEmployeeHours = new System.Windows.Forms.DataGridView();
+            this.auntRosieDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.auntRosieDBDataSet = new AuntRosieApplication.AuntRosieDBDataSet();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.txtEvent = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tblEmployeeHoursBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblEmployeeHoursTableAdapter = new AuntRosieApplication.AuntRosieDBDataSetTableAdapters.tblEmployeeHoursTableAdapter();
             this.grbNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmployeeHours)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEmployeeHoursBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -71,9 +78,9 @@
             this.label4.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label4.Location = new System.Drawing.Point(35, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(328, 30);
+            this.label4.Size = new System.Drawing.Size(349, 30);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Orgnize Event- Step2";
+            this.label4.Text = "Organize Event- Step2";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // btnClose
@@ -190,11 +197,26 @@
             // 
             // dtgEmployeeHours
             // 
+            this.dtgEmployeeHours.AllowUserToAddRows = false;
+            this.dtgEmployeeHours.AutoGenerateColumns = false;
             this.dtgEmployeeHours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgEmployeeHours.DataSource = this.auntRosieDBDataSetBindingSource;
             this.dtgEmployeeHours.Location = new System.Drawing.Point(6, 122);
+            this.dtgEmployeeHours.MultiSelect = false;
             this.dtgEmployeeHours.Name = "dtgEmployeeHours";
             this.dtgEmployeeHours.Size = new System.Drawing.Size(484, 202);
             this.dtgEmployeeHours.TabIndex = 123;
+            this.dtgEmployeeHours.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgEmployeeHours_CellClick);
+            // 
+            // auntRosieDBDataSetBindingSource
+            // 
+            this.auntRosieDBDataSetBindingSource.DataSource = this.auntRosieDBDataSet;
+            this.auntRosieDBDataSetBindingSource.Position = 0;
+            // 
+            // auntRosieDBDataSet
+            // 
+            this.auntRosieDBDataSet.DataSetName = "AuntRosieDBDataSet";
+            this.auntRosieDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // progressBar1
             // 
@@ -216,6 +238,15 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // tblEmployeeHoursBindingSource
+            // 
+            this.tblEmployeeHoursBindingSource.DataMember = "tblEmployeeHours";
+            this.tblEmployeeHoursBindingSource.DataSource = this.auntRosieDBDataSetBindingSource;
+            // 
+            // tblEmployeeHoursTableAdapter
+            // 
+            this.tblEmployeeHoursTableAdapter.ClearBeforeFill = true;
             // 
             // frmOrganizeEventStep2
             // 
@@ -240,7 +271,10 @@
             this.grbNew.ResumeLayout(false);
             this.grbNew.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmployeeHours)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEmployeeHoursBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,5 +297,9 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TextBox txtEvent;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.BindingSource auntRosieDBDataSetBindingSource;
+        private AuntRosieDBDataSet auntRosieDBDataSet;
+        private System.Windows.Forms.BindingSource tblEmployeeHoursBindingSource;
+        private AuntRosieDBDataSetTableAdapters.tblEmployeeHoursTableAdapter tblEmployeeHoursTableAdapter;
     }
 }

@@ -100,9 +100,9 @@
             this.grbNew.Controls.Add(this.dtpFormDate);
             this.grbNew.Controls.Add(this.lblName);
             this.grbNew.Controls.Add(this.label9);
-            this.grbNew.Location = new System.Drawing.Point(38, 77);
+            this.grbNew.Location = new System.Drawing.Point(40, 90);
             this.grbNew.Name = "grbNew";
-            this.grbNew.Size = new System.Drawing.Size(512, 242);
+            this.grbNew.Size = new System.Drawing.Size(856, 242);
             this.grbNew.TabIndex = 2;
             this.grbNew.TabStop = false;
             // 
@@ -112,7 +112,7 @@
             this.cmbTypes.FormattingEnabled = true;
             this.cmbTypes.Location = new System.Drawing.Point(161, 174);
             this.cmbTypes.Name = "cmbTypes";
-            this.cmbTypes.Size = new System.Drawing.Size(281, 31);
+            this.cmbTypes.Size = new System.Drawing.Size(586, 31);
             this.cmbTypes.TabIndex = 124;
             // 
             // label2
@@ -131,7 +131,7 @@
             this.txtEventName.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtEventName.Location = new System.Drawing.Point(161, 75);
             this.txtEventName.Name = "txtEventName";
-            this.txtEventName.Size = new System.Drawing.Size(281, 29);
+            this.txtEventName.Size = new System.Drawing.Size(586, 29);
             this.txtEventName.TabIndex = 121;
             // 
             // label7
@@ -151,7 +151,7 @@
             this.btnAddLocation.FlatAppearance.BorderSize = 0;
             this.btnAddLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddLocation.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
-            this.btnAddLocation.Location = new System.Drawing.Point(448, 120);
+            this.btnAddLocation.Location = new System.Drawing.Point(768, 116);
             this.btnAddLocation.Name = "btnAddLocation";
             this.btnAddLocation.Size = new System.Drawing.Size(41, 42);
             this.btnAddLocation.TabIndex = 113;
@@ -165,7 +165,7 @@
             this.cmbLocations.FormattingEnabled = true;
             this.cmbLocations.Location = new System.Drawing.Point(161, 120);
             this.cmbLocations.Name = "cmbLocations";
-            this.cmbLocations.Size = new System.Drawing.Size(281, 31);
+            this.cmbLocations.Size = new System.Drawing.Size(586, 31);
             this.cmbLocations.TabIndex = 108;
             // 
             // dtpFormDate
@@ -173,7 +173,7 @@
             this.dtpFormDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFormDate.Location = new System.Drawing.Point(161, 30);
             this.dtpFormDate.Name = "dtpFormDate";
-            this.dtpFormDate.Size = new System.Drawing.Size(281, 26);
+            this.dtpFormDate.Size = new System.Drawing.Size(586, 26);
             this.dtpFormDate.TabIndex = 109;
             // 
             // lblName
@@ -203,9 +203,9 @@
             this.grbExists.BackColor = System.Drawing.Color.Transparent;
             this.grbExists.Controls.Add(this.dgEvents);
             this.grbExists.Controls.Add(this.radExisting);
-            this.grbExists.Location = new System.Drawing.Point(32, 325);
+            this.grbExists.Location = new System.Drawing.Point(34, 338);
             this.grbExists.Name = "grbExists";
-            this.grbExists.Size = new System.Drawing.Size(512, 157);
+            this.grbExists.Size = new System.Drawing.Size(862, 260);
             this.grbExists.TabIndex = 3;
             this.grbExists.TabStop = false;
             this.grbExists.Text = "Existing Event";
@@ -215,8 +215,10 @@
             this.dgEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgEvents.Location = new System.Drawing.Point(16, 50);
             this.dgEvents.Name = "dgEvents";
-            this.dgEvents.Size = new System.Drawing.Size(484, 96);
+            this.dgEvents.ReadOnly = true;
+            this.dgEvents.Size = new System.Drawing.Size(840, 199);
             this.dgEvents.TabIndex = 2;
+            this.dgEvents.SelectionChanged += new System.EventHandler(this.dgEvents_SelectionChanged);
             // 
             // radExisting
             // 
@@ -250,7 +252,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(506, 12);
+            this.btnClose.Location = new System.Drawing.Point(791, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(58, 52);
             this.btnClose.TabIndex = 137;
@@ -278,7 +280,7 @@
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
-            this.btnNext.Location = new System.Drawing.Point(248, 488);
+            this.btnNext.Location = new System.Drawing.Point(384, 595);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(68, 59);
             this.btnNext.TabIndex = 14;
@@ -289,7 +291,7 @@
             // progressBar1
             // 
             this.progressBar1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.progressBar1.Location = new System.Drawing.Point(32, 554);
+            this.progressBar1.Location = new System.Drawing.Point(169, 660);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(500, 23);
             this.progressBar1.TabIndex = 136;
@@ -315,7 +317,7 @@
             this.pnlNewLoc.Controls.Add(this.txtCity);
             this.pnlNewLoc.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewLoc.Controls.Add(this.btnNewTypetClear);
-            this.pnlNewLoc.Location = new System.Drawing.Point(62, 77);
+            this.pnlNewLoc.Location = new System.Drawing.Point(134, 58);
             this.pnlNewLoc.Name = "pnlNewLoc";
             this.pnlNewLoc.Size = new System.Drawing.Size(423, 334);
             this.pnlNewLoc.TabIndex = 114;
@@ -472,11 +474,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(585, 603);
+            this.ClientSize = new System.Drawing.Size(938, 739);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.pnlNewLoc);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.grbExists);
             this.Controls.Add(this.grbNew);

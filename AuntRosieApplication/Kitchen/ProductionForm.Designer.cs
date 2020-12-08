@@ -153,7 +153,7 @@
             this.pnlButton.BackColor = System.Drawing.Color.Transparent;
             this.pnlButton.Controls.Add(this.btnSave);
             this.pnlButton.Controls.Add(this.btnClear);
-            this.pnlButton.Location = new System.Drawing.Point(110, 466);
+            this.pnlButton.Location = new System.Drawing.Point(284, 477);
             this.pnlButton.Name = "pnlButton";
             this.pnlButton.Size = new System.Drawing.Size(172, 69);
             this.pnlButton.TabIndex = 28;
