@@ -125,7 +125,7 @@ namespace AuntRosieApplication.Event
         private void btnNext_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmOrganizeEventStep3 form = new frmOrganizeEventStep3();
+            frmOrganizeEventStep3 form = new frmOrganizeEventStep3(rosieEvent);
             form.ShowDialog();
         }
 

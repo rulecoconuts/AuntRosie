@@ -13,6 +13,16 @@ namespace AuntRosieApplication.Event
 {
     public partial class frmOrganizeEventStep3 : Form
     {
+        BindingSource bindingSource = new BindingSource();
+        private RosieEvent rosieEvent;
+
+        public frmOrganizeEventStep3(RosieEvent rosieEvent)
+        {
+            this.rosieEvent = rosieEvent;
+            InitializeComponent();
+            this.DoubleBuffered = true;
+        }
+
         public frmOrganizeEventStep3()
         {
             InitializeComponent();
@@ -37,7 +47,7 @@ namespace AuntRosieApplication.Event
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmOrganizeEventStep2 form = new frmOrganizeEventStep2();
+            frmOrganizeEventStep2 form = new frmOrganizeEventStep2(rosieEvent, null);
             form.ShowDialog();
         }
 
@@ -53,6 +63,19 @@ namespace AuntRosieApplication.Event
             this.Close();
         }
 
+        private void loadDataGrid()
+        {
+            bindingSource.DataSource = EventProduct.GetProductionsTable(rosieEvent.Id);
+        }
+
+        private void displayEvent()
+        {
+            if (rosieEvent != null)
+            {
+                txtEvent.Text = rosieEvent.ToString();
+            }
+        }
+
         private void frmOrganizeEventStep3_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
@@ -63,7 +86,10 @@ namespace AuntRosieApplication.Event
               @"\AuntRosieDB.mdf;Integrated Security=True;Connect Timeout=30";
             DBConnector conn = new DBConnector(conStr);
             RosieEntity.Connector = conn;
-
+            displayEvent();
+            dtgProduction.DataSource = bindingSource;
+            dtgProduction.AutoGenerateColumns = true;
+            loadDataGrid();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -76,7 +102,7 @@ namespace AuntRosieApplication.Event
             if(rbNew.Checked)
             {
                 this.Close();
-                Kitchen.frmProduction frm = new Kitchen.frmProduction();
+                Kitchen.frmProduction frm = new Kitchen.frmProduction(rosieEvent);
                 frm.ShowDialog();
             }
             else

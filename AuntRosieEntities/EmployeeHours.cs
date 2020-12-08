@@ -156,6 +156,7 @@ namespace AuntRosieEntities
                 hourRecord.Hours = reader.GetDecimal(0);
                 hourRecord.IsPaid = reader.GetBoolean(1);
             }
+            reader.Close();
 
             return hourRecord; 
         }

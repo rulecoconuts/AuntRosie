@@ -200,5 +200,31 @@ namespace AuntRosieEntities
             reader.Close();
             return eventProducts;
         }
+
+        public static DataTable GetProductionsTable(long eventID)
+        {
+            SqlCommand command = new SqlCommand("select ep.[ProductionID] as 'ProductionID', ep.[Quantity] as 'Quantity', " +
+                "p.[ProductName] as 'ProductName', concat(ps.[SizeName], '(', ps.SizeValue, ' ', ps.Unit, ')') as 'Size' " +
+                "from [tblEventProduct] ep " +
+                "inner join [tblProduction] ptn on ptn.[ProductionID]=ep.[ProductionID] " +
+                "inner join [tblProductItem] pi on pi.[ProductItemID]=ptn.[ProductItemID] " +
+                "inner join [tblProduct] p on p.[ProductID]=pi.[ProductID] " +
+                "inner join [tblProductSize] ps on ps.[SizeID]=pi.[SizeID] " +
+                $"where ep.[EventID] = {eventID}", Connector.Connection);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+            DataTable table = new DataTable();
+
+            try
+            {
+                adapter.Fill(table);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+            return table;
+        }
     }
 }

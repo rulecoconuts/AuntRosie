@@ -340,6 +340,7 @@ namespace AuntRosieEntities
             {
                 id = reader.GetInt64(0);
             }
+            reader.Close();
             return id;
         }
 

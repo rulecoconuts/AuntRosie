@@ -121,7 +121,7 @@ namespace AuntRosieApplication.Kitchen
 
         private bool validateProductionDateNTime()
         {
-            if(dtpProductionDate.Value.Date > DateTime.Now.Date)
+            /*if(dtpProductionDate.Value.Date < DateTime.Now.Date)
             {
                 errorProvider1.SetError(dtpProductionDate, "Production date cannot be in the future");
                 return false;
@@ -132,7 +132,7 @@ namespace AuntRosieApplication.Kitchen
                 return false;
             }
 
-            errorProvider1.SetError(dtpProductionTime, "");
+            errorProvider1.SetError(dtpProductionTime, "");*/
 
             return true;
         }
@@ -254,6 +254,10 @@ namespace AuntRosieApplication.Kitchen
         {
             
             loadEventCmb(dtpProductionDate.Value);
+            if(dtpExpiry.Value < dtpProductionDate.Value)
+            {
+                dtpExpiry.Value = dtpProductionDate.Value.AddDays(2);
+            }
         }
 
         private void txtQuantity_TextChanged(object sender, EventArgs e)
