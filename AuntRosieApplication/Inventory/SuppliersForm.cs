@@ -308,18 +308,7 @@ namespace AuntRosieApplication.Inventory
 
         }
 
-        bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+       
         private void TextBoxDisEnabled()
         {
 
@@ -358,7 +347,7 @@ namespace AuntRosieApplication.Inventory
 
             }
 
-            if ( ! IsValidEmail( txtEmail.Text.Trim()))
+            if ( ! DBMethod.IsValidEmail( txtEmail.Text.Trim()))
             {
                 errNmae.SetError(txtEmail, "Entred Supplier Email is not a valid email address");
                 isValid = false;

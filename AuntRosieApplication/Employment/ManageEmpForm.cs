@@ -325,18 +325,7 @@ namespace AuntRosieApplication.Employment
 
         }
 
-        bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+         
         private void TextBoxDisEnabled()
         {
 
@@ -376,7 +365,7 @@ namespace AuntRosieApplication.Employment
 
             }
 
-            if (!IsValidEmail(txtEmail.Text.Trim()))
+            if (! DBMethod.IsValidEmail(txtEmail.Text.Trim()))
             {
                 erPEmployeeForm.SetError(txtEmail, "Entred Employee Email is not a valid email address");
                 isValid = false;

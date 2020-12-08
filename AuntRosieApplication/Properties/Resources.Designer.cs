@@ -73,6 +73,16 @@ namespace AuntRosieApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap apple_phone {
+            get {
+                object obj = ResourceManager.GetObject("apple_phone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap appointment_reminders {
             get {
                 object obj = ResourceManager.GetObject("appointment_reminders", resourceCulture);
@@ -146,6 +156,16 @@ namespace AuntRosieApplication.Properties {
         internal static System.Drawing.Bitmap cancel {
             get {
                 object obj = ResourceManager.GetObject("cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap check_mark_button_emoji {
+            get {
+                object obj = ResourceManager.GetObject("check_mark_button_emoji", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -405,6 +425,16 @@ namespace AuntRosieApplication.Properties {
         internal static System.Drawing.Bitmap full_trash {
             get {
                 object obj = ResourceManager.GetObject("full_trash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap help {
+            get {
+                object obj = ResourceManager.GetObject("help", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
