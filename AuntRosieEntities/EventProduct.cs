@@ -22,7 +22,23 @@ namespace AuntRosieEntities
         private static SqlCommand deletePrepCmd = null;
         private static SqlCommand updatePrepCmd = null;
 
-        public long Id { get => id; set => id = value; }
+        public EventProduct()
+        {
+
+        }
+
+        public EventProduct(long eventId, long productionId, short quantity, bool create=false)
+        {
+            this.eventId = eventId;
+            this.productionId = productionId;
+            this.quantity = quantity;
+            if(create)
+            {
+                this.Create();
+            }
+        }
+
+        public long Id { get => id; }
         public long EventId { get => eventId; set => eventId = value; }
         public long ProductionId { get => productionId; set => productionId = value; }
         public short Quantity { get => quantity; set => quantity = value; }
@@ -168,6 +184,21 @@ namespace AuntRosieEntities
             reader.Close();
 
             return product;
+        }
+
+        public static List<EventProduct> GetEventProducts(long eventID)
+        {
+            List<EventProduct> eventProducts = new List<EventProduct>();
+            SqlDataReader reader = Connector.Retrieve($"select * from [tblEventProduct] where [EventID]={eventID}");
+            
+            while(reader.Read())
+            {
+                EventProduct eventProduct = new EventProduct(reader.GetInt64(1), reader.GetInt64(2), reader.GetInt16(3));
+                eventProduct.SetID(reader.GetInt64(0));
+                eventProducts.Add(eventProduct);
+            }
+            reader.Close();
+            return eventProducts;
         }
     }
 }

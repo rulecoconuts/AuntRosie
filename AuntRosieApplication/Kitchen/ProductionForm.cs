@@ -17,6 +17,15 @@ namespace AuntRosieApplication.Kitchen
         private List<ProductItem> productItems = new List<ProductItem>();
         private List<RosieEvent> events = new List<RosieEvent>();
 
+        private RosieEvent rosieEvent;
+
+        public frmProduction(RosieEvent rosieEvent)
+        {
+            this.rosieEvent = rosieEvent;
+            InitializeComponent();
+            this.DoubleBuffered = true;
+        }
+
         public frmProduction()
         {
             InitializeComponent();
@@ -45,8 +54,17 @@ namespace AuntRosieApplication.Kitchen
               @"\AuntRosieDB.mdf;Integrated Security=True;Connect Timeout=30";
             DBConnector conn = new DBConnector(conStr);
             RosieEntity.Connector = conn;
+            displayEvent();
             loadCmbs();
             /*cmbEvent.DisplayMember = "ToString()";*/
+        }
+
+        private void displayEvent()
+        {
+            if(rosieEvent != null)
+            {
+                txtEvent.Text = rosieEvent.ToString();
+            }
         }
 
         #region helper-functions
@@ -205,19 +223,20 @@ namespace AuntRosieApplication.Kitchen
                     prodToBeCreated.ExpiryDate = dtpExpiry.Value.Date;
                     prodToBeCreated.Create();
 
-                    lblMsg.Text = "Successfully recorded production";
+                    new EventProduct(rosieEvent.Id, Production.GetLastID(), prodToBeCreated.Quantity, true);
+                    MessageBox.Show("Successfully recorded production");
                 }
                 catch(SqlException se)
                 {
                     if(se.Message.Contains("duplicate key"))
                     {
-                        errorProvider1.SetError(cmbProductName, $"Production of ${selectedProductItem} already exists");
+                        MessageBox.Show("Production already assigned to event");
                     }
                 }
-                /*catch(Exception)
+                catch
                 {
                     MessageBox.Show("Something went wrong. We are fixing the issue");
-                }*/
+                }
             }
         }
 

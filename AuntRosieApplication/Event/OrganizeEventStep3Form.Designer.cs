@@ -36,12 +36,14 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnAddLocation = new System.Windows.Forms.Button();
             this.grbNew = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dtgProduction = new System.Windows.Forms.DataGridView();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.txtEvent = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dtgProduction = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.rbNew = new System.Windows.Forms.RadioButton();
+            this.rbExisting = new System.Windows.Forms.RadioButton();
             this.grbNew.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).BeginInit();
@@ -107,7 +109,7 @@
             this.btnAddLocation.FlatAppearance.BorderSize = 0;
             this.btnAddLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddLocation.Image = global::AuntRosieApplication.Properties.Resources.low_importance;
-            this.btnAddLocation.Location = new System.Drawing.Point(343, 68);
+            this.btnAddLocation.Location = new System.Drawing.Point(478, 124);
             this.btnAddLocation.Name = "btnAddLocation";
             this.btnAddLocation.Size = new System.Drawing.Size(50, 39);
             this.btnAddLocation.TabIndex = 113;
@@ -118,6 +120,8 @@
             // grbNew
             // 
             this.grbNew.BackColor = System.Drawing.Color.Transparent;
+            this.grbNew.Controls.Add(this.rbExisting);
+            this.grbNew.Controls.Add(this.rbNew);
             this.grbNew.Controls.Add(this.label1);
             this.grbNew.Controls.Add(this.panel1);
             this.grbNew.Controls.Add(this.btnAddLocation);
@@ -127,6 +131,36 @@
             this.grbNew.Size = new System.Drawing.Size(534, 399);
             this.grbNew.TabIndex = 121;
             this.grbNew.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 16.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(45, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(246, 26);
+            this.label1.TabIndex = 127;
+            this.label1.Text = "Schedule Event Production";
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.dtgProduction);
+            this.panel1.Location = new System.Drawing.Point(6, 169);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(522, 220);
+            this.panel1.TabIndex = 126;
+            // 
+            // dtgProduction
+            // 
+            this.dtgProduction.AllowUserToAddRows = false;
+            this.dtgProduction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgProduction.Location = new System.Drawing.Point(3, 3);
+            this.dtgProduction.Name = "dtgProduction";
+            this.dtgProduction.ReadOnly = true;
+            this.dtgProduction.Size = new System.Drawing.Size(516, 214);
+            this.dtgProduction.TabIndex = 0;
             // 
             // progressBar1
             // 
@@ -157,35 +191,31 @@
             this.label5.Text = "Event";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
+            // rbNew
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.dtgProduction);
-            this.panel1.Location = new System.Drawing.Point(6, 169);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(522, 220);
-            this.panel1.TabIndex = 126;
+            this.rbNew.AutoSize = true;
+            this.rbNew.Checked = true;
+            this.rbNew.Font = new System.Drawing.Font("Arial Narrow", 14.25F);
+            this.rbNew.Location = new System.Drawing.Point(50, 61);
+            this.rbNew.Name = "rbNew";
+            this.rbNew.Size = new System.Drawing.Size(137, 27);
+            this.rbNew.TabIndex = 128;
+            this.rbNew.TabStop = true;
+            this.rbNew.Text = "New Production";
+            this.rbNew.UseVisualStyleBackColor = true;
+            this.rbNew.CheckedChanged += new System.EventHandler(this.rbNew_CheckedChanged);
             // 
-            // dtgProduction
+            // rbExisting
             // 
-            this.dtgProduction.AllowUserToAddRows = false;
-            this.dtgProduction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProduction.Location = new System.Drawing.Point(3, 3);
-            this.dtgProduction.Name = "dtgProduction";
-            this.dtgProduction.ReadOnly = true;
-            this.dtgProduction.Size = new System.Drawing.Size(516, 214);
-            this.dtgProduction.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 18.25F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(123, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 30);
-            this.label1.TabIndex = 127;
-            this.label1.Text = "Schedule products";
+            this.rbExisting.AutoSize = true;
+            this.rbExisting.Font = new System.Drawing.Font("Arial Narrow", 14.25F);
+            this.rbExisting.Location = new System.Drawing.Point(50, 103);
+            this.rbExisting.Name = "rbExisting";
+            this.rbExisting.Size = new System.Drawing.Size(159, 27);
+            this.rbExisting.TabIndex = 129;
+            this.rbExisting.Text = "Existing Production";
+            this.rbExisting.UseVisualStyleBackColor = true;
+            this.rbExisting.CheckedChanged += new System.EventHandler(this.rbExisting_CheckedChanged);
             // 
             // frmOrganizeEventStep3
             // 
@@ -233,5 +263,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dtgProduction;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton rbExisting;
+        private System.Windows.Forms.RadioButton rbNew;
     }
 }

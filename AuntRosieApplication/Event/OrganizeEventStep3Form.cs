@@ -73,7 +73,32 @@ namespace AuntRosieApplication.Event
 
         private void btnAddLocation_Click(object sender, EventArgs e)
         {
+            if(rbNew.Checked)
+            {
+                this.Close();
+                Kitchen.frmProduction frm = new Kitchen.frmProduction();
+                frm.ShowDialog();
+            }
+            else
+            {
 
+            }
+        }
+
+        private void rbNew_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbNew.Checked)
+            {
+                rbExisting.Checked = false;
+            }
+        }
+
+        private void rbExisting_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbExisting.Checked)
+            {
+                rbNew.Checked = false;
+            }
         }
     }
 }

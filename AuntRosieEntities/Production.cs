@@ -328,6 +328,21 @@ namespace AuntRosieEntities
             return items;
         }
 
+        /// <summary>
+        /// Get max ID in production table
+        /// </summary>
+        /// <returns></returns>
+        public static long GetLastID()
+        {
+            long id = 0;
+            SqlDataReader reader = Connector.Retrieve("select max([ProductionID]) from [tblProduction]");
+            if(reader.Read())
+            {
+                id = reader.GetInt64(0);
+            }
+            return id;
+        }
+
         public override string ToString()
         {
             return $"{ProductItem} {Quantity} {ProductionDate} {ExpiryDate}";
