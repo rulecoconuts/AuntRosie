@@ -39,13 +39,22 @@
             this.lblName = new System.Windows.Forms.Label();
             this.cmbEmpName = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtEventName = new System.Windows.Forms.TextBox();
+            this.txtHours = new System.Windows.Forms.TextBox();
             this.grbNew = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgEmployeeHours = new System.Windows.Forms.DataGridView();
+            this.auntRosieDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.auntRosieDBDataSet = new AuntRosieApplication.AuntRosieDBDataSet();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.txtEvent = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tblEmployeeHoursBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblEmployeeHoursTableAdapter = new AuntRosieApplication.AuntRosieDBDataSetTableAdapters.tblEmployeeHoursTableAdapter();
             this.grbNew.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgEmployeeHours)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEmployeeHoursBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -69,9 +78,9 @@
             this.label4.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label4.Location = new System.Drawing.Point(35, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(328, 30);
+            this.label4.Size = new System.Drawing.Size(349, 30);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Orgnize Event- Step2";
+            this.label4.Text = "Organize Event- Step2";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // btnClose
@@ -129,6 +138,7 @@
             this.btnAddLocation.TabIndex = 113;
             this.toolTip1.SetToolTip(this.btnAddLocation, "Add new Location");
             this.btnAddLocation.UseVisualStyleBackColor = false;
+            this.btnAddLocation.Click += new System.EventHandler(this.btnAddLocation_Click);
             // 
             // lblName
             // 
@@ -161,19 +171,19 @@
             this.label7.TabIndex = 122;
             this.label7.Text = "Hours";
             // 
-            // txtEventName
+            // txtHours
             // 
-            this.txtEventName.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.txtEventName.Location = new System.Drawing.Point(161, 75);
-            this.txtEventName.Name = "txtEventName";
-            this.txtEventName.Size = new System.Drawing.Size(281, 29);
-            this.txtEventName.TabIndex = 121;
+            this.txtHours.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.txtHours.Location = new System.Drawing.Point(161, 75);
+            this.txtHours.Name = "txtHours";
+            this.txtHours.Size = new System.Drawing.Size(281, 29);
+            this.txtHours.TabIndex = 121;
             // 
             // grbNew
             // 
             this.grbNew.BackColor = System.Drawing.Color.Transparent;
-            this.grbNew.Controls.Add(this.dataGridView1);
-            this.grbNew.Controls.Add(this.txtEventName);
+            this.grbNew.Controls.Add(this.dtgEmployeeHours);
+            this.grbNew.Controls.Add(this.txtHours);
             this.grbNew.Controls.Add(this.label7);
             this.grbNew.Controls.Add(this.btnAddLocation);
             this.grbNew.Controls.Add(this.cmbEmpName);
@@ -185,13 +195,29 @@
             this.grbNew.TabStop = false;
             this.grbNew.Enter += new System.EventHandler(this.grbNew_Enter);
             // 
-            // dataGridView1
+            // dtgEmployeeHours
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 122);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(484, 202);
-            this.dataGridView1.TabIndex = 123;
+            this.dtgEmployeeHours.AllowUserToAddRows = false;
+            this.dtgEmployeeHours.AutoGenerateColumns = false;
+            this.dtgEmployeeHours.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgEmployeeHours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgEmployeeHours.DataSource = this.auntRosieDBDataSetBindingSource;
+            this.dtgEmployeeHours.Location = new System.Drawing.Point(6, 122);
+            this.dtgEmployeeHours.MultiSelect = false;
+            this.dtgEmployeeHours.Name = "dtgEmployeeHours";
+            this.dtgEmployeeHours.Size = new System.Drawing.Size(519, 202);
+            this.dtgEmployeeHours.TabIndex = 123;
+            this.dtgEmployeeHours.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgEmployeeHours_CellClick);
+            // 
+            // auntRosieDBDataSetBindingSource
+            // 
+            this.auntRosieDBDataSetBindingSource.DataSource = this.auntRosieDBDataSet;
+            this.auntRosieDBDataSetBindingSource.Position = 0;
+            // 
+            // auntRosieDBDataSet
+            // 
+            this.auntRosieDBDataSet.DataSetName = "AuntRosieDBDataSet";
+            this.auntRosieDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // progressBar1
             // 
@@ -209,6 +235,19 @@
             this.txtEvent.Name = "txtEvent";
             this.txtEvent.Size = new System.Drawing.Size(531, 49);
             this.txtEvent.TabIndex = 139;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // tblEmployeeHoursBindingSource
+            // 
+            this.tblEmployeeHoursBindingSource.DataMember = "tblEmployeeHours";
+            this.tblEmployeeHoursBindingSource.DataSource = this.auntRosieDBDataSetBindingSource;
+            // 
+            // tblEmployeeHoursTableAdapter
+            // 
+            this.tblEmployeeHoursTableAdapter.ClearBeforeFill = true;
             // 
             // frmOrganizeEventStep2
             // 
@@ -232,7 +271,11 @@
             this.Load += new System.EventHandler(this.frmOrganizeEventStep2_Load);
             this.grbNew.ResumeLayout(false);
             this.grbNew.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgEmployeeHours)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEmployeeHoursBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,12 +290,17 @@
         private System.Windows.Forms.ComboBox cmbEmpName;
         private System.Windows.Forms.Button btnAddLocation;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtEventName;
+        private System.Windows.Forms.TextBox txtHours;
         private System.Windows.Forms.GroupBox grbNew;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgEmployeeHours;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TextBox txtEvent;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.BindingSource auntRosieDBDataSetBindingSource;
+        private AuntRosieDBDataSet auntRosieDBDataSet;
+        private System.Windows.Forms.BindingSource tblEmployeeHoursBindingSource;
+        private AuntRosieDBDataSetTableAdapters.tblEmployeeHoursTableAdapter tblEmployeeHoursTableAdapter;
     }
 }

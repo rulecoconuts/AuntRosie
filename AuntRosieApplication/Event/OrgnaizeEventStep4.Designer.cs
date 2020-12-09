@@ -29,44 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.dtgEmployeeHours = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.btnFinish = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dtgProduction = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txtEvent = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnClose = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgEmployeeHours)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dtgEmployeeHours
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(466, 103);
-            this.dataGridView1.TabIndex = 123;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Sienna;
-            this.label1.Location = new System.Drawing.Point(230, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 29);
-            this.label1.TabIndex = 130;
-            this.label1.Text = "Event Date";
+            this.dtgEmployeeHours.AllowUserToAddRows = false;
+            this.dtgEmployeeHours.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgEmployeeHours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgEmployeeHours.Location = new System.Drawing.Point(6, 28);
+            this.dtgEmployeeHours.Name = "dtgEmployeeHours";
+            this.dtgEmployeeHours.ReadOnly = true;
+            this.dtgEmployeeHours.Size = new System.Drawing.Size(603, 196);
+            this.dtgEmployeeHours.TabIndex = 123;
             // 
             // button1
             // 
@@ -74,7 +65,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::AuntRosieApplication.Properties.Resources.arrow_left;
-            this.button1.Location = new System.Drawing.Point(196, 477);
+            this.button1.Location = new System.Drawing.Point(318, 710);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(64, 55);
             this.button1.TabIndex = 131;
@@ -88,7 +79,7 @@
             this.btnFinish.FlatAppearance.BorderSize = 0;
             this.btnFinish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinish.Image = global::AuntRosieApplication.Properties.Resources.checked_2;
-            this.btnFinish.Location = new System.Drawing.Point(266, 477);
+            this.btnFinish.Location = new System.Drawing.Point(388, 710);
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.Size = new System.Drawing.Size(64, 55);
             this.btnFinish.TabIndex = 128;
@@ -104,29 +95,19 @@
             this.label4.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label4.Location = new System.Drawing.Point(35, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(328, 30);
+            this.label4.Size = new System.Drawing.Size(349, 30);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Orgnize Event- Step4";
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Sienna;
-            this.label2.Location = new System.Drawing.Point(6, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(213, 29);
-            this.label2.TabIndex = 126;
-            this.label2.Text = "Event Name ";
+            this.label4.Text = "Organize Event- Step4";
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dtgEmployeeHours);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Goldenrod;
-            this.groupBox1.Location = new System.Drawing.Point(50, 189);
+            this.groupBox1.Location = new System.Drawing.Point(85, 187);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(483, 138);
+            this.groupBox1.Size = new System.Drawing.Size(615, 230);
             this.groupBox1.TabIndex = 132;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Event Employees";
@@ -134,53 +115,53 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Controls.Add(this.dtgProduction);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.Goldenrod;
-            this.groupBox2.Location = new System.Drawing.Point(50, 333);
+            this.groupBox2.Location = new System.Drawing.Point(85, 423);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(483, 138);
+            this.groupBox2.Size = new System.Drawing.Size(615, 281);
             this.groupBox2.TabIndex = 133;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Event Product";
             // 
-            // dataGridView2
+            // dtgProduction
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(11, 28);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(466, 103);
-            this.dataGridView2.TabIndex = 123;
+            this.dtgProduction.AllowUserToAddRows = false;
+            this.dtgProduction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgProduction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgProduction.Location = new System.Drawing.Point(6, 28);
+            this.dtgProduction.Name = "dtgProduction";
+            this.dtgProduction.ReadOnly = true;
+            this.dtgProduction.Size = new System.Drawing.Size(603, 247);
+            this.dtgProduction.TabIndex = 123;
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.txtEvent);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Goldenrod;
-            this.groupBox3.Location = new System.Drawing.Point(50, 82);
+            this.groupBox3.Location = new System.Drawing.Point(85, 80);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(483, 101);
+            this.groupBox3.Size = new System.Drawing.Size(615, 101);
             this.groupBox3.TabIndex = 133;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Event Information";
             // 
-            // label3
+            // txtEvent
             // 
-            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.Sienna;
-            this.label3.Location = new System.Drawing.Point(6, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(213, 29);
-            this.label3.TabIndex = 131;
-            this.label3.Text = "Event Location";
+            this.txtEvent.Enabled = false;
+            this.txtEvent.Location = new System.Drawing.Point(6, 46);
+            this.txtEvent.Multiline = true;
+            this.txtEvent.Name = "txtEvent";
+            this.txtEvent.Size = new System.Drawing.Size(603, 49);
+            this.txtEvent.TabIndex = 142;
             // 
             // progressBar1
             // 
             this.progressBar1.Cursor = System.Windows.Forms.Cursors.AppStarting;
-            this.progressBar1.Location = new System.Drawing.Point(33, 538);
+            this.progressBar1.Location = new System.Drawing.Point(155, 771);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(500, 23);
             this.progressBar1.TabIndex = 134;
@@ -193,7 +174,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(511, 25);
+            this.btnClose.Location = new System.Drawing.Point(723, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 140;
@@ -206,7 +187,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(585, 603);
+            this.ClientSize = new System.Drawing.Size(785, 788);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.progressBar1);
@@ -223,11 +204,12 @@
             this.Text = "OrgnaizeEventStep4";
             this.toolTip1.SetToolTip(this, "Close the screen");
             this.Load += new System.EventHandler(this.frmOrganizeEventStep4_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgEmployeeHours)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,16 +219,14 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnFinish;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dtgEmployeeHours;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dtgProduction;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.TextBox txtEvent;
     }
 }

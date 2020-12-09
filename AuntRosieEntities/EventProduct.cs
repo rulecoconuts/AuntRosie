@@ -22,7 +22,23 @@ namespace AuntRosieEntities
         private static SqlCommand deletePrepCmd = null;
         private static SqlCommand updatePrepCmd = null;
 
-        public long Id { get => id; set => id = value; }
+        public EventProduct()
+        {
+
+        }
+
+        public EventProduct(long eventId, long productionId, short quantity, bool create=false)
+        {
+            this.eventId = eventId;
+            this.productionId = productionId;
+            this.quantity = quantity;
+            if(create)
+            {
+                this.Create();
+            }
+        }
+
+        public long Id { get => id; }
         public long EventId { get => eventId; set => eventId = value; }
         public long ProductionId { get => productionId; set => productionId = value; }
         public short Quantity { get => quantity; set => quantity = value; }
@@ -70,6 +86,11 @@ namespace AuntRosieEntities
 
         public override void Delete(SqlTransaction transaction = null)
         {
+            DeleteEventProduct(Id, transaction);
+        }
+
+        public static void DeleteEventProduct(long id, SqlTransaction transaction=null)
+        {
             if (deletePrepCmd is null)
             {
                 deletePrepCmd = new SqlCommand(null, Connector.Connection);
@@ -77,7 +98,7 @@ namespace AuntRosieEntities
 
 
                 SqlParameter idParam = new SqlParameter("@ID", SqlDbType.BigInt, 0);
-                idParam.Value = Id;
+                idParam.Value = id;
 
                 deletePrepCmd.Parameters.Add(idParam);
 
@@ -85,10 +106,15 @@ namespace AuntRosieEntities
             }
             else
             {
-                deletePrepCmd.Parameters["@ID"].Value = Id;
+                deletePrepCmd.Parameters["@ID"].Value = id;
             }
 
             Connector.Delete(deletePrepCmd, transaction);
+        }
+
+        public static void DeleteEventProduct(long eventID, long productionID)
+        {
+            Connector.Delete($"delete from [tblEventProduct] where [EventID]={eventID} and [ProductionID]={productionID}");
         }
 
         public override void Update(SqlTransaction transaction = null)
@@ -168,6 +194,47 @@ namespace AuntRosieEntities
             reader.Close();
 
             return product;
+        }
+
+        public static List<EventProduct> GetEventProducts(long eventID)
+        {
+            List<EventProduct> eventProducts = new List<EventProduct>();
+            SqlDataReader reader = Connector.Retrieve($"select * from [tblEventProduct] where [EventID]={eventID}");
+            
+            while(reader.Read())
+            {
+                EventProduct eventProduct = new EventProduct(reader.GetInt64(1), reader.GetInt64(2), reader.GetInt16(3));
+                eventProduct.SetID(reader.GetInt64(0));
+                eventProducts.Add(eventProduct);
+            }
+            reader.Close();
+            return eventProducts;
+        }
+
+        public static DataTable GetProductionsTable(long eventID)
+        {
+            SqlCommand command = new SqlCommand("select ep.[ProductionID] as 'ProductionID', ep.[Quantity] as 'Quantity', " +
+                "p.[ProductName] as 'ProductName', concat(ps.[SizeName], '(', ps.SizeValue, ' ', ps.Unit, ')') as 'Size' " +
+                "from [tblEventProduct] ep " +
+                "inner join [tblProduction] ptn on ptn.[ProductionID]=ep.[ProductionID] " +
+                "inner join [tblProductItem] pi on pi.[ProductItemID]=ptn.[ProductItemID] " +
+                "inner join [tblProduct] p on p.[ProductID]=pi.[ProductID] " +
+                "inner join [tblProductSize] ps on ps.[SizeID]=pi.[SizeID] " +
+                $"where ep.[EventID] = {eventID}", Connector.Connection);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+            DataTable table = new DataTable();
+
+            try
+            {
+                adapter.Fill(table);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+            return table;
         }
     }
 }

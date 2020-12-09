@@ -17,10 +17,19 @@ namespace AuntRosieApplication.Kitchen
         private List<ProductItem> productItems = new List<ProductItem>();
         private List<RosieEvent> events = new List<RosieEvent>();
 
+        private RosieEvent rosieEvent;
+
+        public frmProduction(RosieEvent rosieEvent)
+        {
+            this.rosieEvent = rosieEvent;
+            InitializeComponent();
+            //this.DoubleBuffered = true;
+        }
+
         public frmProduction()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
+            //this.DoubleBuffered = true;
         }
         protected override void OnPaint(PaintEventArgs e) { }
 
@@ -45,8 +54,17 @@ namespace AuntRosieApplication.Kitchen
               @"\AuntRosieDB.mdf;Integrated Security=True;Connect Timeout=30";
             DBConnector conn = new DBConnector(conStr);
             RosieEntity.Connector = conn;
+            displayEvent();
             loadCmbs();
             /*cmbEvent.DisplayMember = "ToString()";*/
+        }
+
+        private void displayEvent()
+        {
+            if(rosieEvent != null)
+            {
+                txtEvent.Text = rosieEvent.ToString();
+            }
         }
 
         #region helper-functions
@@ -103,7 +121,7 @@ namespace AuntRosieApplication.Kitchen
 
         private bool validateProductionDateNTime()
         {
-            if(dtpProductionDate.Value.Date > DateTime.Now.Date)
+            /*if(dtpProductionDate.Value.Date < DateTime.Now.Date)
             {
                 errorProvider1.SetError(dtpProductionDate, "Production date cannot be in the future");
                 return false;
@@ -114,7 +132,7 @@ namespace AuntRosieApplication.Kitchen
                 return false;
             }
 
-            errorProvider1.SetError(dtpProductionTime, "");
+            errorProvider1.SetError(dtpProductionTime, "");*/
 
             return true;
         }
@@ -205,19 +223,20 @@ namespace AuntRosieApplication.Kitchen
                     prodToBeCreated.ExpiryDate = dtpExpiry.Value.Date;
                     prodToBeCreated.Create();
 
-                    lblMsg.Text = "Successfully recorded production";
+                    new EventProduct(rosieEvent.Id, Production.GetLastID(), prodToBeCreated.Quantity, true);
+                    MessageBox.Show("Successfully recorded production");
                 }
                 catch(SqlException se)
                 {
                     if(se.Message.Contains("duplicate key"))
                     {
-                        errorProvider1.SetError(cmbProductName, $"Production of ${selectedProductItem} already exists");
+                        MessageBox.Show("Production already assigned to event");
                     }
                 }
-                /*catch(Exception)
+                catch
                 {
                     MessageBox.Show("Something went wrong. We are fixing the issue");
-                }*/
+                }
             }
         }
 
@@ -235,6 +254,10 @@ namespace AuntRosieApplication.Kitchen
         {
             
             loadEventCmb(dtpProductionDate.Value);
+            if(dtpExpiry.Value < dtpProductionDate.Value)
+            {
+                dtpExpiry.Value = dtpProductionDate.Value.AddDays(2);
+            }
         }
 
         private void txtQuantity_TextChanged(object sender, EventArgs e)
@@ -249,6 +272,15 @@ namespace AuntRosieApplication.Kitchen
         private void lblMsg_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Event.frmOrganizeEventStep3 frm = new Event.frmOrganizeEventStep3(rosieEvent);
+            frm.ShowDialog();
+            /*AuntRosieApp.frmHome.formStep3.RosieEvent = rosieEvent;
+            AuntRosieApp.frmHome.formStep3.Show();*/
         }
     }
 }

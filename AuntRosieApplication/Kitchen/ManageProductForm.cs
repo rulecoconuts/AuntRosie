@@ -23,7 +23,7 @@ namespace AuntRosieApp.Kitchen
         private void frmManageProduct_Load(object sender, EventArgs e)
         {
             lblTitle.Left = (this.Width - lblTitle.Width) / 2;
-            pnlButton.Left = (this.Width - pnlButton.Width) / 2;
+            /*pnlButton.Left = (this.Width - pnlButton.Width) / 2;*/
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
 
             this.DoubleBuffered = true;
@@ -57,6 +57,41 @@ namespace AuntRosieApp.Kitchen
         private void btnNew_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNew_Click_1(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Kitchen.frmAddProduct frm = new AuntRosieApplication.Kitchen.frmAddProduct();
+            frm.Left = (this.Parent.Width - frm.Width) / 2;
+            this.Close();
+            
+            //frm.Top = (this.Height - frm.Height) / 2;
+            //frm.Activate();
+            frm.Show();
+
+            
+        }
+
+        private void btnAddProductSize_Click(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Kitchen.frmGiveProductSize frm = new AuntRosieApplication.Kitchen.frmGiveProductSize();
+            frm.Left = (this.Parent.Width - frm.Width) / 2;
+            this.Close();
+
+            //frm.Top = (this.Height - frm.Height) / 2;
+            //frm.Activate();
+            frm.Show();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            AuntRosieApplication.Kitchen.frmUpdateProduct frm = new AuntRosieApplication.Kitchen.frmUpdateProduct();
+            frm.Left = (this.Parent.Width - frm.Width) / 2;
+            this.Close();
+
+            //frm.Top = (this.Height - frm.Height) / 2;
+            //frm.Activate();
+            frm.Show();
         }
     }
 }
