@@ -32,25 +32,29 @@
             this.label20 = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblTotalVallue = new System.Windows.Forms.Label();
+            this.lblTax = new System.Windows.Forms.Label();
+            this.LblTotalPrice = new System.Windows.Forms.Label();
+            this.lblTotalNumberOfItem = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtCity = new System.Windows.Forms.TextBox();
+            this.grdSale = new System.Windows.Forms.DataGridView();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnAddToCart = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkGuest = new System.Windows.Forms.CheckBox();
             this.btnAddCustomer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbCustomerName = new System.Windows.Forms.ComboBox();
             this.grbNew = new System.Windows.Forms.GroupBox();
+            this.radAll = new System.Windows.Forms.RadioButton();
+            this.radToday = new System.Windows.Forms.RadioButton();
+            this.radLastMonth = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.lblEventLocation = new System.Windows.Forms.Label();
             this.cmbEventName = new System.Windows.Forms.ComboBox();
@@ -73,13 +77,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.errCustomer = new System.Windows.Forms.ErrorProvider(this.components);
-            this.chkGuest = new System.Windows.Forms.CheckBox();
-            this.radLastMonth = new System.Windows.Forms.RadioButton();
-            this.radToday = new System.Windows.Forms.RadioButton();
-            this.radAll = new System.Windows.Forms.RadioButton();
             this.pnlMain.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSale)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.grbNew.SuspendLayout();
             this.pnlButton.SuspendLayout();
@@ -106,24 +106,24 @@
             this.pnlMain.Controls.Add(this.groupBox1);
             this.pnlMain.Controls.Add(this.grbNew);
             this.pnlMain.Enabled = false;
-            this.pnlMain.Location = new System.Drawing.Point(40, 81);
+            this.pnlMain.Location = new System.Drawing.Point(40, 75);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(618, 510);
+            this.pnlMain.Size = new System.Drawing.Size(618, 516);
             this.pnlMain.TabIndex = 139;
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.lblTotalVallue);
+            this.groupBox2.Controls.Add(this.lblTax);
+            this.groupBox2.Controls.Add(this.LblTotalPrice);
+            this.groupBox2.Controls.Add(this.lblTotalNumberOfItem);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Controls.Add(this.txtCity);
+            this.groupBox2.Controls.Add(this.grdSale);
+            this.groupBox2.Controls.Add(this.txtQuantity);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.btnAddToCart);
             this.groupBox2.Controls.Add(this.label5);
@@ -134,52 +134,52 @@
             this.groupBox2.TabIndex = 139;
             this.groupBox2.TabStop = false;
             // 
-            // label19
+            // lblTotalVallue
             // 
-            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label19.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label19.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label19.Location = new System.Drawing.Point(469, 269);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(99, 22);
-            this.label19.TabIndex = 135;
+            this.lblTotalVallue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTotalVallue.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblTotalVallue.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblTotalVallue.Location = new System.Drawing.Point(469, 269);
+            this.lblTotalVallue.Name = "lblTotalVallue";
+            this.lblTotalVallue.Size = new System.Drawing.Size(99, 22);
+            this.lblTotalVallue.TabIndex = 135;
             // 
-            // label18
+            // lblTax
             // 
-            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label18.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label18.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label18.Location = new System.Drawing.Point(469, 229);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(99, 22);
-            this.label18.TabIndex = 134;
+            this.lblTax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTax.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblTax.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblTax.Location = new System.Drawing.Point(469, 229);
+            this.lblTax.Name = "lblTax";
+            this.lblTax.Size = new System.Drawing.Size(99, 22);
+            this.lblTax.TabIndex = 134;
             // 
-            // label17
+            // LblTotalPrice
             // 
-            this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label17.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label17.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label17.Location = new System.Drawing.Point(203, 268);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(109, 22);
-            this.label17.TabIndex = 133;
+            this.LblTotalPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblTotalPrice.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.LblTotalPrice.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.LblTotalPrice.Location = new System.Drawing.Point(203, 268);
+            this.LblTotalPrice.Name = "LblTotalPrice";
+            this.LblTotalPrice.Size = new System.Drawing.Size(109, 22);
+            this.LblTotalPrice.TabIndex = 133;
             // 
-            // label16
+            // lblTotalNumberOfItem
             // 
-            this.label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label16.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label16.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label16.Location = new System.Drawing.Point(203, 230);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(109, 22);
-            this.label16.TabIndex = 132;
+            this.lblTotalNumberOfItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTotalNumberOfItem.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblTotalNumberOfItem.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblTotalNumberOfItem.Location = new System.Drawing.Point(203, 230);
+            this.lblTotalNumberOfItem.Name = "lblTotalNumberOfItem";
+            this.lblTotalNumberOfItem.Size = new System.Drawing.Size(109, 22);
+            this.lblTotalNumberOfItem.TabIndex = 132;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.Sienna;
-            this.label15.Location = new System.Drawing.Point(318, 268);
+            this.label15.Location = new System.Drawing.Point(322, 268);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(146, 22);
             this.label15.TabIndex = 131;
@@ -190,7 +190,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.Sienna;
-            this.label14.Location = new System.Drawing.Point(420, 230);
+            this.label14.Location = new System.Drawing.Point(424, 230);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(44, 22);
             this.label14.TabIndex = 130;
@@ -201,7 +201,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.Sienna;
-            this.label13.Location = new System.Drawing.Point(79, 269);
+            this.label13.Location = new System.Drawing.Point(77, 268);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(120, 22);
             this.label13.TabIndex = 129;
@@ -218,28 +218,29 @@
             this.label12.TabIndex = 128;
             this.label12.Text = "Total Number of Items";
             // 
-            // dataGridView1
+            // grdSale
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 106);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(558, 114);
-            this.dataGridView1.TabIndex = 127;
+            this.grdSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSale.Location = new System.Drawing.Point(10, 106);
+            this.grdSale.Name = "grdSale";
+            this.grdSale.Size = new System.Drawing.Size(558, 114);
+            this.grdSale.TabIndex = 127;
             // 
-            // txtCity
+            // txtQuantity
             // 
-            this.txtCity.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.txtCity.Location = new System.Drawing.Point(391, 62);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(100, 29);
-            this.txtCity.TabIndex = 126;
+            this.txtQuantity.BackColor = System.Drawing.SystemColors.Info;
+            this.txtQuantity.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.txtQuantity.Location = new System.Drawing.Point(156, 62);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(100, 29);
+            this.txtQuantity.TabIndex = 126;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Sienna;
-            this.label6.Location = new System.Drawing.Point(280, 65);
+            this.label6.Location = new System.Drawing.Point(46, 62);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 22);
             this.label6.TabIndex = 125;
@@ -251,9 +252,9 @@
             this.btnAddToCart.FlatAppearance.BorderSize = 0;
             this.btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddToCart.Image = global::AuntRosieApplication.Properties.Resources.add_shopping_cart;
-            this.btnAddToCart.Location = new System.Drawing.Point(485, 49);
+            this.btnAddToCart.Location = new System.Drawing.Point(262, 55);
             this.btnAddToCart.Name = "btnAddToCart";
-            this.btnAddToCart.Size = new System.Drawing.Size(64, 58);
+            this.btnAddToCart.Size = new System.Drawing.Size(61, 49);
             this.btnAddToCart.TabIndex = 123;
             this.btnAddToCart.UseVisualStyleBackColor = false;
             // 
@@ -291,6 +292,20 @@
             this.groupBox1.TabIndex = 138;
             this.groupBox1.TabStop = false;
             // 
+            // chkGuest
+            // 
+            this.chkGuest.AutoSize = true;
+            this.chkGuest.Checked = true;
+            this.chkGuest.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkGuest.Location = new System.Drawing.Point(496, 11);
+            this.chkGuest.Name = "chkGuest";
+            this.chkGuest.Size = new System.Drawing.Size(72, 24);
+            this.chkGuest.TabIndex = 124;
+            this.chkGuest.Text = "Guest";
+            this.chkGuest.UseVisualStyleBackColor = true;
+            this.chkGuest.CheckedChanged += new System.EventHandler(this.chkGuest_CheckedChanged);
+            // 
             // btnAddCustomer
             // 
             this.btnAddCustomer.BackColor = System.Drawing.Color.Transparent;
@@ -311,7 +326,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Sienna;
-            this.label1.Location = new System.Drawing.Point(2, 14);
+            this.label1.Location = new System.Drawing.Point(-4, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 22);
             this.label1.TabIndex = 122;
@@ -320,12 +335,13 @@
             // 
             // cmbCustomerName
             // 
+            this.cmbCustomerName.BackColor = System.Drawing.SystemColors.Info;
             this.cmbCustomerName.Enabled = false;
             this.cmbCustomerName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCustomerName.FormattingEnabled = true;
-            this.cmbCustomerName.Location = new System.Drawing.Point(160, 9);
+            this.cmbCustomerName.Location = new System.Drawing.Point(156, 9);
             this.cmbCustomerName.Name = "cmbCustomerName";
-            this.cmbCustomerName.Size = new System.Drawing.Size(284, 31);
+            this.cmbCustomerName.Size = new System.Drawing.Size(288, 31);
             this.cmbCustomerName.Sorted = true;
             this.cmbCustomerName.TabIndex = 108;
             this.toolTip1.SetToolTip(this.cmbCustomerName, "Choose Customer or enter  first or last name to filter the names ");
@@ -346,6 +362,44 @@
             this.grbNew.Size = new System.Drawing.Size(584, 119);
             this.grbNew.TabIndex = 137;
             this.grbNew.TabStop = false;
+            // 
+            // radAll
+            // 
+            this.radAll.AutoSize = true;
+            this.radAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radAll.Location = new System.Drawing.Point(424, 12);
+            this.radAll.Name = "radAll";
+            this.radAll.Size = new System.Drawing.Size(44, 24);
+            this.radAll.TabIndex = 126;
+            this.radAll.Text = "All";
+            this.radAll.UseVisualStyleBackColor = true;
+            this.radAll.CheckedChanged += new System.EventHandler(this.radAll_CheckedChanged);
+            // 
+            // radToday
+            // 
+            this.radToday.AutoSize = true;
+            this.radToday.Checked = true;
+            this.radToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radToday.Location = new System.Drawing.Point(141, 12);
+            this.radToday.Name = "radToday";
+            this.radToday.Size = new System.Drawing.Size(106, 24);
+            this.radToday.TabIndex = 124;
+            this.radToday.TabStop = true;
+            this.radToday.Text = "Tody Event";
+            this.radToday.UseVisualStyleBackColor = true;
+            this.radToday.CheckedChanged += new System.EventHandler(this.radToday_CheckedChanged);
+            // 
+            // radLastMonth
+            // 
+            this.radLastMonth.AutoSize = true;
+            this.radLastMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLastMonth.Location = new System.Drawing.Point(275, 12);
+            this.radLastMonth.Name = "radLastMonth";
+            this.radLastMonth.Size = new System.Drawing.Size(107, 24);
+            this.radLastMonth.TabIndex = 123;
+            this.radLastMonth.Text = "Last Month";
+            this.radLastMonth.UseVisualStyleBackColor = true;
+            this.radLastMonth.CheckedChanged += new System.EventHandler(this.radLastMonth_CheckedChanged);
             // 
             // label7
             // 
@@ -371,6 +425,7 @@
             // 
             // cmbEventName
             // 
+            this.cmbEventName.BackColor = System.Drawing.SystemColors.Info;
             this.cmbEventName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEventName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEventName.FormattingEnabled = true;
@@ -602,58 +657,6 @@
             this.errCustomer.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errCustomer.ContainerControl = this;
             // 
-            // chkGuest
-            // 
-            this.chkGuest.AutoSize = true;
-            this.chkGuest.Checked = true;
-            this.chkGuest.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkGuest.Location = new System.Drawing.Point(496, 11);
-            this.chkGuest.Name = "chkGuest";
-            this.chkGuest.Size = new System.Drawing.Size(72, 24);
-            this.chkGuest.TabIndex = 124;
-            this.chkGuest.Text = "Guest";
-            this.chkGuest.UseVisualStyleBackColor = true;
-            this.chkGuest.CheckedChanged += new System.EventHandler(this.chkGuest_CheckedChanged);
-            // 
-            // radLastMonth
-            // 
-            this.radLastMonth.AutoSize = true;
-            this.radLastMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLastMonth.Location = new System.Drawing.Point(275, 12);
-            this.radLastMonth.Name = "radLastMonth";
-            this.radLastMonth.Size = new System.Drawing.Size(107, 24);
-            this.radLastMonth.TabIndex = 123;
-            this.radLastMonth.Text = "Last Month";
-            this.radLastMonth.UseVisualStyleBackColor = true;
-            this.radLastMonth.CheckedChanged += new System.EventHandler(this.radLastMonth_CheckedChanged);
-            // 
-            // radToday
-            // 
-            this.radToday.AutoSize = true;
-            this.radToday.Checked = true;
-            this.radToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radToday.Location = new System.Drawing.Point(141, 12);
-            this.radToday.Name = "radToday";
-            this.radToday.Size = new System.Drawing.Size(106, 24);
-            this.radToday.TabIndex = 124;
-            this.radToday.TabStop = true;
-            this.radToday.Text = "Tody Event";
-            this.radToday.UseVisualStyleBackColor = true;
-            this.radToday.CheckedChanged += new System.EventHandler(this.radToday_CheckedChanged);
-            // 
-            // radAll
-            // 
-            this.radAll.AutoSize = true;
-            this.radAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radAll.Location = new System.Drawing.Point(424, 12);
-            this.radAll.Name = "radAll";
-            this.radAll.Size = new System.Drawing.Size(44, 24);
-            this.radAll.TabIndex = 126;
-            this.radAll.Text = "All";
-            this.radAll.UseVisualStyleBackColor = true;
-            this.radAll.CheckedChanged += new System.EventHandler(this.radAll_CheckedChanged);
-            // 
             // frmSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -676,7 +679,7 @@
             this.pnlMain.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSale)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grbNew.ResumeLayout(false);
@@ -721,16 +724,16 @@
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.ErrorProvider errCustomer;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblTotalVallue;
+        private System.Windows.Forms.Label lblTax;
+        private System.Windows.Forms.Label LblTotalPrice;
+        private System.Windows.Forms.Label lblTotalNumberOfItem;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox txtCity;
+        private System.Windows.Forms.DataGridView grdSale;
+        private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAddToCart;
         private System.Windows.Forms.Label label5;
