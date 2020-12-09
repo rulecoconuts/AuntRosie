@@ -16,8 +16,8 @@ namespace AuntRosieApplication.Event
     {
         RosieEvent curEvent = null;
         SqlTransaction transaction = null;
-        Dictionary<string, EventType> types = new Dictionary<string, EventType>() 
-        { 
+        Dictionary<string, EventType> types = new Dictionary<string, EventType>()
+        {
             { "Farmers Market", EventType.FarmersMarket},
             {"HomeShow", EventType.HomeShow },
             {"Other", EventType.Other}
@@ -63,18 +63,18 @@ namespace AuntRosieApplication.Event
               @"\AuntRosieDB.mdf;Integrated Security=True;Connect Timeout=30";
             DBConnector conn = new DBConnector(conStr);
             RosieEntity.Connector = conn;
-            
+
             foreach (EventLocation location in EventLocation.GetLocations())
             {
                 cmbLocations.Items.Add(location);
             }
 
-            if(cmbLocations.Items.Count > 0)
+            if (cmbLocations.Items.Count > 0)
             {
                 cmbLocations.SelectedIndex = 0;
             }
 
-            foreach(KeyValuePair<string, EventType> item in types)
+            foreach (KeyValuePair<string, EventType> item in types)
             {
                 cmbTypes.Items.Add(item);
             }
@@ -117,7 +117,7 @@ namespace AuntRosieApplication.Event
         /// <param name="success"></param>
         private void showLocPnlMsg(string msg, bool success)
         {
-            if(success)
+            if (success)
             {
                 lblLocMsg.ForeColor = Color.Green;
             }
@@ -195,7 +195,7 @@ namespace AuntRosieApplication.Event
 
         private bool validateDate()
         {
-            if(dtpFormDate.Value <= DateTime.Now)
+            if (dtpFormDate.Value <= DateTime.Now)
             {
                 errorProvider1.SetError(dtpFormDate, "Date must be in the future");
                 return false;
@@ -235,24 +235,39 @@ namespace AuntRosieApplication.Event
             pnlNewLoc.Visible = false;
         }
 
+        private void goToNextStepForEvent(RosieEvent subject)
+        {
+            this.Close();
+
+            frmOrganizeEventStep2 form = new frmOrganizeEventStep2(subject, transaction);
+            form.ShowDialog();
+        }
+
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (validateAddEventFrm())
+            if (radNew.Checked)
             {
-                RosieEvent ev = new RosieEvent();
-                ev.EventDate = dtpFormDate.Value;
-                ev.LocationId = (cmbLocations.SelectedItem as EventLocation).Id;
-                ev.Name = txtEventName.Text;
-                ev.Type = ((KeyValuePair<string, EventType>)cmbTypes.SelectedItem).Value;
-                //SqlTransaction transaction = RosieEntity.Connector.Connection.BeginTransaction();
-                ev.Create();
+                if (validateAddEventFrm())
+                {
+                    RosieEvent ev = new RosieEvent();
+                    ev.EventDate = dtpFormDate.Value;
+                    ev.LocationId = (cmbLocations.SelectedItem as EventLocation).Id;
+                    ev.Name = txtEventName.Text;
+                    ev.Type = ((KeyValuePair<string, EventType>)cmbTypes.SelectedItem).Value;
+                    //SqlTransaction transaction = RosieEntity.Connector.Connection.BeginTransaction();
+                    ev.Create();
 
-                RosieEvent createdEvent = RosieEvent.Retrieve(ev.EventDate, ev.LocationId);
+                    RosieEvent createdEvent = RosieEvent.Retrieve(ev.EventDate, ev.LocationId);
+                    goToNextStepForEvent(createdEvent);
 
-                this.Close();
-
-                frmOrganizeEventStep2 form = new frmOrganizeEventStep2(createdEvent, transaction);
-                form.ShowDialog();
+                }
+            }
+            else
+            {
+                if (dgEvents.SelectedRows.Count > 0)
+                {
+                    goToNextStepForEvent(dgEvents.SelectedRows[0].DataBoundItem as RosieEvent);
+                }
             }
 
         }
@@ -284,7 +299,7 @@ namespace AuntRosieApplication.Event
                     {
                         cmbLocations.Items.Add(loc);
 
-                        if(location.ToString() == loc.ToString())
+                        if (location.ToString() == loc.ToString())
                         {
                             cmbLocations.SelectedItem = loc;
                         }
@@ -294,9 +309,9 @@ namespace AuntRosieApplication.Event
 
                     showLocPnlMsg("Successfully added location", true);
                 }
-                catch(SqlException se)
+                catch (SqlException se)
                 {
-                    if(se.Message.Contains("duplicate key"))
+                    if (se.Message.Contains("duplicate key"))
                     {
                         showLocPnlMsg("Location already exists", false);
                     }
@@ -319,6 +334,11 @@ namespace AuntRosieApplication.Event
             radNew.Checked = !radExisting.Checked;
 
             dgEvents.DataSource = RosieEvent.GetEvents(DateTime.Now);
+        }
+
+        private void dgEvents_SelectionChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

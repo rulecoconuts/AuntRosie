@@ -402,5 +402,10 @@ namespace AuntRosieEntities
             return emp;
         }
 
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
+        }
+
     }
 }
