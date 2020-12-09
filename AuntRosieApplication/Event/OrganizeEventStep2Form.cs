@@ -206,13 +206,20 @@ namespace AuntRosieApplication.Event
         {
             if(e.ColumnIndex == dtgEmployeeHours.Columns["dataGridDeleteButton"].Index)
             {
-                DataGridViewRow selectedRow = dtgEmployeeHours.Rows[e.RowIndex];
-                long employeeID = (long)(selectedRow.Cells["EmployeeID"].Value);
-                EmployeeHours hoursRecord = new EmployeeHours();
-                hoursRecord.EmployeeID = employeeID;
-                hoursRecord.EventID = rosieEvent.Id;
-                hoursRecord.Delete();
-                dtgEmployeeHours.Rows.Remove(selectedRow);
+                try
+                {
+                    DataGridViewRow selectedRow = dtgEmployeeHours.Rows[e.RowIndex];
+                    long employeeID = (long)(selectedRow.Cells["EmployeeID"].Value);
+                    EmployeeHours hoursRecord = new EmployeeHours();
+                    hoursRecord.EmployeeID = employeeID;
+                    hoursRecord.EventID = rosieEvent.Id;
+                    hoursRecord.Delete();
+                    dtgEmployeeHours.Rows.Remove(selectedRow);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed to unassign employee from events");
+                }
             }
         }
     }

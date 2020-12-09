@@ -36,14 +36,14 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnAddLocation = new System.Windows.Forms.Button();
             this.grbNew = new System.Windows.Forms.GroupBox();
+            this.rbExisting = new System.Windows.Forms.RadioButton();
+            this.rbNew = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgProduction = new System.Windows.Forms.DataGridView();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.txtEvent = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.rbNew = new System.Windows.Forms.RadioButton();
-            this.rbExisting = new System.Windows.Forms.RadioButton();
             this.grbNew.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProduction)).BeginInit();
@@ -57,9 +57,9 @@
             this.label4.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label4.Location = new System.Drawing.Point(35, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(328, 30);
+            this.label4.Size = new System.Drawing.Size(349, 30);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Orgnize Event- Step3";
+            this.label4.Text = "Organize Event- Step3";
             // 
             // btnClose
             // 
@@ -132,6 +132,32 @@
             this.grbNew.TabIndex = 121;
             this.grbNew.TabStop = false;
             // 
+            // rbExisting
+            // 
+            this.rbExisting.AutoSize = true;
+            this.rbExisting.Font = new System.Drawing.Font("Arial Narrow", 14.25F);
+            this.rbExisting.Location = new System.Drawing.Point(50, 103);
+            this.rbExisting.Name = "rbExisting";
+            this.rbExisting.Size = new System.Drawing.Size(159, 27);
+            this.rbExisting.TabIndex = 129;
+            this.rbExisting.Text = "Existing Production";
+            this.rbExisting.UseVisualStyleBackColor = true;
+            this.rbExisting.CheckedChanged += new System.EventHandler(this.rbExisting_CheckedChanged);
+            // 
+            // rbNew
+            // 
+            this.rbNew.AutoSize = true;
+            this.rbNew.Checked = true;
+            this.rbNew.Font = new System.Drawing.Font("Arial Narrow", 14.25F);
+            this.rbNew.Location = new System.Drawing.Point(50, 61);
+            this.rbNew.Name = "rbNew";
+            this.rbNew.Size = new System.Drawing.Size(137, 27);
+            this.rbNew.TabIndex = 128;
+            this.rbNew.TabStop = true;
+            this.rbNew.Text = "New Production";
+            this.rbNew.UseVisualStyleBackColor = true;
+            this.rbNew.CheckedChanged += new System.EventHandler(this.rbNew_CheckedChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -155,12 +181,14 @@
             // dtgProduction
             // 
             this.dtgProduction.AllowUserToAddRows = false;
+            this.dtgProduction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgProduction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgProduction.Location = new System.Drawing.Point(3, 3);
             this.dtgProduction.Name = "dtgProduction";
             this.dtgProduction.ReadOnly = true;
             this.dtgProduction.Size = new System.Drawing.Size(516, 214);
             this.dtgProduction.TabIndex = 0;
+            this.dtgProduction.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgProduction_CellClick);
             // 
             // progressBar1
             // 
@@ -190,32 +218,6 @@
             this.label5.TabIndex = 140;
             this.label5.Text = "Event";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // rbNew
-            // 
-            this.rbNew.AutoSize = true;
-            this.rbNew.Checked = true;
-            this.rbNew.Font = new System.Drawing.Font("Arial Narrow", 14.25F);
-            this.rbNew.Location = new System.Drawing.Point(50, 61);
-            this.rbNew.Name = "rbNew";
-            this.rbNew.Size = new System.Drawing.Size(137, 27);
-            this.rbNew.TabIndex = 128;
-            this.rbNew.TabStop = true;
-            this.rbNew.Text = "New Production";
-            this.rbNew.UseVisualStyleBackColor = true;
-            this.rbNew.CheckedChanged += new System.EventHandler(this.rbNew_CheckedChanged);
-            // 
-            // rbExisting
-            // 
-            this.rbExisting.AutoSize = true;
-            this.rbExisting.Font = new System.Drawing.Font("Arial Narrow", 14.25F);
-            this.rbExisting.Location = new System.Drawing.Point(50, 103);
-            this.rbExisting.Name = "rbExisting";
-            this.rbExisting.Size = new System.Drawing.Size(159, 27);
-            this.rbExisting.TabIndex = 129;
-            this.rbExisting.Text = "Existing Production";
-            this.rbExisting.UseVisualStyleBackColor = true;
-            this.rbExisting.CheckedChanged += new System.EventHandler(this.rbExisting_CheckedChanged);
             // 
             // frmOrganizeEventStep3
             // 

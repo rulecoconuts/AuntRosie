@@ -199,12 +199,13 @@
             // 
             this.dtgEmployeeHours.AllowUserToAddRows = false;
             this.dtgEmployeeHours.AutoGenerateColumns = false;
+            this.dtgEmployeeHours.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgEmployeeHours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgEmployeeHours.DataSource = this.auntRosieDBDataSetBindingSource;
             this.dtgEmployeeHours.Location = new System.Drawing.Point(6, 122);
             this.dtgEmployeeHours.MultiSelect = false;
             this.dtgEmployeeHours.Name = "dtgEmployeeHours";
-            this.dtgEmployeeHours.Size = new System.Drawing.Size(484, 202);
+            this.dtgEmployeeHours.Size = new System.Drawing.Size(519, 202);
             this.dtgEmployeeHours.TabIndex = 123;
             this.dtgEmployeeHours.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgEmployeeHours_CellClick);
             // 

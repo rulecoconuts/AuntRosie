@@ -20,13 +20,13 @@ namespace AuntRosieApplication.Event
         {
             this.rosieEvent = rosieEvent;
             InitializeComponent();
-            this.DoubleBuffered = true;
+            //this.DoubleBuffered = true;
         }
 
         public frmOrganizeEventStep3()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
+            //this.DoubleBuffered = true;
         }
         protected override void OnPaint(PaintEventArgs e) { }
         protected override CreateParams CreateParams
@@ -54,7 +54,7 @@ namespace AuntRosieApplication.Event
         private void btnNext_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmOrganizeEventStep4 form = new frmOrganizeEventStep4();
+            frmOrganizeEventStep4 form = new frmOrganizeEventStep4(rosieEvent);
             form.ShowDialog();
         }
 
@@ -76,6 +76,25 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        private void prepareGrid()
+        {
+            dtgProduction.DataSource = bindingSource;
+            dtgProduction.AutoGenerateColumns = true;
+            DataGridViewButtonColumn column = new DataGridViewButtonColumn();
+            column.HeaderText = "Delete";
+            column.Name = "dataGridDeleteButton";
+            column.Text = "Delete";
+            column.UseColumnTextForButtonValue = true;
+            dtgProduction.Columns.Add(column);
+            int count = dtgProduction.Columns.Count;
+            if (count >= 2)
+            {
+                DataGridViewColumn temp = dtgProduction.Columns[0];
+                dtgProduction.Columns.Insert(0, dtgProduction.Columns[count - 1]);
+                dtgProduction.Columns.Insert(count - 1, temp);
+            }
+        }
+
         private void frmOrganizeEventStep3_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
@@ -87,8 +106,7 @@ namespace AuntRosieApplication.Event
             DBConnector conn = new DBConnector(conStr);
             RosieEntity.Connector = conn;
             displayEvent();
-            dtgProduction.DataSource = bindingSource;
-            dtgProduction.AutoGenerateColumns = true;
+            prepareGrid();
             loadDataGrid();
         }
 
@@ -124,6 +142,24 @@ namespace AuntRosieApplication.Event
             if(rbExisting.Checked)
             {
                 rbNew.Checked = false;
+            }
+        }
+
+        private void dtgProduction_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dtgProduction.Columns["dataGridDeleteButton"].Index)
+            {
+                try
+                {
+                    DataGridViewRow selectedRow = dtgProduction.Rows[e.RowIndex];
+                    long productionID = (long)(selectedRow.Cells["ProductionID"].Value);
+                    EventProduct.DeleteEventProduct(rosieEvent.Id, productionID);
+                    dtgProduction.Rows.Remove(selectedRow);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed to delete production record");
+                }
             }
         }
     }

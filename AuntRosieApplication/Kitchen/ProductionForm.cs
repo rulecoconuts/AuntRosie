@@ -23,13 +23,13 @@ namespace AuntRosieApplication.Kitchen
         {
             this.rosieEvent = rosieEvent;
             InitializeComponent();
-            this.DoubleBuffered = true;
+            //this.DoubleBuffered = true;
         }
 
         public frmProduction()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
+            //this.DoubleBuffered = true;
         }
         protected override void OnPaint(PaintEventArgs e) { }
 
@@ -272,6 +272,14 @@ namespace AuntRosieApplication.Kitchen
         private void lblMsg_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Event.frmOrganizeEventStep3 frm = new Event.frmOrganizeEventStep3(rosieEvent);
+            
+            frm.ShowDialog();
         }
     }
 }

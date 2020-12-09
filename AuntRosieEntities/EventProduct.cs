@@ -86,6 +86,11 @@ namespace AuntRosieEntities
 
         public override void Delete(SqlTransaction transaction = null)
         {
+            DeleteEventProduct(Id, transaction);
+        }
+
+        public static void DeleteEventProduct(long id, SqlTransaction transaction=null)
+        {
             if (deletePrepCmd is null)
             {
                 deletePrepCmd = new SqlCommand(null, Connector.Connection);
@@ -93,7 +98,7 @@ namespace AuntRosieEntities
 
 
                 SqlParameter idParam = new SqlParameter("@ID", SqlDbType.BigInt, 0);
-                idParam.Value = Id;
+                idParam.Value = id;
 
                 deletePrepCmd.Parameters.Add(idParam);
 
@@ -101,10 +106,15 @@ namespace AuntRosieEntities
             }
             else
             {
-                deletePrepCmd.Parameters["@ID"].Value = Id;
+                deletePrepCmd.Parameters["@ID"].Value = id;
             }
 
             Connector.Delete(deletePrepCmd, transaction);
+        }
+
+        public static void DeleteEventProduct(long eventID, long productionID)
+        {
+            Connector.Delete($"delete from [tblEventProduct] where [EventID]={eventID} and [ProductionID]={productionID}");
         }
 
         public override void Update(SqlTransaction transaction = null)

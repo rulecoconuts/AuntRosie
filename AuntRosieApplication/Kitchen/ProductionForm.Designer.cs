@@ -51,6 +51,7 @@
             this.lblMsg = new System.Windows.Forms.Label();
             this.txtEvent = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.pnlButton.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -107,7 +108,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
-            this.btnSave.Location = new System.Drawing.Point(82, 3);
+            this.btnSave.Location = new System.Drawing.Point(169, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(74, 58);
             this.btnSave.TabIndex = 24;
@@ -153,11 +154,12 @@
             // pnlButton
             // 
             this.pnlButton.BackColor = System.Drawing.Color.Transparent;
+            this.pnlButton.Controls.Add(this.btnBack);
             this.pnlButton.Controls.Add(this.btnSave);
             this.pnlButton.Controls.Add(this.btnClear);
-            this.pnlButton.Location = new System.Drawing.Point(298, 555);
+            this.pnlButton.Location = new System.Drawing.Point(224, 555);
             this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(172, 69);
+            this.pnlButton.Size = new System.Drawing.Size(246, 69);
             this.pnlButton.TabIndex = 28;
             // 
             // btnClear
@@ -165,7 +167,7 @@
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
-            this.btnClear.Location = new System.Drawing.Point(3, 3);
+            this.btnClear.Location = new System.Drawing.Point(90, 4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(73, 58);
             this.btnClear.TabIndex = 15;
@@ -282,6 +284,20 @@
             this.label1.Text = "Event";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Image = global::AuntRosieApplication.Properties.Resources.arrow_left;
+            this.btnBack.Location = new System.Drawing.Point(3, 4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(64, 57);
+            this.btnBack.TabIndex = 149;
+            this.toolTip1.SetToolTip(this.btnBack, "Back");
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // frmProduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,5 +359,6 @@
         private System.Windows.Forms.Label lblMsg;
         private System.Windows.Forms.TextBox txtEvent;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBack;
     }
 }
