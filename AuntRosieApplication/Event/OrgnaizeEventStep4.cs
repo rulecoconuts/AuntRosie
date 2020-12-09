@@ -42,8 +42,8 @@ namespace AuntRosieApplication.Event
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmOrganizeEventStep3 form = new frmOrganizeEventStep3();
+            this.Hide();
+            frmOrganizeEventStep3 form = new frmOrganizeEventStep3(rosieEvent);
             form.ShowDialog();
         }
 

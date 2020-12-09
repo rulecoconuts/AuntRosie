@@ -213,6 +213,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddProduct";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddProduct_FormClosed);
             this.Load += new System.EventHandler(this.frmAddProduct_Load);
