@@ -39,6 +39,27 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        public RosieEvent RosieEvent
+        {
+            get => rosieEvent;
+            set
+            {
+                if (value != null)
+                {
+                    rosieEvent = value;
+                    loadEvent(value);
+                }
+            }
+        }
+
+        private void loadEvent(RosieEvent ev)
+        {
+            if (ev != null)
+            {
+                txtEvent.Text = ev.ToString();
+            }
+        }
+
         private void txtEventName_TextChanged(object sender, EventArgs e)
         {
 
@@ -46,16 +67,16 @@ namespace AuntRosieApplication.Event
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmOrganizeEventStep2 form = new frmOrganizeEventStep2(rosieEvent, null);
-            form.ShowDialog();
+           this.Hide();
+            AuntRosieApp.frmHome.formStep2.RosieEvent = rosieEvent;
+            AuntRosieApp.frmHome.formStep2.Show();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmOrganizeEventStep4 form = new frmOrganizeEventStep4(rosieEvent);
-            form.ShowDialog();
+            this.Hide();
+            AuntRosieApp.frmHome.formStep4.RosieEvent = rosieEvent;
+            AuntRosieApp.frmHome.formStep4.Show();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

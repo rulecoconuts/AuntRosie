@@ -82,7 +82,7 @@
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Image = global::AuntRosieApplication.Properties.Resources.arrow_left;
-            this.btnBack.Location = new System.Drawing.Point(322, 575);
+            this.btnBack.Location = new System.Drawing.Point(300, 575);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(64, 57);
             this.btnBack.TabIndex = 125;
@@ -96,7 +96,7 @@
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
-            this.btnNext.Location = new System.Drawing.Point(392, 575);
+            this.btnNext.Location = new System.Drawing.Point(370, 575);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(64, 57);
             this.btnNext.TabIndex = 122;

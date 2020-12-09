@@ -10,6 +10,11 @@ namespace AuntRosieApp
 {
     public partial class frmHome : Form
     {
+
+         public static AuntRosieApplication.Event.frmOrganizeEvent   formStep1;
+        public static AuntRosieApplication.Event.frmOrganizeEventStep2 formStep2;
+        public static AuntRosieApplication.Event.frmOrganizeEventStep3 formStep3;
+        public static AuntRosieApplication.Event.frmOrganizeEventStep4 formStep4;
         public frmHome()
         {
             InitializeComponent();
@@ -107,11 +112,20 @@ namespace AuntRosieApp
             form.Top = (this.Height - form.Height) / 2;
             form.Show();
             form.Activate();
-            form.Focus();
-          
-            
+            form.Focus();            
             mnuMain.Visible = false;
             btnShowMain.Enabled = true;
+        }
+        private void ShowEventForm(Form form)
+        {
+            HidePanels();
+            form.TopLevel = false;
+            this.Controls.Add(form);
+            form.Left = (this.Width - form.Width) / 2;
+            form.Top = (this.Height - form.Height) / 2;
+            form.Hide();
+            
+            
         }
 
         #endregion
@@ -371,8 +385,18 @@ namespace AuntRosieApp
 
         private void btnOrgEvent_Click(object sender, EventArgs e)
         {
-            AuntRosieApplication.Event.frmOrganizeEvent form = new AuntRosieApplication.Event.frmOrganizeEvent();
-            ShowForm(form);
+             formStep1= new AuntRosieApplication.Event.frmOrganizeEvent();
+           formStep2= new AuntRosieApplication.Event.frmOrganizeEventStep2();
+         formStep3= new AuntRosieApplication.Event.frmOrganizeEventStep3();
+         formStep4= new AuntRosieApplication.Event.frmOrganizeEventStep4() ;
+            ShowEventForm(formStep4);
+            ShowEventForm(formStep3);
+            ShowEventForm(formStep2);
+            ShowEventForm(formStep1);
+
+            formStep1.Show();
+            formStep1.Activate();
+            formStep1.Focus();
         }
 
         private void btnManageIngerdint_Click(object sender, EventArgs e)

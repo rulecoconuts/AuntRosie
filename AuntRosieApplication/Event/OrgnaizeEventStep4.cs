@@ -40,16 +40,40 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        private void loadEvent(RosieEvent ev)
+        {
+            if (ev != null)
+            {
+                txtEvent.Text = ev.ToString();
+            }
+        }
+
+        public RosieEvent RosieEvent
+        {
+            get => rosieEvent;
+            set
+            {
+                if (value != null)
+                {
+                    rosieEvent = value;
+                    loadEvent(value);
+                }
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmOrganizeEventStep3 form = new frmOrganizeEventStep3(rosieEvent);
-            form.ShowDialog();
+            AuntRosieApp.frmHome.formStep3.RosieEvent = rosieEvent;
+            AuntRosieApp.frmHome.formStep3.Show();
         }
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
-            this.Close();
+            AuntRosieApp.frmHome.formStep1.Close();
+            AuntRosieApp.frmHome.formStep2.Close();
+            AuntRosieApp.frmHome.formStep3.Close();
+            AuntRosieApp.frmHome.formStep4.Close();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

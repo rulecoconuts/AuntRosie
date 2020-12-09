@@ -24,7 +24,6 @@ namespace AuntRosieApplication.Event
             this.rosieEvent = rosieEvent;
             this.transaction = transaction;
             InitializeComponent();
-            loadEvent(rosieEvent);
         }
 
         private void loadEvent(RosieEvent ev)
@@ -51,6 +50,16 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        public RosieEvent RosieEvent { get => rosieEvent;
+            set {
+                if(value != null)
+                {
+                    rosieEvent = value;
+                    loadEvent(value);
+                }
+            }
+        }
+
         private void frmOrganizeEventStep2_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'auntRosieDBDataSet.tblEmployeeHours' table. You can move, or remove it, as needed.
@@ -63,6 +72,7 @@ namespace AuntRosieApplication.Event
               @"\AuntRosieDB.mdf;Integrated Security=True;Connect Timeout=30";
             DBConnector conn = new DBConnector(conStr);
             RosieEntity.Connector = conn;
+            loadEvent(rosieEvent);
             prepareDataGrid();
             loadEmployees();
             loadEmployeeHours();
@@ -117,16 +127,16 @@ namespace AuntRosieApplication.Event
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmOrganizeEvent form = new frmOrganizeEvent();
-            form.ShowDialog();
+            this.Hide();
+            
+            AuntRosieApp.frmHome.formStep1.Show();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmOrganizeEventStep3 form = new frmOrganizeEventStep3(rosieEvent);
-            form.ShowDialog();
+            this.Hide();
+            AuntRosieApp.frmHome.formStep3.RosieEvent = rosieEvent;
+            AuntRosieApp.frmHome.formStep3.Show();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -167,8 +177,11 @@ namespace AuntRosieApplication.Event
 
         private void loadEmployeeHours()
         {
+
             DataTable employeeTable = EmployeeHours.GetEmployeeHoursUpdateable(rosieEvent.Id);
-            bindingSource.DataSource = employeeTable;
+           bindingSource.DataSource = employeeTable;
+            
+             
         }
 
         private void btnAddLocation_Click(object sender, EventArgs e)

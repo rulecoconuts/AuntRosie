@@ -208,8 +208,8 @@ namespace AuntRosieApplication.Event
         {
             pnl.Top = (this.Height - pnl.Height) / 2;
             pnl.Left = (this.Width - pnl.Width) / 2;
-            grbNew.Enabled = false;
             grbExists.Enabled = false;
+            grbNew.Enabled = false;
             btnNext.Enabled = false;
             pnl.Visible = true;
 
@@ -237,10 +237,9 @@ namespace AuntRosieApplication.Event
 
         private void goToNextStepForEvent(RosieEvent subject)
         {
-            this.Close();
-
-            frmOrganizeEventStep2 form = new frmOrganizeEventStep2(subject, transaction);
-            form.ShowDialog();
+            this.Hide();
+            AuntRosieApp.frmHome.formStep2.RosieEvent = subject;
+            AuntRosieApp.frmHome.formStep2.Show();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -256,7 +255,6 @@ namespace AuntRosieApplication.Event
                     ev.Type = ((KeyValuePair<string, EventType>)cmbTypes.SelectedItem).Value;
                     //SqlTransaction transaction = RosieEntity.Connector.Connection.BeginTransaction();
                     ev.Create();
-
                     RosieEvent createdEvent = RosieEvent.Retrieve(ev.EventDate, ev.LocationId);
                     goToNextStepForEvent(createdEvent);
 
@@ -326,14 +324,21 @@ namespace AuntRosieApplication.Event
 
         private void radNew_CheckedChanged(object sender, EventArgs e)
         {
-            radExisting.Checked = !radNew.Checked;
+            if (radNew.Checked)
+            {
+                radExisting.Checked = false;
+            }
         }
 
         private void radExisting_CheckedChanged(object sender, EventArgs e)
         {
-            radNew.Checked = !radExisting.Checked;
+            
 
-            dgEvents.DataSource = RosieEvent.GetEvents(DateTime.Now);
+            if (radExisting.Checked)
+            {
+                radNew.Checked = false;
+                dgEvents.DataSource = RosieEvent.GetEvents(DateTime.Now);
+            }
         }
 
         private void dgEvents_SelectionChanged(object sender, EventArgs e)

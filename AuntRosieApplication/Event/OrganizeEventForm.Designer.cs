@@ -281,7 +281,7 @@
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
-            this.btnNext.Location = new System.Drawing.Point(384, 595);
+            this.btnNext.Location = new System.Drawing.Point(383, 604);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(68, 59);
             this.btnNext.TabIndex = 14;
@@ -292,7 +292,7 @@
             // progressBar1
             // 
             this.progressBar1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.progressBar1.Location = new System.Drawing.Point(169, 660);
+            this.progressBar1.Location = new System.Drawing.Point(173, 675);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(500, 23);
             this.progressBar1.TabIndex = 136;

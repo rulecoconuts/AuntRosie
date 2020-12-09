@@ -278,8 +278,9 @@ namespace AuntRosieApplication.Kitchen
         {
             this.Close();
             Event.frmOrganizeEventStep3 frm = new Event.frmOrganizeEventStep3(rosieEvent);
-            
             frm.ShowDialog();
+            /*AuntRosieApp.frmHome.formStep3.RosieEvent = rosieEvent;
+            AuntRosieApp.frmHome.formStep3.Show();*/
         }
     }
 }
