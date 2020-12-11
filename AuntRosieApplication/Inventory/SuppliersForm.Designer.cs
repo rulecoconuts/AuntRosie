@@ -485,7 +485,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(622, 583);
+            this.ClientSize = new System.Drawing.Size(636, 583);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.pnlButton);
             this.Controls.Add(this.btnClose);

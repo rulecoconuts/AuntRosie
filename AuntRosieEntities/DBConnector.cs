@@ -76,7 +76,7 @@ namespace AuntRosieEntities
             adapter.InsertCommand = command;
             object resObj = adapter.InsertCommand.ExecuteScalar();
 
-            //result = getInsertedID ? Convert.ToInt64(resObj) : adapter.InsertCommand.ExecuteNonQuery();
+            // result = getInsertedID ? Convert.ToInt64(resObj) : adapter.InsertCommand.ExecuteNonQuery();
 
             adapter.InsertCommand.Dispose();
             adapter.Dispose();

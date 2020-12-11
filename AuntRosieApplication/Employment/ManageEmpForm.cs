@@ -431,7 +431,7 @@ namespace AuntRosieApplication.Employment
                 DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
                 RosieEntity.Connector = conn;
                 Employee employee = Employee.Retrieve(DBMethod.GetSelectedItemID(cmbName));
-                 MessageBox.Show(employee.EmploymentDate.Date.ToString());
+                  
 
                 txtFirstName.Text = employee.FirstName;
                 txtLastName.Text = employee.LastName;

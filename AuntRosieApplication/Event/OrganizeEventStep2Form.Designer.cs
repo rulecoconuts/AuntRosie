@@ -61,7 +61,7 @@
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label2.ForeColor = System.Drawing.Color.Sienna;
             this.label2.Location = new System.Drawing.Point(36, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(525, 29);
@@ -144,6 +144,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblName.ForeColor = System.Drawing.Color.Sienna;
             this.lblName.Location = new System.Drawing.Point(2, 33);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(151, 22);
@@ -153,6 +154,7 @@
             // 
             // cmbEmpName
             // 
+            this.cmbEmpName.BackColor = System.Drawing.SystemColors.Info;
             this.cmbEmpName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEmpName.FormattingEnabled = true;
             this.cmbEmpName.Location = new System.Drawing.Point(159, 33);
@@ -164,7 +166,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label7.ForeColor = System.Drawing.Color.Sienna;
             this.label7.Location = new System.Drawing.Point(93, 74);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 22);
@@ -173,6 +175,7 @@
             // 
             // txtHours
             // 
+            this.txtHours.BackColor = System.Drawing.SystemColors.Info;
             this.txtHours.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtHours.Location = new System.Drawing.Point(161, 75);
             this.txtHours.Name = "txtHours";
@@ -188,6 +191,7 @@
             this.grbNew.Controls.Add(this.btnAddLocation);
             this.grbNew.Controls.Add(this.cmbEmpName);
             this.grbNew.Controls.Add(this.lblName);
+            this.grbNew.ForeColor = System.Drawing.Color.Sienna;
             this.grbNew.Location = new System.Drawing.Point(29, 142);
             this.grbNew.Name = "grbNew";
             this.grbNew.Size = new System.Drawing.Size(531, 342);
@@ -229,6 +233,7 @@
             // 
             // txtEvent
             // 
+            this.txtEvent.BackColor = System.Drawing.SystemColors.Info;
             this.txtEvent.Enabled = false;
             this.txtEvent.Location = new System.Drawing.Point(30, 87);
             this.txtEvent.Multiline = true;

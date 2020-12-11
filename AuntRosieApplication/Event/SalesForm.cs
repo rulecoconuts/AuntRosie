@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+ 
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+ 
+using System.Data.SqlClient;
+ 
 using System.Windows.Forms;
 using AuntRosieApplication.Classes;
 using AuntRosieEntities;
@@ -13,6 +11,8 @@ namespace AuntRosieApplication.Event
 {
     public partial class frmSale : Form
     {
+
+        public long SaleID = -1;
         public frmSale()
         {
             InitializeComponent();
@@ -41,7 +41,9 @@ namespace AuntRosieApplication.Event
 
         private void frmSale_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'reportDataSet.saleDet' table. You can move, or remove it, as needed.
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
+
             cmbCustomerName.Items.Clear();
             Classes.DBMethod.FillCombBoxPerson(AuntRosieEntities.Customer.GetAllCustomer
                 (Classes.DBMethod.GetConnectionString()), cmbCustomerName);
@@ -49,6 +51,8 @@ namespace AuntRosieApplication.Event
             cmbEventName.Items.Clear();
         FillCombBoxEvent(AuntRosieEntities.RosieEvent.GetAllEventByDate
                 (Classes.DBMethod.GetConnectionString(), DateTime.Today.Date.ToShortDateString()), cmbEventName);
+            Classes.DBMethod.FillPaymentmethodCombo(cmbPaymentMethod);
+
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -194,6 +198,8 @@ namespace AuntRosieApplication.Event
         private void btnNew_Click(object sender, EventArgs e)
         {
             pnlMain.Enabled = true;
+            btnClear.Enabled = true;
+            btnSave.Enabled = true;
         }
 
         private void cmbCustomerName_SelectedIndexChanged(object sender, EventArgs e)
@@ -288,7 +294,138 @@ namespace AuntRosieApplication.Event
             RosieEvent rosieEvent = RosieEvent.Retrieve  ( long.Parse(DBMethod.GetSelectedItemID(cmbEventName)));
             EventLocation locEvent = EventLocation.Retrieve(rosieEvent.LocationId);
             lblEventLocation.Text += locEvent.Address.ToString();
+            FillProduct(DBMethod.GetSelectedItemID(cmbEventName));
 
+
+        }
+
+        private void FillProduct (String eventID)
+        {
+           string sqlEventText = "SELECT  tblEventProduct.EventProductID, tblProduct.ProductName, tblProduct.ProductType " +
+            "FROM tblEventProduct INNER JOIN " +
+            "tblProduction ON tblEventProduct.ProductionID = tblProduction.ProductionID INNER JOIN " +
+            "tblProductItem ON tblProduction.ProductItemID = tblProductItem.ProductItemID INNER JOIN " +
+            "tblProductSize ON tblProductItem.SizeID = tblProductSize.SizeID INNER JOIN " +
+            "tblProduct ON tblProductItem.ProductID = tblProduct.ProductID " +
+            " WHERE        tblEventProduct.EventID = " + eventID;
+
+            // Declare the connection
+            SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
+
+            // Create new SQL command
+            SqlCommand command = new SqlCommand(sqlEventText, dbConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            // Declare a DataTable object that will hold the return value
+            DataTable productTable = new DataTable();
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                adapter.Fill(productTable);
+
+                DBMethod.FillCombBoxPerson(productTable, cmbProduct);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+            // Return the populated DataTable
+            
+         
+
+
+        }
+
+        private void cmbProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+            RosieEntity.Connector = conn;
+            EventProduct product = EventProduct.Retrieve( short.Parse(DBMethod.GetSelectedItemID(cmbProduct)));
+            ndpQuanitity.Maximum =  product.Quantity - product.SoldQuantity;
+            //
+            conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+            RosieEntity.Connector = conn;
+            Production production = Production.Retrieve(product.ProductionId);
+            //
+            conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+            RosieEntity.Connector = conn;
+            ProductItem productItem = ProductItem.Retrieve(production.ProductItemID);
+            lblItemPrice.Text =   productItem.Price.ToString("C");
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddToCart_Click(object sender, EventArgs e)
+        {     
+            if (grdSale.Rows.Count==0)
+            {
+                Sale newSale = new Sale();
+                newSale.PaymentMethod = DBMethod.GetSelectedItemID(cmbPaymentMethod);
+                newSale.SaleDate = DateTime.Today;
+                if (chkGuest.Checked)
+                {
+                    newSale.CustomerId = 0;
+                }
+                else
+                {
+                    newSale.CustomerId = long.Parse( DBMethod.GetSelectedItemID(cmbCustomerName));
+                }
+                DBConnector conn1 = new DBConnector(Classes.DBMethod.GetConnectionString());
+                RosieEntity.Connector = conn1;
+                newSale.Create();
+                SaleID = Sale.RetrieveMax();
+            }
+            //MessageBox.Show(SaleID.ToString());
+            SaleProduct newSaleProduct = new SaleProduct();
+            newSaleProduct.SaleId= SaleID;
+            newSaleProduct.SaleQuantity = int.Parse( ndpQuanitity.Value.ToString());
+            newSaleProduct.SalePrice = Double.Parse(lblItemPrice.Text.Substring(1));
+            newSaleProduct.EventProductId =  long.Parse(DBMethod.GetSelectedItemID(cmbProduct));
+            DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+            RosieEntity.Connector = conn;
+            newSaleProduct.Create();
+           
+
+             fillSaleGrid();
+        }
+
+        private void fillSaleGrid ()
+        {
+            String sql = "SELECT        tblSale.SaleID, tblSaleProducts.SaleQuantity, tblSaleProducts.SalePrice, tblSaleProducts.SaleQuantity * tblSaleProducts.SalePrice AS itemCost, tblCustomer.CustomerFirstName, tblCustomer.CustomerLastName," +
+                           " tblSale.SaleDateTime, tblSale.PaymentMethod, tblProductSize.SizeName, tblProduct.ProductName " +
+                           " FROM            tblSaleProducts INNER JOIN " +
+                            " tblSale ON tblSaleProducts.SaleID = tblSale.SaleID INNER JOIN " +
+                            " tblCustomer ON tblSale.CustomerID = tblCustomer.CustomerID INNER JOIN " +
+                            " tblEventProduct ON tblSaleProducts.EventProductID = tblEventProduct.EventProductID INNER JOIN " +
+                            " tblProduction ON tblEventProduct.ProductionID = tblProduction.ProductionID INNER JOIN " +
+                            " tblProductItem ON tblProduction.ProductItemID = tblProductItem.ProductItemID INNER JOIN " +
+                            " tblProductSize ON tblProductItem.SizeID = tblProductSize.SizeID INNER JOIN " +
+                            " tblProduct ON tblProductItem.ProductID = tblProduct.ProductID " +
+                            " WHERE(tblSale.SaleID = " + SaleID.ToString() + ")";
+
+            string connectionString = DBMethod.GetConnectionString();
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlDataAdapter dataadapter = new SqlDataAdapter(sql,connection);
+            DataSet ds = new DataSet();
+            connection.Open();
+            dataadapter.Fill(ds, "SaleDet");
+            connection.Close();
+           grdSale.DataSource = ds;
+            grdSale.DataMember = "SaleDet";
+        }
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

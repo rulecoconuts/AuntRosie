@@ -452,5 +452,10 @@ namespace AuntRosieApp
         {
             ShowForm(new AuntRosieApplication.Reports.frmReports());
         }
+
+        private void tmnOrginizeEvent_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

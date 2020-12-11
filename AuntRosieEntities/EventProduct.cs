@@ -13,7 +13,7 @@ namespace AuntRosieEntities
         private long eventId;
         private long productionId;
         private short quantity;
-
+        private short soldQuantity;
         private static SqlCommand retrieveIdPrepCmd = null;
 
         private static SqlCommand retrieveNamePrepCmd = null;
@@ -42,6 +42,7 @@ namespace AuntRosieEntities
         public long EventId { get => eventId; set => eventId = value; }
         public long ProductionId { get => productionId; set => productionId = value; }
         public short Quantity { get => quantity; set => quantity = value; }
+        public short SoldQuantity { get => soldQuantity; set => soldQuantity = value; }
 
         private void SetID(long id)
         {
@@ -163,7 +164,7 @@ namespace AuntRosieEntities
             if (retrieveIdPrepCmd is null)
             {
                 retrieveIdPrepCmd = new SqlCommand(null, Connector.Connection);
-                retrieveIdPrepCmd.CommandText = "select [EventID], [ProductionID], [Quantity] from [tblEventProduct] " +
+                retrieveIdPrepCmd.CommandText = "select [EventID], [ProductionID], [Quantity], [SoldQuantity] from [tblEventProduct] " +
                     "where [EventProductID] = @ID";
 
 
@@ -189,6 +190,7 @@ namespace AuntRosieEntities
                 product.EventId = reader.GetInt64(0);
                 product.ProductionId = reader.GetInt64(1);
                 product.Quantity = reader.GetInt16(2);
+                product.SoldQuantity = reader.GetInt16(3);
             }
 
             reader.Close();

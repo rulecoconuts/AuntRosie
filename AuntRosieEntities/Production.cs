@@ -179,7 +179,7 @@ namespace AuntRosieEntities
 
                 SqlParameter idParam = new SqlParameter("@ID", SqlDbType.BigInt, 0);
                 idParam.Value = id;
-
+                retrieveIdPrepCmd.Parameters.Add(idParam);
                 retrieveIdPrepCmd.Prepare();
             }
             else
@@ -194,7 +194,7 @@ namespace AuntRosieEntities
                 reader.Read();
                 production = new Production();
                 production.SetID(id);
-                production.ProductItemID = reader.GetInt16(0);
+                production.ProductItemID = reader.GetInt32(0);
                 production.ProductionDate = reader.GetDateTime(1);
                 production.Quantity = reader.GetInt16(2);
                 production.ExpiryDate = reader.GetDateTime(3);

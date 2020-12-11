@@ -151,6 +151,7 @@
             // 
             // txtEvent
             // 
+            this.txtEvent.BackColor = System.Drawing.SystemColors.Info;
             this.txtEvent.Enabled = false;
             this.txtEvent.Location = new System.Drawing.Point(6, 46);
             this.txtEvent.Multiline = true;

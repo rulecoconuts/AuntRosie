@@ -9459,11 +9459,11 @@ namespace AuntRosieApplication {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
             
-            private global::System.Data.DataColumn columnExpr1;
+            private global::System.Data.DataColumn columnProductName;
             
-            private global::System.Data.DataColumn columnUnit;
+            private global::System.Data.DataColumn columnProductType;
             
-            private global::System.Data.DataColumn columnIngredientID;
+            private global::System.Data.DataColumn columnEventProductID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -9500,25 +9500,25 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Expr1Column {
+            public global::System.Data.DataColumn ProductNameColumn {
                 get {
-                    return this.columnExpr1;
+                    return this.columnProductName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UnitColumn {
+            public global::System.Data.DataColumn ProductTypeColumn {
                 get {
-                    return this.columnUnit;
+                    return this.columnProductType;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IngredientIDColumn {
+            public global::System.Data.DataColumn EventProductIDColumn {
                 get {
-                    return this.columnIngredientID;
+                    return this.columnEventProductID;
                 }
             }
             
@@ -9559,15 +9559,22 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable1Row AddDataTable1Row(decimal Expr1, string Unit, long IngredientID) {
+            public DataTable1Row AddDataTable1Row(string ProductName, string ProductType) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Expr1,
-                        Unit,
-                        IngredientID};
+                        ProductName,
+                        ProductType,
+                        null};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public DataTable1Row FindByEventProductID(long EventProductID) {
+                return ((DataTable1Row)(this.Rows.Find(new object[] {
+                            EventProductID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9587,24 +9594,32 @@ namespace AuntRosieApplication {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnExpr1 = base.Columns["Expr1"];
-                this.columnUnit = base.Columns["Unit"];
-                this.columnIngredientID = base.Columns["IngredientID"];
+                this.columnProductName = base.Columns["ProductName"];
+                this.columnProductType = base.Columns["ProductType"];
+                this.columnEventProductID = base.Columns["EventProductID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr1);
-                this.columnUnit = new global::System.Data.DataColumn("Unit", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUnit);
-                this.columnIngredientID = new global::System.Data.DataColumn("IngredientID", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIngredientID);
-                this.columnExpr1.ReadOnly = true;
-                this.columnUnit.AllowDBNull = false;
-                this.columnUnit.MaxLength = 20;
-                this.columnIngredientID.AllowDBNull = false;
+                this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductName);
+                this.columnProductType = new global::System.Data.DataColumn("ProductType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductType);
+                this.columnEventProductID = new global::System.Data.DataColumn("EventProductID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEventProductID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnEventProductID}, true));
+                this.columnProductName.AllowDBNull = false;
+                this.columnProductName.MaxLength = 100;
+                this.columnProductType.AllowDBNull = false;
+                this.columnProductType.MaxLength = 50;
+                this.columnEventProductID.AutoIncrement = true;
+                this.columnEventProductID.AutoIncrementSeed = -1;
+                this.columnEventProductID.AutoIncrementStep = -1;
+                this.columnEventProductID.AllowDBNull = false;
+                this.columnEventProductID.ReadOnly = true;
+                this.columnEventProductID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12235,52 +12250,35 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal Expr1 {
+            public string ProductName {
                 get {
-                    try {
-                        return ((decimal)(this[this.tableDataTable1.Expr1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Expr1\' in table \'DataTable1\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableDataTable1.ProductNameColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.Expr1Column] = value;
+                    this[this.tableDataTable1.ProductNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Unit {
+            public string ProductType {
                 get {
-                    return ((string)(this[this.tableDataTable1.UnitColumn]));
+                    return ((string)(this[this.tableDataTable1.ProductTypeColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.UnitColumn] = value;
+                    this[this.tableDataTable1.ProductTypeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long IngredientID {
+            public long EventProductID {
                 get {
-                    return ((long)(this[this.tableDataTable1.IngredientIDColumn]));
+                    return ((long)(this[this.tableDataTable1.EventProductIDColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.IngredientIDColumn] = value;
+                    this[this.tableDataTable1.EventProductIDColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsExpr1Null() {
-                return this.IsNull(this.tableDataTable1.Expr1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetExpr1Null() {
-                this[this.tableDataTable1.Expr1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -22228,9 +22226,9 @@ WHERE        (tblPayroll.PaymentDate = { fn CURDATE() })";
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "DataTable1";
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
-            tableMapping.ColumnMappings.Add("Unit", "Unit");
-            tableMapping.ColumnMappings.Add("IngredientID", "IngredientID");
+            tableMapping.ColumnMappings.Add("ProductName", "ProductName");
+            tableMapping.ColumnMappings.Add("ProductType", "ProductType");
+            tableMapping.ColumnMappings.Add("EventProductID", "EventProductID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -22247,22 +22245,21 @@ WHERE        (tblPayroll.PaymentDate = { fn CURDATE() })";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        SUM(tblIngredientInventory.Quantity) AS Expr1, tblIngredient.Unit, tblIngredientInventory.IngredientID
-FROM            tblIngredientInventory INNER JOIN
-                         tblIngredient ON tblIngredient.IngredientID = tblIngredientInventory.IngredientID
-GROUP BY tblIngredient.Unit, tblIngredientInventory.IngredientID
-HAVING        (tblIngredientInventory.IngredientID = @Param1)";
+            this._commandCollection[0].CommandText = @"SELECT        tblEventProduct.EventProductID, tblProduct.ProductName, tblProduct.ProductType
+FROM            tblEventProduct INNER JOIN
+                         tblProduction ON tblEventProduct.ProductionID = tblProduction.ProductionID INNER JOIN
+                         tblProductItem ON tblProduction.ProductItemID = tblProductItem.ProductItemID INNER JOIN
+                         tblProductSize ON tblProductItem.SizeID = tblProductSize.SizeID INNER JOIN
+                         tblProduct ON tblProductItem.ProductID = tblProduct.ProductID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "IngredientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AuntRosieDBDataSet.DataTable1DataTable dataTable, long Param1) {
+        public virtual int Fill(AuntRosieDBDataSet.DataTable1DataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(Param1));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -22274,9 +22271,8 @@ HAVING        (tblIngredientInventory.IngredientID = @Param1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AuntRosieDBDataSet.DataTable1DataTable GetData(long Param1) {
+        public virtual AuntRosieDBDataSet.DataTable1DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(Param1));
             AuntRosieDBDataSet.DataTable1DataTable dataTable = new AuntRosieDBDataSet.DataTable1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

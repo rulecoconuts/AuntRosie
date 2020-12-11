@@ -4,6 +4,9 @@
 
     partial class AuntRosieDBDataSet
     {
+        partial class DataTable1DataTable
+        {
+        }
     }
 }
 

@@ -766,6 +766,7 @@
             this.tmnOrginizeEvent.Name = "tmnOrginizeEvent";
             this.tmnOrginizeEvent.Size = new System.Drawing.Size(254, 28);
             this.tmnOrginizeEvent.Text = "Orginize Event";
+            this.tmnOrginizeEvent.Click += new System.EventHandler(this.tmnOrginizeEvent_Click);
             this.tmnOrginizeEvent.MouseEnter += new System.EventHandler(this.tmnOrginizeEvent_MouseEnter);
             this.tmnOrginizeEvent.MouseLeave += new System.EventHandler(this.tmnOrginizeEvent_MouseLeave);
             // 

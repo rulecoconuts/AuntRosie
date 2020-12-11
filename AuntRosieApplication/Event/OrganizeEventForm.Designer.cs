@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrganizeEvent));
             this.radNew = new System.Windows.Forms.RadioButton();
             this.grbNew = new System.Windows.Forms.GroupBox();
             this.cmbTypes = new System.Windows.Forms.ComboBox();
@@ -78,7 +77,8 @@
             this.radNew.AutoSize = true;
             this.radNew.Checked = true;
             this.radNew.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radNew.Location = new System.Drawing.Point(6, 0);
+            this.radNew.ForeColor = System.Drawing.Color.Sienna;
+            this.radNew.Location = new System.Drawing.Point(0, 3);
             this.radNew.Name = "radNew";
             this.radNew.Size = new System.Drawing.Size(91, 24);
             this.radNew.TabIndex = 1;
@@ -102,12 +102,13 @@
             this.grbNew.Controls.Add(this.label9);
             this.grbNew.Location = new System.Drawing.Point(40, 90);
             this.grbNew.Name = "grbNew";
-            this.grbNew.Size = new System.Drawing.Size(856, 242);
+            this.grbNew.Size = new System.Drawing.Size(809, 242);
             this.grbNew.TabIndex = 2;
             this.grbNew.TabStop = false;
             // 
             // cmbTypes
             // 
+            this.cmbTypes.BackColor = System.Drawing.SystemColors.Info;
             this.cmbTypes.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTypes.FormattingEnabled = true;
             this.cmbTypes.Location = new System.Drawing.Point(161, 174);
@@ -119,6 +120,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label2.ForeColor = System.Drawing.Color.Sienna;
             this.label2.Location = new System.Drawing.Point(50, 178);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 22);
@@ -128,6 +130,7 @@
             // 
             // txtEventName
             // 
+            this.txtEventName.BackColor = System.Drawing.SystemColors.Info;
             this.txtEventName.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtEventName.Location = new System.Drawing.Point(161, 75);
             this.txtEventName.Name = "txtEventName";
@@ -138,7 +141,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label7.ForeColor = System.Drawing.Color.Sienna;
             this.label7.Location = new System.Drawing.Point(40, 78);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 22);
@@ -151,7 +154,7 @@
             this.btnAddLocation.FlatAppearance.BorderSize = 0;
             this.btnAddLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddLocation.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
-            this.btnAddLocation.Location = new System.Drawing.Point(768, 116);
+            this.btnAddLocation.Location = new System.Drawing.Point(751, 116);
             this.btnAddLocation.Name = "btnAddLocation";
             this.btnAddLocation.Size = new System.Drawing.Size(41, 42);
             this.btnAddLocation.TabIndex = 113;
@@ -161,6 +164,7 @@
             // 
             // cmbLocations
             // 
+            this.cmbLocations.BackColor = System.Drawing.SystemColors.Info;
             this.cmbLocations.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbLocations.FormattingEnabled = true;
             this.cmbLocations.Location = new System.Drawing.Point(161, 120);
@@ -180,6 +184,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.lblName.ForeColor = System.Drawing.Color.Sienna;
             this.lblName.Location = new System.Drawing.Point(20, 124);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(135, 22);
@@ -191,6 +196,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.label9.ForeColor = System.Drawing.Color.Sienna;
             this.label9.Location = new System.Drawing.Point(50, 30);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(103, 22);
@@ -203,21 +209,20 @@
             this.grbExists.BackColor = System.Drawing.Color.Transparent;
             this.grbExists.Controls.Add(this.dgEvents);
             this.grbExists.Controls.Add(this.radExisting);
-            this.grbExists.Location = new System.Drawing.Point(34, 338);
+            this.grbExists.Location = new System.Drawing.Point(40, 338);
             this.grbExists.Name = "grbExists";
-            this.grbExists.Size = new System.Drawing.Size(862, 260);
+            this.grbExists.Size = new System.Drawing.Size(809, 260);
             this.grbExists.TabIndex = 3;
             this.grbExists.TabStop = false;
-            this.grbExists.Text = "Existing Event";
             // 
             // dgEvents
             // 
             this.dgEvents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgEvents.Location = new System.Drawing.Point(16, 50);
+            this.dgEvents.Location = new System.Drawing.Point(54, 55);
             this.dgEvents.Name = "dgEvents";
             this.dgEvents.ReadOnly = true;
-            this.dgEvents.Size = new System.Drawing.Size(840, 199);
+            this.dgEvents.Size = new System.Drawing.Size(731, 188);
             this.dgEvents.TabIndex = 2;
             this.dgEvents.SelectionChanged += new System.EventHandler(this.dgEvents_SelectionChanged);
             // 
@@ -225,7 +230,8 @@
             // 
             this.radExisting.AutoSize = true;
             this.radExisting.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radExisting.Location = new System.Drawing.Point(6, 19);
+            this.radExisting.ForeColor = System.Drawing.Color.Sienna;
+            this.radExisting.Location = new System.Drawing.Point(0, 0);
             this.radExisting.Name = "radExisting";
             this.radExisting.Size = new System.Drawing.Size(116, 24);
             this.radExisting.TabIndex = 1;
@@ -267,7 +273,7 @@
             this.btnNewTypeCancel.FlatAppearance.BorderSize = 0;
             this.btnNewTypeCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewTypeCancel.Image = global::AuntRosieApplication.Properties.Resources.file_delete;
-            this.btnNewTypeCancel.Location = new System.Drawing.Point(195, 222);
+            this.btnNewTypeCancel.Location = new System.Drawing.Point(211, 222);
             this.btnNewTypeCancel.Name = "btnNewTypeCancel";
             this.btnNewTypeCancel.Size = new System.Drawing.Size(63, 55);
             this.btnNewTypeCancel.TabIndex = 16;
@@ -281,7 +287,7 @@
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
-            this.btnNext.Location = new System.Drawing.Point(383, 604);
+            this.btnNext.Location = new System.Drawing.Point(396, 604);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(68, 59);
             this.btnNext.TabIndex = 14;
@@ -292,15 +298,15 @@
             // progressBar1
             // 
             this.progressBar1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.progressBar1.Location = new System.Drawing.Point(173, 675);
+            this.progressBar1.Location = new System.Drawing.Point(40, 669);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(500, 23);
+            this.progressBar1.Size = new System.Drawing.Size(809, 23);
             this.progressBar1.TabIndex = 136;
             this.progressBar1.Value = 25;
             // 
             // pnlNewLoc
             // 
-            this.pnlNewLoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlNewLoc.BackgroundImage")));
+            this.pnlNewLoc.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             this.pnlNewLoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlNewLoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlNewLoc.Controls.Add(this.lblLocMsg);
@@ -318,7 +324,7 @@
             this.pnlNewLoc.Controls.Add(this.txtCity);
             this.pnlNewLoc.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewLoc.Controls.Add(this.btnNewTypetClear);
-            this.pnlNewLoc.Location = new System.Drawing.Point(134, 58);
+            this.pnlNewLoc.Location = new System.Drawing.Point(201, 58);
             this.pnlNewLoc.Name = "pnlNewLoc";
             this.pnlNewLoc.Size = new System.Drawing.Size(423, 334);
             this.pnlNewLoc.TabIndex = 114;
@@ -347,6 +353,7 @@
             // 
             // txtnewLocName
             // 
+            this.txtnewLocName.BackColor = System.Drawing.SystemColors.Info;
             this.txtnewLocName.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtnewLocName.Location = new System.Drawing.Point(168, 41);
             this.txtnewLocName.Name = "txtnewLocName";
@@ -356,9 +363,10 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Arial", 14.25F);
             this.label12.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label12.Location = new System.Drawing.Point(107, 12);
+            this.label12.Location = new System.Drawing.Point(132, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(159, 22);
             this.label12.TabIndex = 102;
@@ -368,8 +376,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label1.ForeColor = System.Drawing.Color.Sienna;
             this.label1.Location = new System.Drawing.Point(12, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 22);
@@ -381,7 +390,7 @@
             this.txtPostalCode.AutoSize = true;
             this.txtPostalCode.BackColor = System.Drawing.Color.Transparent;
             this.txtPostalCode.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.txtPostalCode.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtPostalCode.ForeColor = System.Drawing.Color.Sienna;
             this.txtPostalCode.Location = new System.Drawing.Point(34, 197);
             this.txtPostalCode.Name = "txtPostalCode";
             this.txtPostalCode.Size = new System.Drawing.Size(115, 22);
@@ -390,6 +399,7 @@
             // 
             // textBox6
             // 
+            this.textBox6.BackColor = System.Drawing.SystemColors.Info;
             this.textBox6.Font = new System.Drawing.Font("Arial", 14.25F);
             this.textBox6.Location = new System.Drawing.Point(168, 190);
             this.textBox6.Name = "textBox6";
@@ -398,6 +408,7 @@
             // 
             // txtProvince
             // 
+            this.txtProvince.BackColor = System.Drawing.SystemColors.Info;
             this.txtProvince.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtProvince.Location = new System.Drawing.Point(168, 80);
             this.txtProvince.Name = "txtProvince";
@@ -407,8 +418,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label3.ForeColor = System.Drawing.Color.Sienna;
             this.label3.Location = new System.Drawing.Point(84, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 22);
@@ -418,8 +430,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label6.ForeColor = System.Drawing.Color.Sienna;
             this.label6.Location = new System.Drawing.Point(65, 87);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 22);
@@ -428,6 +441,7 @@
             // 
             // txtStreet
             // 
+            this.txtStreet.BackColor = System.Drawing.SystemColors.Info;
             this.txtStreet.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtStreet.Location = new System.Drawing.Point(168, 155);
             this.txtStreet.Name = "txtStreet";
@@ -437,8 +451,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label5.ForeColor = System.Drawing.Color.Sienna;
             this.label5.Location = new System.Drawing.Point(107, 127);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 22);
@@ -447,6 +462,7 @@
             // 
             // txtCity
             // 
+            this.txtCity.BackColor = System.Drawing.SystemColors.Info;
             this.txtCity.Font = new System.Drawing.Font("Arial", 14.25F);
             this.txtCity.Location = new System.Drawing.Point(168, 120);
             this.txtCity.Name = "txtCity";
@@ -459,7 +475,7 @@
             this.btnNewTypetClear.FlatAppearance.BorderSize = 0;
             this.btnNewTypetClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewTypetClear.Image = global::AuntRosieApplication.Properties.Resources.save;
-            this.btnNewTypetClear.Location = new System.Drawing.Point(126, 222);
+            this.btnNewTypetClear.Location = new System.Drawing.Point(136, 225);
             this.btnNewTypetClear.Name = "btnNewTypetClear";
             this.btnNewTypetClear.Size = new System.Drawing.Size(63, 55);
             this.btnNewTypetClear.TabIndex = 15;
@@ -475,7 +491,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(938, 739);
+            this.ClientSize = new System.Drawing.Size(938, 712);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pnlNewLoc);

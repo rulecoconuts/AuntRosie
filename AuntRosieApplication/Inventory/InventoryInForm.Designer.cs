@@ -575,7 +575,7 @@
             this.pnlNewType.Controls.Add(this.btnNewTypetSave);
             this.pnlNewType.Controls.Add(this.label11);
             this.pnlNewType.Controls.Add(this.txtxNewType);
-            this.pnlNewType.Location = new System.Drawing.Point(292, 4);
+            this.pnlNewType.Location = new System.Drawing.Point(583, 80);
             this.pnlNewType.Name = "pnlNewType";
             this.pnlNewType.Size = new System.Drawing.Size(379, 245);
             this.pnlNewType.TabIndex = 22;
@@ -635,7 +635,7 @@
             this.pnlNewIngredint.Controls.Add(this.txtNewIngredintName);
             this.pnlNewIngredint.Controls.Add(this.label8);
             this.pnlNewIngredint.Controls.Add(this.cmbUnit);
-            this.pnlNewIngredint.Location = new System.Drawing.Point(12, 94);
+            this.pnlNewIngredint.Location = new System.Drawing.Point(583, 360);
             this.pnlNewIngredint.Name = "pnlNewIngredint";
             this.pnlNewIngredint.Size = new System.Drawing.Size(465, 337);
             this.pnlNewIngredint.TabIndex = 16;
