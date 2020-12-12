@@ -243,6 +243,12 @@
     <Compile Include="Kitchen\AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kitchen\ExistingProduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\ExistingProduction.Designer.cs">
+      <DependentUpon>ExistingProduction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kitchen\GiveProductSizeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,12 @@
     </Compile>
     <Compile Include="Kitchen\UpdateProduct.Designer.cs">
       <DependentUpon>UpdateProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen\UpdateProduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\UpdateProduction.Designer.cs">
+      <DependentUpon>UpdateProduction.cs</DependentUpon>
     </Compile>
     <Compile Include="Kitchen\ViewProduction.cs">
       <SubType>Form</SubType>
@@ -347,6 +359,9 @@
     <EmbeddedResource Include="Kitchen\AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen\ExistingProduction.resx">
+      <DependentUpon>ExistingProduction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Kitchen\GiveProductSizeForm.resx">
       <DependentUpon>GiveProductSizeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -358,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Kitchen\UpdateProduct.resx">
       <DependentUpon>UpdateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen\UpdateProduction.resx">
+      <DependentUpon>UpdateProduction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kitchen\ViewProduction.resx">
       <DependentUpon>ViewProduction.cs</DependentUpon>
