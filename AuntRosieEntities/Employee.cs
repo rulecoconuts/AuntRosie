@@ -180,13 +180,13 @@ namespace AuntRosieEntities
             SqlDataAdapter adapter = new SqlDataAdapter(command);
 
             // Declare a DataTable object that will hold the return value
-            DataTable IngredintTypeTable = new DataTable();
+            DataTable EmployeeTable = new DataTable();
 
             // Try to connect to the database, and use the adapter to fill the table
             try
             {
                 dbConnection.Open();
-                adapter.Fill(IngredintTypeTable);
+                adapter.Fill(EmployeeTable);
             }
             catch (Exception ex)
             {
@@ -198,7 +198,7 @@ namespace AuntRosieEntities
             }
 
             // Return the populated DataTable
-            return IngredintTypeTable;
+            return EmployeeTable;
         }
 
         ///

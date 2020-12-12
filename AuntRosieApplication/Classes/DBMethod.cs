@@ -11,6 +11,7 @@ namespace AuntRosieApplication.Classes
     class DBMethod
     {
 
+        public static string Reptype = null;
        public static ListItem selectedListItem = new ListItem();
        public  static  string[,] provincesArray = new string[,] {
                 { "Newfoundland and Labrador","NL"},
@@ -136,6 +137,18 @@ namespace AuntRosieApplication.Classes
             cmb.Items.Add((Object)itm3);
 
 
+        }
+        public  static bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

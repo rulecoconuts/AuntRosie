@@ -142,18 +142,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telerik.WinControls, Version=2018.2.621.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
-      <HintPath>..\packages\HiNetCloud.Telerik.WinControls.20.4.21.21\lib\net46\Telerik.WinControls.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.WinControls.GridView, Version=2018.2.621.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
-      <HintPath>..\packages\HiNetCloud.Telerik.WinControls.GridView.20.4.21.21\lib\net46\Telerik.WinControls.GridView.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.WinControls.UI, Version=2018.2.621.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
-      <HintPath>..\packages\HiNetCloud.Telerik.WinControls.UI.20.4.21.21\lib\net46\Telerik.WinControls.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="TelerikCommon, Version=2018.2.621.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
-      <HintPath>..\packages\HiNetCloud.TelerikCommon.20.4.21.21\lib\net46\TelerikCommon.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuntRosieDBDataSet.cs">
@@ -164,7 +152,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AuntRosieDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ChanagepriceRep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChanagepriceRep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Classes\DBMethod.cs" />
+    <Compile Include="EmpEventRep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpEventRep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Employment\ManageEmpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +292,12 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LowStockRep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LowStockRep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportDataSet.cs">
@@ -320,6 +326,14 @@
       <DependentUpon>StockReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="ChanagepriceRep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ChanagepriceRep.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmpEventRep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EmpEventRep.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employment\ManageEmpForm.resx">
       <DependentUpon>ManageEmpForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -382,6 +396,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LowStockRep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LowStockRep.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -605,6 +623,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\help.png" />
+    <None Include="Resources\check-mark-button-emoji.png" />
+    <None Include="Resources\apple-phone.png" />
+    <None Include="Resources\workers-male.png" />
     <None Include="Resources\price-comparison.png" />
     <None Include="Resources\low-battery.png" />
     <None Include="Resources\clothes-tag.png" />

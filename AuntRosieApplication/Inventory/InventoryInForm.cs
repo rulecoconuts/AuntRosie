@@ -315,8 +315,8 @@ namespace AuntRosieApplication.Inventory
                     InsertInventoryIngredient.ExpiryDate = dtpExpiryDate.Value;
                     InsertInventoryIngredient.Quantity = Convert.ToDouble(txtQuantity.Text.Trim());
                     InsertInventoryIngredient.Cost = Convert.ToDouble(txtCost.Text.Trim());
-                   
-                    DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                    InsertInventoryIngredient.UnitPrice = Convert.ToDouble(txtCost.Text.Trim()) / Convert.ToDouble(txtQuantity.Text.Trim());
+                     DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
                     RosieEntity.Connector = conn;
                     InsertInventoryIngredient.Create();
                     clearData();

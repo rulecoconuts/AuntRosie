@@ -84,8 +84,6 @@
             this.tmnProducation = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnManage = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnQueriesAndReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmnReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmnQueries = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlInventory.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlKitchen.SuspendLayout();
@@ -104,7 +102,7 @@
             this.pnlInventory.Controls.Add(this.btnInventoryMain);
             this.pnlInventory.Controls.Add(this.btnSuppliers);
             this.pnlInventory.Controls.Add(this.btnInventoryIn);
-            this.pnlInventory.Location = new System.Drawing.Point(269, 488);
+            this.pnlInventory.Location = new System.Drawing.Point(21, 326);
             this.pnlInventory.Name = "pnlInventory";
             this.pnlInventory.Size = new System.Drawing.Size(955, 207);
             this.pnlInventory.TabIndex = 9;
@@ -200,7 +198,7 @@
             this.pnlMain.Controls.Add(this.btnEvent);
             this.pnlMain.Controls.Add(this.btnEmployment);
             this.pnlMain.Controls.Add(this.btnInventory);
-            this.pnlMain.Location = new System.Drawing.Point(377, 576);
+            this.pnlMain.Location = new System.Drawing.Point(360, 576);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(819, 478);
             this.pnlMain.TabIndex = 9;
@@ -212,13 +210,13 @@
             this.btnQueryAndreport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnQueryAndreport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQueryAndreport.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.btnQueryAndreport.Image = global::AuntRosieApplication.Properties.Resources.short_hair_lady_question_mark;
+            this.btnQueryAndreport.Image = global::AuntRosieApplication.Properties.Resources.business_report;
             this.btnQueryAndreport.Location = new System.Drawing.Point(548, 245);
             this.btnQueryAndreport.Name = "btnQueryAndreport";
             this.btnQueryAndreport.Size = new System.Drawing.Size(260, 225);
             this.btnQueryAndreport.TabIndex = 5;
             this.btnQueryAndreport.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolTip1.SetToolTip(this.btnQueryAndreport, "Queries and Reports");
+            this.toolTip1.SetToolTip(this.btnQueryAndreport, "Reports");
             this.btnQueryAndreport.UseVisualStyleBackColor = true;
             this.btnQueryAndreport.Click += new System.EventHandler(this.btnQueryAndreport_Click);
             // 
@@ -312,7 +310,7 @@
             this.pnlKitchen.Controls.Add(this.btnProduction);
             this.pnlKitchen.Controls.Add(this.btnKitchenMain);
             this.pnlKitchen.Controls.Add(this.btnKitchenProduct);
-            this.pnlKitchen.Location = new System.Drawing.Point(21, 102);
+            this.pnlKitchen.Location = new System.Drawing.Point(21, 621);
             this.pnlKitchen.Name = "pnlKitchen";
             this.pnlKitchen.Size = new System.Drawing.Size(780, 207);
             this.pnlKitchen.TabIndex = 9;
@@ -560,6 +558,7 @@
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnReport, "Report");
             this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // pnlExit
             // 
@@ -821,32 +820,11 @@
             // 
             // tmnQueriesAndReports
             // 
-            this.tmnQueriesAndReports.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tmnReports,
-            this.tmnQueries});
             this.tmnQueriesAndReports.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnQueriesAndReports.Name = "tmnQueriesAndReports";
-            this.tmnQueriesAndReports.Size = new System.Drawing.Size(264, 28);
-            this.tmnQueriesAndReports.Text = "Queries and Reports";
-            this.tmnQueriesAndReports.MouseEnter += new System.EventHandler(this.queriesAndReportsToolStripMenuItem_MouseEnter);
-            // 
-            // tmnReports
-            // 
-            this.tmnReports.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.tmnReports.Name = "tmnReports";
-            this.tmnReports.Size = new System.Drawing.Size(175, 28);
-            this.tmnReports.Text = "Reports";
-            this.tmnReports.MouseEnter += new System.EventHandler(this.tmnReports_MouseEnter);
-            this.tmnReports.MouseLeave += new System.EventHandler(this.tmnQueries_MouseLeave);
-            // 
-            // tmnQueries
-            // 
-            this.tmnQueries.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.tmnQueries.Name = "tmnQueries";
-            this.tmnQueries.Size = new System.Drawing.Size(175, 28);
-            this.tmnQueries.Text = "Queries";
-            this.tmnQueries.MouseEnter += new System.EventHandler(this.tmnQueries_MouseEnter);
-            this.tmnQueries.MouseLeave += new System.EventHandler(this.tmnQueries_MouseLeave);
+            this.tmnQueriesAndReports.Size = new System.Drawing.Size(117, 28);
+            this.tmnQueriesAndReports.Text = "Reports";
+            this.tmnQueriesAndReports.Click += new System.EventHandler(this.tmnQueriesAndReports_Click);
             // 
             // frmHome
             // 
@@ -934,8 +912,6 @@
         private System.Windows.Forms.ToolStripMenuItem tmnProducation;
         private System.Windows.Forms.ToolStripMenuItem tmnManage;
         private System.Windows.Forms.ToolStripMenuItem tmnQueriesAndReports;
-        private System.Windows.Forms.ToolStripMenuItem tmnQueries;
-        private System.Windows.Forms.ToolStripMenuItem tmnReports;
         private System.Windows.Forms.Button btnProduction;
         private System.Windows.Forms.Button btnManageIngerdint;
         private System.Windows.Forms.ToolStripMenuItem ingredintsToolStripMenuItem;
