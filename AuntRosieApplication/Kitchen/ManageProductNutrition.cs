@@ -164,26 +164,26 @@ namespace AuntRosieApplication.Kitchen
         /// <returns>true if a new record was created; else false</returns>
         private bool saveChanges()
         {
-            bool newCreated = true;
             currentSelection = currentSelection is null ? new ProductNutrition() : currentSelection;
-
+            bool newCreated = currentSelection.Value < 0; ;
             currentSelection.NutritionId = (cmbNutrType.SelectedItem as Nutrition).Id;
             currentSelection.ProductItemId = (cmbProduct.SelectedItem as ProductItem).Id;
             currentSelection.Value = double.Parse(txtValue.Text);
             currentSelection.ValueType = valueTypes[cmbValType.SelectedItem as string];
 
-            if (currentSelection is null)
+            if (newCreated)
             {
                 //The current product-nutrition combination does not exist in the database
                 //Create new combination of product-nutrition
                 currentSelection.Create();
+                MessageBox.Show("Sucessfully added nutrition");
             }
             else
             {
                 //The current product-nutrition combination exists in the database
                 //Update product-nutrition values for the current selection
-                newCreated = false;
                 currentSelection.Update();
+                MessageBox.Show("Sucessfully updated nutrition");
             }
 
             return newCreated;

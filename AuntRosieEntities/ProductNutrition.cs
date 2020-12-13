@@ -9,9 +9,9 @@ namespace AuntRosieEntities
 {
     public class ProductNutrition : RosieEntity
     {
-        private int productItemId;
-        private short nutritionId;
-        private double value;
+        private int productItemId=-1;
+        private short nutritionId=-1;
+        private double value = -1;
         private char valueType;
 
         public Nutrition Nutrition
