@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,8 +44,10 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.pnlButton = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.pnlButton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -102,6 +105,7 @@
             this.cmbProduct.Name = "cmbProduct";
             this.cmbProduct.Size = new System.Drawing.Size(485, 31);
             this.cmbProduct.TabIndex = 150;
+            this.cmbProduct.SelectedIndexChanged += new System.EventHandler(this.cmbProduct_SelectedIndexChanged);
             // 
             // cmbNutrType
             // 
@@ -111,6 +115,7 @@
             this.cmbNutrType.Name = "cmbNutrType";
             this.cmbNutrType.Size = new System.Drawing.Size(485, 31);
             this.cmbNutrType.TabIndex = 152;
+            this.cmbNutrType.SelectedIndexChanged += new System.EventHandler(this.cmbNutrType_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -144,6 +149,7 @@
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(485, 29);
             this.txtValue.TabIndex = 154;
+            this.txtValue.TextChanged += new System.EventHandler(this.txtValue_TextChanged);
             // 
             // cmbValType
             // 
@@ -176,6 +182,7 @@
             this.btnSave.Size = new System.Drawing.Size(74, 58);
             this.btnSave.TabIndex = 24;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClear
             // 
@@ -211,6 +218,10 @@
             this.btnBack.TabIndex = 149;
             this.btnBack.UseVisualStyleBackColor = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmManageProductNutrition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,6 +244,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlButton.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,5 +267,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Panel pnlButton;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
