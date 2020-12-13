@@ -93,5 +93,13 @@ namespace AuntRosieApp.Kitchen
             //frm.Activate();
             frm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AuntRosieApplication.Kitchen.frmManageProductNutrition mpn = 
+                new AuntRosieApplication.Kitchen.frmManageProductNutrition();
+            mpn.ShowDialog();
+        }
     }
 }

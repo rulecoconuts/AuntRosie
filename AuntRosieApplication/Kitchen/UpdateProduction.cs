@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AuntRosieApplication.Kitchen
 {
-    public partial class UpdateProduction : Form
+    public partial class frmUpdateProduction : Form
     {
-        public UpdateProduction()
+        public frmUpdateProduction()
         {
             InitializeComponent();
         }

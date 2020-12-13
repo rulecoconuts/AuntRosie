@@ -18,6 +18,7 @@ namespace AuntRosieEntities
         private static SqlCommand deletePrepCmd = null;
         private static SqlCommand updatePrepCmd = null;
 
+
         /// <summary>
         /// Prepared statement to retrieve nutrition by id
         /// </summary>
@@ -207,6 +208,24 @@ namespace AuntRosieEntities
             reader.Close();
 
             return nutrition;
+        }
+
+        public static List<Nutrition> GetNutritions()
+        {
+            List<Nutrition> nutritions = new List<Nutrition>();
+
+            SqlDataReader reader = Connector.Retrieve("select [NutritionID], [NutritionName] from [tblNutrition]");
+
+            while(reader.Read())
+            {
+                Nutrition nutrition = new Nutrition();
+                nutrition.SetID(reader.GetInt16(0));
+                nutrition.Name = reader.GetString(1);
+                nutritions.Add(nutrition);
+            }
+            reader.Close();
+
+            return nutritions;
         }
     }
 }

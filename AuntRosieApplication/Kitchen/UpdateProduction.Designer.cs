@@ -1,6 +1,6 @@
 ﻿namespace AuntRosieApplication.Kitchen
 {
-    partial class UpdateProduction
+    partial class frmUpdateProduction
     {
         /// <summary>
         /// Required designer variable.
@@ -69,14 +69,14 @@
             this.panel1.Size = new System.Drawing.Size(919, 78);
             this.panel1.TabIndex = 144;
             // 
-            // UpdateProduction
+            // frmUpdateProduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(920, 705);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "UpdateProduction";
+            this.Name = "frmUpdateProduction";
             this.Text = "UpdateProduction";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

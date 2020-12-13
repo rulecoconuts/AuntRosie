@@ -11,14 +11,21 @@ using AuntRosieEntities;
 
 namespace AuntRosieApplication.Kitchen
 {
-    public partial class ExistingProduction : Form
+    public partial class frmExistingProduction : Form
     {
         private RosieEvent rosieEvent;
+
+        public frmExistingProduction(RosieEvent rosieEvent)
+        {
+            this.rosieEvent = rosieEvent;
+            InitializeComponent();
+        }
+
         private BindingSource productionSource = new BindingSource();
 
         public RosieEvent RosieEvent { get => rosieEvent; set => rosieEvent = value; }
 
-        public ExistingProduction()
+        public frmExistingProduction()
         {
             InitializeComponent();
         }
@@ -31,6 +38,18 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Load available productions into data grid view
+        /// </summary>
+        private void loadProductionData()
+        {
+            productionSource.DataSource = Production.GetAvailableProductionsTable(RosieEvent.Id);
+            //productionSource.DataSource = Production.G
+        }
+
+        /// <summary>
+        /// Prepare/setup data grid view
+        /// </summary>
         private void prepareDataGrid()
         {
             addUpdateButtonColumn();
@@ -40,6 +59,10 @@ namespace AuntRosieApplication.Kitchen
             dtgExistingProduction.AutoGenerateColumns = true;
         }
 
+        /// <summary>
+        /// Add column that contains update buttons to the
+        /// production data grid view
+        /// </summary>
         private void addUpdateButtonColumn()
         {
             DataGridViewButtonColumn updateBtnColumn = new DataGridViewButtonColumn();
@@ -61,6 +84,9 @@ namespace AuntRosieApplication.Kitchen
             dtgExistingProduction.Columns.Add(includeBtnColumn);
         }
 
+        /// <summary>
+        /// Add column to enter quantity of products from the production to take
+        /// </summary>
         private void addQuantityEntryColumn()
         {
             DataGridViewTextBoxColumn quantityColumn = new DataGridViewTextBoxColumn();
@@ -69,6 +95,12 @@ namespace AuntRosieApplication.Kitchen
             dtgExistingProduction.Columns.Add(quantityColumn);
         }
 
+        /// <summary>
+        /// Setup the form
+        /// i.e setup database connection, prepare controls and display data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExistingProduction_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
@@ -80,6 +112,8 @@ namespace AuntRosieApplication.Kitchen
             DBConnector conn = new DBConnector(conStr);
             RosieEntity.Connector = conn;
             displayEvent();
+            prepareDataGrid();
+            loadProductionData();
         }
 
         private void dtgExistingProduction_CellClick(object sender, DataGridViewCellEventArgs e)

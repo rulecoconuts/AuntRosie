@@ -335,6 +335,36 @@ namespace AuntRosieEntities
             return items;
         }
 
+        public static DataTable GetAvailableProductionsTable(long eventID)
+        {
+            DataTable productions = new DataTable();
+            string query = "select prdtn.[ProductionID] as 'ProductionID', prd.[ProductName] as 'Product Name', " +
+                "concat(prdsz.[SizeName], '(', prdsz.[Unit], ' ', prdsz.[SizeValue], ')') as 'Size', " +
+                "prdtn.[ProductionDate] as 'Production Date', prdtn.[ExpiryDate] as 'ExpiryDate' " +
+                "from [tblProduction] prdtn " +
+                "inner join [tblProductItem] prdi on prdtn.[ProductItemID]=prdi.[ProductItemID] " +
+                "inner join [tblProduct] prd on prd.[ProductID]=prdi.[ProductID] " +
+                "inner join [tblProductSize] prdsz on prdsz.[SizeID]=prdi.[SizeID] " +
+                "full outer join [tblEventProduct] ep on ep.[ProductionID]=prdtn.[ProductionID] " +
+                $"where prdtn.[ExpiryDate] > '{DateTime.Now.Date}' and " +
+                $"{eventID} NOT IN (select [tblEventProduct].[EventID] " +
+                $"from [tblEventProduct] " +
+                $"where [tblEventProduct].[ProductionID] = prdtn.[ProductionID]) " +
+                $"group by ep.[ProductionID]";
+
+            SqlCommand command = new SqlCommand(query);
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(productions);
+            }
+            catch
+            {
+                return null;
+            }
+            return productions;
+        }
+
         /// <summary>
         /// Get max ID in production table
         /// </summary>

@@ -35,6 +35,7 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAddProductSize = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -103,6 +104,19 @@
             this.btnAddProductSize.UseVisualStyleBackColor = false;
             this.btnAddProductSize.Click += new System.EventHandler(this.btnAddProductSize_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(320, 372);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 64);
+            this.button1.TabIndex = 68;
+            this.button1.Text = "Specify Product Nutrition";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmManageProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,6 +124,7 @@
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(967, 739);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAddProductSize);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnNew);
@@ -134,5 +149,6 @@
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAddProductSize;
+        private System.Windows.Forms.Button button1;
     }
 }

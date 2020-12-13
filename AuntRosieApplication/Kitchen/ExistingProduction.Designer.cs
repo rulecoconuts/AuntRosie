@@ -1,6 +1,6 @@
 ﻿namespace AuntRosieApplication.Kitchen
 {
-    partial class ExistingProduction
+    partial class frmExistingProduction
     {
         /// <summary>
         /// Required designer variable.
@@ -33,10 +33,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.pnlButton = new System.Windows.Forms.Panel();
+            this.btnNext = new System.Windows.Forms.Button();
             this.dtgExistingProduction = new System.Windows.Forms.DataGridView();
             this.txtEvent = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgExistingProduction)).BeginInit();
@@ -99,8 +99,23 @@
             this.pnlButton.Size = new System.Drawing.Size(162, 69);
             this.pnlButton.TabIndex = 144;
             // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.Transparent;
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
+            this.btnNext.Location = new System.Drawing.Point(92, 3);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(62, 62);
+            this.btnNext.TabIndex = 151;
+            this.btnNext.UseVisualStyleBackColor = false;
+            // 
             // dtgExistingProduction
             // 
+            this.dtgExistingProduction.AllowUserToAddRows = false;
+            this.dtgExistingProduction.AllowUserToDeleteRows = false;
+            this.dtgExistingProduction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgExistingProduction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgExistingProduction.Location = new System.Drawing.Point(17, 168);
             this.dtgExistingProduction.Name = "dtgExistingProduction";
@@ -129,19 +144,7 @@
             this.label1.Text = "Event";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.Color.Transparent;
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
-            this.btnNext.Location = new System.Drawing.Point(92, 3);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(62, 62);
-            this.btnNext.TabIndex = 151;
-            this.btnNext.UseVisualStyleBackColor = false;
-            // 
-            // ExistingProduction
+            // frmExistingProduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -152,7 +155,7 @@
             this.Controls.Add(this.pnlButton);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ExistingProduction";
+            this.Name = "frmExistingProduction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ExistingProduction";
             this.Load += new System.EventHandler(this.ExistingProduction_Load);
