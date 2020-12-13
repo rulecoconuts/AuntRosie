@@ -44,11 +44,16 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.grdSale = new System.Windows.Forms.DataGridView();
+            this.saleDetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportDataSet = new AuntRosieApplication.ReportDataSet();
             this.label6 = new System.Windows.Forms.Label();
             this.btnAddToCart = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbProduct = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbPaymentMethod = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.chkGuest = new System.Windows.Forms.CheckBox();
             this.btnAddCustomer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -79,13 +84,9 @@
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.errCustomer = new System.Windows.Forms.ErrorProvider(this.components);
-            this.reportDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportDataSet = new AuntRosieApplication.ReportDataSet();
-            this.saleDetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errSale = new System.Windows.Forms.ErrorProvider(this.components);
             this.saleDetTableAdapter = new AuntRosieApplication.ReportDataSetTableAdapters.saleDetTableAdapter();
-            this.cmbPaymentMethod = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.EventProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,14 +97,14 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ndpQuanitity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdSale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleDetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.grbNew.SuspendLayout();
             this.pnlButton.SuspendLayout();
             this.pnlNewcustomer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errCustomer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleDetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errSale)).BeginInit();
             this.SuspendLayout();
             // 
             // label20
@@ -184,9 +185,19 @@
             this.ndpQuanitity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ndpQuanitity.ForeColor = System.Drawing.Color.Sienna;
             this.ndpQuanitity.Location = new System.Drawing.Point(155, 45);
+            this.ndpQuanitity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.ndpQuanitity.Name = "ndpQuanitity";
             this.ndpQuanitity.Size = new System.Drawing.Size(88, 26);
             this.ndpQuanitity.TabIndex = 141;
+            this.ndpQuanitity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lblTotalVallue
             // 
@@ -278,6 +289,7 @@
             this.grdSale.AutoGenerateColumns = false;
             this.grdSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdSale.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EventProductID,
             this.productNameDataGridViewTextBoxColumn,
             this.sizeNameDataGridViewTextBoxColumn,
             this.saleQuantityDataGridViewTextBoxColumn,
@@ -289,6 +301,22 @@
             this.grdSale.Name = "grdSale";
             this.grdSale.Size = new System.Drawing.Size(656, 142);
             this.grdSale.TabIndex = 127;
+            this.grdSale.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSale_CellContentClick);
+            // 
+            // saleDetBindingSource
+            // 
+            this.saleDetBindingSource.DataMember = "saleDet";
+            this.saleDetBindingSource.DataSource = this.reportDataSetBindingSource;
+            // 
+            // reportDataSetBindingSource
+            // 
+            this.reportDataSetBindingSource.DataSource = this.reportDataSet;
+            this.reportDataSetBindingSource.Position = 0;
+            // 
+            // reportDataSet
+            // 
+            this.reportDataSet.DataSetName = "ReportDataSet";
+            this.reportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label6
             // 
@@ -350,6 +378,29 @@
             this.groupBox1.Size = new System.Drawing.Size(662, 92);
             this.groupBox1.TabIndex = 138;
             this.groupBox1.TabStop = false;
+            // 
+            // cmbPaymentMethod
+            // 
+            this.cmbPaymentMethod.BackColor = System.Drawing.SystemColors.Info;
+            this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPaymentMethod.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPaymentMethod.FormattingEnabled = true;
+            this.cmbPaymentMethod.Location = new System.Drawing.Point(186, 48);
+            this.cmbPaymentMethod.Name = "cmbPaymentMethod";
+            this.cmbPaymentMethod.Size = new System.Drawing.Size(345, 31);
+            this.cmbPaymentMethod.TabIndex = 146;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Sienna;
+            this.label2.Location = new System.Drawing.Point(3, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 22);
+            this.label2.TabIndex = 147;
+            this.label2.Tag = "";
+            this.label2.Text = "Payment Method";
             // 
             // chkGuest
             // 
@@ -519,6 +570,7 @@
             this.btnNextCustomer.TabIndex = 14;
             this.toolTip1.SetToolTip(this.btnNextCustomer, "Next Customer");
             this.btnNextCustomer.UseVisualStyleBackColor = false;
+            this.btnNextCustomer.Click += new System.EventHandler(this.btnNextCustomer_Click);
             // 
             // btnClear
             // 
@@ -531,8 +583,9 @@
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(64, 54);
             this.btnClear.TabIndex = 13;
-            this.toolTip1.SetToolTip(this.btnClear, "Clear");
+            this.toolTip1.SetToolTip(this.btnClear, "Cancel Sale Operation");
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnNew
             // 
@@ -560,8 +613,9 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(64, 54);
             this.btnSave.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.btnSave, "Save");
+            this.toolTip1.SetToolTip(this.btnSave, "Save Sale Operation");
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnNewTypeCancel
             // 
@@ -608,7 +662,7 @@
             this.pnlNewcustomer.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewcustomer.Controls.Add(this.btnNewTypetClear);
             this.pnlNewcustomer.ForeColor = System.Drawing.Color.Sienna;
-            this.pnlNewcustomer.Location = new System.Drawing.Point(754, 484);
+            this.pnlNewcustomer.Location = new System.Drawing.Point(740, 249);
             this.pnlNewcustomer.Name = "pnlNewcustomer";
             this.pnlNewcustomer.Size = new System.Drawing.Size(479, 282);
             this.pnlNewcustomer.TabIndex = 21;
@@ -726,52 +780,20 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // errCustomer
+            // errSale
             // 
-            this.errCustomer.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errCustomer.ContainerControl = this;
-            // 
-            // reportDataSetBindingSource
-            // 
-            this.reportDataSetBindingSource.DataSource = this.reportDataSet;
-            this.reportDataSetBindingSource.Position = 0;
-            // 
-            // reportDataSet
-            // 
-            this.reportDataSet.DataSetName = "ReportDataSet";
-            this.reportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // saleDetBindingSource
-            // 
-            this.saleDetBindingSource.DataMember = "saleDet";
-            this.saleDetBindingSource.DataSource = this.reportDataSetBindingSource;
+            this.errSale.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errSale.ContainerControl = this;
             // 
             // saleDetTableAdapter
             // 
             this.saleDetTableAdapter.ClearBeforeFill = true;
             // 
-            // cmbPaymentMethod
+            // EventProductID
             // 
-            this.cmbPaymentMethod.BackColor = System.Drawing.SystemColors.Info;
-            this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPaymentMethod.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPaymentMethod.FormattingEnabled = true;
-            this.cmbPaymentMethod.Location = new System.Drawing.Point(186, 48);
-            this.cmbPaymentMethod.Name = "cmbPaymentMethod";
-            this.cmbPaymentMethod.Size = new System.Drawing.Size(345, 31);
-            this.cmbPaymentMethod.TabIndex = 146;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Sienna;
-            this.label2.Location = new System.Drawing.Point(3, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 22);
-            this.label2.TabIndex = 147;
-            this.label2.Tag = "";
-            this.label2.Text = "Payment Method";
+            this.EventProductID.DataPropertyName = "EventProductID";
+            this.EventProductID.HeaderText = "EventProductID";
+            this.EventProductID.Name = "EventProductID";
             // 
             // productNameDataGridViewTextBoxColumn
             // 
@@ -807,10 +829,12 @@
             // Delete
             // 
             this.Delete.FillWeight = 50F;
+            this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Delete.HeaderText = "Delete";
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
             this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
             this.Delete.Width = 50;
             // 
             // frmSale
@@ -837,6 +861,9 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ndpQuanitity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdSale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleDetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grbNew.ResumeLayout(false);
@@ -844,10 +871,7 @@
             this.pnlButton.ResumeLayout(false);
             this.pnlNewcustomer.ResumeLayout(false);
             this.pnlNewcustomer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errCustomer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleDetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errSale)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -882,7 +906,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.ErrorProvider errCustomer;
+        private System.Windows.Forms.ErrorProvider errSale;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblTotalVallue;
         private System.Windows.Forms.Label lblTax;
@@ -911,6 +935,7 @@
         private ReportDataSetTableAdapters.saleDetTableAdapter saleDetTableAdapter;
         private System.Windows.Forms.ComboBox cmbPaymentMethod;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EventProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleQuantityDataGridViewTextBoxColumn;

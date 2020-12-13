@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AuntRosieApplication.Classes;
 
 namespace AuntRosieApplication
 {
@@ -18,6 +19,7 @@ namespace AuntRosieApplication
         private ReportDataSetTableAdapters.LowStockTableAdapter aLowStockAdapter;
         private ReportDataSetTableAdapters.EmpEventTableAdapter aEmpEventAdapter;
         private ReportDataSetTableAdapters.ChangePriceTableAdapter aChangePriceAdapter;
+        private ReportDataSetTableAdapters.saleDetTableAdapter aSaleDetAdapter;
 
         public ReportVewierForm()
         {
@@ -25,7 +27,10 @@ namespace AuntRosieApplication
         }
 
         private void ReportVewierForm_Load(object sender, EventArgs e)
+
         {
+            
+            
             if (Classes.DBMethod.Reptype == "All-Stock")
             {
                 LoadStockRep();
@@ -39,6 +44,48 @@ namespace AuntRosieApplication
             { LoadEmpEvent(); }
             else if (Classes.DBMethod.Reptype == "Diff-Price")
             { LoadDiffPrice(); }
+
+            else if (Classes.DBMethod.Reptype == "Bill")
+            { 
+               
+                LoadBill(); }
+        }
+
+        private void LoadBill()
+        {           
+            BillRep billRep = new BillRep();
+            try
+            {
+                //Instantiate the dataset and table adapters
+                aDataSet = new ReportDataSet();
+               // aDataSet.Reset();
+                aSaleDetAdapter = new ReportDataSetTableAdapters.saleDetTableAdapter();
+                //Fill the dataset 
+                MessageBox.Show(DBMethod.SaleID.ToString());
+                try
+                {
+                   
+
+                    aSaleDetAdapter.Fill(aDataSet.saleDet,  52);
+                   
+                }
+                catch( Exception ex)
+                {
+                   // MessageBox.Show("Data Error Encountered" + ex.ToString(), "ERROR3");
+
+                }
+                //Assign the filled dataset as the data source for the report
+                billRep.SetDataSource(aDataSet);
+                //Set up the report viewer object on the form
+                //show the runtime report object
+                crvReports.ReportSource = billRep;
+            }
+            catch (Exception ex)
+            {
+                //catch an exception thrown during data object intonation
+                //or report generation and display based on the dataset
+                MessageBox.Show("Data Error Encountered" + ex.ToString(), "ERROR");
+            }
         }
         private void  LoadStockRep()
         {
@@ -51,8 +98,7 @@ namespace AuntRosieApplication
                 aDataSet = new ReportDataSet();
                 aStockAdapter = new ReportDataSetTableAdapters.StockReportTableAdapter();
                 //Fill the dataset 
-                //aStockAdapter.Adapter.SelectCommand = new System.Data.SqlClient.SqlCommand(AuntRosieApplication.Inventory.frmInventoryStock.reportSql);
-
+               
 
                 aStockAdapter.Fill(aDataSet.StockReport);
                 //Assign the filled dataset as the data source for the report

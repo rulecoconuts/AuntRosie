@@ -53,6 +53,12 @@ namespace AuntRosieApplication.Event
                 (Classes.DBMethod.GetConnectionString(), DateTime.Today.Date.ToShortDateString()), cmbEventName);
             Classes.DBMethod.FillPaymentmethodCombo(cmbPaymentMethod);
 
+            //
+            pnlMain.Enabled = true;
+            btnClear.Enabled = true;
+            btnSave.Enabled = true;
+            btnAddCustomer.Enabled = true;
+
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -95,26 +101,26 @@ namespace AuntRosieApplication.Event
              
             if (txtFirstName.Text.Trim().Length < 3)
             {
-                errCustomer.SetError(txtFirstName, "Customer Contact first name should be 3 letters at least");
+                errSale.SetError(txtFirstName, "Customer Contact first name should be 3 letters at least");
                 isValid = false;
 
             }
             if (txtLastName.Text.Trim().Length < 3)
             {
-                errCustomer.SetError(txtLastName, "Customer Contact last name should be 3 letters at least");
+                errSale.SetError(txtLastName, "Customer Contact last name should be 3 letters at least");
                 isValid = false;
 
             }
 
             if (!DBMethod.IsValidEmail(txtEmail.Text.Trim()))
             {
-                errCustomer.SetError(txtEmail, "Entred Customer Email is not a valid email address");
+                errSale.SetError(txtEmail, "Entred Customer Email is not a valid email address");
                 isValid = false;
 
             }
             if (txtPhone.Text.Trim().Length != 14)
             {
-                errCustomer.SetError(txtPhone, "Entred Phone is not a valid phone number");
+                errSale.SetError(txtPhone, "Entred Phone is not a valid phone number");
                 isValid = false;
 
             }
@@ -200,7 +206,11 @@ namespace AuntRosieApplication.Event
             pnlMain.Enabled = true;
             btnClear.Enabled = true;
             btnSave.Enabled = true;
+            clearData();
+            grbNew.Enabled = true;
+            cmbEventName.Focus();
         }
+        
 
         private void cmbCustomerName_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -300,6 +310,7 @@ namespace AuntRosieApplication.Event
         }
 
         private void FillProduct (String eventID)
+
         {
            string sqlEventText = "SELECT  tblEventProduct.EventProductID, tblProduct.ProductName, tblProduct.ProductType " +
             "FROM tblEventProduct INNER JOIN " +
@@ -307,7 +318,7 @@ namespace AuntRosieApplication.Event
             "tblProductItem ON tblProduction.ProductItemID = tblProductItem.ProductItemID INNER JOIN " +
             "tblProductSize ON tblProductItem.SizeID = tblProductSize.SizeID INNER JOIN " +
             "tblProduct ON tblProductItem.ProductID = tblProduct.ProductID " +
-            " WHERE        tblEventProduct.EventID = " + eventID;
+            " WHERE        tblEventProduct.EventID = " + eventID + " and tblEventProduct.Quantity > tblEventProduct.soldQuantity";
 
             // Declare the connection
             SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
@@ -324,7 +335,7 @@ namespace AuntRosieApplication.Event
             {
                 dbConnection.Open();
                 adapter.Fill(productTable);
-
+                cmbProduct.Items.Clear();
                 DBMethod.FillCombBoxPerson(productTable, cmbProduct);
             }
             catch (Exception ex)
@@ -345,19 +356,25 @@ namespace AuntRosieApplication.Event
 
         private void cmbProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
-            RosieEntity.Connector = conn;
-            EventProduct product = EventProduct.Retrieve( short.Parse(DBMethod.GetSelectedItemID(cmbProduct)));
-            ndpQuanitity.Maximum =  product.Quantity - product.SoldQuantity;
-            //
-            conn = new DBConnector(Classes.DBMethod.GetConnectionString());
-            RosieEntity.Connector = conn;
-            Production production = Production.Retrieve(product.ProductionId);
-            //
-            conn = new DBConnector(Classes.DBMethod.GetConnectionString());
-            RosieEntity.Connector = conn;
-            ProductItem productItem = ProductItem.Retrieve(production.ProductItemID);
-            lblItemPrice.Text =   productItem.Price.ToString("C");
+            try
+            {
+                DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                RosieEntity.Connector = conn;
+                EventProduct product = EventProduct.Retrieve(short.Parse(DBMethod.GetSelectedItemID(cmbProduct)));
+                ndpQuanitity.Maximum = product.Quantity - product.SoldQuantity;
+                //
+                conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                RosieEntity.Connector = conn;
+                Production production = Production.Retrieve(product.ProductionId);
+                //
+                conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                RosieEntity.Connector = conn;
+                ProductItem productItem = ProductItem.Retrieve(production.ProductItemID);
+                lblItemPrice.Text = productItem.Price.ToString("C");
+                ndpQuanitity.Value = 1;
+            }
+            catch (Exception ex)
+            { }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -366,9 +383,24 @@ namespace AuntRosieApplication.Event
         }
 
         private void btnAddToCart_Click(object sender, EventArgs e)
-        {     
-            if (grdSale.Rows.Count==0)
+        {    if ( cmbPaymentMethod.SelectedItem==null  )
+                {
+                    errSale.SetError(cmbPaymentMethod, "Payment method could not be empty");
+                cmbPaymentMethod.Focus();
+                }
+                else
+                {
+                cmbPaymentMethod.Enabled=false;
+                addSale();
+                }
+            
+             
+        }
+        private void addSale()
+        {
+            if (grdSale.Rows.Count == 0)
             {
+
                 Sale newSale = new Sale();
                 newSale.PaymentMethod = DBMethod.GetSelectedItemID(cmbPaymentMethod);
                 newSale.SaleDate = DateTime.Today;
@@ -378,31 +410,60 @@ namespace AuntRosieApplication.Event
                 }
                 else
                 {
-                    newSale.CustomerId = long.Parse( DBMethod.GetSelectedItemID(cmbCustomerName));
+                    newSale.CustomerId = long.Parse(DBMethod.GetSelectedItemID(cmbCustomerName));
                 }
                 DBConnector conn1 = new DBConnector(Classes.DBMethod.GetConnectionString());
                 RosieEntity.Connector = conn1;
                 newSale.Create();
                 SaleID = Sale.RetrieveMax();
             }
-            //MessageBox.Show(SaleID.ToString());
+
+            try
+            {
+                addNewSaleProduct();
+            }
+            catch (Exception ex)
+            {
+                for (int i = 0; i < grdSale.Rows.Count; i++)
+                {
+                    if (grdSale.Rows[i].Cells[0].Value.ToString() == DBMethod.GetSelectedItemID(cmbProduct))
+                    {
+                        DelSaleProduct(grdSale.Rows[i].Cells[0].Value.ToString(),
+                            grdSale.Rows[i].Cells[3].Value.ToString());
+                        addNewSaleProduct();
+
+                    }
+
+
+                }
+
+            }
+
+            fillSaleGrid();
+
+        }
+
+        private void addNewSaleProduct()
+        {
             SaleProduct newSaleProduct = new SaleProduct();
-            newSaleProduct.SaleId= SaleID;
-            newSaleProduct.SaleQuantity = int.Parse( ndpQuanitity.Value.ToString());
+            newSaleProduct.SaleId = SaleID;
+            newSaleProduct.SaleQuantity = int.Parse(ndpQuanitity.Value.ToString());
             newSaleProduct.SalePrice = Double.Parse(lblItemPrice.Text.Substring(1));
-            newSaleProduct.EventProductId =  long.Parse(DBMethod.GetSelectedItemID(cmbProduct));
+            newSaleProduct.EventProductId = long.Parse(DBMethod.GetSelectedItemID(cmbProduct));
             DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
             RosieEntity.Connector = conn;
             newSaleProduct.Create();
-           
-
-             fillSaleGrid();
+            //
+            EventProduct eventProduct = new EventProduct();
+            conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+            RosieEntity.Connector = conn;
+            eventProduct.Id = long.Parse(DBMethod.GetSelectedItemID(cmbProduct));
+            eventProduct.UpdateQuantity(null, ndpQuanitity.Value.ToString());
         }
-
         private void fillSaleGrid ()
         {
             String sql = "SELECT        tblSale.SaleID, tblSaleProducts.SaleQuantity, tblSaleProducts.SalePrice, tblSaleProducts.SaleQuantity * tblSaleProducts.SalePrice AS itemCost, tblCustomer.CustomerFirstName, tblCustomer.CustomerLastName," +
-                           " tblSale.SaleDateTime, tblSale.PaymentMethod, tblProductSize.SizeName, tblProduct.ProductName " +
+                           " tblSale.SaleDateTime, tblSale.PaymentMethod, tblProductSize.SizeName, tblProduct.ProductName, tblSaleProducts.EventProductID " +
                            " FROM            tblSaleProducts INNER JOIN " +
                             " tblSale ON tblSaleProducts.SaleID = tblSale.SaleID INNER JOIN " +
                             " tblCustomer ON tblSale.CustomerID = tblCustomer.CustomerID INNER JOIN " +
@@ -423,10 +484,183 @@ namespace AuntRosieApplication.Event
             connection.Close();
            grdSale.DataSource = ds;
             grdSale.DataMember = "SaleDet";
+
+            calcBill();
+        }
+        private void  calcBill()
+        {
+            int totItems = 0;
+            double totPrice = 0;
+            double tax = 0;
+            double netPrice = 0;
+            foreach (DataGridViewRow row in grdSale.Rows)
+            {
+                 
+              totItems+=int.Parse(row.Cells[3].Value.ToString());
+                totPrice += double.Parse(row.Cells[5].Value.ToString());
+
+
+            }
+            tax = totPrice * 0.13;
+            netPrice = totPrice * 1.13;
+            lblTotalNumberOfItem.Text = totItems.ToString();
+           LblTotalPrice.Text = totPrice.ToString("c");
+            lblTax.Text = tax.ToString("c");
+            lblTotalVallue.Text = netPrice.ToString("c");
         }
         private void pnlMain_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            DBMethod.Reptype = "Bill";
+            DBMethod.SaleID = SaleID.ToString();
+            (new ReportVewierForm()).ShowDialog();
+        }
+
+        private void grdSale_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == grdSale.Columns["Delete"].Index)
+            {
+                DelSaleProduct(grdSale.Rows[e.RowIndex].Cells[0].Value.ToString(),
+                    grdSale.Rows[e.RowIndex].Cells[3].Value.ToString());
+                fillSaleGrid();
+
+            }
+        }
+
+        private void DelSaleProduct(string eventProductId, string salQuantity)
+        {
+            SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
+
+            // Create new SQL command
+            SqlCommand command = new SqlCommand("Delete from tblSaleProducts where EventProductId=" + eventProductId +
+                "  and SaleID=" + SaleID , dbConnection);
+            
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            // Declare a DataTable object that will hold the return value
+
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show( "del" +ex.Message);
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+            ///
+             dbConnection = new SqlConnection(DBMethod.GetConnectionString());
+
+            // Create new SQL command
+              command = new SqlCommand(" Update [tblEventProduct] set Quantity= Quantity+ " + salQuantity + "," +
+                " soldQuantity= soldQuantity-" + salQuantity + " where EventProductID=" + eventProductId, dbConnection);
+           
+            adapter = new SqlDataAdapter(command);
+
+            // Declare a DataTable object that will hold the return value
+
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("update"+ex.Message);
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+            fillSaleGrid();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
+
+            // Create new SQL command
+            SqlCommand command = new SqlCommand("Delete from tblSaleProducts where  SaleID=" + SaleID, dbConnection);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+              
+            try
+            {
+                dbConnection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("del" + ex.Message);
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+             
+            dbConnection = new SqlConnection(DBMethod.GetConnectionString());
+
+            // Create new SQL command
+              command = new SqlCommand("Delete from tblSale where  SaleID=" + SaleID, dbConnection);
+
+              adapter = new SqlDataAdapter(command);
+
+
+            try
+            {
+                dbConnection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("del" + ex.Message);
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+            fillSaleGrid();
+            clearData();
+        }
+
+        private void clearData()
+        {
+            
+            
+             
+            lblTotalNumberOfItem.Text = "";
+            LblTotalPrice.Text = "";
+            lblTax.Text = "";
+            lblTotalVallue.Text = "";
+            ndpQuanitity.Value = 1;
+            FillProduct(DBMethod.GetSelectedItemID(cmbEventName));
+            cmbProduct.SelectedItem = null;
+            cmbCustomerName.SelectedItem = null;
+            lblItemPrice.Text = "";
+            cmbPaymentMethod.SelectedItem = null;
+
+        }
+
+        private void btnNextCustomer_Click(object sender, EventArgs e)
+        {   
+            clearData();
+            grbNew.Enabled = false;
+            cmbCustomerName.Focus();
         }
     }
     }

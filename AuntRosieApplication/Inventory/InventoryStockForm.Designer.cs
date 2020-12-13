@@ -50,6 +50,14 @@
             this.auntRosieDBDataSet = new AuntRosieApplication.AuntRosieDBDataSet();
             this.stockQueryTableAdapter = new AuntRosieApplication.AuntRosieDBDataSetTableAdapters.StockQueryTableAdapter();
             this.lblQuantityType = new System.Windows.Forms.Label();
+            this.supplierNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingredientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.purchaseDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expiryDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdStock)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stockQueryBindingSource)).BeginInit();
@@ -108,14 +116,25 @@
             this.grdStock.AllowUserToAddRows = false;
             this.grdStock.AllowUserToDeleteRows = false;
             this.grdStock.AllowUserToOrderColumns = true;
+            this.grdStock.AutoGenerateColumns = false;
             this.grdStock.BackgroundColor = System.Drawing.SystemColors.Info;
             this.grdStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.supplierNameDataGridViewTextBoxColumn,
+            this.typeNameDataGridViewTextBoxColumn,
+            this.ingredientNameDataGridViewTextBoxColumn,
+            this.purchaseDateDataGridViewTextBoxColumn,
+            this.expiryDateDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn,
+            this.unitDataGridViewTextBoxColumn,
+            this.costDataGridViewTextBoxColumn});
+            this.grdStock.DataSource = this.stockQueryBindingSource;
             this.grdStock.Location = new System.Drawing.Point(56, 289);
             this.grdStock.Name = "grdStock";
             this.grdStock.ReadOnly = true;
             this.grdStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdStock.Size = new System.Drawing.Size(810, 294);
+            this.grdStock.Size = new System.Drawing.Size(848, 294);
             this.grdStock.TabIndex = 6;
             this.grdStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -274,6 +293,62 @@
             this.lblQuantityType.Size = new System.Drawing.Size(115, 31);
             this.lblQuantityType.TabIndex = 147;
             // 
+            // supplierNameDataGridViewTextBoxColumn
+            // 
+            this.supplierNameDataGridViewTextBoxColumn.DataPropertyName = "SupplierName";
+            this.supplierNameDataGridViewTextBoxColumn.HeaderText = "SupplierName";
+            this.supplierNameDataGridViewTextBoxColumn.Name = "supplierNameDataGridViewTextBoxColumn";
+            this.supplierNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeNameDataGridViewTextBoxColumn
+            // 
+            this.typeNameDataGridViewTextBoxColumn.DataPropertyName = "TypeName";
+            this.typeNameDataGridViewTextBoxColumn.HeaderText = "TypeName";
+            this.typeNameDataGridViewTextBoxColumn.Name = "typeNameDataGridViewTextBoxColumn";
+            this.typeNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ingredientNameDataGridViewTextBoxColumn
+            // 
+            this.ingredientNameDataGridViewTextBoxColumn.DataPropertyName = "IngredientName";
+            this.ingredientNameDataGridViewTextBoxColumn.HeaderText = "IngredientName";
+            this.ingredientNameDataGridViewTextBoxColumn.Name = "ingredientNameDataGridViewTextBoxColumn";
+            this.ingredientNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // purchaseDateDataGridViewTextBoxColumn
+            // 
+            this.purchaseDateDataGridViewTextBoxColumn.DataPropertyName = "PurchaseDate";
+            this.purchaseDateDataGridViewTextBoxColumn.HeaderText = "PurchaseDate";
+            this.purchaseDateDataGridViewTextBoxColumn.Name = "purchaseDateDataGridViewTextBoxColumn";
+            this.purchaseDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // expiryDateDataGridViewTextBoxColumn
+            // 
+            this.expiryDateDataGridViewTextBoxColumn.DataPropertyName = "ExpiryDate";
+            this.expiryDateDataGridViewTextBoxColumn.HeaderText = "ExpiryDate";
+            this.expiryDateDataGridViewTextBoxColumn.Name = "expiryDateDataGridViewTextBoxColumn";
+            this.expiryDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            this.unitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "Cost";
+            this.costDataGridViewTextBoxColumn.HeaderText = "Cost";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            this.costDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // frmInventoryStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,5 +405,13 @@
         private AuntRosieDBDataSetTableAdapters.StockQueryTableAdapter stockQueryTableAdapter;
         private System.Windows.Forms.Label LblQuantity;
         private System.Windows.Forms.Label lblQuantityType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplierNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingredientNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn purchaseDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expiryDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
     }
 }

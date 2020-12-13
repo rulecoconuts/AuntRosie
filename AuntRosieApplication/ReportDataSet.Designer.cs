@@ -2630,6 +2630,10 @@ namespace AuntRosieApplication {
             
             private global::System.Data.DataColumn columnProductName;
             
+            private global::System.Data.DataColumn columnEventProductID;
+            
+            private global::System.Data.DataColumn columnEventID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public saleDetDataTable() {
@@ -2745,6 +2749,22 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EventProductIDColumn {
+                get {
+                    return this.columnEventProductID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EventIDColumn {
+                get {
+                    return this.columnEventID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2780,7 +2800,7 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public saleDetRow AddsaleDetRow(byte SaleQuantity, decimal SalePrice, decimal itemCost, string CustomerFirstName, string CustomerLastName, System.DateTime SaleDateTime, string PaymentMethod, string SizeName, string ProductName) {
+            public saleDetRow AddsaleDetRow(byte SaleQuantity, decimal SalePrice, decimal itemCost, string CustomerFirstName, string CustomerLastName, System.DateTime SaleDateTime, string PaymentMethod, string SizeName, string ProductName, long EventProductID, long EventID) {
                 saleDetRow rowsaleDetRow = ((saleDetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2792,7 +2812,9 @@ namespace AuntRosieApplication {
                         SaleDateTime,
                         PaymentMethod,
                         SizeName,
-                        ProductName};
+                        ProductName,
+                        EventProductID,
+                        EventID};
                 rowsaleDetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsaleDetRow);
                 return rowsaleDetRow;
@@ -2832,6 +2854,8 @@ namespace AuntRosieApplication {
                 this.columnPaymentMethod = base.Columns["PaymentMethod"];
                 this.columnSizeName = base.Columns["SizeName"];
                 this.columnProductName = base.Columns["ProductName"];
+                this.columnEventProductID = base.Columns["EventProductID"];
+                this.columnEventID = base.Columns["EventID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2857,6 +2881,10 @@ namespace AuntRosieApplication {
                 base.Columns.Add(this.columnSizeName);
                 this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductName);
+                this.columnEventProductID = new global::System.Data.DataColumn("EventProductID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEventProductID);
+                this.columnEventID = new global::System.Data.DataColumn("EventID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEventID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSaleID}, true));
                 this.columnSaleID.AutoIncrement = true;
@@ -2877,6 +2905,8 @@ namespace AuntRosieApplication {
                 this.columnSizeName.MaxLength = 50;
                 this.columnProductName.AllowDBNull = false;
                 this.columnProductName.MaxLength = 100;
+                this.columnEventProductID.AllowDBNull = false;
+                this.columnEventID.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3979,6 +4009,28 @@ namespace AuntRosieApplication {
                 }
                 set {
                     this[this.tablesaleDet.ProductNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public long EventProductID {
+                get {
+                    return ((long)(this[this.tablesaleDet.EventProductIDColumn]));
+                }
+                set {
+                    this[this.tablesaleDet.EventProductIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public long EventID {
+                get {
+                    return ((long)(this[this.tablesaleDet.EventIDColumn]));
+                }
+                set {
+                    this[this.tablesaleDet.EventIDColumn] = value;
                 }
             }
             
@@ -6270,6 +6322,8 @@ SELECT CustomerID, CustomerFirstName, CustomerLastName, CustomerPhone, CustomerE
             tableMapping.ColumnMappings.Add("PaymentMethod", "PaymentMethod");
             tableMapping.ColumnMappings.Add("SizeName", "SizeName");
             tableMapping.ColumnMappings.Add("ProductName", "ProductName");
+            tableMapping.ColumnMappings.Add("EventProductID", "EventProductID");
+            tableMapping.ColumnMappings.Add("EventID", "EventID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -6287,7 +6341,7 @@ SELECT CustomerID, CustomerFirstName, CustomerLastName, CustomerPhone, CustomerE
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        tblSale.SaleID, tblSaleProducts.SaleQuantity, tblSaleProducts.SalePrice, tblSaleProducts.SaleQuantity * tblSaleProducts.SalePrice AS itemCost, tblCustomer.CustomerFirstName, tblCustomer.CustomerLastName, 
-                         tblSale.SaleDateTime, tblSale.PaymentMethod, tblProductSize.SizeName, tblProduct.ProductName
+                         tblSale.SaleDateTime, tblSale.PaymentMethod, tblProductSize.SizeName, tblProduct.ProductName, tblSaleProducts.EventProductID, tblEventProduct.EventID
 FROM            tblSaleProducts INNER JOIN
                          tblSale ON tblSaleProducts.SaleID = tblSale.SaleID INNER JOIN
                          tblCustomer ON tblSale.CustomerID = tblCustomer.CustomerID INNER JOIN
@@ -6296,18 +6350,18 @@ FROM            tblSaleProducts INNER JOIN
                          tblProductItem ON tblProduction.ProductItemID = tblProductItem.ProductItemID INNER JOIN
                          tblProductSize ON tblProductItem.SizeID = tblProductSize.SizeID INNER JOIN
                          tblProduct ON tblProductItem.ProductID = tblProduct.ProductID
-WHERE        (tblSale.SaleID = @Param1)";
+WHERE        (tblSale.SaleID = @saleId)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "SaleID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@saleId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "SaleID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ReportDataSet.saleDetDataTable dataTable, long Param1) {
+        public virtual int Fill(ReportDataSet.saleDetDataTable dataTable, long saleId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(Param1));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(saleId));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -6319,9 +6373,9 @@ WHERE        (tblSale.SaleID = @Param1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ReportDataSet.saleDetDataTable GetData(long Param1) {
+        public virtual ReportDataSet.saleDetDataTable GetData(long saleId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(Param1));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(saleId));
             ReportDataSet.saleDetDataTable dataTable = new ReportDataSet.saleDetDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

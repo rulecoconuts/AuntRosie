@@ -38,7 +38,7 @@ namespace AuntRosieEntities
             }
         }
 
-        public long Id { get => id; }
+        public long Id { get => id; set => id = value; }
         public long EventId { get => eventId; set => eventId = value; }
         public long ProductionId { get => productionId; set => productionId = value; }
         public short Quantity { get => quantity; set => quantity = value; }
@@ -238,5 +238,39 @@ namespace AuntRosieEntities
 
             return table;
         }
+
+
+        public  void UpdateQuantity(SqlTransaction transaction = null, string soldQu=null)
+        {
+            if (updatePrepCmd is null)
+            {
+                updatePrepCmd = new SqlCommand(null, Connector.Connection);
+                updatePrepCmd.CommandText = "update [tblEventProduct] set [soldQuantity]= [soldQuantity]+ @qu " +
+                    "where [EventProductID]=@ID";
+
+                SqlParameter idParam = new SqlParameter("@ID", SqlDbType.SmallInt, 0);
+                idParam.Value = Id;
+
+                SqlParameter soldQuParam = new SqlParameter("@qu", SqlDbType.SmallInt, 0);
+                soldQuParam.Value =  int.Parse(soldQu);
+
+                 
+
+                updatePrepCmd.Parameters.Add(idParam);
+                updatePrepCmd.Parameters.Add(soldQuParam);
+                
+
+                updatePrepCmd.Prepare();
+            }
+            else
+            {
+                updatePrepCmd.Parameters["@ID"].Value = Id;
+                updatePrepCmd.Parameters["@qu"].Value = int.Parse(soldQu);
+                 
+            }
+
+            Connector.Update(updatePrepCmd, transaction);
+        }
+
     }
 }

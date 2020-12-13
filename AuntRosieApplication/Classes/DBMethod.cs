@@ -12,7 +12,8 @@ namespace AuntRosieApplication.Classes
     {
 
         public static string Reptype = null;
-       public static ListItem selectedListItem = new ListItem();
+        public static string SaleID = null;
+        public static ListItem selectedListItem = new ListItem();
        public  static  string[,] provincesArray = new string[,] {
                 { "Newfoundland and Labrador","NL"},
 {"Prince Edward Island", "PE" },
