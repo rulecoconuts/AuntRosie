@@ -91,5 +91,10 @@ namespace AuntRosieApplication.Kitchen
         {
             loadDTG(Production.GetProductions(dtpFrom.Value, dtpTo.Value));
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

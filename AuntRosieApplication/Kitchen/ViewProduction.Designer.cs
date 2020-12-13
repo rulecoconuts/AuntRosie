@@ -42,12 +42,12 @@
             this.label15 = new System.Windows.Forms.Label();
             this.dtgProduction = new System.Windows.Forms.DataGridView();
             this.tblProductionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.auntRosieDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.auntRosieDBDataSet = new AuntRosieApplication.AuntRosieDBDataSet();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
-            this.auntRosieDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.auntRosieDBDataSet = new AuntRosieApplication.AuntRosieDBDataSet();
             this.tblProductionTableAdapter = new AuntRosieApplication.AuntRosieDBDataSetTableAdapters.tblProductionTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -143,6 +143,7 @@
             this.button1.Size = new System.Drawing.Size(63, 55);
             this.button1.TabIndex = 23;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -205,6 +206,16 @@
             this.tblProductionBindingSource.DataMember = "tblProduction";
             this.tblProductionBindingSource.DataSource = this.auntRosieDBDataSetBindingSource;
             // 
+            // auntRosieDBDataSetBindingSource
+            // 
+            this.auntRosieDBDataSetBindingSource.DataSource = this.auntRosieDBDataSet;
+            this.auntRosieDBDataSetBindingSource.Position = 0;
+            // 
+            // auntRosieDBDataSet
+            // 
+            this.auntRosieDBDataSet.DataSetName = "AuntRosieDBDataSet";
+            this.auntRosieDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -247,16 +258,6 @@
             this.dtpTo.Size = new System.Drawing.Size(200, 29);
             this.dtpTo.TabIndex = 155;
             this.dtpTo.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
-            // 
-            // auntRosieDBDataSetBindingSource
-            // 
-            this.auntRosieDBDataSetBindingSource.DataSource = this.auntRosieDBDataSet;
-            this.auntRosieDBDataSetBindingSource.Position = 0;
-            // 
-            // auntRosieDBDataSet
-            // 
-            this.auntRosieDBDataSet.DataSetName = "AuntRosieDBDataSet";
-            this.auntRosieDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tblProductionTableAdapter
             // 

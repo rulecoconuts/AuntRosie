@@ -6350,18 +6350,18 @@ FROM            tblSaleProducts INNER JOIN
                          tblProductItem ON tblProduction.ProductItemID = tblProductItem.ProductItemID INNER JOIN
                          tblProductSize ON tblProductItem.SizeID = tblProductSize.SizeID INNER JOIN
                          tblProduct ON tblProductItem.ProductID = tblProduct.ProductID
-WHERE        (tblSale.SaleID = @saleId)";
+WHERE        (tblSale.SaleID = @Param1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@saleId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "SaleID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "SaleID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ReportDataSet.saleDetDataTable dataTable, long saleId) {
+        public virtual int Fill(ReportDataSet.saleDetDataTable dataTable, long Param1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(saleId));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(Param1));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -6373,9 +6373,9 @@ WHERE        (tblSale.SaleID = @saleId)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ReportDataSet.saleDetDataTable GetData(long saleId) {
+        public virtual ReportDataSet.saleDetDataTable GetData(long Param1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(saleId));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(Param1));
             ReportDataSet.saleDetDataTable dataTable = new ReportDataSet.saleDetDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

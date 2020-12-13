@@ -1,17 +1,22 @@
 ﻿using System;
- 
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
- 
-using System.Data.SqlClient;
- 
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using AuntRosieApplication.Classes;
+using System.Data.OleDb;
+using System.Data.SqlClient;
 using AuntRosieEntities;
 namespace AuntRosieApplication.Event
 {
     public partial class frmSale : Form
     {
-
+        private int numberOfItemsPerPage = 0;
+        private int numberOfItemsPrintedSoFar = 0;
         public long SaleID = -1;
         public frmSale()
         {
@@ -55,9 +60,9 @@ namespace AuntRosieApplication.Event
 
             //
             pnlMain.Enabled = true;
-            btnClear.Enabled = true;
-            btnSave.Enabled = true;
-            btnAddCustomer.Enabled = true;
+           
+           
+             
 
         }
 
@@ -204,8 +209,8 @@ namespace AuntRosieApplication.Event
         private void btnNew_Click(object sender, EventArgs e)
         {
             pnlMain.Enabled = true;
-            btnClear.Enabled = true;
-            btnSave.Enabled = true;
+           
+             
             clearData();
             grbNew.Enabled = true;
             cmbEventName.Focus();
@@ -485,7 +490,19 @@ namespace AuntRosieApplication.Event
            grdSale.DataSource = ds;
             grdSale.DataMember = "SaleDet";
 
-            calcBill();
+           
+
+           if (grdSale.Rows.Count>0)
+            {
+                btnClear.Enabled = true;
+               btnSave.Enabled = true; 
+                calcBill();
+            }
+           else
+            {
+                btnClear.Enabled = false;
+                btnSave.Enabled = false;
+            }
         }
         private void  calcBill()
         {
@@ -515,9 +532,25 @@ namespace AuntRosieApplication.Event
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DBMethod.Reptype = "Bill";
-            DBMethod.SaleID = SaleID.ToString();
-            (new ReportVewierForm()).ShowDialog();
+
+            System.Windows.Forms.PrintDialog PrintDialog1 = new PrintDialog();
+            PrintDialog1.AllowSomePages = true;
+            PrintDialog1.ShowHelp = true;
+            PrintDialog1.Document = printDocument1;
+            DialogResult result = PrintDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    printDocument1.Print();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Please Try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            btnSave.Enabled = false;
+            btnNextCustomer_Click(sender, e);
         }
 
         private void grdSale_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -640,9 +673,9 @@ namespace AuntRosieApplication.Event
 
         private void clearData()
         {
-            
-            
-             
+
+
+            cmbPaymentMethod.Enabled = true; 
             lblTotalNumberOfItem.Text = "";
             LblTotalPrice.Text = "";
             lblTax.Text = "";
@@ -653,6 +686,8 @@ namespace AuntRosieApplication.Event
             cmbCustomerName.SelectedItem = null;
             lblItemPrice.Text = "";
             cmbPaymentMethod.SelectedItem = null;
+            SaleID = -1;
+            fillSaleGrid();
 
         }
 
@@ -661,6 +696,115 @@ namespace AuntRosieApplication.Event
             clearData();
             grbNew.Enabled = false;
             cmbCustomerName.Focus();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+
+            string projTitle = "Aunt Rosie's Bill ";           
+            e.Graphics.DrawString(projTitle, new System.Drawing.Font("Book Antiqua", 16, FontStyle.Bold), Brushes.Maroon, 350, 20);
+
+            string curdhead;
+            if (chkGuest.Checked)
+            {
+                curdhead = chkGuest.Text;
+            }
+            else
+            {
+                  curdhead = cmbCustomerName.SelectedItem.ToString();
+            }
+            curdhead = "Customer: "+ curdhead+ " - " + SaleID.ToString();
+            e.Graphics.DrawString(curdhead, new System.Drawing.Font("Book Antiqua", 12, FontStyle.Bold), Brushes.Black, 20, 50);
+           
+
+
+            string currentDate ="Event:  " + cmbEventName.SelectedItem.ToString();;
+            e.Graphics.DrawString(currentDate, new System.Drawing.Font("Book Antiqua", 10, FontStyle.Regular), Brushes.Black, 20, 80);
+            string Tot5 = "Payment Method:   " + cmbPaymentMethod.SelectedItem.ToString();
+            e.Graphics.DrawString(Tot5, new System.Drawing.Font("Book Antiqua", 10, FontStyle.Regular), Brushes.Black, 20,  100);
+
+            string l1 = "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+           
+            e.Graphics.DrawString(l1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Gray, 10, 120);
+
+            //ExpiryDate, tblIngredientInventory.Quantity, tblIngredientInventory.Unit
+            string g1 = "Product Name ";
+            e.Graphics.DrawString(g1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 40, 140);
+
+            string g2 = "Size";
+            e.Graphics.DrawString(g2, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 190, 140);
+
+            string g3 = "Quantity";
+            e.Graphics.DrawString(g3, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 340, 140);
+
+            string g4 = "Sale Price";
+            e.Graphics.DrawString(g4, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 440, 140);
+           
+            string g5 = "Total Items Price";
+            e.Graphics.DrawString(g5, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 540, 140);
+            
+            e.Graphics.DrawString(l1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Gray, 10, 150);
+
+            int height = 165;
+            for (int l = numberOfItemsPrintedSoFar; l < grdSale.Rows.Count; l++)
+            {
+                numberOfItemsPerPage = numberOfItemsPerPage + 1;
+                if (numberOfItemsPerPage <= 50)
+                {
+                    numberOfItemsPrintedSoFar++;
+
+                    if (numberOfItemsPrintedSoFar <= grdSale.Rows.Count)
+                    {
+
+                        height += grdSale.Rows[0].Height;
+                        e.Graphics.DrawString(grdSale.Rows[l].Cells[1].FormattedValue.ToString(), grdSale.Font = new Font("Book Antiqua", 8), Brushes.Black,  40, height);
+                        e.Graphics.DrawString(grdSale.Rows[l].Cells[2].FormattedValue.ToString(), grdSale.Font = new Font("Book Antiqua", 8), Brushes.Black,  190, height );
+                        e.Graphics.DrawString(grdSale.Rows[l].Cells[3].FormattedValue.ToString(), grdSale.Font = new Font("Book Antiqua", 8), Brushes.Black,  340, height );
+                        e.Graphics.DrawString(grdSale.Rows[l].Cells[4].FormattedValue.ToString(), grdSale.Font = new Font("Book Antiqua", 8), Brushes.Black,   440, height );
+                        e.Graphics.DrawString(grdSale.Rows[l].Cells[5].FormattedValue.ToString(), grdSale.Font = new Font("Book Antiqua", 8), Brushes.Black,  540, height );
+                       
+
+                    }
+                    else
+                    {
+                        e.HasMorePages = false;
+                    }
+
+                }
+                else
+                {
+                    numberOfItemsPerPage = 0;
+                    e.HasMorePages = true;
+                    return;
+
+                }
+
+
+            }
+           
+            e.Graphics.DrawString(l1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Gray, 10, height+20);
+            string Tot1 = "Total Number Of Items: "   ;
+            e.Graphics.DrawString(Tot1, new System.Drawing.Font("Book Antiqua", 10, FontStyle.Bold), Brushes.Navy, 70, height + 40);
+            e.Graphics.DrawString(lblTotalNumberOfItem.Text, new System.Drawing.Font("Book Antiqua", 10, FontStyle.Regular), Brushes.Black, 250, height + 40);
+
+            string Tot2 = "Total Items Prices: "  ;
+            e.Graphics.DrawString(Tot2, new System.Drawing.Font("Book Antiqua", 10, FontStyle.Bold), Brushes.Navy, 70, height + 60);
+            e.Graphics.DrawString(LblTotalPrice.Text, new System.Drawing.Font("Book Antiqua", 10, FontStyle.Regular), Brushes.Black, 250, height + 60);
+
+            string Tot3 = "Tax: ";
+            e.Graphics.DrawString(Tot3, new System.Drawing.Font("Book Antiqua", 10, FontStyle.Bold), Brushes.Navy, 70, height + 80);
+            e.Graphics.DrawString( lblTax.Text, new System.Drawing.Font("Book Antiqua", 10, FontStyle.Regular), Brushes.Black, 250, height + 80);
+
+            string Tot4 = "Total Bill Value: "  ;
+            e.Graphics.DrawString(Tot4, new System.Drawing.Font("Book Antiqua", 10, FontStyle.Bold), Brushes.Navy, 70, height + 100);
+            e.Graphics.DrawString(lblTotalVallue.Text, new System.Drawing.Font("Book Antiqua", 10, FontStyle.Regular), Brushes.Black, 250, height + 100);
+
+            e.Graphics.DrawString(l1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Gray, 10, height + 120);
+
+
+            numberOfItemsPerPage = 0;
+            numberOfItemsPrintedSoFar = 0;
         }
     }
     }

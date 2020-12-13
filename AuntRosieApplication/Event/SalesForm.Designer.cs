@@ -44,6 +44,13 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.grdSale = new System.Windows.Forms.DataGridView();
+            this.EventProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sizeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.saleDetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportDataSet = new AuntRosieApplication.ReportDataSet();
@@ -86,13 +93,8 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.errSale = new System.Windows.Forms.ErrorProvider(this.components);
             this.saleDetTableAdapter = new AuntRosieApplication.ReportDataSetTableAdapters.saleDetTableAdapter();
-            this.EventProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sizeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.pnlMain.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ndpQuanitity)).BeginInit();
@@ -303,6 +305,56 @@
             this.grdSale.TabIndex = 127;
             this.grdSale.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSale_CellContentClick);
             // 
+            // EventProductID
+            // 
+            this.EventProductID.DataPropertyName = "EventProductID";
+            this.EventProductID.HeaderText = "EventProductID";
+            this.EventProductID.Name = "EventProductID";
+            this.EventProductID.Visible = false;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            // 
+            // sizeNameDataGridViewTextBoxColumn
+            // 
+            this.sizeNameDataGridViewTextBoxColumn.DataPropertyName = "SizeName";
+            this.sizeNameDataGridViewTextBoxColumn.HeaderText = "SizeName";
+            this.sizeNameDataGridViewTextBoxColumn.Name = "sizeNameDataGridViewTextBoxColumn";
+            // 
+            // saleQuantityDataGridViewTextBoxColumn
+            // 
+            this.saleQuantityDataGridViewTextBoxColumn.DataPropertyName = "SaleQuantity";
+            this.saleQuantityDataGridViewTextBoxColumn.HeaderText = "SaleQuantity";
+            this.saleQuantityDataGridViewTextBoxColumn.Name = "saleQuantityDataGridViewTextBoxColumn";
+            // 
+            // salePriceDataGridViewTextBoxColumn
+            // 
+            this.salePriceDataGridViewTextBoxColumn.DataPropertyName = "SalePrice";
+            this.salePriceDataGridViewTextBoxColumn.HeaderText = "SalePrice";
+            this.salePriceDataGridViewTextBoxColumn.Name = "salePriceDataGridViewTextBoxColumn";
+            // 
+            // itemCostDataGridViewTextBoxColumn
+            // 
+            this.itemCostDataGridViewTextBoxColumn.DataPropertyName = "itemCost";
+            this.itemCostDataGridViewTextBoxColumn.HeaderText = "Total Items Price";
+            this.itemCostDataGridViewTextBoxColumn.Name = "itemCostDataGridViewTextBoxColumn";
+            this.itemCostDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemCostDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // Delete
+            // 
+            this.Delete.FillWeight = 50F;
+            this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 50;
+            // 
             // saleDetBindingSource
             // 
             this.saleDetBindingSource.DataMember = "saleDet";
@@ -373,9 +425,9 @@
             this.groupBox1.Controls.Add(this.btnAddCustomer);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cmbCustomerName);
-            this.groupBox1.Location = new System.Drawing.Point(17, 126);
+            this.groupBox1.Location = new System.Drawing.Point(17, 109);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(662, 92);
+            this.groupBox1.Size = new System.Drawing.Size(662, 109);
             this.groupBox1.TabIndex = 138;
             this.groupBox1.TabStop = false;
             // 
@@ -385,7 +437,7 @@
             this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPaymentMethod.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPaymentMethod.FormattingEnabled = true;
-            this.cmbPaymentMethod.Location = new System.Drawing.Point(186, 48);
+            this.cmbPaymentMethod.Location = new System.Drawing.Point(186, 65);
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
             this.cmbPaymentMethod.Size = new System.Drawing.Size(345, 31);
             this.cmbPaymentMethod.TabIndex = 146;
@@ -395,7 +447,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Sienna;
-            this.label2.Location = new System.Drawing.Point(3, 57);
+            this.label2.Location = new System.Drawing.Point(6, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 22);
             this.label2.TabIndex = 147;
@@ -408,7 +460,7 @@
             this.chkGuest.Checked = true;
             this.chkGuest.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkGuest.Location = new System.Drawing.Point(584, 14);
+            this.chkGuest.Location = new System.Drawing.Point(186, 5);
             this.chkGuest.Name = "chkGuest";
             this.chkGuest.Size = new System.Drawing.Size(72, 24);
             this.chkGuest.TabIndex = 124;
@@ -423,7 +475,7 @@
             this.btnAddCustomer.FlatAppearance.BorderSize = 0;
             this.btnAddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCustomer.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
-            this.btnAddCustomer.Location = new System.Drawing.Point(537, 11);
+            this.btnAddCustomer.Location = new System.Drawing.Point(537, 30);
             this.btnAddCustomer.Name = "btnAddCustomer";
             this.btnAddCustomer.Size = new System.Drawing.Size(41, 31);
             this.btnAddCustomer.TabIndex = 123;
@@ -436,7 +488,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Sienna;
-            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Location = new System.Drawing.Point(14, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 22);
             this.label1.TabIndex = 122;
@@ -449,7 +501,7 @@
             this.cmbCustomerName.Enabled = false;
             this.cmbCustomerName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCustomerName.FormattingEnabled = true;
-            this.cmbCustomerName.Location = new System.Drawing.Point(186, 9);
+            this.cmbCustomerName.Location = new System.Drawing.Point(186, 30);
             this.cmbCustomerName.Name = "cmbCustomerName";
             this.cmbCustomerName.Size = new System.Drawing.Size(345, 31);
             this.cmbCustomerName.Sorted = true;
@@ -469,7 +521,7 @@
             this.grbNew.Controls.Add(this.cmbEventName);
             this.grbNew.Location = new System.Drawing.Point(17, 3);
             this.grbNew.Name = "grbNew";
-            this.grbNew.Size = new System.Drawing.Size(662, 119);
+            this.grbNew.Size = new System.Drawing.Size(662, 117);
             this.grbNew.TabIndex = 137;
             this.grbNew.TabStop = false;
             // 
@@ -529,7 +581,7 @@
             this.lblEventLocation.ForeColor = System.Drawing.Color.Sienna;
             this.lblEventLocation.Location = new System.Drawing.Point(10, 73);
             this.lblEventLocation.Name = "lblEventLocation";
-            this.lblEventLocation.Size = new System.Drawing.Size(646, 36);
+            this.lblEventLocation.Size = new System.Drawing.Size(646, 30);
             this.lblEventLocation.TabIndex = 114;
             this.lblEventLocation.Text = "Event Location:   ";
             // 
@@ -578,7 +630,7 @@
             this.btnClear.Enabled = false;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
+            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.delete_sign;
             this.btnClear.Location = new System.Drawing.Point(131, 3);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(64, 54);
@@ -608,12 +660,12 @@
             this.btnSave.Enabled = false;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
+            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.print;
             this.btnSave.Location = new System.Drawing.Point(201, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(64, 54);
             this.btnSave.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.btnSave, "Save Sale Operation");
+            this.toolTip1.SetToolTip(this.btnSave, "Print Bill");
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -789,53 +841,13 @@
             // 
             this.saleDetTableAdapter.ClearBeforeFill = true;
             // 
-            // EventProductID
+            // printDocument1
             // 
-            this.EventProductID.DataPropertyName = "EventProductID";
-            this.EventProductID.HeaderText = "EventProductID";
-            this.EventProductID.Name = "EventProductID";
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // productNameDataGridViewTextBoxColumn
+            // printDialog1
             // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            // 
-            // sizeNameDataGridViewTextBoxColumn
-            // 
-            this.sizeNameDataGridViewTextBoxColumn.DataPropertyName = "SizeName";
-            this.sizeNameDataGridViewTextBoxColumn.HeaderText = "SizeName";
-            this.sizeNameDataGridViewTextBoxColumn.Name = "sizeNameDataGridViewTextBoxColumn";
-            // 
-            // saleQuantityDataGridViewTextBoxColumn
-            // 
-            this.saleQuantityDataGridViewTextBoxColumn.DataPropertyName = "SaleQuantity";
-            this.saleQuantityDataGridViewTextBoxColumn.HeaderText = "SaleQuantity";
-            this.saleQuantityDataGridViewTextBoxColumn.Name = "saleQuantityDataGridViewTextBoxColumn";
-            // 
-            // salePriceDataGridViewTextBoxColumn
-            // 
-            this.salePriceDataGridViewTextBoxColumn.DataPropertyName = "SalePrice";
-            this.salePriceDataGridViewTextBoxColumn.HeaderText = "SalePrice";
-            this.salePriceDataGridViewTextBoxColumn.Name = "salePriceDataGridViewTextBoxColumn";
-            // 
-            // itemCostDataGridViewTextBoxColumn
-            // 
-            this.itemCostDataGridViewTextBoxColumn.DataPropertyName = "itemCost";
-            this.itemCostDataGridViewTextBoxColumn.HeaderText = "itemCost";
-            this.itemCostDataGridViewTextBoxColumn.Name = "itemCostDataGridViewTextBoxColumn";
-            this.itemCostDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Delete
-            // 
-            this.Delete.FillWeight = 50F;
-            this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
-            this.Delete.Width = 50;
+            this.printDialog1.UseEXDialog = true;
             // 
             // frmSale
             // 
@@ -843,7 +855,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(766, 703);
+            this.ClientSize = new System.Drawing.Size(766, 709);
             this.Controls.Add(this.pnlButton);
             this.Controls.Add(this.pnlNewcustomer);
             this.Controls.Add(this.pnlMain);
@@ -935,6 +947,8 @@
         private ReportDataSetTableAdapters.saleDetTableAdapter saleDetTableAdapter;
         private System.Windows.Forms.ComboBox cmbPaymentMethod;
         private System.Windows.Forms.Label label2;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeNameDataGridViewTextBoxColumn;

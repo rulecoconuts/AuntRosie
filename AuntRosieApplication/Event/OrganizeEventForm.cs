@@ -195,7 +195,7 @@ namespace AuntRosieApplication.Event
 
         private bool validateDate()
         {
-            if (dtpFormDate.Value <= DateTime.Now)
+            if (dtpFormDate.Value.Date < DateTime.Today.Date)
             {
                 errorProvider1.SetError(dtpFormDate, "Date must be in the future");
                 return false;

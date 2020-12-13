@@ -324,7 +324,7 @@
             this.pnlNewLoc.Controls.Add(this.txtCity);
             this.pnlNewLoc.Controls.Add(this.btnNewTypeCancel);
             this.pnlNewLoc.Controls.Add(this.btnNewTypetClear);
-            this.pnlNewLoc.Location = new System.Drawing.Point(201, 58);
+            this.pnlNewLoc.Location = new System.Drawing.Point(23, 165);
             this.pnlNewLoc.Name = "pnlNewLoc";
             this.pnlNewLoc.Size = new System.Drawing.Size(423, 334);
             this.pnlNewLoc.TabIndex = 114;
