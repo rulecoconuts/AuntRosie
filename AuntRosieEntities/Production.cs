@@ -338,27 +338,35 @@ namespace AuntRosieEntities
         public static DataTable GetAvailableProductionsTable(long eventID)
         {
             DataTable productions = new DataTable();
-            string query = "select prdtn.[ProductionID] as 'ProductionID', prd.[ProductName] as 'Product Name', " +
-                "concat(prdsz.[SizeName], '(', prdsz.[Unit], ' ', prdsz.[SizeValue], ')') as 'Size', " +
-                "prdtn.[ProductionDate] as 'Production Date', prdtn.[ExpiryDate] as 'ExpiryDate' " +
-                "from [tblProduction] prdtn " +
-                "inner join [tblProductItem] prdi on prdtn.[ProductItemID]=prdi.[ProductItemID] " +
-                "inner join [tblProduct] prd on prd.[ProductID]=prdi.[ProductID] " +
-                "inner join [tblProductSize] prdsz on prdsz.[SizeID]=prdi.[SizeID] " +
-                "full outer join [tblEventProduct] ep on ep.[ProductionID]=prdtn.[ProductionID] " +
-                $"where prdtn.[ExpiryDate] > '{DateTime.Now.Date}' and " +
-                $"{eventID} NOT IN (select [tblEventProduct].[EventID] " +
-                $"from [tblEventProduct] " +
-                $"where [tblEventProduct].[ProductionID] = prdtn.[ProductionID]) " +
-                $"group by ep.[ProductionID]";
+            string query = "select * from (select distinct prdtn.[ProductionID] as 'ProductionID', prd.[ProductName] as 'Product Name'," +
+                "concat(prdsz.[SizeName], '(', prdsz.[SizeValue], ' ', prdsz.[Unit], ')') as 'Size'," +
+                "prdtn.[ProductionQuantity] - isnull(aggtmp.[UsedQuantity], 0) as 'Remaining Quantity'," +
+                "prdtn.[ProductionDate] as 'Production Date'," +
+                "prdtn.[ExpiryDate] as 'Expiry Date' " +
+                "from[tblProduction] prdtn " +
+                "inner join[tblProductItem] prdi " +
+                "on prdi.[ProductItemID] = prdtn.[ProductItemID] " +
+                "inner join[tblProduct] prd " +
+                "on prd.[ProductID] = prdi.[ProductID] " +
+                "inner join[tblProductSize] prdsz " +
+                "on prdsz.[SizeID] = prdi.[SizeID] " +
+                "full outer join( " +
+                "select[ProductionID], sum([Quantity]) as 'UsedQuantity' " +
+                "from[tblEventProduct] " +
+                "group by[ProductionID]" +
+                ") aggtmp " +
+                "on aggtmp.[ProductionID] = prdtn.[ProductionID]" +
+                ") tbl " +
+                "where tbl.[Remaining Quantity] > 0 and tbl.[ProductionID] not in " +
+                $"(select[ProductionID] from [tblEventProduct] where[EventID] = {eventID})";
 
-            SqlCommand command = new SqlCommand(query);
+            SqlCommand command = new SqlCommand(query, Connector.Connection);
             try
             {
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 adapter.Fill(productions);
             }
-            catch
+            catch(Exception e)
             {
                 return null;
             }
