@@ -33,12 +33,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.pnlButton = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.dtgExistingProduction = new System.Windows.Forms.DataGridView();
             this.txtEvent = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgExistingProduction)).BeginInit();
@@ -90,6 +90,7 @@
             this.btnBack.Size = new System.Drawing.Size(64, 57);
             this.btnBack.TabIndex = 149;
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pnlButton
             // 
@@ -103,6 +104,18 @@
             this.pnlButton.Size = new System.Drawing.Size(332, 69);
             this.pnlButton.TabIndex = 144;
             // 
+            // btnSave
+            // 
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
+            this.btnSave.Location = new System.Drawing.Point(170, 5);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(74, 58);
+            this.btnSave.TabIndex = 153;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.Transparent;
@@ -115,6 +128,17 @@
             this.btnNext.TabIndex = 151;
             this.btnNext.UseVisualStyleBackColor = false;
             // 
+            // btnClear
+            // 
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
+            this.btnClear.Location = new System.Drawing.Point(91, 6);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(73, 58);
+            this.btnClear.TabIndex = 152;
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
             // dtgExistingProduction
             // 
             this.dtgExistingProduction.AllowUserToAddRows = false;
@@ -126,6 +150,7 @@
             this.dtgExistingProduction.Size = new System.Drawing.Size(988, 442);
             this.dtgExistingProduction.TabIndex = 145;
             this.dtgExistingProduction.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgExistingProduction_CellClick);
+            this.dtgExistingProduction.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgExistingProduction_CellContentClick);
             // 
             // txtEvent
             // 
@@ -147,29 +172,6 @@
             this.label1.TabIndex = 149;
             this.label1.Text = "Event";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnSave
-            // 
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
-            this.btnSave.Location = new System.Drawing.Point(170, 5);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(74, 58);
-            this.btnSave.TabIndex = 153;
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
-            this.btnClear.Location = new System.Drawing.Point(91, 6);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(73, 58);
-            this.btnClear.TabIndex = 152;
-            this.btnClear.UseVisualStyleBackColor = true;
             // 
             // frmExistingProduction
             // 

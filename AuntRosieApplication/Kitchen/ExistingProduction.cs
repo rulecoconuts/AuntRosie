@@ -79,10 +79,12 @@ namespace AuntRosieApplication.Kitchen
         /// </summary>
         private void addIncludeCheckBoxColumn()
         {
-            DataGridViewCheckBoxColumn includeBtnColumn = new DataGridViewCheckBoxColumn();
-            includeBtnColumn.HeaderText = "Include";
-            includeBtnColumn.Name = "includeColumn";
-            dtgExistingProduction.Columns.Add(includeBtnColumn);
+            DataGridViewCheckBoxColumn includeChkColumn = new DataGridViewCheckBoxColumn();
+            includeChkColumn.HeaderText = "Include";
+            includeChkColumn.Name = "includeColumn";
+            includeChkColumn.FalseValue = false;
+            includeChkColumn.TrueValue = true;
+            dtgExistingProduction.Columns.Add(includeChkColumn);
         }
 
         /// <summary>
@@ -119,10 +121,7 @@ namespace AuntRosieApplication.Kitchen
 
         private void dtgExistingProduction_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (!checkForIncludeClick(e))
-            {
-                checkForUpdateClick(e);
-            }
+            
         }
 
         private bool checkForUpdateClick(DataGridViewCellEventArgs e)
@@ -141,7 +140,7 @@ namespace AuntRosieApplication.Kitchen
             {
                 DataGridViewRow clickedRow = dtgExistingProduction.Rows[e.RowIndex];
                 DataGridViewCheckBoxCell includeCell = clickedRow.Cells[columnIndex] as DataGridViewCheckBoxCell;
-                if(Convert.ToBoolean(includeCell.Value))
+                if(!Convert.ToBoolean(includeCell.Value))
                 {
                     includedProductionRows.Add(clickedRow);
                 }
@@ -182,11 +181,11 @@ namespace AuntRosieApplication.Kitchen
         private void checkQuantityIsRightSize(short quantityToTake,
             DataGridViewTextBoxCell quantityToTakeCell, DataGridViewRow row)
         {
-            short remainingQuantity = (short)row.Cells["Remaining Quantity"].Value;
+            short remainingQuantity = Convert.ToInt16((int)row.Cells["Remaining Quantity"].Value);
             bool isQuantityToTakeWithinRemaining = remainingQuantity >= quantityToTake;
             if (quantityToTake > 0 && isQuantityToTakeWithinRemaining)
             {
-                long productionID = (long)row.Cells["ProductionID"].Value;
+                long productionID = Convert.ToInt64(row.Cells["ProductionID"].Value);
                 includeProduction(productionID, quantityToTake);
             }
             else
@@ -207,17 +206,36 @@ namespace AuntRosieApplication.Kitchen
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in includedProductionRows)
+            for(int i = 0; i < includedProductionRows.Count; i++)
             {
+                DataGridViewRow row = includedProductionRows[i];
                 try
                 {
                     includeProduction(row);
+                    includedProductionRows.Remove(row);
+                    dtgExistingProduction.Rows.Remove(row);
+                    i--;
                 }
                 catch
                 {
                     row.ErrorText = "Failed to include production in event";
                 }
             }
+        }
+
+        private void dtgExistingProduction_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!checkForIncludeClick(e))
+            {
+                checkForUpdateClick(e);
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Event.frmOrganizeEventStep3 frm = new Event.frmOrganizeEventStep3(rosieEvent);
+            frm.ShowDialog();
         }
     }
 }
