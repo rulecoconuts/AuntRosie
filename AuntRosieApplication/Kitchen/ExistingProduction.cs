@@ -14,6 +14,7 @@ namespace AuntRosieApplication.Kitchen
     public partial class frmExistingProduction : Form
     {
         private RosieEvent rosieEvent;
+        private List<DataGridViewRow> includedProductionRows = new List<DataGridViewRow>();
 
         public frmExistingProduction(RosieEvent rosieEvent)
         {
@@ -126,7 +127,7 @@ namespace AuntRosieApplication.Kitchen
 
         private bool checkForUpdateClick(DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == dtgExistingProduction.Columns["updateColumn"].Index)
+            if (e.ColumnIndex == dtgExistingProduction.Columns["updateColumn"].Index)
             {
 
             }
@@ -135,13 +136,88 @@ namespace AuntRosieApplication.Kitchen
 
         private bool checkForIncludeClick(DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dtgExistingProduction.Columns["includeColumn"].Index)
+            int columnIndex = dtgExistingProduction.Columns["includeColumn"].Index;
+            if (e.ColumnIndex == columnIndex)
             {
                 DataGridViewRow clickedRow = dtgExistingProduction.Rows[e.RowIndex];
-                long productionID = (long)clickedRow.Cells["ProductionID"].Value;
+                DataGridViewCheckBoxCell includeCell = clickedRow.Cells[columnIndex] as DataGridViewCheckBoxCell;
+                if(Convert.ToBoolean(includeCell.Value))
+                {
+                    includedProductionRows.Add(clickedRow);
+                }
+                else
+                {
+                    includedProductionRows.Remove(clickedRow);
+                }
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Include production in event
+        /// </summary>
+        /// <param name="row">Row from a datagrid that represents the production record</param>
+        private void includeProduction(DataGridViewRow row)
+        {
+            DataGridViewTextBoxCell quantityToTakeCell = row.Cells["quantityColumn"] as DataGridViewTextBoxCell;
+            short quantityToTake = 0;
+            if (short.TryParse(quantityToTakeCell.Value as string, out quantityToTake))
+            {
+                checkQuantityIsRightSize(quantityToTake, quantityToTakeCell, row);
+            }
+            else
+            {
+                quantityToTakeCell.ErrorText = "Quantity must be a valid integer";
+            }
+        }
+
+        /// <summary>
+        /// Check that the quantity is the right size and 
+        /// properly handle it if it isn't
+        /// </summary>
+        /// <param name="quantityToTake"></param>
+        /// <param name="quantityToTakeCell"></param>
+        /// <param name="row"></param>
+        private void checkQuantityIsRightSize(short quantityToTake,
+            DataGridViewTextBoxCell quantityToTakeCell, DataGridViewRow row)
+        {
+            short remainingQuantity = (short)row.Cells["Remaining Quantity"].Value;
+            bool isQuantityToTakeWithinRemaining = remainingQuantity >= quantityToTake;
+            if (quantityToTake > 0 && isQuantityToTakeWithinRemaining)
+            {
+                long productionID = (long)row.Cells["ProductionID"].Value;
+                includeProduction(productionID, quantityToTake);
+            }
+            else
+            {
+                quantityToTakeCell.ErrorText = $"Quantity must be between 1 and {remainingQuantity}";
+            }
+        }
+
+        /// <summary>
+        /// Include production in event
+        /// </summary>
+        /// <param name="productionID"></param>
+        /// <param name="quantityToTake">Quantity of products to include in the event</param>
+        private void includeProduction(long productionID, short quantityToTake)
+        {
+            new EventProduct(rosieEvent.Id, productionID, quantityToTake, true);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in includedProductionRows)
+            {
+                try
+                {
+                    includeProduction(row);
+                }
+                catch
+                {
+                    row.ErrorText = "Failed to include production in event";
+                }
+            }
         }
     }
 }

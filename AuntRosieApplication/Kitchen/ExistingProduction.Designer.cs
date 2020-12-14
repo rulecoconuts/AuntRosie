@@ -37,6 +37,8 @@
             this.dtgExistingProduction = new System.Windows.Forms.DataGridView();
             this.txtEvent = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgExistingProduction)).BeginInit();
@@ -92,11 +94,13 @@
             // pnlButton
             // 
             this.pnlButton.BackColor = System.Drawing.Color.Transparent;
+            this.pnlButton.Controls.Add(this.btnSave);
             this.pnlButton.Controls.Add(this.btnNext);
+            this.pnlButton.Controls.Add(this.btnClear);
             this.pnlButton.Controls.Add(this.btnBack);
-            this.pnlButton.Location = new System.Drawing.Point(428, 616);
+            this.pnlButton.Location = new System.Drawing.Point(333, 616);
             this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(162, 69);
+            this.pnlButton.Size = new System.Drawing.Size(332, 69);
             this.pnlButton.TabIndex = 144;
             // 
             // btnNext
@@ -105,7 +109,7 @@
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Image = global::AuntRosieApplication.Properties.Resources.arrow_right;
-            this.btnNext.Location = new System.Drawing.Point(92, 3);
+            this.btnNext.Location = new System.Drawing.Point(267, 5);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(62, 62);
             this.btnNext.TabIndex = 151;
@@ -144,6 +148,29 @@
             this.label1.Text = "Event";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnSave
+            // 
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
+            this.btnSave.Location = new System.Drawing.Point(170, 5);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(74, 58);
+            this.btnSave.TabIndex = 153;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
+            this.btnClear.Location = new System.Drawing.Point(91, 6);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(73, 58);
+            this.btnClear.TabIndex = 152;
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
             // frmExistingProduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,5 +206,7 @@
         private System.Windows.Forms.TextBox txtEvent;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnClear;
     }
 }

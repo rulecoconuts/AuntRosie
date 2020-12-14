@@ -357,8 +357,8 @@ namespace AuntRosieEntities
                 ") aggtmp " +
                 "on aggtmp.[ProductionID] = prdtn.[ProductionID]" +
                 ") tbl " +
-                "where tbl.[Remaining Quantity] > 0 and tbl.[ProductionID] not in " +
-                $"(select[ProductionID] from [tblEventProduct] where[EventID] = {eventID})";
+                $"where tbl.[Remaining Quantity] > 0 and tbl.[Expiry Date] > '{DateTime.Now.Date}' and tbl.[ProductionID] not in " +
+                $"(select[ProductionID] from [tblEventProduct] where [EventID] = {eventID})";
 
             SqlCommand command = new SqlCommand(query, Connector.Connection);
             try
