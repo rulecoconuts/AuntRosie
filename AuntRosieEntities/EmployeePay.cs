@@ -30,7 +30,7 @@ namespace AuntRosieEntities
 
 
         /// <summary>
-        /// Create a new type of Inventory in
+        /// Create a new part timer  payroll
         /// </summary>
         /// <param name="transaction"></param>
         public override void Create(SqlTransaction transaction = null)

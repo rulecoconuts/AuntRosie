@@ -44,6 +44,7 @@ namespace AuntRosieApp
             relocation(pnlReportQuery);
             relocation(pnlEmp);
             relocation(pnlPayroll);
+            relocation(pnlExpensses);
 
 
 
@@ -85,6 +86,7 @@ namespace AuntRosieApp
             pnlEmp.Visible = false;
             pnlReportQuery.Visible = false;
             pnlPayroll.Visible = false;
+            pnlExpensses.Visible = false;
            
         }
         private void BackToMain(Panel pnl)
@@ -161,7 +163,7 @@ namespace AuntRosieApp
 
         private void btnExpenses_Click(object sender, EventArgs e)
         {
-
+            ShowPnlel(pnlExpensses);
         }
 
         private void btnKitchen_Click(object sender, EventArgs e)
@@ -484,6 +486,22 @@ namespace AuntRosieApp
         private void btnQeury_Click(object sender, EventArgs e)
         {
             ShowForm(new AuntRosieApplication.Employment.PayrollQueryForm());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BackToMain(pnlExpensses);
+        }
+
+        private void btnMiscellaneousExpenses_Click(object sender, EventArgs e)
+        {
+            ShowForm(new AuntRosieApplication.Expenses.frmExpensesManage());
+        }
+
+        private void btnCostQyuery_Click(object sender, EventArgs e)
+        {
+
+            ShowForm(new AuntRosieApplication.Expenses.frmCostExpenseQueries());
         }
     }
 }

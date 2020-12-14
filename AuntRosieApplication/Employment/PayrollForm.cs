@@ -470,5 +470,10 @@ namespace AuntRosieApplication.Employment
             updateHourIsPaid("0");
 
         }
+
+        private void txtwage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

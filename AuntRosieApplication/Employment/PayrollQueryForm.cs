@@ -70,7 +70,7 @@ namespace AuntRosieApplication.Employment
         private void FillPayGridPart()
         {
             string sql = "  SELECT   tblPayroll.PaymentDate, tblPayroll.Amount, tblEmployee.EmployeeID, tblPayroll.FromDate, tblPayroll.ToDate," +
-            "   CASE WHEN PaymentMethod = 'r' THEN 'Credit' ELSE CASE WHEN PaymentMethod = 'c' THEN 'Casht' ELSE CASE WHEN PaymentMethod = 'd' THEN 'Debit' END END END AS PaymentMethod"+
+            "   CASE WHEN PaymentMethod = 'r' THEN 'Credit' ELSE CASE WHEN PaymentMethod = 'c' THEN 'Cash' ELSE CASE WHEN PaymentMethod = 'd' THEN 'Debit' END END END AS PaymentMethod"+
             " FROM tblEmployee INNER JOIN " +
                                      " tblPayroll ON tblEmployee.EmployeeID = tblPayroll.EmployeeID WHERE tblPayroll.EmployeeID = " + DBMethod.GetSelectedItemID(cmbEmployeeName); ;
              
@@ -87,9 +87,11 @@ namespace AuntRosieApplication.Employment
         }
         private void FillPayGridFull()
         {
-            string sql = "SELECT        EmployeeID, PaymentDate, Month, BiWeekNo, Amount, Year, " + 
-                         " CASE WHEN tblFullTimePayroll.PaymentMethod = 'r' THEN 'Credit' ELSE CASE WHEN tblFullTimePayroll.PaymentMethod = 'c' THEN 'Casht' ELSE CASE WHEN tblFullTimePayroll.PaymentMethod = 'd' THEN 'debit' END END END" +
-                          " AS PaymentMethod  FROM   tblFullTimePayroll  where EmployeeID = " +DBMethod.GetSelectedItemID(cmbEmployeeName);
+            string sql = "SELECT        EmployeeID, PaymentDate, Month,  Amount, Year, " + 
+                         " CASE WHEN tblFullTimePayroll.PaymentMethod = 'r' THEN 'Credit' ELSE CASE WHEN tblFullTimePayroll.PaymentMethod = 'c' THEN 'Cash' ELSE CASE WHEN tblFullTimePayroll.PaymentMethod = 'd' THEN 'debit' END END END," +
+                           " CASE WHEN BiWeekNo = 1 THEN 'First 2 weeks' ELSE CASE WHEN BiWeekNo = 2 THEN 'Last 2 Weeks' END END" +
+
+                          " AS BiWeekNo  FROM   tblFullTimePayroll  where EmployeeID = " + DBMethod.GetSelectedItemID(cmbEmployeeName);
             
             string connectionString = DBMethod.GetConnectionString();
 

@@ -323,9 +323,10 @@ namespace AuntRosieApplication.Employment
                 {
                     pnlMain.Enabled = true;
                     pnlPaymentDate.Visible = false;
-                    sqlText = "SELECT   tblFullTimePayroll.EmployeeID, tblFullTimePayroll.PaymentDate, tblFullTimePayroll.Month , tblFullTimePayroll.Year, tblFullTimePayroll.BiWeekNo, tblFullTimePayroll.Amount, tblFullTimePayroll.PaymentMethod, "+
-                        "  tblEmployee.EmployeeFirstName , tblEmployee.EmployeeLastName " +
- " FROM tblFullTimePayroll INNER JOIN "+
+                    sqlText = "SELECT   tblFullTimePayroll.EmployeeID, tblFullTimePayroll.PaymentDate, tblFullTimePayroll.Month , tblFullTimePayroll.Year, tblFullTimePayroll.Amount, tblFullTimePayroll.PaymentMethod, "+
+                        "  tblEmployee.EmployeeFirstName , tblEmployee.EmployeeLastName ," +
+                        " CASE WHEN tblFullTimePayroll.BiWeekNo = 1 THEN 'First 2 weeks' ELSE CASE WHEN tblFullTimePayroll.BiWeekNo = 2 THEN 'Last 2 Weeks' END END AS BiWeekNo" +
+ " FROM tblFullTimePayroll INNER JOIN " +
                      "    tblEmployee ON tblFullTimePayroll.EmployeeID = tblEmployee.EmployeeID "+
 " WHERE(tblFullTimePayroll.PaymentDate = '" + payDate.ToShortDateString() + "')";
                     FillPayGrid(sqlText);

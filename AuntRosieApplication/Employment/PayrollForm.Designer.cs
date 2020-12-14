@@ -432,6 +432,7 @@
             this.txtwage.Name = "txtwage";
             this.txtwage.Size = new System.Drawing.Size(108, 29);
             this.txtwage.TabIndex = 112;
+            this.txtwage.TextChanged += new System.EventHandler(this.txtwage_TextChanged);
             this.txtwage.Leave += new System.EventHandler(this.txtwage_Leave);
             // 
             // label3

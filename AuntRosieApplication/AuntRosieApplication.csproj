@@ -219,6 +219,18 @@
     <Compile Include="Event\SalesForm.Designer.cs">
       <DependentUpon>SalesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Expenses\CostExpenseQueriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses\CostExpenseQueriesForm.Designer.cs">
+      <DependentUpon>CostExpenseQueriesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\MnageExpensesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses\MnageExpensesForm.Designer.cs">
+      <DependentUpon>MnageExpensesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,6 +372,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Event\SalesForm.resx">
       <DependentUpon>SalesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses\CostExpenseQueriesForm.resx">
+      <DependentUpon>CostExpenseQueriesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses\MnageExpensesForm.resx">
+      <DependentUpon>MnageExpensesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -623,6 +641,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\ledger.png" />
+    <None Include="Resources\estimate.png" />
     <None Include="Resources\time-1.png" />
     <None Include="Resources\FULL-job.png" />
     <None Include="Resources\more-than.png" />

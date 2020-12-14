@@ -45,7 +45,12 @@ namespace AuntRosieApplication.Classes
 {"December","12" },
  
             };
-
+        public static string[,] ExpensesTypeArray = new string[,] {
+                { "Transportation","T"},
+{"Utility Bill", "T" },
+{"Maintenance Fee","M" },
+{"Other","O" } };
+         
         /// <summary>
         /// Return connection string
         /// </summary>
@@ -85,6 +90,20 @@ namespace AuntRosieApplication.Classes
                 AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
                 itm.name = MonthsArray[i, 0];
                 itm.id = MonthsArray[i, 1];
+                cmb.Items.Add((Object)itm);
+            }
+
+
+        }
+        public static void FillExpensesType(ComboBox cmb)
+        {
+
+
+            for (int i = 0; i < 4; i++)
+            {
+                AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
+                itm.name = ExpensesTypeArray[i, 0];
+                itm.id = ExpensesTypeArray[i, 1];
                 cmb.Items.Add((Object)itm);
             }
 
