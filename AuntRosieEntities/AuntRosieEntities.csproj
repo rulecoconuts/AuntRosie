@@ -46,6 +46,7 @@
     <Compile Include="DBConnector.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeHours.cs" />
+    <Compile Include="EmployeeFullPay.cs" />
     <Compile Include="EmployeePay.cs" />
     <Compile Include="EmployeeStatus.cs" />
     <Compile Include="EmployeeType.cs" />

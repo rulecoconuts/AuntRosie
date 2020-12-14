@@ -100,7 +100,7 @@ namespace AuntRosieApplication.Event
         private void loadEmployees()
         {
             cmbEmpName.Items.Clear();
-            DataTable employeeTable = Employee.GetAllEmployees(conStr);
+            DataTable employeeTable = Employee.GetAllEmployeesByType(  conStr, "P");
             foreach(DataRow row in employeeTable.Rows)
             {
                 Employee employee = new Employee();

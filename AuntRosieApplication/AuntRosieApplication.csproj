@@ -177,6 +177,18 @@
     <Compile Include="Employment\PayrollForm.Designer.cs">
       <DependentUpon>PayrollForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employment\PayRollFull.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment\PayRollFull.Designer.cs">
+      <DependentUpon>PayRollFull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employment\PayrollQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment\PayrollQueryForm.Designer.cs">
+      <DependentUpon>PayrollQueryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Event\OrganizeEventStep3Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +339,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employment\PayrollForm.resx">
       <DependentUpon>PayrollForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment\PayRollFull.resx">
+      <DependentUpon>PayRollFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment\PayrollQueryForm.resx">
+      <DependentUpon>PayrollQueryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Event\OrganizeEventForm.resx">
       <DependentUpon>OrganizeEventForm.cs</DependentUpon>
@@ -605,6 +623,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\time-1.png" />
+    <None Include="Resources\FULL-job.png" />
     <None Include="Resources\more-than.png" />
     <None Include="Resources\help.png" />
     <None Include="Resources\check-mark-button-emoji.png" />

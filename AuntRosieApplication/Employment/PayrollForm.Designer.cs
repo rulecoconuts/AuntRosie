@@ -40,6 +40,7 @@
             this.auntRosieDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.auntRosieDBDataSet = new AuntRosieApplication.AuntRosieDBDataSet();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.grdPayroll = new System.Windows.Forms.DataGridView();
             this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,17 +56,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dtpFormDate = new System.Windows.Forms.DateTimePicker();
             this.dtpToDate = new System.Windows.Forms.DateTimePicker();
+            this.cmbPartEmp = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
             this.lblDays = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblFullAmount = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbfullEmp = new System.Windows.Forms.ComboBox();
-            this.btnAddFull = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlPartAddPayroll = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblPartAmount = new System.Windows.Forms.Label();
@@ -74,7 +68,6 @@
             this.lblHour = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbPartEmp = new System.Windows.Forms.ComboBox();
             this.btnAddPart = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pnlPaymentDate = new System.Windows.Forms.Panel();
@@ -89,8 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.auntRosieDBDataSet)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPayroll)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlPartAddPayroll.SuspendLayout();
             this.pnlPaymentDate.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,11 +92,11 @@
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Algerian", 20.25F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.lblTitle.Location = new System.Drawing.Point(29, 35);
+            this.lblTitle.Location = new System.Drawing.Point(56, 21);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(137, 30);
+            this.lblTitle.Size = new System.Drawing.Size(292, 30);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Payroll";
+            this.lblTitle.Text = "Payroll-Part Time";
             // 
             // errPayroll
             // 
@@ -155,6 +147,7 @@
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.Transparent;
+            this.pnlMain.Controls.Add(this.label1);
             this.pnlMain.Controls.Add(this.grdPayroll);
             this.pnlMain.Controls.Add(this.lblPaymentDate);
             this.pnlMain.Controls.Add(this.label13);
@@ -164,18 +157,26 @@
             this.pnlMain.Controls.Add(this.label6);
             this.pnlMain.Controls.Add(this.dtpFormDate);
             this.pnlMain.Controls.Add(this.dtpToDate);
+            this.pnlMain.Controls.Add(this.cmbPartEmp);
             this.pnlMain.Controls.Add(this.label7);
-            this.pnlMain.Controls.Add(this.lblName);
             this.pnlMain.Controls.Add(this.lblDays);
-            this.pnlMain.Controls.Add(this.label2);
-            this.pnlMain.Controls.Add(this.panel1);
-            this.pnlMain.Controls.Add(this.panel2);
+            this.pnlMain.Controls.Add(this.pnlPartAddPayroll);
             this.pnlMain.Enabled = false;
             this.pnlMain.Location = new System.Drawing.Point(61, 68);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(845, 595);
+            this.pnlMain.Size = new System.Drawing.Size(716, 579);
             this.pnlMain.TabIndex = 123;
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(83, 204);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 24);
+            this.label1.TabIndex = 116;
+            this.label1.Text = "Employee Name";
             // 
             // grdPayroll
             // 
@@ -192,10 +193,10 @@
             this.amountDataGridViewTextBoxColumn,
             this.Delete});
             this.grdPayroll.DataSource = this.payrollBindingSource;
-            this.grdPayroll.Location = new System.Drawing.Point(102, 405);
+            this.grdPayroll.Location = new System.Drawing.Point(17, 359);
             this.grdPayroll.Name = "grdPayroll";
             this.grdPayroll.ReadOnly = true;
-            this.grdPayroll.Size = new System.Drawing.Size(696, 150);
+            this.grdPayroll.Size = new System.Drawing.Size(684, 190);
             this.grdPayroll.TabIndex = 125;
             this.grdPayroll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPayroll_CellContentClick);
             // 
@@ -263,10 +264,10 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(139, 8);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(114, 8);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(138, 22);
+            this.label13.Size = new System.Drawing.Size(138, 24);
             this.label13.TabIndex = 123;
             this.label13.Tag = "";
             this.label13.Text = "Payment Date";
@@ -275,10 +276,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(171, 41);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(144, 41);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(106, 22);
+            this.label9.Size = new System.Drawing.Size(107, 24);
             this.label9.TabIndex = 103;
             this.label9.Tag = "";
             this.label9.Text = "From Date";
@@ -289,19 +290,20 @@
             this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPaymentMethod.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPaymentMethod.FormattingEnabled = true;
-            this.cmbPaymentMethod.Location = new System.Drawing.Point(283, 157);
+            this.cmbPaymentMethod.Location = new System.Drawing.Point(285, 161);
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
-            this.cmbPaymentMethod.Size = new System.Drawing.Size(283, 31);
+            this.cmbPaymentMethod.Size = new System.Drawing.Size(330, 31);
             this.cmbPaymentMethod.TabIndex = 121;
+            this.cmbPaymentMethod.SelectedIndexChanged += new System.EventHandler(this.cmbPartEmp_SelectedIndexChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(196, 85);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(169, 85);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(81, 22);
+            this.label10.Size = new System.Drawing.Size(83, 24);
             this.label10.TabIndex = 104;
             this.label10.Tag = "";
             this.label10.Text = "To Date";
@@ -309,11 +311,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Sienna;
-            this.label6.Location = new System.Drawing.Point(111, 161);
+            this.label6.Location = new System.Drawing.Point(84, 161);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(166, 22);
+            this.label6.Size = new System.Drawing.Size(166, 24);
             this.label6.TabIndex = 122;
             this.label6.Tag = "";
             this.label6.Text = "Payment Method";
@@ -336,28 +338,29 @@
             this.dtpToDate.TabIndex = 101;
             this.dtpToDate.ValueChanged += new System.EventHandler(this.dtpToDate_ValueChanged);
             // 
+            // cmbPartEmp
+            // 
+            this.cmbPartEmp.BackColor = System.Drawing.SystemColors.Info;
+            this.cmbPartEmp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPartEmp.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPartEmp.FormattingEnabled = true;
+            this.cmbPartEmp.Location = new System.Drawing.Point(284, 204);
+            this.cmbPartEmp.Name = "cmbPartEmp";
+            this.cmbPartEmp.Size = new System.Drawing.Size(330, 31);
+            this.cmbPartEmp.TabIndex = 63;
+            this.cmbPartEmp.SelectedIndexChanged += new System.EventHandler(this.cmbPartEmp_SelectedIndexChanged);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(220, 123);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(193, 123);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 22);
+            this.label7.Size = new System.Drawing.Size(55, 24);
             this.label7.TabIndex = 119;
             this.label7.Tag = "";
             this.label7.Text = "Days";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.BackColor = System.Drawing.Color.Transparent;
-            this.lblName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblName.Location = new System.Drawing.Point(588, 194);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(95, 22);
-            this.lblName.TabIndex = 62;
-            this.lblName.Text = "Full Time";
             // 
             // lblDays
             // 
@@ -370,112 +373,30 @@
             this.lblDays.TabIndex = 118;
             this.lblDays.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // pnlPartAddPayroll
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(141, 194);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 22);
-            this.label2.TabIndex = 111;
-            this.label2.Text = "Part Time";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.lblFullAmount);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cmbfullEmp);
-            this.panel1.Controls.Add(this.btnAddFull);
-            this.panel1.Location = new System.Drawing.Point(424, 219);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(374, 169);
-            this.panel1.TabIndex = 109;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Sienna;
-            this.label12.Location = new System.Drawing.Point(281, 89);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(43, 23);
-            this.label12.TabIndex = 116;
-            this.label12.Text = "CAD";
-            // 
-            // lblFullAmount
-            // 
-            this.lblFullAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFullAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullAmount.Location = new System.Drawing.Point(167, 89);
-            this.lblFullAmount.Name = "lblFullAmount";
-            this.lblFullAmount.Size = new System.Drawing.Size(108, 30);
-            this.lblFullAmount.TabIndex = 113;
-            this.lblFullAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 90);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 20);
-            this.label1.TabIndex = 108;
-            this.label1.Text = "Payment Amount";
-            // 
-            // cmbfullEmp
-            // 
-            this.cmbfullEmp.BackColor = System.Drawing.SystemColors.Info;
-            this.cmbfullEmp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbfullEmp.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbfullEmp.FormattingEnabled = true;
-            this.cmbfullEmp.Location = new System.Drawing.Point(12, 15);
-            this.cmbfullEmp.Name = "cmbfullEmp";
-            this.cmbfullEmp.Size = new System.Drawing.Size(347, 31);
-            this.cmbfullEmp.TabIndex = 63;
-            this.cmbfullEmp.SelectedIndexChanged += new System.EventHandler(this.cmbfullEmp_SelectedIndexChanged);
-            // 
-            // btnAddFull
-            // 
-            this.btnAddFull.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddFull.FlatAppearance.BorderSize = 0;
-            this.btnAddFull.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddFull.Image = global::AuntRosieApplication.Properties.Resources.low_importance;
-            this.btnAddFull.Location = new System.Drawing.Point(328, 123);
-            this.btnAddFull.Name = "btnAddFull";
-            this.btnAddFull.Size = new System.Drawing.Size(31, 35);
-            this.btnAddFull.TabIndex = 106;
-            this.btnAddFull.UseVisualStyleBackColor = false;
-            this.btnAddFull.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.lblPartAmount);
-            this.panel2.Controls.Add(this.txtwage);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.lblHour);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.cmbPartEmp);
-            this.panel2.Controls.Add(this.btnAddPart);
-            this.panel2.Location = new System.Drawing.Point(25, 219);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(374, 169);
-            this.panel2.TabIndex = 110;
+            this.pnlPartAddPayroll.BackColor = System.Drawing.Color.Transparent;
+            this.pnlPartAddPayroll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlPartAddPayroll.Controls.Add(this.label11);
+            this.pnlPartAddPayroll.Controls.Add(this.label8);
+            this.pnlPartAddPayroll.Controls.Add(this.lblPartAmount);
+            this.pnlPartAddPayroll.Controls.Add(this.txtwage);
+            this.pnlPartAddPayroll.Controls.Add(this.label3);
+            this.pnlPartAddPayroll.Controls.Add(this.lblHour);
+            this.pnlPartAddPayroll.Controls.Add(this.label4);
+            this.pnlPartAddPayroll.Controls.Add(this.label5);
+            this.pnlPartAddPayroll.Controls.Add(this.btnAddPart);
+            this.pnlPartAddPayroll.Location = new System.Drawing.Point(87, 241);
+            this.pnlPartAddPayroll.Name = "pnlPartAddPayroll";
+            this.pnlPartAddPayroll.Size = new System.Drawing.Size(530, 112);
+            this.pnlPartAddPayroll.TabIndex = 110;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Sienna;
-            this.label11.Location = new System.Drawing.Point(285, 123);
+            this.label11.Location = new System.Drawing.Point(310, 75);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(43, 23);
             this.label11.TabIndex = 115;
@@ -486,7 +407,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Sienna;
-            this.label8.Location = new System.Drawing.Point(285, 58);
+            this.label8.Location = new System.Drawing.Point(310, 10);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 23);
             this.label8.TabIndex = 113;
@@ -497,7 +418,7 @@
             this.lblPartAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblPartAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPartAmount.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblPartAmount.Location = new System.Drawing.Point(171, 122);
+            this.lblPartAmount.Location = new System.Drawing.Point(196, 74);
             this.lblPartAmount.Name = "lblPartAmount";
             this.lblPartAmount.Size = new System.Drawing.Size(108, 30);
             this.lblPartAmount.TabIndex = 114;
@@ -507,7 +428,7 @@
             // 
             this.txtwage.BackColor = System.Drawing.SystemColors.Info;
             this.txtwage.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.txtwage.Location = new System.Drawing.Point(171, 52);
+            this.txtwage.Location = new System.Drawing.Point(196, 4);
             this.txtwage.Name = "txtwage";
             this.txtwage.Size = new System.Drawing.Size(108, 29);
             this.txtwage.TabIndex = 112;
@@ -517,7 +438,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 126);
+            this.label3.Location = new System.Drawing.Point(14, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(145, 20);
             this.label3.TabIndex = 109;
@@ -528,7 +449,7 @@
             this.lblHour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblHour.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHour.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblHour.Location = new System.Drawing.Point(171, 89);
+            this.lblHour.Location = new System.Drawing.Point(196, 41);
             this.lblHour.Name = "lblHour";
             this.lblHour.Size = new System.Drawing.Size(108, 30);
             this.lblHour.TabIndex = 112;
@@ -538,7 +459,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 95);
+            this.label4.Location = new System.Drawing.Point(3, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(161, 20);
             this.label4.TabIndex = 111;
@@ -548,23 +469,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(57, 61);
+            this.label5.Location = new System.Drawing.Point(45, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(108, 20);
             this.label5.TabIndex = 110;
             this.label5.Text = "Hour\'s wage";
-            // 
-            // cmbPartEmp
-            // 
-            this.cmbPartEmp.BackColor = System.Drawing.SystemColors.Info;
-            this.cmbPartEmp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPartEmp.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPartEmp.FormattingEnabled = true;
-            this.cmbPartEmp.Location = new System.Drawing.Point(10, 15);
-            this.cmbPartEmp.Name = "cmbPartEmp";
-            this.cmbPartEmp.Size = new System.Drawing.Size(349, 31);
-            this.cmbPartEmp.TabIndex = 63;
-            this.cmbPartEmp.SelectedIndexChanged += new System.EventHandler(this.cmbPartEmp_SelectedIndexChanged);
             // 
             // btnAddPart
             // 
@@ -572,7 +481,7 @@
             this.btnAddPart.FlatAppearance.BorderSize = 0;
             this.btnAddPart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddPart.Image = global::AuntRosieApplication.Properties.Resources.low_importance;
-            this.btnAddPart.Location = new System.Drawing.Point(328, 123);
+            this.btnAddPart.Location = new System.Drawing.Point(359, 75);
             this.btnAddPart.Name = "btnAddPart";
             this.btnAddPart.Size = new System.Drawing.Size(31, 29);
             this.btnAddPart.TabIndex = 106;
@@ -586,7 +495,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(828, 15);
+            this.btnClose.Location = new System.Drawing.Point(727, 15);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 108;
@@ -603,7 +512,7 @@
             this.pnlPaymentDate.Controls.Add(this.radExists);
             this.pnlPaymentDate.Controls.Add(this.radNew);
             this.pnlPaymentDate.Controls.Add(this.label14);
-            this.pnlPaymentDate.Location = new System.Drawing.Point(34, 120);
+            this.pnlPaymentDate.Location = new System.Drawing.Point(463, 29);
             this.pnlPaymentDate.Name = "pnlPaymentDate";
             this.pnlPaymentDate.Size = new System.Drawing.Size(356, 237);
             this.pnlPaymentDate.TabIndex = 124;
@@ -672,7 +581,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(937, 698);
+            this.ClientSize = new System.Drawing.Size(816, 698);
             this.Controls.Add(this.pnlPaymentDate);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.lblTitle);
@@ -690,10 +599,8 @@
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPayroll)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlPartAddPayroll.ResumeLayout(false);
+            this.pnlPartAddPayroll.PerformLayout();
             this.pnlPaymentDate.ResumeLayout(false);
             this.pnlPaymentDate.PerformLayout();
             this.ResumeLayout(false);
@@ -723,16 +630,8 @@
         private System.Windows.Forms.DateTimePicker dtpFormDate;
         private System.Windows.Forms.DateTimePicker dtpToDate;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblDays;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblFullAmount;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbfullEmp;
-        private System.Windows.Forms.Button btnAddFull;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlPartAddPayroll;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblPartAmount;
@@ -754,5 +653,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn toDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -43,10 +43,11 @@ namespace AuntRosieApp
             relocation(pnlEvent);
             relocation(pnlReportQuery);
             relocation(pnlEmp);
+            relocation(pnlPayroll);
 
-            
-             
-            
+
+
+
             pnlExit.Left=  this.Width- pnlExit.Width ;
             pnlExit.Top = 0 ;
             
@@ -83,6 +84,7 @@ namespace AuntRosieApp
             pnlEvent.Visible = false;
             pnlEmp.Visible = false;
             pnlReportQuery.Visible = false;
+            pnlPayroll.Visible = false;
            
         }
         private void BackToMain(Panel pnl)
@@ -199,7 +201,7 @@ namespace AuntRosieApp
         private void btnShowMain_Click(object sender, EventArgs e)
         {
            
-            if(this.Controls.Count==8)
+            if(this.Controls.Count==9)
             {
                 ShowMainMenu();
                 mnuMain.Visible = true;
@@ -362,8 +364,8 @@ namespace AuntRosieApp
 
         private void btnPayroll_Click(object sender, EventArgs e)
         {
-            AuntRosieApplication.Employment.frmPayroll  form = new AuntRosieApplication.Employment.frmPayroll();
-            ShowForm(form);
+            HidePanels();
+            pnlPayroll.Visible = true;
         }
 
         private void btnManagEmp_Click(object sender, EventArgs e)
@@ -456,6 +458,32 @@ namespace AuntRosieApp
         private void tmnOrginizeEvent_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPayRolMain_Click(object sender, EventArgs e)
+        {
+            BackToMain(pnlPayroll);
+
+        }
+
+        private void pnlInventory_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnParttimer_Click(object sender, EventArgs e)
+        {
+            ShowForm(new AuntRosieApplication.Employment.frmPayroll());
+        }
+
+        private void btnFulltimer_Click(object sender, EventArgs e)
+        {
+            ShowForm(new AuntRosieApplication.Employment.PayRollFull());
+        }
+
+        private void btnQeury_Click(object sender, EventArgs e)
+        {
+            ShowForm(new AuntRosieApplication.Employment.PayrollQueryForm());
         }
     }
 }

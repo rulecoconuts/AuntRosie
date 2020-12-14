@@ -54,91 +54,21 @@ namespace AuntRosieApplication.Employment
             pnlMain.Top = pnlMain.Top + 20;
             relocation(pnlPaymentDate);
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
-            Classes.DBMethod.FillCombBoxPerson(AuntRosieEntities.Employee.GetAllEmployeesByType
-                     (Classes.DBMethod.GetConnectionString(),"F"), cmbfullEmp);
+             
             Classes.DBMethod.FillCombBoxPerson(AuntRosieEntities.Employee.GetAllEmployeesByType
                  (Classes.DBMethod.GetConnectionString(),"P"), cmbPartEmp);
             Classes.DBMethod.FillPaymentmethodCombo(cmbPaymentMethod);
              
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-                if (isValidFullPayroll())
-                {
-                   try
-            {
-                        EmployeePay empPayt = new EmployeePay();
-                        empPayt.EmployeeID = (long)Convert.ToDouble(DBMethod.GetSelectedItemID(cmbfullEmp));
-                        empPayt.ThisPaymentMethod = DBMethod.GetSelectedItemID(cmbPaymentMethod);
-                        empPayt.FromDate = dtpFormDate.Value;
-                        empPayt.ToDate = dtpToDate.Value;
-                        empPayt.Amount = Convert.ToDouble(lblFullAmount.Text.Trim());
-                        empPayt.PaymentDate = DateTime.Today.Date;
-
-                        DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
-                        RosieEntity.Connector = conn;
-                        empPayt.Create();
-                        
-                        FillPayGrid(sqlText);
-                    cmbfullEmp.SelectedItem = null;
-                    lblFullAmount.Text = "";
-                    }catch (Exception ex)
-            {
-                 //MessageBox.Show(ex.Message);
-                MessageBox.Show("The Employee's payroll has been registered for this payment date", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
-         
-                }
-            }
+ 
             
 
         private void dtpToDate_ValueChanged(object sender, EventArgs e)
         {
             getDays();
         }
-
-        private void cmbfullEmp_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbfullEmp.SelectedItem != null)
-            {
-                if (lblDays.Text.Trim() != "")
-
-                {
-                    try
-                    {
-
-                        DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
-                        RosieEntity.Connector = conn;
-                        Employee employee = Employee.Retrieve(DBMethod.GetSelectedItemID(cmbfullEmp));
-
-
-                        double sal = employee.Salary;
-
-                        double amount = (sal / 365) * getDays();
-                        lblFullAmount.Text = String.Format("{0:0.0}", amount.ToString("N"));
-
-
-
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message.ToString());
-                    }
-                }
-                else
-                {
-                    errPayroll.SetError(dtpFormDate, " Select From Date value to detrmin the days");
-                    errPayroll.SetError(dtpToDate, " Select  To Date value to detrmin the days");
-
-
-                }
-            }
-        }
+ 
         private int getDays()
         {
             int days=0;
@@ -237,6 +167,15 @@ namespace AuntRosieApplication.Employment
 
 
             }
+
+            if( lblHour.Text.Trim()=="0")
+                {
+                    pnlPartAddPayroll.Enabled = false;
+                }
+            else
+                {
+                    pnlPartAddPayroll.Enabled = true;
+                }
         }
         }
 
@@ -380,7 +319,8 @@ namespace AuntRosieApplication.Employment
                         DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
                         RosieEntity.Connector = conn;
                         empPayt.Create();
-                                     FillPayGrid(sqlText);
+                        FillPayGrid(sqlText);
+                    updateHourIsPaid("1");
                     cmbPartEmp.SelectedItem = null;
                     lblPartAmount.Text = "";
                     lblHour.Text = "";
@@ -395,6 +335,36 @@ namespace AuntRosieApplication.Employment
                  
             }
             
+        }
+        private void updateHourIsPaid(String isPaid)
+        {
+            SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
+
+            // Create new SQL command
+            SqlCommand command = new SqlCommand("update tblEmployeeHours set isPaid = " + isPaid +
+                " where EventID = (select EventId from tblEvent"+
+                " where EventDate between '"+dtpFormDate.Value.Date.ToShortDateString()+
+                "' and  '"+ dtpToDate.Value.Date.ToShortDateString()+"'); ", dbConnection);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            // Declare a DataTable object that will hold the return value
+                
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("del" + ex.Message);
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
         }
         private bool isValidPartPayroll()
         {
@@ -447,57 +417,7 @@ namespace AuntRosieApplication.Employment
             return isValid;
         }
 
-        private bool isValidFullPayroll()
-        {
-
-            errPayroll.Clear();
-            bool isValid = true;
-            if (cmbfullEmp.Text == "")
-            {
-                errPayroll.SetError(cmbfullEmp, " Select The employee name");
-
-                isValid = false;
-            }
-
-            if (dtpFormDate.Value.Date > DateTime.Today.Date)
-            {
-                errPayroll.SetError(dtpFormDate, " From Date should be before today date");
-                 
-                isValid = false;
-            }
-
-            if (dtpToDate.Value.Date > DateTime.Today.Date)
-            {
-                errPayroll.SetError(dtpToDate, " To Date should be before today date");
-
-                isValid = false;
-            }
-
-            if (lblDays.Text.Trim() != "")
-                if (int.Parse(lblDays.Text) < 1)
-                {
-                    errPayroll.SetError(dtpFormDate, " Select From Date value to detrmin the days ");
-                    errPayroll.SetError(dtpToDate, " Select  To Date value to detrmin the days");
-                    isValid = false;
-                }
-
-            if (lblDays.Text.Trim() == "")
-            {
-                errPayroll.SetError(dtpFormDate, " Select From Date value to detrmin the days");
-                errPayroll.SetError(dtpToDate, " Select  To Date value to detrmin the days");
-                isValid = false;
-            }
-
-            if (cmbPaymentMethod.Text == "")
-            {
-                errPayroll.SetError(cmbPaymentMethod, " SelectThe payment method");
-                isValid = false;
-
-            }
-
-            return isValid;
-        }
-
+        
         private void pnlPaymentDate_Paint(object sender, PaintEventArgs e)
         {
 
@@ -512,6 +432,7 @@ namespace AuntRosieApplication.Employment
         {
             if (e.ColumnIndex == grdPayroll.Columns["Delete"].Index)
             {
+
                 DelPayroll(grdPayroll.Rows[e.RowIndex].Cells[0].Value.ToString());
                 FillPayGrid(sqlText);
                  
@@ -546,7 +467,7 @@ namespace AuntRosieApplication.Employment
                 dbConnection.Close();
             }
 
-
+            updateHourIsPaid("0");
 
         }
     }

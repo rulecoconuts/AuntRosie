@@ -84,6 +84,14 @@
             this.tmnProducation = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnManage = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnQueriesAndReports = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlPayroll = new System.Windows.Forms.Panel();
+            this.btnPayRolMain = new System.Windows.Forms.Button();
+            this.btnFulltimer = new System.Windows.Forms.Button();
+            this.btnParttimer = new System.Windows.Forms.Button();
+            this.btnQeury = new System.Windows.Forms.Button();
+            this.parttimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fulltimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.queriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlInventory.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlKitchen.SuspendLayout();
@@ -92,6 +100,7 @@
             this.pnlReportQuery.SuspendLayout();
             this.pnlExit.SuspendLayout();
             this.mnuMain.SuspendLayout();
+            this.pnlPayroll.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlInventory
@@ -107,6 +116,7 @@
             this.pnlInventory.Size = new System.Drawing.Size(955, 207);
             this.pnlInventory.TabIndex = 9;
             this.pnlInventory.Visible = false;
+            this.pnlInventory.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlInventory_Paint);
             // 
             // btnInventoryContents
             // 
@@ -310,7 +320,7 @@
             this.pnlKitchen.Controls.Add(this.btnProduction);
             this.pnlKitchen.Controls.Add(this.btnKitchenMain);
             this.pnlKitchen.Controls.Add(this.btnKitchenProduct);
-            this.pnlKitchen.Location = new System.Drawing.Point(21, 621);
+            this.pnlKitchen.Location = new System.Drawing.Point(265, 731);
             this.pnlKitchen.Name = "pnlKitchen";
             this.pnlKitchen.Size = new System.Drawing.Size(780, 207);
             this.pnlKitchen.TabIndex = 9;
@@ -721,6 +731,10 @@
             // 
             // mnuPayroll
             // 
+            this.mnuPayroll.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.parttimerToolStripMenuItem,
+            this.fulltimerToolStripMenuItem,
+            this.queriesToolStripMenuItem});
             this.mnuPayroll.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.mnuPayroll.Name = "mnuPayroll";
             this.mnuPayroll.Size = new System.Drawing.Size(290, 28);
@@ -827,6 +841,107 @@
             this.tmnQueriesAndReports.Text = "Reports";
             this.tmnQueriesAndReports.Click += new System.EventHandler(this.tmnQueriesAndReports_Click);
             // 
+            // pnlPayroll
+            // 
+            this.pnlPayroll.BackColor = System.Drawing.Color.Transparent;
+            this.pnlPayroll.Controls.Add(this.btnQeury);
+            this.pnlPayroll.Controls.Add(this.btnPayRolMain);
+            this.pnlPayroll.Controls.Add(this.btnFulltimer);
+            this.pnlPayroll.Controls.Add(this.btnParttimer);
+            this.pnlPayroll.Location = new System.Drawing.Point(64, 113);
+            this.pnlPayroll.Name = "pnlPayroll";
+            this.pnlPayroll.Size = new System.Drawing.Size(775, 207);
+            this.pnlPayroll.TabIndex = 10;
+            this.pnlPayroll.Visible = false;
+            // 
+            // btnPayRolMain
+            // 
+            this.btnPayRolMain.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPayRolMain.BackgroundImage")));
+            this.btnPayRolMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnPayRolMain.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPayRolMain.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnPayRolMain.Image = global::AuntRosieApplication.Properties.Resources.squared_menu;
+            this.btnPayRolMain.Location = new System.Drawing.Point(582, 9);
+            this.btnPayRolMain.Name = "btnPayRolMain";
+            this.btnPayRolMain.Size = new System.Drawing.Size(184, 187);
+            this.btnPayRolMain.TabIndex = 2;
+            this.btnPayRolMain.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnPayRolMain, "Main Panel");
+            this.btnPayRolMain.UseVisualStyleBackColor = true;
+            this.btnPayRolMain.Click += new System.EventHandler(this.btnPayRolMain_Click);
+            // 
+            // btnFulltimer
+            // 
+            this.btnFulltimer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFulltimer.BackgroundImage")));
+            this.btnFulltimer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnFulltimer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFulltimer.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnFulltimer.Image = global::AuntRosieApplication.Properties.Resources.FULL_job;
+            this.btnFulltimer.Location = new System.Drawing.Point(201, 9);
+            this.btnFulltimer.Name = "btnFulltimer";
+            this.btnFulltimer.Size = new System.Drawing.Size(184, 187);
+            this.btnFulltimer.TabIndex = 1;
+            this.btnFulltimer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnFulltimer, "Full Timer Payroll");
+            this.btnFulltimer.UseVisualStyleBackColor = true;
+            this.btnFulltimer.Click += new System.EventHandler(this.btnFulltimer_Click);
+            // 
+            // btnParttimer
+            // 
+            this.btnParttimer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnParttimer.BackgroundImage")));
+            this.btnParttimer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnParttimer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnParttimer.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnParttimer.Image = global::AuntRosieApplication.Properties.Resources.time_1;
+            this.btnParttimer.Location = new System.Drawing.Point(9, 9);
+            this.btnParttimer.Name = "btnParttimer";
+            this.btnParttimer.Size = new System.Drawing.Size(184, 187);
+            this.btnParttimer.TabIndex = 0;
+            this.btnParttimer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnParttimer, "Part Timer Payroll");
+            this.btnParttimer.UseVisualStyleBackColor = true;
+            this.btnParttimer.Click += new System.EventHandler(this.btnParttimer_Click);
+            // 
+            // btnQeury
+            // 
+            this.btnQeury.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnQeury.BackgroundImage")));
+            this.btnQeury.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnQeury.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnQeury.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnQeury.Image = global::AuntRosieApplication.Properties.Resources.short_hair_lady_question_mark;
+            this.btnQeury.Location = new System.Drawing.Point(391, 9);
+            this.btnQeury.Name = "btnQeury";
+            this.btnQeury.Size = new System.Drawing.Size(184, 187);
+            this.btnQeury.TabIndex = 3;
+            this.btnQeury.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnQeury, "PayrollQuery");
+            this.btnQeury.UseVisualStyleBackColor = true;
+            this.btnQeury.Click += new System.EventHandler(this.btnQeury_Click);
+            // 
+            // parttimerToolStripMenuItem
+            // 
+            this.parttimerToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.parttimerToolStripMenuItem.Name = "parttimerToolStripMenuItem";
+            this.parttimerToolStripMenuItem.Size = new System.Drawing.Size(207, 28);
+            this.parttimerToolStripMenuItem.Text = "Part Timer";
+            this.parttimerToolStripMenuItem.Click += new System.EventHandler(this.btnParttimer_Click);
+            // 
+            // fulltimerToolStripMenuItem
+            // 
+            this.fulltimerToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.fulltimerToolStripMenuItem.Name = "fulltimerToolStripMenuItem";
+            this.fulltimerToolStripMenuItem.Size = new System.Drawing.Size(207, 28);
+            this.fulltimerToolStripMenuItem.Text = "Full Timer";
+            this.fulltimerToolStripMenuItem.Click += new System.EventHandler(this.btnFulltimer_Click);
+            // 
+            // queriesToolStripMenuItem
+            // 
+            this.queriesToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.queriesToolStripMenuItem.Name = "queriesToolStripMenuItem";
+            this.queriesToolStripMenuItem.Size = new System.Drawing.Size(201, 28);
+            this.queriesToolStripMenuItem.Text = "Queries";
+            this.queriesToolStripMenuItem.Click += new System.EventHandler(this.btnQeury_Click);
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -834,6 +949,7 @@
             this.AutoScroll = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.Controls.Add(this.pnlPayroll);
             this.Controls.Add(this.pnlReportQuery);
             this.Controls.Add(this.pnlKitchen);
             this.Controls.Add(this.pnlEmp);
@@ -861,6 +977,7 @@
             this.pnlExit.ResumeLayout(false);
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
+            this.pnlPayroll.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -921,5 +1038,13 @@
         private System.Windows.Forms.Button btnNotification;
         private System.Windows.Forms.Button btnViewProduction;
         private System.Windows.Forms.ToolStripMenuItem viewProductionsToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlPayroll;
+        private System.Windows.Forms.Button btnQeury;
+        private System.Windows.Forms.Button btnPayRolMain;
+        private System.Windows.Forms.Button btnFulltimer;
+        private System.Windows.Forms.Button btnParttimer;
+        private System.Windows.Forms.ToolStripMenuItem parttimerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fulltimerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem queriesToolStripMenuItem;
     }
 }

@@ -14,7 +14,7 @@ namespace AuntRosieApplication.Reports
     {
         public frmReports()
         {
-            InitializeComponent();
+             
             this.DoubleBuffered = true;
             InitializeComponent();
         }

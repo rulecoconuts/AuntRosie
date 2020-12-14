@@ -29,6 +29,22 @@ namespace AuntRosieApplication.Classes
 {"Northwest Territories","NT" },
 { "Nunavut","NU"}
             };
+ 
+        public static string[,] MonthsArray = new string[,] {
+                { "January","1"},
+{"February", "2" },
+{"March","3" },
+{"April","4" },
+{"May","5" },
+{"June", "6" },
+{"July","7" },
+{"Agust", "8" },
+{"September","9" },
+{"October","10" },
+{ "November", "11" },
+{"December","12" },
+ 
+            };
 
         /// <summary>
         /// Return connection string
@@ -54,6 +70,21 @@ namespace AuntRosieApplication.Classes
                 AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
                 itm.name = provincesArray[i,0];
                 itm.id = provincesArray[i, 1];
+                cmb.Items.Add((Object)itm);
+            }
+
+
+        }
+
+        public static void FillMonthes(ComboBox cmb)
+        {
+
+
+            for (int i = 0; i < 12; i++)
+            {
+                AuntRosieApplication.Classes.ListItem itm = new AuntRosieApplication.Classes.ListItem();
+                itm.name = MonthsArray[i, 0];
+                itm.id = MonthsArray[i, 1];
                 cmb.Items.Add((Object)itm);
             }
 

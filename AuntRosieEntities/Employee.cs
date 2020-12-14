@@ -237,6 +237,7 @@ namespace AuntRosieEntities
             // Return the populated DataTable
             return IngredintTypeTable;
         }
+
         public override void Update(SqlTransaction transaction = null)
         {
             if (updatePrepCmd is null)
