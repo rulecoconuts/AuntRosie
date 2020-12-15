@@ -261,6 +261,12 @@
     <Compile Include="Kitchen\ManageProductForm.Designer.cs">
       <DependentUpon>ManageProductForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kitchen\ManageProductIngredients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\ManageProductIngredients.Designer.cs">
+      <DependentUpon>ManageProductIngredients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kitchen\ManageProductNutrition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -387,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Kitchen\ManageProductForm.resx">
       <DependentUpon>ManageProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen\ManageProductIngredients.resx">
+      <DependentUpon>ManageProductIngredients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kitchen\ManageProductNutrition.resx">
       <DependentUpon>ManageProductNutrition.cs</DependentUpon>
