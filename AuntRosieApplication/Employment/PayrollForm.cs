@@ -321,10 +321,7 @@ namespace AuntRosieApplication.Employment
                         empPayt.Create();
                         FillPayGrid(sqlText);
                     updateHourIsPaid("1");
-                    cmbPartEmp.SelectedItem = null;
-                    lblPartAmount.Text = "";
-                    lblHour.Text = "";
-                    txtwage.Text = "";
+                    clearData();
                 }
                 catch (Exception ex)
             {
@@ -335,6 +332,13 @@ namespace AuntRosieApplication.Employment
                  
             }
             
+        }
+        private void clearData()
+        {
+            cmbPartEmp.SelectedItem = null;
+            lblPartAmount.Text = "";
+            lblHour.Text = "";
+            txtwage.Text = "";
         }
         private void updateHourIsPaid(String isPaid)
         {
@@ -474,6 +478,11 @@ namespace AuntRosieApplication.Employment
         private void txtwage_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearData();
         }
     }
 }

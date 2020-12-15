@@ -42,6 +42,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtVal = new System.Windows.Forms.TextBox();
             this.grdExpenses = new System.Windows.Forms.DataGridView();
+            this.expenseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentMethodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expenseTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tblMiscellaneousExpenseBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.reportDataSet = new AuntRosieApplication.ReportDataSet();
             this.btnAddFull = new System.Windows.Forms.Button();
             this.chkIsEvent = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,25 +60,18 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.cmbExpensesType = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tblMiscellaneousExpenseBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tblMiscellaneousExpenseTableAdapter = new AuntRosieApplication.ReportDataSetTableAdapters.tblMiscellaneousExpenseTableAdapter();
             this.tblMiscellaneousExpenseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportDataSet = new AuntRosieApplication.ReportDataSet();
             this.tblMiscellaneousExpenseBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.errExpense = new System.Windows.Forms.ErrorProvider(this.components);
             this.label5 = new System.Windows.Forms.Label();
-            this.expenseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentMethodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expenseTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.grbNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdExpenses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblMiscellaneousExpenseBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblMiscellaneousExpenseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblMiscellaneousExpenseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblMiscellaneousExpenseBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errExpense)).BeginInit();
             this.SuspendLayout();
@@ -231,11 +233,72 @@
             this.dataGridViewTextBoxColumn2,
             this.Delete});
             this.grdExpenses.DataSource = this.tblMiscellaneousExpenseBindingSource2;
-            this.grdExpenses.Location = new System.Drawing.Point(23, 431);
+            this.grdExpenses.Location = new System.Drawing.Point(25, 443);
             this.grdExpenses.Name = "grdExpenses";
             this.grdExpenses.Size = new System.Drawing.Size(765, 203);
             this.grdExpenses.TabIndex = 12;
             this.grdExpenses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdExpenses_CellContentClick);
+            // 
+            // expenseIDDataGridViewTextBoxColumn
+            // 
+            this.expenseIDDataGridViewTextBoxColumn.DataPropertyName = "ExpenseID";
+            this.expenseIDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.expenseIDDataGridViewTextBoxColumn.Name = "expenseIDDataGridViewTextBoxColumn";
+            this.expenseIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.expenseIDDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ExpensePayDate";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Pay Date";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "ExpenseValue";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Value";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // paymentMethodDataGridViewTextBoxColumn
+            // 
+            this.paymentMethodDataGridViewTextBoxColumn.DataPropertyName = "PaymentMethod";
+            this.paymentMethodDataGridViewTextBoxColumn.HeaderText = "Payment Method";
+            this.paymentMethodDataGridViewTextBoxColumn.Name = "paymentMethodDataGridViewTextBoxColumn";
+            this.paymentMethodDataGridViewTextBoxColumn.ReadOnly = true;
+            this.paymentMethodDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // expenseTypeDataGridViewTextBoxColumn
+            // 
+            this.expenseTypeDataGridViewTextBoxColumn.DataPropertyName = "ExpenseType";
+            this.expenseTypeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.expenseTypeDataGridViewTextBoxColumn.Name = "expenseTypeDataGridViewTextBoxColumn";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ExpenseNote";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Note";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 200;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Delete";
+            this.Delete.ToolTipText = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 50;
+            // 
+            // tblMiscellaneousExpenseBindingSource2
+            // 
+            this.tblMiscellaneousExpenseBindingSource2.DataMember = "tblMiscellaneousExpense";
+            this.tblMiscellaneousExpenseBindingSource2.DataSource = this.reportDataSet;
+            // 
+            // reportDataSet
+            // 
+            this.reportDataSet.DataSetName = "ReportDataSet";
+            this.reportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnAddFull
             // 
@@ -243,10 +306,11 @@
             this.btnAddFull.FlatAppearance.BorderSize = 0;
             this.btnAddFull.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddFull.Image = global::AuntRosieApplication.Properties.Resources.low_importance;
-            this.btnAddFull.Location = new System.Drawing.Point(695, 384);
+            this.btnAddFull.Location = new System.Drawing.Point(654, 360);
             this.btnAddFull.Name = "btnAddFull";
             this.btnAddFull.Size = new System.Drawing.Size(31, 35);
             this.btnAddFull.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.btnAddFull, "Add Expenses");
             this.btnAddFull.UseVisualStyleBackColor = false;
             this.btnAddFull.Click += new System.EventHandler(this.btnAddFull_Click);
             // 
@@ -280,10 +344,10 @@
             // 
             this.txtNote.BackColor = System.Drawing.SystemColors.Info;
             this.txtNote.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.txtNote.Location = new System.Drawing.Point(231, 361);
+            this.txtNote.Location = new System.Drawing.Point(190, 361);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(458, 64);
+            this.txtNote.Size = new System.Drawing.Size(458, 76);
             this.txtNote.TabIndex = 10;
             this.txtNote.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -348,11 +412,6 @@
             this.label4.TabIndex = 151;
             this.label4.Text = "Expenses Type";
             // 
-            // tblMiscellaneousExpenseBindingSource2
-            // 
-            this.tblMiscellaneousExpenseBindingSource2.DataMember = "tblMiscellaneousExpense";
-            this.tblMiscellaneousExpenseBindingSource2.DataSource = this.reportDataSet;
-            // 
             // tblMiscellaneousExpenseTableAdapter
             // 
             this.tblMiscellaneousExpenseTableAdapter.ClearBeforeFill = true;
@@ -360,11 +419,6 @@
             // tblMiscellaneousExpenseBindingSource
             // 
             this.tblMiscellaneousExpenseBindingSource.DataMember = "tblMiscellaneousExpense";
-            // 
-            // reportDataSet
-            // 
-            this.reportDataSet.DataSetName = "ReportDataSet";
-            this.reportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tblMiscellaneousExpenseBindingSource1
             // 
@@ -388,56 +442,19 @@
             this.label5.TabIndex = 152;
             this.label5.Text = "CAD";
             // 
-            // expenseIDDataGridViewTextBoxColumn
+            // btnClear
             // 
-            this.expenseIDDataGridViewTextBoxColumn.DataPropertyName = "ExpenseID";
-            this.expenseIDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.expenseIDDataGridViewTextBoxColumn.Name = "expenseIDDataGridViewTextBoxColumn";
-            this.expenseIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.expenseIDDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ExpensePayDate";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Pay Date";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ExpenseValue";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Value";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // paymentMethodDataGridViewTextBoxColumn
-            // 
-            this.paymentMethodDataGridViewTextBoxColumn.DataPropertyName = "PaymentMethod";
-            this.paymentMethodDataGridViewTextBoxColumn.HeaderText = "Payment Method";
-            this.paymentMethodDataGridViewTextBoxColumn.Name = "paymentMethodDataGridViewTextBoxColumn";
-            this.paymentMethodDataGridViewTextBoxColumn.ReadOnly = true;
-            this.paymentMethodDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // expenseTypeDataGridViewTextBoxColumn
-            // 
-            this.expenseTypeDataGridViewTextBoxColumn.DataPropertyName = "ExpenseType";
-            this.expenseTypeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.expenseTypeDataGridViewTextBoxColumn.Name = "expenseTypeDataGridViewTextBoxColumn";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ExpenseNote";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Note";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 200;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "Delete";
-            this.Delete.ToolTipText = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
-            this.Delete.Width = 50;
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.delete_sign1;
+            this.btnClear.Location = new System.Drawing.Point(654, 396);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(31, 35);
+            this.btnClear.TabIndex = 153;
+            this.toolTip1.SetToolTip(this.btnClear, "Clear Expenses");
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // frmExpensesManage
             // 
@@ -445,6 +462,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(811, 652);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbExpensesType);
@@ -471,8 +489,8 @@
             this.grbNew.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdExpenses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblMiscellaneousExpenseBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblMiscellaneousExpenseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblMiscellaneousExpenseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblMiscellaneousExpenseBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errExpense)).EndInit();
             this.ResumeLayout(false);
@@ -521,5 +539,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn expenseTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

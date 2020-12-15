@@ -357,8 +357,7 @@ namespace AuntRosieApplication.Employment
                     empPayt.Create();
 
                     FillPayGrid(sqlText);
-                    cmbfullEmp.SelectedItem = null;
-                    lblFullAmount.Text = "";
+                    clearData();
                 }
                 catch (Exception ex)
                 {
@@ -373,6 +372,26 @@ namespace AuntRosieApplication.Employment
         private void btnClose_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void clearData()
+        {
+            cmbfullEmp.SelectedItem = null;
+            cmbMonth.SelectedItem = null;
+            cmbYear.SelectedItem = null;
+            lblEmploymentDate.Text = "";
+            lblFullAmount.Text = "";
+            cmbPaymentMethod.SelectedItem = null;
+        }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearData();
+        }
+
+        private void cmbPaymentDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            payDate = DateTime.Parse(cmbPaymentDate.SelectedItem.ToString());
+
         }
     }
 }

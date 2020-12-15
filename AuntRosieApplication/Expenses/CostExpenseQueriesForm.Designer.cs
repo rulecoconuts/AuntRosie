@@ -56,6 +56,7 @@
             this.pnlPay = new System.Windows.Forms.Panel();
             this.lblITotAmount = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdCost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expCpstQueryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).BeginInit();
@@ -94,7 +95,7 @@
             this.dtpFormDate.Location = new System.Drawing.Point(187, 3);
             this.dtpFormDate.Name = "dtpFormDate";
             this.dtpFormDate.Size = new System.Drawing.Size(330, 26);
-            this.dtpFormDate.TabIndex = 105;
+            this.dtpFormDate.TabIndex = 3;
             // 
             // dtpToDate
             // 
@@ -102,7 +103,7 @@
             this.dtpToDate.Location = new System.Drawing.Point(187, 35);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Size = new System.Drawing.Size(330, 26);
-            this.dtpToDate.TabIndex = 106;
+            this.dtpToDate.TabIndex = 4;
             // 
             // grdCost
             // 
@@ -171,7 +172,7 @@
             this.chkAlltime.Location = new System.Drawing.Point(51, 72);
             this.chkAlltime.Name = "chkAlltime";
             this.chkAlltime.Size = new System.Drawing.Size(149, 19);
-            this.chkAlltime.TabIndex = 110;
+            this.chkAlltime.TabIndex = 1;
             this.chkAlltime.Text = "Not Specific Period";
             this.chkAlltime.UseVisualStyleBackColor = false;
             this.chkAlltime.CheckedChanged += new System.EventHandler(this.chkAlltime_CheckedChanged);
@@ -187,7 +188,7 @@
             this.pnlDate.Location = new System.Drawing.Point(51, 91);
             this.pnlDate.Name = "pnlDate";
             this.pnlDate.Size = new System.Drawing.Size(546, 65);
-            this.pnlDate.TabIndex = 111;
+            this.pnlDate.TabIndex = 2;
             // 
             // expCpstQueryTableAdapter
             // 
@@ -202,7 +203,7 @@
             this.pnlType.Location = new System.Drawing.Point(51, 179);
             this.pnlType.Name = "pnlType";
             this.pnlType.Size = new System.Drawing.Size(546, 47);
-            this.pnlType.TabIndex = 112;
+            this.pnlType.TabIndex = 6;
             // 
             // cmbExpensesType
             // 
@@ -218,7 +219,7 @@
             this.cmbExpensesType.Location = new System.Drawing.Point(187, 6);
             this.cmbExpensesType.Name = "cmbExpensesType";
             this.cmbExpensesType.Size = new System.Drawing.Size(344, 31);
-            this.cmbExpensesType.TabIndex = 124;
+            this.cmbExpensesType.TabIndex = 7;
             this.cmbExpensesType.SelectedIndexChanged += new System.EventHandler(this.cmbExpensesType_SelectedIndexChanged);
             // 
             // label1
@@ -242,7 +243,7 @@
             this.chkExpenType.Location = new System.Drawing.Point(54, 158);
             this.chkExpenType.Name = "chkExpenType";
             this.chkExpenType.Size = new System.Drawing.Size(137, 19);
-            this.chkExpenType.TabIndex = 113;
+            this.chkExpenType.TabIndex = 5;
             this.chkExpenType.Text = "Not Specific Type";
             this.chkExpenType.UseVisualStyleBackColor = false;
             this.chkExpenType.CheckedChanged += new System.EventHandler(this.chkExpenType_CheckedChanged);
@@ -283,6 +284,7 @@
             this.btnAddPart.Name = "btnAddPart";
             this.btnAddPart.Size = new System.Drawing.Size(62, 49);
             this.btnAddPart.TabIndex = 151;
+            this.toolTip1.SetToolTip(this.btnAddPart, "Click to view results");
             this.btnAddPart.UseVisualStyleBackColor = false;
             this.btnAddPart.Click += new System.EventHandler(this.btnAddPart_Click);
             // 
@@ -295,7 +297,7 @@
             this.cmbPaymentMethod.Location = new System.Drawing.Point(184, 5);
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
             this.cmbPaymentMethod.Size = new System.Drawing.Size(345, 31);
-            this.cmbPaymentMethod.TabIndex = 152;
+            this.cmbPaymentMethod.TabIndex = 10;
             this.cmbPaymentMethod.SelectedIndexChanged += new System.EventHandler(this.cmbPaymentMethod_SelectedIndexChanged);
             // 
             // label2
@@ -319,7 +321,7 @@
             this.chkPay.Location = new System.Drawing.Point(54, 230);
             this.chkPay.Name = "chkPay";
             this.chkPay.Size = new System.Drawing.Size(155, 19);
-            this.chkPay.TabIndex = 154;
+            this.chkPay.TabIndex = 8;
             this.chkPay.Text = "Not Specific Method";
             this.chkPay.UseVisualStyleBackColor = false;
             this.chkPay.CheckedChanged += new System.EventHandler(this.chkPay_CheckedChanged);
@@ -333,7 +335,7 @@
             this.pnlPay.Location = new System.Drawing.Point(53, 253);
             this.pnlPay.Name = "pnlPay";
             this.pnlPay.Size = new System.Drawing.Size(546, 47);
-            this.pnlPay.TabIndex = 125;
+            this.pnlPay.TabIndex = 9;
             // 
             // lblITotAmount
             // 
@@ -427,5 +429,6 @@
         private System.Windows.Forms.Panel pnlPay;
         private System.Windows.Forms.Label lblITotAmount;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

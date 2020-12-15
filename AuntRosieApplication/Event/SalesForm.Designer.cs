@@ -194,7 +194,7 @@
             0});
             this.ndpQuanitity.Name = "ndpQuanitity";
             this.ndpQuanitity.Size = new System.Drawing.Size(88, 26);
-            this.ndpQuanitity.TabIndex = 141;
+            this.ndpQuanitity.TabIndex = 10;
             this.ndpQuanitity.Value = new decimal(new int[] {
             1,
             0,
@@ -302,7 +302,7 @@
             this.grdSale.Location = new System.Drawing.Point(0, 77);
             this.grdSale.Name = "grdSale";
             this.grdSale.Size = new System.Drawing.Size(656, 142);
-            this.grdSale.TabIndex = 127;
+            this.grdSale.TabIndex = 12;
             this.grdSale.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSale_CellContentClick);
             // 
             // EventProductID
@@ -390,7 +390,7 @@
             this.btnAddToCart.Location = new System.Drawing.Point(555, 11);
             this.btnAddToCart.Name = "btnAddToCart";
             this.btnAddToCart.Size = new System.Drawing.Size(61, 49);
-            this.btnAddToCart.TabIndex = 123;
+            this.btnAddToCart.TabIndex = 11;
             this.btnAddToCart.UseVisualStyleBackColor = false;
             this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
             // 
@@ -413,7 +413,7 @@
             this.cmbProduct.Location = new System.Drawing.Point(156, 11);
             this.cmbProduct.Name = "cmbProduct";
             this.cmbProduct.Size = new System.Drawing.Size(393, 31);
-            this.cmbProduct.TabIndex = 108;
+            this.cmbProduct.TabIndex = 9;
             this.cmbProduct.SelectedIndexChanged += new System.EventHandler(this.cmbProduct_SelectedIndexChanged);
             // 
             // groupBox1
@@ -440,7 +440,7 @@
             this.cmbPaymentMethod.Location = new System.Drawing.Point(186, 65);
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
             this.cmbPaymentMethod.Size = new System.Drawing.Size(345, 31);
-            this.cmbPaymentMethod.TabIndex = 146;
+            this.cmbPaymentMethod.TabIndex = 8;
             // 
             // label2
             // 
@@ -463,7 +463,7 @@
             this.chkGuest.Location = new System.Drawing.Point(186, 5);
             this.chkGuest.Name = "chkGuest";
             this.chkGuest.Size = new System.Drawing.Size(72, 24);
-            this.chkGuest.TabIndex = 124;
+            this.chkGuest.TabIndex = 5;
             this.chkGuest.Text = "Guest";
             this.chkGuest.UseVisualStyleBackColor = true;
             this.chkGuest.CheckedChanged += new System.EventHandler(this.chkGuest_CheckedChanged);
@@ -478,7 +478,7 @@
             this.btnAddCustomer.Location = new System.Drawing.Point(537, 30);
             this.btnAddCustomer.Name = "btnAddCustomer";
             this.btnAddCustomer.Size = new System.Drawing.Size(41, 31);
-            this.btnAddCustomer.TabIndex = 123;
+            this.btnAddCustomer.TabIndex = 7;
             this.toolTip1.SetToolTip(this.btnAddCustomer, "Add new customer");
             this.btnAddCustomer.UseVisualStyleBackColor = false;
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
@@ -505,7 +505,7 @@
             this.cmbCustomerName.Name = "cmbCustomerName";
             this.cmbCustomerName.Size = new System.Drawing.Size(345, 31);
             this.cmbCustomerName.Sorted = true;
-            this.cmbCustomerName.TabIndex = 108;
+            this.cmbCustomerName.TabIndex = 6;
             this.toolTip1.SetToolTip(this.cmbCustomerName, "Choose Customer or enter  first or last name to filter the names ");
             this.cmbCustomerName.SelectedIndexChanged += new System.EventHandler(this.cmbCustomerName_SelectedIndexChanged);
             this.cmbCustomerName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCustomerName_KeyDown);
@@ -532,7 +532,7 @@
             this.radAll.Location = new System.Drawing.Point(424, 12);
             this.radAll.Name = "radAll";
             this.radAll.Size = new System.Drawing.Size(44, 24);
-            this.radAll.TabIndex = 126;
+            this.radAll.TabIndex = 3;
             this.radAll.Text = "All";
             this.radAll.UseVisualStyleBackColor = true;
             this.radAll.CheckedChanged += new System.EventHandler(this.radAll_CheckedChanged);
@@ -545,7 +545,7 @@
             this.radToday.Location = new System.Drawing.Point(141, 12);
             this.radToday.Name = "radToday";
             this.radToday.Size = new System.Drawing.Size(106, 24);
-            this.radToday.TabIndex = 124;
+            this.radToday.TabIndex = 1;
             this.radToday.TabStop = true;
             this.radToday.Text = "Tody Event";
             this.radToday.UseVisualStyleBackColor = true;
@@ -558,7 +558,7 @@
             this.radLastMonth.Location = new System.Drawing.Point(275, 12);
             this.radLastMonth.Name = "radLastMonth";
             this.radLastMonth.Size = new System.Drawing.Size(107, 24);
-            this.radLastMonth.TabIndex = 123;
+            this.radLastMonth.TabIndex = 2;
             this.radLastMonth.Text = "Last Month";
             this.radLastMonth.UseVisualStyleBackColor = true;
             this.radLastMonth.CheckedChanged += new System.EventHandler(this.radLastMonth_CheckedChanged);
@@ -594,7 +594,7 @@
             this.cmbEventName.Location = new System.Drawing.Point(156, 39);
             this.cmbEventName.Name = "cmbEventName";
             this.cmbEventName.Size = new System.Drawing.Size(500, 31);
-            this.cmbEventName.TabIndex = 108;
+            this.cmbEventName.TabIndex = 4;
             this.cmbEventName.SelectedIndexChanged += new System.EventHandler(this.cmbEventName_SelectedIndexChanged);
             // 
             // pnlButton
@@ -828,7 +828,7 @@
             this.btnClose.Location = new System.Drawing.Point(641, 19);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 50);
-            this.btnClose.TabIndex = 137;
+            this.btnClose.TabIndex = 13;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 

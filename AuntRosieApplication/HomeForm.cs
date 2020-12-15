@@ -203,7 +203,7 @@ namespace AuntRosieApp
         private void btnShowMain_Click(object sender, EventArgs e)
         {
            
-            if(this.Controls.Count==9)
+            if(this.Controls.Count==10)
             {
                 ShowMainMenu();
                 mnuMain.Visible = true;

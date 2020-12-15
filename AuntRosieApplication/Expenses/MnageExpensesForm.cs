@@ -99,8 +99,18 @@ namespace AuntRosieApplication.Expenses
                     newEventExpenses.Create();
 
                 }
+                clearData();
                 fillExpenseGrid();
             }
+        }
+        private void clearData()
+        {
+
+            cmbPaymentMethod.SelectedItem = null;
+            cmbEventName.SelectedItem = null;
+            cmbExpensesType.SelectedItem = null;
+            txtNote.Text = "";
+            txtVal.Text = "";
         }
         private void fillExpenseGrid()
         {
@@ -262,6 +272,11 @@ namespace AuntRosieApplication.Expenses
             
 
             
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearData();
         }
     }
 } 

@@ -645,6 +645,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\delete-sign1.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\ledger.png" />
     <None Include="Resources\estimate.png" />

@@ -120,7 +120,7 @@
             this.cmbEmployeeName.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEmployeeName.Name = "cmbEmployeeName";
             this.cmbEmployeeName.Size = new System.Drawing.Size(320, 31);
-            this.cmbEmployeeName.TabIndex = 123;
+            this.cmbEmployeeName.TabIndex = 3;
             this.cmbEmployeeName.SelectedIndexChanged += new System.EventHandler(this.cmbEmployeeName_SelectedIndexChanged);
             // 
             // radPart
@@ -131,7 +131,7 @@
             this.radPart.Margin = new System.Windows.Forms.Padding(4);
             this.radPart.Name = "radPart";
             this.radPart.Size = new System.Drawing.Size(88, 20);
-            this.radPart.TabIndex = 124;
+            this.radPart.TabIndex = 2;
             this.radPart.Text = "Part Timer";
             this.radPart.UseVisualStyleBackColor = false;
             this.radPart.CheckedChanged += new System.EventHandler(this.radPart_CheckedChanged);
@@ -145,7 +145,7 @@
             this.radFull.Margin = new System.Windows.Forms.Padding(4);
             this.radFull.Name = "radFull";
             this.radFull.Size = new System.Drawing.Size(85, 20);
-            this.radFull.TabIndex = 125;
+            this.radFull.TabIndex = 1;
             this.radFull.TabStop = true;
             this.radFull.Text = "Full Timer";
             this.radFull.UseVisualStyleBackColor = false;
@@ -237,7 +237,7 @@
             this.grdPayrollFull.Name = "grdPayrollFull";
             this.grdPayrollFull.ReadOnly = true;
             this.grdPayrollFull.Size = new System.Drawing.Size(609, 237);
-            this.grdPayrollFull.TabIndex = 127;
+            this.grdPayrollFull.TabIndex = 4;
             // 
             // paymentDateDataGridViewTextBoxColumn1
             // 

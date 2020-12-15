@@ -327,7 +327,7 @@
             this.cmbSupplierName.Location = new System.Drawing.Point(248, 74);
             this.cmbSupplierName.Name = "cmbSupplierName";
             this.cmbSupplierName.Size = new System.Drawing.Size(275, 31);
-            this.cmbSupplierName.TabIndex = 55;
+            this.cmbSupplierName.TabIndex = 0;
             this.toolTip1.SetToolTip(this.cmbSupplierName, "Choose the supplier name");
             this.cmbSupplierName.Visible = false;
             this.cmbSupplierName.SelectedIndexChanged += new System.EventHandler(this.cmbSupplierName_SelectedIndexChanged);

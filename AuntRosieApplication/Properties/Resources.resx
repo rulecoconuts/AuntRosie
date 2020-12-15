@@ -187,6 +187,9 @@
   <data name="delete_sign" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete-sign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="delete_sign1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete-sign1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Dots" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dots.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
