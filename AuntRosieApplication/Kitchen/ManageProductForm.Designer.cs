@@ -36,6 +36,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAddProductSize = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnManageProductIngredients = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -117,6 +118,19 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnManageProductIngredients
+            // 
+            this.btnManageProductIngredients.BackColor = System.Drawing.Color.Teal;
+            this.btnManageProductIngredients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageProductIngredients.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnManageProductIngredients.Location = new System.Drawing.Point(485, 284);
+            this.btnManageProductIngredients.Name = "btnManageProductIngredients";
+            this.btnManageProductIngredients.Size = new System.Drawing.Size(145, 64);
+            this.btnManageProductIngredients.TabIndex = 69;
+            this.btnManageProductIngredients.Text = "Manage Product Ingredients";
+            this.btnManageProductIngredients.UseVisualStyleBackColor = false;
+            this.btnManageProductIngredients.Click += new System.EventHandler(this.btnManageProductIngredients_Click);
+            // 
             // frmManageProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,6 +138,7 @@
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(967, 739);
+            this.Controls.Add(this.btnManageProductIngredients);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAddProductSize);
             this.Controls.Add(this.btnEdit);
@@ -150,5 +165,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAddProductSize;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnManageProductIngredients;
     }
 }

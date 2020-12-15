@@ -55,15 +55,40 @@ namespace AuntRosieEntities
             Connector.Update(query, transaction);
         }
 
+        public static ProductIngredient Retrieve(int productItemID, long ingredientID)
+        {
+            string query = $"select [Quantity], [Unit] from [tblProductIngredient] where [ProductItemID]={productItemID} " +
+                $"and [IngredientID]={ingredientID}";
+
+            ProductIngredient productIngredient = null;
+            SqlDataReader reader = Connector.Retrieve(query);
+            try
+            {
+                if (reader.Read())
+                {
+                    productIngredient = new ProductIngredient();
+                    productIngredient.ProductItemId = reader.GetInt32(0);
+                    productIngredient.IngredientId = reader.GetInt64(1);
+                    productIngredient.Quantity = (double)reader.GetDecimal(2);
+                    productIngredient.Unit = reader.GetString(3);
+                }
+
+            }
+            finally
+            {
+                reader.Close();
+            }
+            return productIngredient;
+        }
+
         public static DataTable GetIngredientsTable(int productItemID)
         {
             DataTable ingredients = new DataTable();
-            string query = "select p.[ProductName] as 'Product Name', concat(psz.[SizeName], '(', psz.[SizeValue], ' ', " +
-                "psz.[Unit], ')') as 'Size', i.[IngredientName] as 'Ingredient Name', it.[TypeName] as 'Type' " +
+            string query = "select pin.[IngredientID] as 'IngredientID', i.[IngredientName] as 'Ingredient Name', " +
+                "it.[TypeName] as 'Type', " +
+                "pin.[Quantity] as 'Quantity', pin.[Unit] as 'Unit' " +
                 "from [tblProductIngredient] pin " +
                 "inner join [tblProductItem] pi on pin.[ProductItemID]=pi.[ProductItemID] " +
-                "inner join [tblProduct] p on p.[ProductID] = pi.[ProductID] " +
-                "inner join [tblProductSize] psz on psz.[SizeID] = pi.[SizeID] " +
                 "inner join [tblIngredient] i on i.[IngredientID]=pin.[IngredientID] " +
                 "inner join [tblIngredientType] it on i.[IngredientTypeID]=it.[IngredientTypeID] " +
                 $"where pin.[ProductItemID]={productItemID}";

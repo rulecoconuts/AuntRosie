@@ -34,6 +34,7 @@
             this.cmbProductName = new System.Windows.Forms.ComboBox();
             this.lblProductName = new System.Windows.Forms.Label();
             this.dtgIngredients = new System.Windows.Forms.DataGridView();
+            this.btnAddIngredient = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgIngredients)).BeginInit();
             this.SuspendLayout();
@@ -77,10 +78,11 @@
             // 
             this.cmbProductName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProductName.FormattingEnabled = true;
-            this.cmbProductName.Location = new System.Drawing.Point(348, 133);
+            this.cmbProductName.Location = new System.Drawing.Point(220, 126);
             this.cmbProductName.Name = "cmbProductName";
-            this.cmbProductName.Size = new System.Drawing.Size(382, 31);
+            this.cmbProductName.Size = new System.Drawing.Size(613, 31);
             this.cmbProductName.TabIndex = 146;
+            this.cmbProductName.SelectedIndexChanged += new System.EventHandler(this.cmbProductName_SelectedIndexChanged);
             // 
             // lblProductName
             // 
@@ -88,7 +90,7 @@
             this.lblProductName.BackColor = System.Drawing.Color.Transparent;
             this.lblProductName.Font = new System.Drawing.Font("Arial", 14.25F);
             this.lblProductName.ForeColor = System.Drawing.Color.Sienna;
-            this.lblProductName.Location = new System.Drawing.Point(266, 137);
+            this.lblProductName.Location = new System.Drawing.Point(138, 130);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(76, 22);
             this.lblProductName.TabIndex = 145;
@@ -96,24 +98,42 @@
             // 
             // dtgIngredients
             // 
+            this.dtgIngredients.AllowUserToAddRows = false;
+            this.dtgIngredients.AllowUserToDeleteRows = false;
             this.dtgIngredients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgIngredients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgIngredients.Location = new System.Drawing.Point(12, 170);
             this.dtgIngredients.Name = "dtgIngredients";
             this.dtgIngredients.Size = new System.Drawing.Size(955, 512);
             this.dtgIngredients.TabIndex = 147;
+            this.dtgIngredients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgIngredients_CellContentClick);
+            // 
+            // btnAddIngredient
+            // 
+            this.btnAddIngredient.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddIngredient.FlatAppearance.BorderSize = 0;
+            this.btnAddIngredient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddIngredient.Image = global::AuntRosieApplication.Properties.Resources.plus__2_;
+            this.btnAddIngredient.Location = new System.Drawing.Point(856, 122);
+            this.btnAddIngredient.Name = "btnAddIngredient";
+            this.btnAddIngredient.Size = new System.Drawing.Size(41, 42);
+            this.btnAddIngredient.TabIndex = 148;
+            this.btnAddIngredient.UseVisualStyleBackColor = false;
+            this.btnAddIngredient.Click += new System.EventHandler(this.btnAddIngredient_Click);
             // 
             // frmManageProductIngredients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 694);
+            this.Controls.Add(this.btnAddIngredient);
             this.Controls.Add(this.dtgIngredients);
             this.Controls.Add(this.cmbProductName);
             this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmManageProductIngredients";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageProductIngredients";
             this.Load += new System.EventHandler(this.frmManageProductIngredients_Load);
             this.panel1.ResumeLayout(false);
@@ -132,5 +152,6 @@
         private System.Windows.Forms.ComboBox cmbProductName;
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.DataGridView dtgIngredients;
+        private System.Windows.Forms.Button btnAddIngredient;
     }
 }
