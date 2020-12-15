@@ -39,6 +39,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnChangeIngredientPrice
@@ -48,9 +57,9 @@
             this.btnChangeIngredientPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeIngredientPrice.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnChangeIngredientPrice.Image = global::AuntRosieApplication.Properties.Resources.price_comparison;
-            this.btnChangeIngredientPrice.Location = new System.Drawing.Point(574, 71);
+            this.btnChangeIngredientPrice.Location = new System.Drawing.Point(384, 72);
             this.btnChangeIngredientPrice.Name = "btnChangeIngredientPrice";
-            this.btnChangeIngredientPrice.Size = new System.Drawing.Size(260, 225);
+            this.btnChangeIngredientPrice.Size = new System.Drawing.Size(165, 150);
             this.btnChangeIngredientPrice.TabIndex = 8;
             this.btnChangeIngredientPrice.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnChangeIngredientPrice, "Changes in the prices of ingredients");
@@ -66,9 +75,9 @@
             this.btnNutrition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNutrition.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnNutrition.Image = global::AuntRosieApplication.Properties.Resources.clothes_tag;
-            this.btnNutrition.Location = new System.Drawing.Point(308, 71);
+            this.btnNutrition.Location = new System.Drawing.Point(213, 72);
             this.btnNutrition.Name = "btnNutrition";
-            this.btnNutrition.Size = new System.Drawing.Size(260, 225);
+            this.btnNutrition.Size = new System.Drawing.Size(165, 150);
             this.btnNutrition.TabIndex = 7;
             this.btnNutrition.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnNutrition, "Nutritional Information per product");
@@ -86,7 +95,7 @@
             this.btnLowStock.Image = global::AuntRosieApplication.Properties.Resources.low_battery;
             this.btnLowStock.Location = new System.Drawing.Point(42, 72);
             this.btnLowStock.Name = "btnLowStock";
-            this.btnLowStock.Size = new System.Drawing.Size(260, 225);
+            this.btnLowStock.Size = new System.Drawing.Size(165, 150);
             this.btnLowStock.TabIndex = 6;
             this.btnLowStock.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnLowStock, "Low stock ingredients");
@@ -102,9 +111,9 @@
             this.btnEmployeeEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmployeeEvent.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnEmployeeEvent.Image = global::AuntRosieApplication.Properties.Resources.workers_male;
-            this.btnEmployeeEvent.Location = new System.Drawing.Point(42, 302);
+            this.btnEmployeeEvent.Location = new System.Drawing.Point(555, 72);
             this.btnEmployeeEvent.Name = "btnEmployeeEvent";
-            this.btnEmployeeEvent.Size = new System.Drawing.Size(260, 225);
+            this.btnEmployeeEvent.Size = new System.Drawing.Size(165, 150);
             this.btnEmployeeEvent.TabIndex = 12;
             this.btnEmployeeEvent.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnEmployeeEvent, "Employees per event location");
@@ -117,9 +126,9 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.button1.Location = new System.Drawing.Point(574, 303);
+            this.button1.Location = new System.Drawing.Point(213, 228);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(260, 225);
+            this.button1.Size = new System.Drawing.Size(165, 150);
             this.button1.TabIndex = 11;
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.UseVisualStyleBackColor = true;
@@ -131,9 +140,9 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.button2.Location = new System.Drawing.Point(308, 302);
+            this.button2.Location = new System.Drawing.Point(42, 228);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(260, 225);
+            this.button2.Size = new System.Drawing.Size(165, 150);
             this.button2.TabIndex = 10;
             this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button2.UseVisualStyleBackColor = true;
@@ -165,12 +174,138 @@
             this.lblTitle.TabIndex = 113;
             this.lblTitle.Text = "Reports";
             // 
+            // button3
+            // 
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.button3.Location = new System.Drawing.Point(555, 228);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(165, 150);
+            this.button3.TabIndex = 115;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.button4.Location = new System.Drawing.Point(384, 228);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(165, 150);
+            this.button4.TabIndex = 114;
+            this.button4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.button5.Location = new System.Drawing.Point(555, 384);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(165, 150);
+            this.button5.TabIndex = 119;
+            this.button5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.button6.Location = new System.Drawing.Point(384, 384);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(165, 150);
+            this.button6.TabIndex = 118;
+            this.button6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.button7.Location = new System.Drawing.Point(213, 384);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(165, 150);
+            this.button7.TabIndex = 117;
+            this.button7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.button8.Location = new System.Drawing.Point(42, 384);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(165, 150);
+            this.button8.TabIndex = 116;
+            this.button8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.button9.Location = new System.Drawing.Point(726, 72);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(165, 150);
+            this.button9.TabIndex = 120;
+            this.button9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button10.BackgroundImage")));
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.button10.Location = new System.Drawing.Point(726, 228);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(165, 150);
+            this.button10.TabIndex = 121;
+            this.button10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button11.BackgroundImage")));
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.button11.Location = new System.Drawing.Point(726, 384);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(165, 150);
+            this.button11.TabIndex = 122;
+            this.button11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button11.UseVisualStyleBackColor = true;
+            // 
             // frmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(874, 552);
+            this.ClientSize = new System.Drawing.Size(925, 561);
+            this.Controls.Add(this.button11);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnEmployeeEvent);
@@ -199,5 +334,14 @@
         private System.Windows.Forms.Button btnEmployeeEvent;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }

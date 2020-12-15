@@ -133,10 +133,12 @@ namespace AuntRosieApplication.Employment
                 {
                     dbConnection.Open();
                     adapter.Fill(dt);
-
+                        btnAddPart.Enabled = true;
                     if (dt.Rows.Count == 0)
-                    {
-                        lblHour.Text = "0.0";
+                        {
+                            btnAddPart.Enabled = false;
+                            lblHour.Text = "0.0";
+
 
                     }
 
