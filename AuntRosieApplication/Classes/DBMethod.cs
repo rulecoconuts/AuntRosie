@@ -176,7 +176,7 @@ namespace AuntRosieApplication.Classes
         {
             AuntRosieApplication.Classes.ListItem itm1 = new AuntRosieApplication.Classes.ListItem();
             itm1.name = "Cash";
-            itm1.id = "r";
+            itm1.id = "c";
             cmb.Items.Add((Object)itm1);
             AuntRosieApplication.Classes.ListItem itm2 = new AuntRosieApplication.Classes.ListItem();
             itm2.name = "Credit Card";

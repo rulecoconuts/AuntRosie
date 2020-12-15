@@ -44,6 +44,8 @@ namespace AuntRosieApplication {
         
         private tblMiscellaneousExpenseDataTable tabletblMiscellaneousExpense;
         
+        private ExpCpstQueryDataTable tableExpCpstQuery;
+        
         private global::System.Data.DataRelation relationFK_tblEventPayroll_Employee;
         
         private global::System.Data.DataRelation relationFK_tblPayroll_Employee;
@@ -107,6 +109,9 @@ namespace AuntRosieApplication {
                 }
                 if ((ds.Tables["tblMiscellaneousExpense"] != null)) {
                     base.Tables.Add(new tblMiscellaneousExpenseDataTable(ds.Tables["tblMiscellaneousExpense"]));
+                }
+                if ((ds.Tables["ExpCpstQuery"] != null)) {
+                    base.Tables.Add(new ExpCpstQueryDataTable(ds.Tables["ExpCpstQuery"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -228,6 +233,16 @@ namespace AuntRosieApplication {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ExpCpstQueryDataTable ExpCpstQuery {
+            get {
+                return this.tableExpCpstQuery;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -323,6 +338,9 @@ namespace AuntRosieApplication {
                 if ((ds.Tables["tblMiscellaneousExpense"] != null)) {
                     base.Tables.Add(new tblMiscellaneousExpenseDataTable(ds.Tables["tblMiscellaneousExpense"]));
                 }
+                if ((ds.Tables["ExpCpstQuery"] != null)) {
+                    base.Tables.Add(new ExpCpstQueryDataTable(ds.Tables["ExpCpstQuery"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -416,6 +434,12 @@ namespace AuntRosieApplication {
                     this.tabletblMiscellaneousExpense.InitVars();
                 }
             }
+            this.tableExpCpstQuery = ((ExpCpstQueryDataTable)(base.Tables["ExpCpstQuery"]));
+            if ((initTable == true)) {
+                if ((this.tableExpCpstQuery != null)) {
+                    this.tableExpCpstQuery.InitVars();
+                }
+            }
             this.relationFK_tblEventPayroll_Employee = this.Relations["FK_tblEventPayroll_Employee"];
             this.relationFK_tblPayroll_Employee = this.Relations["FK_tblPayroll_Employee"];
             this.relationFK_tblPayroll_Employee1 = this.Relations["FK_tblPayroll_Employee1"];
@@ -449,6 +473,8 @@ namespace AuntRosieApplication {
             base.Tables.Add(this.tabletblPayroll);
             this.tabletblMiscellaneousExpense = new tblMiscellaneousExpenseDataTable();
             base.Tables.Add(this.tabletblMiscellaneousExpense);
+            this.tableExpCpstQuery = new ExpCpstQueryDataTable();
+            base.Tables.Add(this.tableExpCpstQuery);
             this.relationFK_tblEventPayroll_Employee = new global::System.Data.DataRelation("FK_tblEventPayroll_Employee", new global::System.Data.DataColumn[] {
                         this.tabletblEmployee.EmployeeIDColumn}, new global::System.Data.DataColumn[] {
                         this.tabletblFullTimePayroll.EmployeeIDColumn}, false);
@@ -520,6 +546,12 @@ namespace AuntRosieApplication {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializetblMiscellaneousExpense() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeExpCpstQuery() {
             return false;
         }
         
@@ -607,6 +639,9 @@ namespace AuntRosieApplication {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void tblMiscellaneousExpenseRowChangeEventHandler(object sender, tblMiscellaneousExpenseRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void ExpCpstQueryRowChangeEventHandler(object sender, ExpCpstQueryRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4236,6 +4271,301 @@ namespace AuntRosieApplication {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ExpCpstQueryDataTable : global::System.Data.TypedTableBase<ExpCpstQueryRow> {
+            
+            private global::System.Data.DataColumn columnPaymentDate;
+            
+            private global::System.Data.DataColumn columnAmount;
+            
+            private global::System.Data.DataColumn columnPaymentMethod;
+            
+            private global::System.Data.DataColumn columnType;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpCpstQueryDataTable() {
+                this.TableName = "ExpCpstQuery";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal ExpCpstQueryDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected ExpCpstQueryDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PaymentDateColumn {
+                get {
+                    return this.columnPaymentDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AmountColumn {
+                get {
+                    return this.columnAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PaymentMethodColumn {
+                get {
+                    return this.columnPaymentMethod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TypeColumn {
+                get {
+                    return this.columnType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpCpstQueryRow this[int index] {
+                get {
+                    return ((ExpCpstQueryRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ExpCpstQueryRowChangeEventHandler ExpCpstQueryRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ExpCpstQueryRowChangeEventHandler ExpCpstQueryRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ExpCpstQueryRowChangeEventHandler ExpCpstQueryRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ExpCpstQueryRowChangeEventHandler ExpCpstQueryRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddExpCpstQueryRow(ExpCpstQueryRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpCpstQueryRow AddExpCpstQueryRow(System.DateTime PaymentDate, decimal Amount, string PaymentMethod, string Type) {
+                ExpCpstQueryRow rowExpCpstQueryRow = ((ExpCpstQueryRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        PaymentDate,
+                        Amount,
+                        PaymentMethod,
+                        Type};
+                rowExpCpstQueryRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowExpCpstQueryRow);
+                return rowExpCpstQueryRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ExpCpstQueryDataTable cln = ((ExpCpstQueryDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ExpCpstQueryDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnPaymentDate = base.Columns["PaymentDate"];
+                this.columnAmount = base.Columns["Amount"];
+                this.columnPaymentMethod = base.Columns["PaymentMethod"];
+                this.columnType = base.Columns["Type"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnPaymentDate = new global::System.Data.DataColumn("PaymentDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentDate);
+                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmount);
+                this.columnPaymentMethod = new global::System.Data.DataColumn("PaymentMethod", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentMethod);
+                this.columnType = new global::System.Data.DataColumn("Type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnType);
+                this.columnPaymentDate.ReadOnly = true;
+                this.columnAmount.ReadOnly = true;
+                this.columnPaymentMethod.ReadOnly = true;
+                this.columnPaymentMethod.MaxLength = 1;
+                this.columnType.ReadOnly = true;
+                this.columnType.MaxLength = 22;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpCpstQueryRow NewExpCpstQueryRow() {
+                return ((ExpCpstQueryRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ExpCpstQueryRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ExpCpstQueryRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ExpCpstQueryRowChanged != null)) {
+                    this.ExpCpstQueryRowChanged(this, new ExpCpstQueryRowChangeEvent(((ExpCpstQueryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ExpCpstQueryRowChanging != null)) {
+                    this.ExpCpstQueryRowChanging(this, new ExpCpstQueryRowChangeEvent(((ExpCpstQueryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ExpCpstQueryRowDeleted != null)) {
+                    this.ExpCpstQueryRowDeleted(this, new ExpCpstQueryRowChangeEvent(((ExpCpstQueryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ExpCpstQueryRowDeleting != null)) {
+                    this.ExpCpstQueryRowDeleting(this, new ExpCpstQueryRowChangeEvent(((ExpCpstQueryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveExpCpstQueryRow(ExpCpstQueryRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ReportDataSet ds = new ReportDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ExpCpstQueryDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class tblEmployeeRow : global::System.Data.DataRow {
@@ -5730,6 +6060,133 @@ namespace AuntRosieApplication {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ExpCpstQueryRow : global::System.Data.DataRow {
+            
+            private ExpCpstQueryDataTable tableExpCpstQuery;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal ExpCpstQueryRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableExpCpstQuery = ((ExpCpstQueryDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime PaymentDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableExpCpstQuery.PaymentDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentDate\' in table \'ExpCpstQuery\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpCpstQuery.PaymentDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Amount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableExpCpstQuery.AmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'ExpCpstQuery\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpCpstQuery.AmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PaymentMethod {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpCpstQuery.PaymentMethodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentMethod\' in table \'ExpCpstQuery\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpCpstQuery.PaymentMethodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Type {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpCpstQuery.TypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Type\' in table \'ExpCpstQuery\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpCpstQuery.TypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPaymentDateNull() {
+                return this.IsNull(this.tableExpCpstQuery.PaymentDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPaymentDateNull() {
+                this[this.tableExpCpstQuery.PaymentDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAmountNull() {
+                return this.IsNull(this.tableExpCpstQuery.AmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAmountNull() {
+                this[this.tableExpCpstQuery.AmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPaymentMethodNull() {
+                return this.IsNull(this.tableExpCpstQuery.PaymentMethodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPaymentMethodNull() {
+                this[this.tableExpCpstQuery.PaymentMethodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTypeNull() {
+                return this.IsNull(this.tableExpCpstQuery.TypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTypeNull() {
+                this[this.tableExpCpstQuery.TypeColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -6055,6 +6512,40 @@ namespace AuntRosieApplication {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public tblMiscellaneousExpenseRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class ExpCpstQueryRowChangeEvent : global::System.EventArgs {
+            
+            private ExpCpstQueryRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpCpstQueryRowChangeEvent(ExpCpstQueryRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpCpstQueryRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -8995,6 +9486,216 @@ WHERE        (ExpensePayDate = @Param1)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(System.DateTime ExpensePayDate, string ExpenseNote, decimal ExpenseValue, long Original_ExpenseID, System.DateTime Original_ExpensePayDate, decimal Original_ExpenseValue) {
             return this.Update(ExpensePayDate, ExpenseNote, ExpenseValue, Original_ExpenseID, Original_ExpensePayDate, Original_ExpenseValue, Original_ExpenseID);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ExpCpstQueryTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public ExpCpstQueryTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ExpCpstQuery";
+            tableMapping.ColumnMappings.Add("PaymentDate", "PaymentDate");
+            tableMapping.ColumnMappings.Add("Amount", "Amount");
+            tableMapping.ColumnMappings.Add("PaymentMethod", "PaymentMethod");
+            tableMapping.ColumnMappings.Add("Type", "Type");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::AuntRosieApplication.Properties.Settings.Default.AuntRosieDBConnectionString1;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        PaymentDate, Amount, CASE WHEN PaymentMethod = 'r' THEN 'Credit' ELSE CASE WHEN PaymentMethod = 'c' THEN 'Casht' ELSE CASE WHEN PaymentMethod = 'd' THEN 'Debit' END END END AS PaymentMethod, 
+                         Type
+FROM            (SELECT        PaymentDate, Amount, PaymentMethod, 'Full Timer Payroll' AS Type
+                          FROM            tblFullTimePayroll
+                          UNION ALL
+                          SELECT        PaymentDate, Amount, PaymentMethod, 'Part Timer Payroll' AS Type
+                          FROM            tblPayroll
+                          UNION ALL
+                          SELECT        ExpensePayDate, ExpenseValue, PaymentMethod, ' Miscellaneous Expense' AS Type
+                          FROM            tblMiscellaneousExpense
+                          UNION ALL
+                          SELECT        PurchaseDate, Cost, PaymentMethod, 'Inventory-in Stock' AS Type
+                          FROM            tblIngredientInventory) AS derivedtbl_1
+WHERE        (PaymentDate BETWEEN @Param3 AND @Param4)
+ORDER BY PaymentDate";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param3", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param4", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ReportDataSet.ExpCpstQueryDataTable dataTable, string Param3, string Param4) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Param3 == null)) {
+                throw new global::System.ArgumentNullException("Param3");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param3));
+            }
+            if ((Param4 == null)) {
+                throw new global::System.ArgumentNullException("Param4");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Param4));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ReportDataSet.ExpCpstQueryDataTable GetData(string Param3, string Param4) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Param3 == null)) {
+                throw new global::System.ArgumentNullException("Param3");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param3));
+            }
+            if ((Param4 == null)) {
+                throw new global::System.ArgumentNullException("Param4");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Param4));
+            }
+            ReportDataSet.ExpCpstQueryDataTable dataTable = new ReportDataSet.ExpCpstQueryDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     
