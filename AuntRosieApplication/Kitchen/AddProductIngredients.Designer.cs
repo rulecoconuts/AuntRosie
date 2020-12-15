@@ -223,6 +223,7 @@
             this.btnBack.Size = new System.Drawing.Size(64, 57);
             this.btnBack.TabIndex = 149;
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // errorProvider1
             // 
@@ -245,6 +246,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddProductIngredients";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddProductIngredients";
             this.Load += new System.EventHandler(this.AddProductIngredients_Load);
             this.panel1.ResumeLayout(false);

@@ -141,17 +141,24 @@ namespace AuntRosieApplication.Kitchen
                     int productItemID = (cmbProductName.SelectedItem as ProductItem).Id;
 
                     ProductIngredient subject = ProductIngredient.Retrieve(productItemID, ingredientId);
-                    subject.Quantity = double.Parse(txtQuantity.Text);
-                    subject.Unit = cmbUnits.SelectedItem as string;
+                    
+                    
 
                     if (subject is null)
                     {
                         //Create new ingredient-product record
+                        subject = new ProductIngredient();
+                        subject.IngredientId = ingredientId;
+                        subject.ProductItemId = productItemID;
+                        subject.Quantity = double.Parse(txtQuantity.Text);
+                        subject.Unit = cmbUnits.SelectedItem as string;
                         subject.Create();
                         MessageBox.Show("Product ingredient added");
                     }
                     else
                     {
+                        subject.Quantity = double.Parse(txtQuantity.Text);
+                        subject.Unit = cmbUnits.SelectedItem as string;
                         subject.Update();
                         MessageBox.Show("Product ingredient updated");
                     }
@@ -181,6 +188,7 @@ namespace AuntRosieApplication.Kitchen
         {
             cmbProductName.DataSource = ProductItem.GetProductItems();
             loadIngredientCmbs();
+            cmbUnits.SelectedIndex = 0;
         }
 
         private void loadIngredientCmbs()
@@ -207,6 +215,13 @@ namespace AuntRosieApplication.Kitchen
         private void cmbProductName_SelectedIndexChanged(object sender, EventArgs e)
         {
             loadIntoForm();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmManageProductIngredients frm = new frmManageProductIngredients(cmbProductName.SelectedItem as ProductItem);
+            frm.ShowDialog();
         }
     }
 }

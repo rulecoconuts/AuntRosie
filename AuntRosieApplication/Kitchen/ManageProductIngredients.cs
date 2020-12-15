@@ -16,6 +16,14 @@ namespace AuntRosieApplication.Kitchen
         private BindingSource ingredientSource = new BindingSource();
         private BindingSource productItemSource = new BindingSource();
 
+        private ProductItem productItemToSelect = null;
+
+        public frmManageProductIngredients(ProductItem productItemToSelect)
+        {
+            this.productItemToSelect = productItemToSelect;
+            InitializeComponent();
+        }
+
         public frmManageProductIngredients()
         {
             InitializeComponent();
@@ -48,6 +56,25 @@ namespace AuntRosieApplication.Kitchen
         private void loadCmb()
         {
             cmbProductName.DataSource = ProductItem.GetProductItems();
+            if(productItemToSelect != null)
+            {
+                selectProductInForm(productItemToSelect);
+            }
+        }
+
+        private void selectProductInForm(ProductItem productItem)
+        {
+            if (productItem != null)
+            {
+                foreach (ProductItem productInCmb in cmbProductName.Items)
+                {
+                    if (productItem.Id == productInCmb.Id)
+                    {
+                        cmbProductName.SelectedItem = productInCmb;
+                        break;
+                    }
+                }
+            }
         }
 
         /// <summary>

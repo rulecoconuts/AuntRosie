@@ -51,8 +51,9 @@ namespace AuntRosieEntities
 
         public override void Update(SqlTransaction transaction = null)
         {
-            string query = $"update [tblProductIngredient] set [Quantity]={Quantity}, [Unit]='{Unit}'";
-            Connector.Update(query, transaction);
+            string query = $"update [tblProductIngredient] set [Quantity]={Quantity}, [Unit]='{Unit}' " +
+                $"where [ProductItemID]={productItemId} and [IngredientID]={ingredientId}";
+            Connector.Update(query);
         }
 
         public static ProductIngredient Retrieve(int productItemID, long ingredientID)
@@ -67,10 +68,10 @@ namespace AuntRosieEntities
                 if (reader.Read())
                 {
                     productIngredient = new ProductIngredient();
-                    productIngredient.ProductItemId = reader.GetInt32(0);
-                    productIngredient.IngredientId = reader.GetInt64(1);
-                    productIngredient.Quantity = (double)reader.GetDecimal(2);
-                    productIngredient.Unit = reader.GetString(3);
+                    productIngredient.ProductItemId = productItemID;
+                    productIngredient.IngredientId = ingredientID;
+                    productIngredient.Quantity = (double)reader.GetDecimal(0);
+                    productIngredient.Unit = reader.GetString(1);
                 }
 
             }
