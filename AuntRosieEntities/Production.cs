@@ -335,6 +335,44 @@ namespace AuntRosieEntities
             return items;
         }
 
+        public static DataTable GetAvailableProductionsTable(long eventID)
+        {
+            DataTable productions = new DataTable();
+            string query = "select * from (select distinct prdtn.[ProductionID] as 'ProductionID', prd.[ProductName] as 'Product Name'," +
+                "concat(prdsz.[SizeName], '(', prdsz.[SizeValue], ' ', prdsz.[Unit], ')') as 'Size'," +
+                "prdtn.[ProductionQuantity] - isnull(aggtmp.[UsedQuantity], 0) as 'Remaining Quantity'," +
+                "prdtn.[ProductionDate] as 'Production Date'," +
+                "prdtn.[ExpiryDate] as 'Expiry Date' " +
+                "from[tblProduction] prdtn " +
+                "inner join[tblProductItem] prdi " +
+                "on prdi.[ProductItemID] = prdtn.[ProductItemID] " +
+                "inner join[tblProduct] prd " +
+                "on prd.[ProductID] = prdi.[ProductID] " +
+                "inner join[tblProductSize] prdsz " +
+                "on prdsz.[SizeID] = prdi.[SizeID] " +
+                "full outer join( " +
+                "select[ProductionID], sum([Quantity]) as 'UsedQuantity' " +
+                "from[tblEventProduct] " +
+                "group by[ProductionID]" +
+                ") aggtmp " +
+                "on aggtmp.[ProductionID] = prdtn.[ProductionID]" +
+                ") tbl " +
+                $"where tbl.[Remaining Quantity] > 0 and tbl.[Expiry Date] > '{DateTime.Now.Date}' and tbl.[ProductionID] not in " +
+                $"(select[ProductionID] from [tblEventProduct] where [EventID] = {eventID})";
+
+            SqlCommand command = new SqlCommand(query, Connector.Connection);
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(productions);
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+            return productions;
+        }
+
         /// <summary>
         /// Get max ID in production table
         /// </summary>

@@ -146,7 +146,9 @@ namespace AuntRosieApplication.Event
             }
             else
             {
-
+                this.Close();
+                Kitchen.frmExistingProduction frm = new Kitchen.frmExistingProduction(RosieEvent);
+                frm.ShowDialog();
             }
         }
 
