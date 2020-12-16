@@ -163,6 +163,16 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Classes\DBMethod.cs" />
+    <Compile Include="CustomerPromos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerPromos.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerPurchases.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerPurchases.rpt</DependentUpon>
+    </Compile>
     <Compile Include="EmpEventRep.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -314,6 +324,18 @@
       <DependentUpon>LowStockRep.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="NutritionInformation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NutritionInformation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProductsToTurnProfit.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductsToTurnProfit.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportDataSet.cs">
@@ -342,9 +364,46 @@
       <DependentUpon>StockReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="TopProductMarket.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TopProductMarket.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TopSellingProducts.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TopSellingProducts.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TotalExpenses.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TotalExpenses.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TotalRevenue.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TotalRevenue.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WorstSellingProducts.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorstSellingProducts.rpt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ChanagepriceRep.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ChanagepriceRep.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerPromos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CustomerPromos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerPurchases.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CustomerPurchases.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="EmpEventRep.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -423,6 +482,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LowStockRep.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="NutritionInformation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NutritionInformation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsToTurnProfit.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ProductsToTurnProfit.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -438,6 +505,26 @@
     <EmbeddedResource Include="StockReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>StockReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopProductMarket.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TopProductMarket.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopSellingProducts.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TopSellingProducts.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotalExpenses.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TotalExpenses.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotalRevenue.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TotalRevenue.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorstSellingProducts.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>WorstSellingProducts.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="AuntRosieDBDataSet.xsc">
       <DependentUpon>AuntRosieDBDataSet.xsd</DependentUpon>
