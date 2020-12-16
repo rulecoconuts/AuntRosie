@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblItemPrice = new System.Windows.Forms.Label();
@@ -109,17 +109,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.errSale)).BeginInit();
             this.SuspendLayout();
             // 
-            // label20
+            // lblTitle
             // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Algerian", 20.25F, System.Drawing.FontStyle.Bold);
-            this.label20.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label20.Location = new System.Drawing.Point(35, 25);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(100, 30);
-            this.label20.TabIndex = 123;
-            this.label20.Text = "Sales";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Algerian", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.lblTitle.Location = new System.Drawing.Point(35, 25);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(100, 30);
+            this.lblTitle.TabIndex = 123;
+            this.lblTitle.Text = "Sales";
             // 
             // pnlMain
             // 
@@ -855,11 +855,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(766, 709);
+            this.ClientSize = new System.Drawing.Size(766, 752);
             this.Controls.Add(this.pnlButton);
             this.Controls.Add(this.pnlNewcustomer);
             this.Controls.Add(this.pnlMain);
-            this.Controls.Add(this.label20);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnClose);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Sienna;
@@ -895,7 +895,7 @@
         private System.Windows.Forms.Panel pnlNewcustomer;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Panel pnlButton;
         private System.Windows.Forms.Button btnClear;
