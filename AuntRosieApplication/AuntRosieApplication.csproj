@@ -732,6 +732,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\sorting-answers.png" />
+    <None Include="Resources\sales-performance--v5.png" />
+    <None Include="Resources\return-purchase.png" />
+    <None Include="Resources\profit-analysis.png" />
+    <None Include="Resources\foreclosure.png" />
+    <None Include="Resources\economic-improvement.png" />
+    <None Include="Resources\customer-insight.png" />
+    <None Include="Resources\aud.png" />
+    <None Include="Resources\used-product.png" />
+    <None Include="Resources\product.png" />
+    <None Include="Resources\sell-stock.png" />
     <None Include="Resources\delete-sign1.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\ledger.png" />

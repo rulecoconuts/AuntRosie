@@ -42,9 +42,9 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnChangeIngredientPrice
@@ -52,12 +52,15 @@
             this.btnChangeIngredientPrice.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnChangeIngredientPrice.BackgroundImage")));
             this.btnChangeIngredientPrice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnChangeIngredientPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeIngredientPrice.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnChangeIngredientPrice.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeIngredientPrice.ForeColor = System.Drawing.Color.SaddleBrown;
             this.btnChangeIngredientPrice.Image = global::AuntRosieApplication.Properties.Resources.price_comparison;
-            this.btnChangeIngredientPrice.Location = new System.Drawing.Point(608, 69);
+            this.btnChangeIngredientPrice.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnChangeIngredientPrice.Location = new System.Drawing.Point(527, 69);
             this.btnChangeIngredientPrice.Name = "btnChangeIngredientPrice";
-            this.btnChangeIngredientPrice.Size = new System.Drawing.Size(176, 150);
+            this.btnChangeIngredientPrice.Size = new System.Drawing.Size(149, 123);
             this.btnChangeIngredientPrice.TabIndex = 8;
+            this.btnChangeIngredientPrice.Text = "Changes in the prices of ingredients";
             this.btnChangeIngredientPrice.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnChangeIngredientPrice, "Changes in the prices of ingredients");
             this.btnChangeIngredientPrice.UseVisualStyleBackColor = true;
@@ -70,12 +73,15 @@
             this.btnNutrition.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNutrition.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnNutrition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNutrition.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnNutrition.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNutrition.ForeColor = System.Drawing.Color.SaddleBrown;
             this.btnNutrition.Image = global::AuntRosieApplication.Properties.Resources.clothes_tag;
-            this.btnNutrition.Location = new System.Drawing.Point(426, 69);
+            this.btnNutrition.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnNutrition.Location = new System.Drawing.Point(372, 69);
             this.btnNutrition.Name = "btnNutrition";
-            this.btnNutrition.Size = new System.Drawing.Size(176, 150);
+            this.btnNutrition.Size = new System.Drawing.Size(149, 123);
             this.btnNutrition.TabIndex = 7;
+            this.btnNutrition.Text = "Nutritional Information per product";
             this.btnNutrition.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnNutrition, "Nutritional Information per product");
             this.btnNutrition.UseVisualStyleBackColor = true;
@@ -88,12 +94,15 @@
             this.btnLowStock.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnLowStock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnLowStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLowStock.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnLowStock.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLowStock.ForeColor = System.Drawing.Color.SaddleBrown;
             this.btnLowStock.Image = global::AuntRosieApplication.Properties.Resources.low_battery;
-            this.btnLowStock.Location = new System.Drawing.Point(244, 69);
+            this.btnLowStock.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLowStock.Location = new System.Drawing.Point(217, 69);
             this.btnLowStock.Name = "btnLowStock";
-            this.btnLowStock.Size = new System.Drawing.Size(176, 150);
+            this.btnLowStock.Size = new System.Drawing.Size(149, 123);
             this.btnLowStock.TabIndex = 6;
+            this.btnLowStock.Text = "Low stock ingredients";
             this.btnLowStock.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnLowStock, "Low stock ingredients");
             this.btnLowStock.UseVisualStyleBackColor = true;
@@ -106,12 +115,15 @@
             this.btnEmployeeEvent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnEmployeeEvent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnEmployeeEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmployeeEvent.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnEmployeeEvent.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmployeeEvent.ForeColor = System.Drawing.Color.SaddleBrown;
             this.btnEmployeeEvent.Image = global::AuntRosieApplication.Properties.Resources.workers_male;
-            this.btnEmployeeEvent.Location = new System.Drawing.Point(608, 384);
+            this.btnEmployeeEvent.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEmployeeEvent.Location = new System.Drawing.Point(527, 198);
             this.btnEmployeeEvent.Name = "btnEmployeeEvent";
-            this.btnEmployeeEvent.Size = new System.Drawing.Size(176, 150);
+            this.btnEmployeeEvent.Size = new System.Drawing.Size(149, 123);
             this.btnEmployeeEvent.TabIndex = 12;
+            this.btnEmployeeEvent.Text = "Employees per event location";
             this.btnEmployeeEvent.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.btnEmployeeEvent, "Employees per event location");
             this.btnEmployeeEvent.UseVisualStyleBackColor = true;
@@ -122,10 +134,13 @@
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.button1.Location = new System.Drawing.Point(62, 384);
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.button1.Image = global::AuntRosieApplication.Properties.Resources.aud;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.Location = new System.Drawing.Point(62, 327);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(176, 150);
+            this.button1.Size = new System.Drawing.Size(149, 123);
             this.button1.TabIndex = 11;
             this.button1.Text = "Total-Revenue";
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -138,10 +153,13 @@
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.button2.Location = new System.Drawing.Point(608, 227);
+            this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.button2.Image = global::AuntRosieApplication.Properties.Resources.used_product;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.Location = new System.Drawing.Point(372, 198);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 150);
+            this.button2.Size = new System.Drawing.Size(149, 123);
             this.button2.TabIndex = 10;
             this.button2.Text = "Worst-Products";
             this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -154,10 +172,13 @@
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.button3.Location = new System.Drawing.Point(244, 384);
+            this.button3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.button3.Image = global::AuntRosieApplication.Properties.Resources.foreclosure;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.Location = new System.Drawing.Point(217, 327);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(176, 150);
+            this.button3.Size = new System.Drawing.Size(149, 123);
             this.button3.TabIndex = 115;
             this.button3.Text = "Total-Expenses";
             this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -170,10 +191,13 @@
             this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.button4.Location = new System.Drawing.Point(426, 384);
+            this.button4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.button4.Image = global::AuntRosieApplication.Properties.Resources.return_purchase;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button4.Location = new System.Drawing.Point(372, 327);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(176, 150);
+            this.button4.Size = new System.Drawing.Size(149, 123);
             this.button4.TabIndex = 114;
             this.button4.Text = "Customer-Purchases";
             this.button4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -186,10 +210,13 @@
             this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
             this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.button8.Location = new System.Drawing.Point(62, 225);
+            this.button8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.button8.Image = global::AuntRosieApplication.Properties.Resources.profit_analysis;
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button8.Location = new System.Drawing.Point(62, 198);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(176, 150);
+            this.button8.Size = new System.Drawing.Size(149, 123);
             this.button8.TabIndex = 116;
             this.button8.Text = "Product-Profit";
             this.button8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -202,10 +229,13 @@
             this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.button9.Location = new System.Drawing.Point(426, 225);
+            this.button9.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.button9.Image = global::AuntRosieApplication.Properties.Resources.customer_insight;
+            this.button9.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button9.Location = new System.Drawing.Point(527, 327);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(176, 150);
+            this.button9.Size = new System.Drawing.Size(149, 123);
             this.button9.TabIndex = 120;
             this.button9.Text = "Customer-Promos";
             this.button9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -218,16 +248,38 @@
             this.button10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button10.BackgroundImage")));
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.button10.Location = new System.Drawing.Point(244, 225);
+            this.button10.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.button10.Image = global::AuntRosieApplication.Properties.Resources.product;
+            this.button10.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button10.Location = new System.Drawing.Point(217, 198);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(176, 150);
+            this.button10.Size = new System.Drawing.Size(149, 123);
             this.button10.TabIndex = 121;
             this.button10.Text = "Top-Products";
             this.button10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.button10, "Top-Products");
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.button5.Image = global::AuntRosieApplication.Properties.Resources.sell_stock;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button5.Location = new System.Drawing.Point(62, 69);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(149, 123);
+            this.button5.TabIndex = 122;
+            this.button5.Text = "Stock Inventory";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.button5, "Stock Inventory");
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnClose
             // 
@@ -236,7 +288,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AuntRosieApplication.Properties.Resources.close_sign;
-            this.btnClose.Location = new System.Drawing.Point(799, 15);
+            this.btnClose.Location = new System.Drawing.Point(683, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 50);
             this.btnClose.TabIndex = 112;
@@ -255,28 +307,12 @@
             this.lblTitle.TabIndex = 113;
             this.lblTitle.Text = "Reports";
             // 
-            // button5
-            // 
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.button5.Location = new System.Drawing.Point(62, 69);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(176, 150);
-            this.button5.TabIndex = 122;
-            this.button5.Text = "Stock Inventory";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolTip1.SetToolTip(this.button5, "Stock Inventory");
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // frmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(925, 541);
+            this.ClientSize = new System.Drawing.Size(746, 482);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);

@@ -14655,48 +14655,28 @@ order by TotalSales asc
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT 
-	
-	-- Represents the total sales from all products sold
-	(dbo.tblProductItem.price*(Count(soldQuantity))) AS totalSales,
-	
-	-- Represents the total products sold
-	COUNT(soldQuantity) AS totalSoldProducts,
-
-	-- Represents the total existing customers
-	(SELECT 
-		COUNT(dbo.tblCustomer.CustomerID) 
-		FROM dbo.tblCustomer
-		WHERE CustomerID!=0) AS existingCustomers,
-
-	-- Total Customers ever
-	(SELECT COUNT(CustomerID) 
-		FROM dbo.tblSale) AS totalCustomers,
-
-	-- Total Events
-	(SELECT COUNT(dbo.tblEvent.EventID) FROM dbo.tblEvent) AS totalEvents,
-
-	-- Total Locations
-	(SELECT COUNT(LocationID)
-		FROM dbo.tblEventLocation) AS totalLocations,
-
-	-- Total Revenue - Expenses
-	((dbo.tblProductItem.price*(Count(soldQuantity))) - ExpenseValue) AS FinalRevenue
-
-FROM dbo.tblProduct
-JOIN dbo.tblProductItem
-	ON tblProductItem.ProductID = tblProduct.ProductID
-JOIN dbo.tblProduction	
-	ON tblProduction.ProductItemID = tblProductItem.ProductItemID
-JOIN dbo.tblEventProduct	
-	ON tblEventProduct.ProductionID = tblProduction.ProductionID
-JOIN dbo.tblSaleProducts
-	ON tblSaleProducts.EventProductID = tblEventProduct.EventProductID
-JOIN dbo.tblEventExpenses
-	ON tblEventExpenses.EventID = tblEventProduct.EventID
-JOIN dbo.tblMiscellaneousExpense
-	ON tblMiscellaneousExpense.ExpenseID = tblEventExpenses.ExpenseID
-GROUP BY ProductType, Price, ExpenseValue";
+            this._commandCollection[0].CommandText = "SELECT        tblProductItem.Price * COUNT(tblEventProduct.soldQuantity) AS total" +
+                "Sales, COUNT(tblEventProduct.soldQuantity) AS totalSoldProducts,\r\n              " +
+                "               (SELECT        COUNT(CustomerID) AS Expr1\r\n                      " +
+                "         FROM            tblCustomer\r\n                               WHERE      " +
+                "  (CustomerID <> 0)) AS existingCustomers,\r\n                             (SELECT" +
+                "        COUNT(CustomerID) AS Expr1\r\n                               FROM         " +
+                "   tblSale) AS totalCustomers,\r\n                             (SELECT        COUN" +
+                "T(EventID) AS Expr1\r\n                               FROM            tblEvent) AS" +
+                " totalEvents,\r\n                             (SELECT        COUNT(LocationID) AS " +
+                "Expr1\r\n                               FROM            tblEventLocation) AS total" +
+                "Locations, tblProductItem.Price * COUNT(tblEventProduct.soldQuantity) - tblMisce" +
+                "llaneousExpense.ExpenseValue AS FinalRevenue\r\nFROM            tblProduct INNER J" +
+                "OIN\r\n                         tblProductItem ON tblProductItem.ProductID = tblPr" +
+                "oduct.ProductID INNER JOIN\r\n                         tblProduction ON tblProduct" +
+                "ion.ProductItemID = tblProductItem.ProductItemID INNER JOIN\r\n                   " +
+                "      tblEventProduct ON tblEventProduct.ProductionID = tblProduction.Production" +
+                "ID INNER JOIN\r\n                         tblSaleProducts ON tblSaleProducts.Event" +
+                "ProductID = tblEventProduct.EventProductID INNER JOIN\r\n                         " +
+                "tblEventExpenses ON tblEventExpenses.EventID = tblEventProduct.EventID INNER JOI" +
+                "N\r\n                         tblMiscellaneousExpense ON tblMiscellaneousExpense.E" +
+                "xpenseID = tblEventExpenses.ExpenseID\r\nGROUP BY tblProduct.ProductType, tblProdu" +
+                "ctItem.Price, tblMiscellaneousExpense.ExpenseValue";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

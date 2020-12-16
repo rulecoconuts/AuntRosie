@@ -113,6 +113,16 @@ namespace AuntRosieApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap aud {
+            get {
+                object obj = ResourceManager.GetObject("aud", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap background2 {
             get {
                 object obj = ResourceManager.GetObject("background2", resourceCulture);
@@ -282,6 +292,16 @@ namespace AuntRosieApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap customer_insight {
+            get {
+                object obj = ResourceManager.GetObject("customer_insight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete_sign {
             get {
                 object obj = ResourceManager.GetObject("delete_sign", resourceCulture);
@@ -325,6 +345,16 @@ namespace AuntRosieApplication.Properties {
         internal static System.Drawing.Bitmap download {
             get {
                 object obj = ResourceManager.GetObject("download", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap economic_improvement {
+            get {
+                object obj = ResourceManager.GetObject("economic_improvement", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -435,6 +465,16 @@ namespace AuntRosieApplication.Properties {
         internal static System.Drawing.Bitmap finish_flag {
             get {
                 object obj = ResourceManager.GetObject("finish_flag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap foreclosure {
+            get {
+                object obj = ResourceManager.GetObject("foreclosure", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -722,9 +762,29 @@ namespace AuntRosieApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap product {
+            get {
+                object obj = ResourceManager.GetObject("product", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Production_Lines {
             get {
                 object obj = ResourceManager.GetObject("Production_Lines", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap profit_analysis {
+            get {
+                object obj = ResourceManager.GetObject("profit_analysis", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -782,9 +842,29 @@ namespace AuntRosieApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap return_purchase {
+            get {
+                object obj = ResourceManager.GetObject("return_purchase", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sales_channels {
             get {
                 object obj = ResourceManager.GetObject("sales_channels", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sales_performance__v5 {
+            get {
+                object obj = ResourceManager.GetObject("sales_performance__v5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -805,6 +885,16 @@ namespace AuntRosieApplication.Properties {
         internal static System.Drawing.Bitmap search {
             get {
                 object obj = ResourceManager.GetObject("search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sell_stock {
+            get {
+                object obj = ResourceManager.GetObject("sell_stock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -835,6 +925,16 @@ namespace AuntRosieApplication.Properties {
         internal static System.Drawing.Bitmap shutdown {
             get {
                 object obj = ResourceManager.GetObject("shutdown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sorting_answers {
+            get {
+                object obj = ResourceManager.GetObject("sorting_answers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -895,6 +995,16 @@ namespace AuntRosieApplication.Properties {
         internal static System.Drawing.Bitmap time_machine__v2 {
             get {
                 object obj = ResourceManager.GetObject("time_machine__v2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap used_product {
+            get {
+                object obj = ResourceManager.GetObject("used_product", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
