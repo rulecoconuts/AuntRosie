@@ -53,6 +53,7 @@
             this.btnManagEmp = new System.Windows.Forms.Button();
             this.btnPayroll = new System.Windows.Forms.Button();
             this.pnlEvent = new System.Windows.Forms.Panel();
+            this.btnEstmite = new System.Windows.Forms.Button();
             this.btnEventMAin = new System.Windows.Forms.Button();
             this.btnOrgEvent = new System.Windows.Forms.Button();
             this.btnSale = new System.Windows.Forms.Button();
@@ -73,6 +74,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnCostQyuery = new System.Windows.Forms.Button();
             this.btnMiscellaneousExpenses = new System.Windows.Forms.Button();
+            this.btnProfitQuery = new System.Windows.Forms.Button();
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.tmnInventory = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnInventoryStock = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,11 +88,13 @@
             this.queriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnManageEmployee = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnEvent = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmnSales = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnOrginizeEvent = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmnSales = new System.Windows.Forms.ToolStripMenuItem();
+            this.profitByEventToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnExpenses = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousExpensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nsesAndCostsQueriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revnueQueriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnKitchen = new System.Windows.Forms.ToolStripMenuItem();
             this.viewProductionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnProducation = new System.Windows.Forms.ToolStripMenuItem();
@@ -215,7 +219,7 @@
             this.pnlMain.Controls.Add(this.btnEvent);
             this.pnlMain.Controls.Add(this.btnEmployment);
             this.pnlMain.Controls.Add(this.btnInventory);
-            this.pnlMain.Location = new System.Drawing.Point(360, 576);
+            this.pnlMain.Location = new System.Drawing.Point(165, 63);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(819, 478);
             this.pnlMain.TabIndex = 9;
@@ -265,7 +269,7 @@
             this.btnExpenses.Size = new System.Drawing.Size(260, 225);
             this.btnExpenses.TabIndex = 3;
             this.btnExpenses.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolTip1.SetToolTip(this.btnExpenses, "Expenses");
+            this.toolTip1.SetToolTip(this.btnExpenses, "Expenses and Revenue");
             this.btnExpenses.UseVisualStyleBackColor = true;
             this.btnExpenses.Click += new System.EventHandler(this.btnExpenses_Click);
             // 
@@ -461,14 +465,31 @@
             // pnlEvent
             // 
             this.pnlEvent.BackColor = System.Drawing.Color.Transparent;
+            this.pnlEvent.Controls.Add(this.btnEstmite);
             this.pnlEvent.Controls.Add(this.btnEventMAin);
             this.pnlEvent.Controls.Add(this.btnOrgEvent);
             this.pnlEvent.Controls.Add(this.btnSale);
-            this.pnlEvent.Location = new System.Drawing.Point(12, 409);
+            this.pnlEvent.Location = new System.Drawing.Point(100, 409);
             this.pnlEvent.Name = "pnlEvent";
-            this.pnlEvent.Size = new System.Drawing.Size(582, 207);
+            this.pnlEvent.Size = new System.Drawing.Size(781, 207);
             this.pnlEvent.TabIndex = 9;
             this.pnlEvent.Visible = false;
+            // 
+            // btnEstmite
+            // 
+            this.btnEstmite.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEstmite.BackgroundImage")));
+            this.btnEstmite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnEstmite.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEstmite.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnEstmite.Image = global::AuntRosieApplication.Properties.Resources.estimate;
+            this.btnEstmite.Location = new System.Drawing.Point(202, 3);
+            this.btnEstmite.Name = "btnEstmite";
+            this.btnEstmite.Size = new System.Drawing.Size(184, 187);
+            this.btnEstmite.TabIndex = 3;
+            this.btnEstmite.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnEstmite, "Estimate Event Profit");
+            this.btnEstmite.UseVisualStyleBackColor = true;
+            this.btnEstmite.Click += new System.EventHandler(this.btnEstmite_Click);
             // 
             // btnEventMAin
             // 
@@ -477,7 +498,7 @@
             this.btnEventMAin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEventMAin.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnEventMAin.Image = global::AuntRosieApplication.Properties.Resources.squared_menu;
-            this.btnEventMAin.Location = new System.Drawing.Point(388, 9);
+            this.btnEventMAin.Location = new System.Drawing.Point(582, 3);
             this.btnEventMAin.Name = "btnEventMAin";
             this.btnEventMAin.Size = new System.Drawing.Size(184, 187);
             this.btnEventMAin.TabIndex = 2;
@@ -493,7 +514,7 @@
             this.btnOrgEvent.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOrgEvent.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnOrgEvent.Image = global::AuntRosieApplication.Properties.Resources.event_declined;
-            this.btnOrgEvent.Location = new System.Drawing.Point(199, 9);
+            this.btnOrgEvent.Location = new System.Drawing.Point(12, 3);
             this.btnOrgEvent.Name = "btnOrgEvent";
             this.btnOrgEvent.Size = new System.Drawing.Size(184, 187);
             this.btnOrgEvent.TabIndex = 1;
@@ -509,7 +530,7 @@
             this.btnSale.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSale.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.btnSale.Image = global::AuntRosieApplication.Properties.Resources.receipt;
-            this.btnSale.Location = new System.Drawing.Point(9, 9);
+            this.btnSale.Location = new System.Drawing.Point(392, 3);
             this.btnSale.Name = "btnSale";
             this.btnSale.Size = new System.Drawing.Size(184, 187);
             this.btnSale.TabIndex = 0;
@@ -725,7 +746,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.button2.Image = global::AuntRosieApplication.Properties.Resources.squared_menu;
-            this.button2.Location = new System.Drawing.Point(395, 9);
+            this.button2.Location = new System.Drawing.Point(581, 9);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(184, 187);
             this.button2.TabIndex = 2;
@@ -765,6 +786,22 @@
             this.toolTip1.SetToolTip(this.btnMiscellaneousExpenses, "Miscellaneous Expenses");
             this.btnMiscellaneousExpenses.UseVisualStyleBackColor = true;
             this.btnMiscellaneousExpenses.Click += new System.EventHandler(this.btnMiscellaneousExpenses_Click);
+            // 
+            // btnProfitQuery
+            // 
+            this.btnProfitQuery.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProfitQuery.BackgroundImage")));
+            this.btnProfitQuery.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnProfitQuery.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnProfitQuery.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnProfitQuery.Image = global::AuntRosieApplication.Properties.Resources.economic_improvement;
+            this.btnProfitQuery.Location = new System.Drawing.Point(391, 9);
+            this.btnProfitQuery.Name = "btnProfitQuery";
+            this.btnProfitQuery.Size = new System.Drawing.Size(184, 187);
+            this.btnProfitQuery.TabIndex = 3;
+            this.btnProfitQuery.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnProfitQuery, "Expenses and Costs Queries");
+            this.btnProfitQuery.UseVisualStyleBackColor = true;
+            this.btnProfitQuery.Click += new System.EventHandler(this.btnProfitQuery_Click_1);
             // 
             // mnuMain
             // 
@@ -899,8 +936,9 @@
             // tmnEvent
             // 
             this.tmnEvent.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tmnOrginizeEvent,
             this.tmnSales,
-            this.tmnOrginizeEvent});
+            this.profitByEventToolStripMenuItem});
             this.tmnEvent.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnEvent.Name = "tmnEvent";
             this.tmnEvent.Size = new System.Drawing.Size(91, 28);
@@ -908,34 +946,45 @@
             this.tmnEvent.Click += new System.EventHandler(this.tmnEvent_Click);
             this.tmnEvent.MouseEnter += new System.EventHandler(this.eventToolStripMenuItem_MouseEnter);
             // 
-            // tmnSales
-            // 
-            this.tmnSales.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.tmnSales.Name = "tmnSales";
-            this.tmnSales.Size = new System.Drawing.Size(254, 28);
-            this.tmnSales.Text = "Sales";
-            this.tmnSales.MouseEnter += new System.EventHandler(this.tmnSales_MouseEnter);
-            this.tmnSales.MouseLeave += new System.EventHandler(this.tmnOrginizeEvent_MouseLeave);
-            // 
             // tmnOrginizeEvent
             // 
             this.tmnOrginizeEvent.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnOrginizeEvent.Name = "tmnOrginizeEvent";
-            this.tmnOrginizeEvent.Size = new System.Drawing.Size(254, 28);
+            this.tmnOrginizeEvent.Size = new System.Drawing.Size(342, 28);
             this.tmnOrginizeEvent.Text = "Orginize Event";
             this.tmnOrginizeEvent.Click += new System.EventHandler(this.tmnOrginizeEvent_Click);
             this.tmnOrginizeEvent.MouseEnter += new System.EventHandler(this.tmnOrginizeEvent_MouseEnter);
             this.tmnOrginizeEvent.MouseLeave += new System.EventHandler(this.tmnOrginizeEvent_MouseLeave);
             // 
+            // tmnSales
+            // 
+            this.tmnSales.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.tmnSales.Name = "tmnSales";
+            this.tmnSales.Size = new System.Drawing.Size(342, 28);
+            this.tmnSales.Text = "Sales";
+            this.tmnSales.MouseEnter += new System.EventHandler(this.tmnSales_MouseEnter);
+            this.tmnSales.MouseLeave += new System.EventHandler(this.tmnOrginizeEvent_MouseLeave);
+            // 
+            // profitByEventToolStripMenuItem
+            // 
+            this.profitByEventToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.profitByEventToolStripMenuItem.Name = "profitByEventToolStripMenuItem";
+            this.profitByEventToolStripMenuItem.Size = new System.Drawing.Size(342, 28);
+            this.profitByEventToolStripMenuItem.Text = "Estimate Event Profit";
+            this.profitByEventToolStripMenuItem.Click += new System.EventHandler(this.btnEstmite_Click);
+            // 
             // tmnExpenses
             // 
             this.tmnExpenses.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miscellaneousExpensesToolStripMenuItem,
-            this.nsesAndCostsQueriesToolStripMenuItem});
+            this.nsesAndCostsQueriesToolStripMenuItem,
+            this.revnueQueriesToolStripMenuItem});
             this.tmnExpenses.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.tmnExpenses.Name = "tmnExpenses";
-            this.tmnExpenses.Size = new System.Drawing.Size(133, 28);
-            this.tmnExpenses.Text = "Expenses";
+            this.tmnExpenses.Size = new System.Drawing.Size(274, 28);
+            this.tmnExpenses.Text = "Expenses and Revnue";
+            this.tmnExpenses.Click += new System.EventHandler(this.tmnExpenses_Click);
+            this.tmnExpenses.MouseEnter += new System.EventHandler(this.tmnExpenses_MouseEnter);
             // 
             // miscellaneousExpensesToolStripMenuItem
             // 
@@ -952,6 +1001,13 @@
             this.nsesAndCostsQueriesToolStripMenuItem.Size = new System.Drawing.Size(410, 28);
             this.nsesAndCostsQueriesToolStripMenuItem.Text = "Expenses and Costs Queries";
             this.nsesAndCostsQueriesToolStripMenuItem.Click += new System.EventHandler(this.btnCostQyuery_Click);
+            // 
+            // revnueQueriesToolStripMenuItem
+            // 
+            this.revnueQueriesToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.revnueQueriesToolStripMenuItem.Name = "revnueQueriesToolStripMenuItem";
+            this.revnueQueriesToolStripMenuItem.Size = new System.Drawing.Size(410, 28);
+            this.revnueQueriesToolStripMenuItem.Text = "Profit Queries";
             // 
             // tmnKitchen
             // 
@@ -1019,12 +1075,13 @@
             // pnlExpensses
             // 
             this.pnlExpensses.BackColor = System.Drawing.Color.Transparent;
+            this.pnlExpensses.Controls.Add(this.btnProfitQuery);
             this.pnlExpensses.Controls.Add(this.button2);
             this.pnlExpensses.Controls.Add(this.btnCostQyuery);
             this.pnlExpensses.Controls.Add(this.btnMiscellaneousExpenses);
             this.pnlExpensses.Location = new System.Drawing.Point(24, 113);
             this.pnlExpensses.Name = "pnlExpensses";
-            this.pnlExpensses.Size = new System.Drawing.Size(590, 207);
+            this.pnlExpensses.Size = new System.Drawing.Size(771, 207);
             this.pnlExpensses.TabIndex = 11;
             this.pnlExpensses.Visible = false;
             // 
@@ -1035,14 +1092,14 @@
             this.AutoScroll = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1386, 788);
-            this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlExpensses);
+            this.Controls.Add(this.pnlEvent);
+            this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlPayroll);
             this.Controls.Add(this.pnlReportQuery);
             this.Controls.Add(this.pnlKitchen);
             this.Controls.Add(this.pnlEmp);
             this.Controls.Add(this.pnlInventory);
-            this.Controls.Add(this.pnlEvent);
             this.Controls.Add(this.pnlExit);
             this.Controls.Add(this.mnuMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1140,5 +1197,9 @@
         private System.Windows.Forms.Button btnMiscellaneousExpenses;
         private System.Windows.Forms.ToolStripMenuItem miscellaneousExpensesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nsesAndCostsQueriesToolStripMenuItem;
+        private System.Windows.Forms.Button btnEstmite;
+        private System.Windows.Forms.ToolStripMenuItem profitByEventToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem revnueQueriesToolStripMenuItem;
+        private System.Windows.Forms.Button btnProfitQuery;
     }
 }

@@ -349,6 +349,81 @@ namespace AuntRosieEntities
         /// </summary>
         /// <param name="conStr"></param>
         /// <returns></returns>
+        public static DataTable GetAllEventbeforeDate(String conStr, string dateTo)
+        {
+            // Declare the connection
+            SqlConnection dbConnection = new SqlConnection(conStr);
+
+            // Create new SQL command
+            SqlCommand command = new SqlCommand("SELECT * FROM [tblEvent] where [EventDate] <= " +
+                "'" + dateTo + "' order by [EventDate] DESC", dbConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            // Declare a DataTable object that will hold the return value
+            DataTable CustomerTable = new DataTable();
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                adapter.Fill(CustomerTable);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+            // Return the populated DataTable
+            return CustomerTable;
+        }
+
+        ///
+        /// <summary>
+        /// Get All EventBy date
+        /// </summary>
+        /// <param name="conStr"></param>
+        /// <returns></returns>
+        public static DataTable GetAllEventAfterDate(String conStr, string dateFrom)
+        {
+            // Declare the connection
+            SqlConnection dbConnection = new SqlConnection(conStr);
+
+            // Create new SQL command
+            SqlCommand command = new SqlCommand("SELECT * FROM [tblEvent] where [EventDate] > " +
+                "'" + dateFrom + "' order by [EventDate] DESC", dbConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            // Declare a DataTable object that will hold the return value
+            DataTable CustomerTable = new DataTable();
+
+            // Try to connect to the database, and use the adapter to fill the table
+            try
+            {
+                dbConnection.Open();
+                adapter.Fill(CustomerTable);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
+
+            // Return the populated DataTable
+            return CustomerTable;
+        }
+        ///
+        /// <summary>
+        /// Get All EventBy date
+        /// </summary>
+        /// <param name="conStr"></param>
+        /// <returns></returns>
         public static DataTable GetAllEvent(String conStr)
         {
             // Declare the connection

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/**
+ * @author Mervat Mustafa
+ * @description This form used to manage the suppliers data
+ * @since 2020-December
+ */
+using System;
+ 
 using System.Windows.Forms;
 using AuntRosieEntities;
 using AuntRosieApplication.Classes;

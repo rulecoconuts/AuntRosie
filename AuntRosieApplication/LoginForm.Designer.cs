@@ -28,15 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlLoginBox = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.err1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             this.pnlLoginBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.err1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlLoginBox
@@ -45,7 +49,7 @@
             this.pnlLoginBox.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
             this.pnlLoginBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlLoginBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlLoginBox.Controls.Add(this.textBox1);
+            this.pnlLoginBox.Controls.Add(this.txtPassword);
             this.pnlLoginBox.Controls.Add(this.lblTitle);
             this.pnlLoginBox.Controls.Add(this.btnCancel);
             this.pnlLoginBox.Controls.Add(this.btnLogin);
@@ -58,14 +62,14 @@
             this.pnlLoginBox.TabIndex = 0;
             this.pnlLoginBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLoginBox_Paint);
             // 
-            // textBox1
+            // txtPassword
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(201, 162);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(188, 29);
-            this.textBox1.TabIndex = 6;
+            this.txtPassword.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(201, 162);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(188, 29);
+            this.txtPassword.TabIndex = 6;
             // 
             // lblTitle
             // 
@@ -116,6 +120,7 @@
             // 
             // cmbType
             // 
+            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.Font = new System.Drawing.Font("Arial Narrow", 14.25F);
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Items.AddRange(new object[] {
@@ -150,6 +155,17 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "User &Type";
             // 
+            // err1
+            // 
+            this.err1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.err1.ContainerControl = this;
+            // 
+            // directorySearcher1
+            // 
+            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,6 +181,7 @@
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.pnlLoginBox.ResumeLayout(false);
             this.pnlLoginBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.err1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,6 +195,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.ErrorProvider err1;
+        private System.DirectoryServices.DirectorySearcher directorySearcher1;
     }
 }

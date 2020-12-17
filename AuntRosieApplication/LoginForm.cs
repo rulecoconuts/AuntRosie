@@ -47,12 +47,40 @@ namespace AuntRosieApplication
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
-            AuntRosieApp.frmHome form = new AuntRosieApp.frmHome();
-            form.ShowDialog();
-            this.Close();
+            if (isValidEntry())
+            {
+                AuntRosieApplication.Classes.DBMethod.UserType = cmbType.SelectedItem.ToString();
+                AuntRosieApp.frmHome form = new AuntRosieApp.frmHome();
+                form.ShowDialog();
+                this.Close();
+            }
         }
+         private bool isValidEntry()
+        {
+            bool isValid = true;
+            if (txtPassword.Text == "")
+            {
+                err1.SetError(txtPassword, " Please Enter the password");
+                isValid = false;
 
+            }
+            else if (txtPassword.Text != "password")
+            {
+                err1.SetError(txtPassword, "Wrong password !, try agin");
+                txtPassword.Focus();
+                isValid = false;
+                
+            }
+
+            if (cmbType.SelectedItem == null)
+                {
+                    err1.SetError(cmbType, " Please Select The User type");
+                    isValid = false;
+
+                }
+            return isValid;
+             
+        }
         private void pnlLoginBox_Paint(object sender, PaintEventArgs e)
         {
 

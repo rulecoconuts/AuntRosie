@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * @author Mervat Mustafa
+ * @description This form used to pay fro the partTimer employee
+ * @since 2020-November
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -485,6 +490,12 @@ namespace AuntRosieApplication.Employment
         private void btnClear_Click(object sender, EventArgs e)
         {
             clearData();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pnlPaymentDate.Visible = true;
+            pnlMain.Enabled = false;
         }
     }
 }

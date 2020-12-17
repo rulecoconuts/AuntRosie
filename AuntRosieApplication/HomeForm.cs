@@ -33,7 +33,22 @@ namespace AuntRosieApp
         }
         private void frmHome_Load(object sender, EventArgs e)
         {
-           
+
+
+
+            if (AuntRosieApplication.Classes.DBMethod.UserType != "Admin")
+            {
+                pnlExpensses.Enabled = false;
+                tmnExpenses.Enabled = false;
+                btnQueryAndreport.Enabled = false;
+                tmnQueriesAndReports.Enabled = false;
+                mnuPayroll.Enabled = false;
+                btnOrgEvent.Enabled = false;
+                tmnOrginizeEvent.Enabled = false;
+                btnPayroll.Enabled = false;
+                btnInventoryIn.Enabled = false;
+                tmnInventoryIn.Enabled = false;
+             }
             ShowMainMenu();
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.sweet;
             this.DoubleBuffered = false;
@@ -502,6 +517,32 @@ namespace AuntRosieApp
         {
 
             ShowForm(new AuntRosieApplication.Expenses.frmCostExpenseQueries());
+        }
+
+        private void tmnExpenses_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEstmite_Click(object sender, EventArgs e)
+        {
+            ShowForm(new AuntRosieApplication.Event.EstimateEventProfitForm());
+        }
+
+        private void btnProfitQuery_Click(object sender, EventArgs e)
+        {
+                }
+
+        private void btnProfitQuery_Click_1(object sender, EventArgs e)
+        {
+       ShowForm(new AuntRosieApplication.Expenses.ProfitQueriesForm());
+   
+        }
+
+        private void tmnExpenses_MouseEnter(object sender, EventArgs e)
+        {
+            HidePanels();
+            pnlExpensses.Show();
         }
     }
 }

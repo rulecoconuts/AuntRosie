@@ -131,6 +131,7 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
@@ -163,6 +164,18 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Classes\DBMethod.cs" />
+    <Compile Include="CustomerPromos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerPromos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomerPurchases.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerPurchases.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EmpEventRep.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -192,6 +205,12 @@
     </Compile>
     <Compile Include="Employment\PayrollQueryForm.Designer.cs">
       <DependentUpon>PayrollQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Event\EstimateEventProfitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Event\EstimateEventProfitForm.Designer.cs">
+      <DependentUpon>EstimateEventProfitForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Event\OrganizeEventStep3Form.cs">
       <SubType>Form</SubType>
@@ -234,6 +253,12 @@
     </Compile>
     <Compile Include="Expenses\MnageExpensesForm.Designer.cs">
       <DependentUpon>MnageExpensesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\ProfitQueriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses\ProfitQueriesForm.Designer.cs">
+      <DependentUpon>ProfitQueriesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
@@ -350,6 +375,18 @@
       <DependentUpon>LowStockRep.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="NutritionInformation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NutritionInformation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProductsToTurnProfit.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductsToTurnProfit.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportDataSet.cs">
@@ -378,9 +415,47 @@
       <DependentUpon>StockReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="TopProductMarket.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TopProductMarket.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TopSellingProducts.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TopSellingProducts.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TotalExpenses.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TotalExpenses.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TotalRevenue.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TotalRevenue.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WorstSellingProducts.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorstSellingProducts.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="ChanagepriceRep.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ChanagepriceRep.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerPromos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CustomerPromos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerPurchases.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CustomerPurchases.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="EmpEventRep.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -397,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employment\PayrollQueryForm.resx">
       <DependentUpon>PayrollQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Event\EstimateEventProfitForm.resx">
+      <DependentUpon>EstimateEventProfitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Event\OrganizeEventForm.resx">
       <DependentUpon>OrganizeEventForm.cs</DependentUpon>
@@ -418,6 +496,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Expenses\MnageExpensesForm.resx">
       <DependentUpon>MnageExpensesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses\ProfitQueriesForm.resx">
+      <DependentUpon>ProfitQueriesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -477,6 +558,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>LowStockRep.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="NutritionInformation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NutritionInformation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsToTurnProfit.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ProductsToTurnProfit.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -492,6 +581,26 @@
     <EmbeddedResource Include="StockReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>StockReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopProductMarket.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TopProductMarket.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopSellingProducts.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TopSellingProducts.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotalExpenses.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TotalExpenses.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotalRevenue.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TotalRevenue.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorstSellingProducts.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>WorstSellingProducts.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="AuntRosieDBDataSet.xsc">
       <DependentUpon>AuntRosieDBDataSet.xsd</DependentUpon>
@@ -616,9 +725,6 @@
     <None Include="Resources\question-mark.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\receipt.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Report.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -699,10 +805,24 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\economic-improvement.png" />
+    <None Include="Resources\ok-message.png" />
+    <None Include="Resources\apple-calculator.png" />
+    <None Include="Resources\receipt.png" />
+    <None Include="Resources\estimate.png" />
+    <None Include="Resources\sorting-answers.png" />
+    <None Include="Resources\sales-performance--v5.png" />
+    <None Include="Resources\return-purchase.png" />
+    <None Include="Resources\profit-analysis.png" />
+    <None Include="Resources\foreclosure.png" />
+    <None Include="Resources\customer-insight.png" />
+    <None Include="Resources\aud.png" />
+    <None Include="Resources\used-product.png" />
+    <None Include="Resources\product.png" />
+    <None Include="Resources\sell-stock.png" />
     <None Include="Resources\delete-sign1.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\ledger.png" />
-    <None Include="Resources\estimate.png" />
     <None Include="Resources\time-1.png" />
     <None Include="Resources\FULL-job.png" />
     <None Include="Resources\more-than.png" />
