@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PayRollFull));
             this.lblFullAmount = new System.Windows.Forms.Label();
             this.cmbfullEmp = new System.Windows.Forms.ComboBox();
@@ -74,6 +74,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tblFullTimePayrollTableAdapter = new AuntRosieApplication.ReportDataSetTableAdapters.tblFullTimePayrollTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdPayroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblFullTimePayrollBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).BeginInit();
@@ -187,7 +188,7 @@
             this.grdPayroll.ReadOnly = true;
             this.grdPayroll.Size = new System.Drawing.Size(665, 150);
             this.grdPayroll.TabIndex = 9;
-            this.grdPayroll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPayroll_CellContentClick_1);
+            this.grdPayroll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPayroll_CellContentClick);
             // 
             // employeeIDDataGridViewTextBoxColumn
             // 
@@ -243,10 +244,10 @@
             // 
             // Delete
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle3;
             this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Delete.HeaderText = "Delete";
             this.Delete.Name = "Delete";
@@ -277,7 +278,7 @@
             this.pnlPaymentDate.Controls.Add(this.radExists);
             this.pnlPaymentDate.Controls.Add(this.radNew);
             this.pnlPaymentDate.Controls.Add(this.label14);
-            this.pnlPaymentDate.Location = new System.Drawing.Point(385, 35);
+            this.pnlPaymentDate.Location = new System.Drawing.Point(230, 52);
             this.pnlPaymentDate.Name = "pnlPaymentDate";
             this.pnlPaymentDate.Size = new System.Drawing.Size(359, 237);
             this.pnlPaymentDate.TabIndex = 128;
@@ -563,12 +564,28 @@
             // 
             this.tblFullTimePayrollTableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::AuntRosieApplication.Properties.Resources.help;
+            this.button1.Location = new System.Drawing.Point(673, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(46, 41);
+            this.button1.TabIndex = 129;
+            this.toolTip1.SetToolTip(this.button1, "To pick another payroll");
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PayRollFull
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(789, 633);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlPaymentDate);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
@@ -643,5 +660,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button button1;
     }
 }

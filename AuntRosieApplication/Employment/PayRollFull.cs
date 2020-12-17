@@ -4,18 +4,13 @@
  * @since 2020-December
  */
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+ 
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+ 
 using System.Windows.Forms;
 using AuntRosieEntities;
 using AuntRosieApplication.Classes;
-
-using System.Data.OleDb;
+ 
 using System.Data.SqlClient;
 
 
@@ -207,20 +202,27 @@ namespace AuntRosieApplication.Employment
         {
             if (e.ColumnIndex == grdPayroll.Columns["Delete"].Index)
             {
-                DelPayroll(grdPayroll.Rows[e.RowIndex].Cells[0].Value.ToString());
+                DelPayroll(grdPayroll.Rows[e.RowIndex].Cells[0].Value.ToString(),
+                    grdPayroll.Rows[e.RowIndex].Cells[3].Value.ToString(),
+                    grdPayroll.Rows[e.RowIndex].Cells[4].Value.ToString(),
+                    grdPayroll.Rows[e.RowIndex].Cells[5].Value.ToString()) ;
                 FillPayGrid(sqlText);
 
             }
         }
 
-        private void DelPayroll(string id)
+        private void DelPayroll(string id, string year, string month, string biweek)
         {
             SqlConnection dbConnection = new SqlConnection(DBMethod.GetConnectionString());
 
+            if (biweek == "First 2 weeks")
+                biweek = "1";
+            else
+                biweek="2";
             // Create new SQL command
-            SqlCommand command = new SqlCommand(" Delete from tblPayroll where EmployeeId=" + id +
-                "and PaymentDate='" + payDate + "'", dbConnection);
-
+            SqlCommand command = new SqlCommand(" Delete from [tblFullTimePayroll] where EmployeeId=" + id +
+                " and Month=" + month + " and Year="+ year +" and BiweekNo=" + biweek, dbConnection);
+            
             SqlDataAdapter adapter = new SqlDataAdapter(command);
 
             // Declare a DataTable object that will hold the return value
@@ -306,12 +308,7 @@ namespace AuntRosieApplication.Employment
         {
 
         }
-
-        private void grdPayroll_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+         
         private void pnlMain_Paint_1(object sender, PaintEventArgs e)
         {
 
@@ -397,6 +394,12 @@ namespace AuntRosieApplication.Employment
         {
             payDate = DateTime.Parse(cmbPaymentDate.SelectedItem.ToString());
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pnlPaymentDate.Visible = true;
+            pnlMain.Enabled = false;
         }
     }
 }
