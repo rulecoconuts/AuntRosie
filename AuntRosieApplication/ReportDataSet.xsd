@@ -629,10 +629,11 @@ ORDER BY tblEvent.EventDate</CommandText>
               <DbSource ConnectionRef="AuntRosieDBConnectionString1 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        tblProduct.ProductName, tblProduct.ServingSize, tblProductNutrition.Value, tblNutrition.NutritionName, tblProduct.ProductID, tblProduct.ProductType
+                    <CommandText>SELECT        tblProduct.ProductName, tblProduct.ProductType, tblProductNutrition.Value, tblNutrition.NutritionName, tblProduct.ServingSize, tblProduct.ProductID
 FROM            tblNutrition INNER JOIN
-                         tblProductNutrition ON tblNutrition.NutritionID = tblProductNutrition.NutritionID RIGHT OUTER JOIN
-                         tblProduct ON tblProductNutrition.ProductID = tblProduct.ProductID</CommandText>
+                         tblProductNutrition ON tblNutrition.NutritionID = tblProductNutrition.NutritionID INNER JOIN
+                         tblProductItem ON tblProductNutrition.ProductItemID = tblProductItem.ProductItemID INNER JOIN
+                         tblProduct ON tblProductItem.ProductID = tblProduct.ProductID</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -640,11 +641,11 @@ FROM            tblNutrition INNER JOIN
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="ProductName" DataSetColumn="ProductName" />
-              <Mapping SourceColumn="ServingSize" DataSetColumn="ServingSize" />
               <Mapping SourceColumn="Value" DataSetColumn="Value" />
               <Mapping SourceColumn="NutritionName" DataSetColumn="NutritionName" />
-              <Mapping SourceColumn="ProductID" DataSetColumn="ProductID" />
               <Mapping SourceColumn="ProductType" DataSetColumn="ProductType" />
+              <Mapping SourceColumn="ServingSize" DataSetColumn="ServingSize" />
+              <Mapping SourceColumn="ProductID" DataSetColumn="ProductID" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1344,22 +1345,14 @@ GROUP BY EventName,
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ServingSize" msprop:Generator_ColumnVarNameInTable="columnServingSize" msprop:Generator_ColumnPropNameInRow="ServingSize" msprop:Generator_ColumnPropNameInTable="ServingSizeColumn" msprop:Generator_UserColumnName="ServingSize">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnPropNameInTable="ValueColumn" msprop:Generator_UserColumnName="Value" type="xs:decimal" minOccurs="0" />
-              <xs:element name="NutritionName" msprop:Generator_ColumnVarNameInTable="columnNutritionName" msprop:Generator_ColumnPropNameInRow="NutritionName" msprop:Generator_ColumnPropNameInTable="NutritionNameColumn" msprop:Generator_UserColumnName="NutritionName" minOccurs="0">
+              <xs:element name="NutritionName" msprop:Generator_ColumnVarNameInTable="columnNutritionName" msprop:Generator_ColumnPropNameInRow="NutritionName" msprop:Generator_ColumnPropNameInTable="NutritionNameColumn" msprop:Generator_UserColumnName="NutritionName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ProductID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProductID" msprop:Generator_ColumnPropNameInRow="ProductID" msprop:Generator_ColumnPropNameInTable="ProductIDColumn" msprop:Generator_UserColumnName="ProductID" type="xs:short" />
               <xs:element name="ProductType" msprop:Generator_ColumnVarNameInTable="columnProductType" msprop:Generator_ColumnPropNameInRow="ProductType" msprop:Generator_ColumnPropNameInTable="ProductTypeColumn" msprop:Generator_UserColumnName="ProductType">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1367,6 +1360,14 @@ GROUP BY EventName,
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="ServingSize" msprop:Generator_ColumnVarNameInTable="columnServingSize" msprop:Generator_ColumnPropNameInRow="ServingSize" msprop:Generator_ColumnPropNameInTable="ServingSizeColumn" msprop:Generator_UserColumnName="ServingSize">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProductID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProductID" msprop:Generator_ColumnPropNameInRow="ProductID" msprop:Generator_ColumnPropNameInTable="ProductIDColumn" msprop:Generator_UserColumnName="ProductID" type="xs:short" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1539,10 +1540,6 @@ GROUP BY EventName,
     <xs:unique name="tblMiscellaneousExpense_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:tblMiscellaneousExpense" />
       <xs:field xpath="mstns:ExpenseID" />
-    </xs:unique>
-    <xs:unique name="NutritionInformation_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:NutritionInformation" />
-      <xs:field xpath="mstns:ProductID" />
     </xs:unique>
     <xs:unique name="CustomerNumberOfPurchases_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:CustomerNumberOfPurchases" />

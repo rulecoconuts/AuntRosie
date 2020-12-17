@@ -5822,15 +5822,15 @@ namespace AuntRosieApplication {
             
             private global::System.Data.DataColumn columnProductName;
             
-            private global::System.Data.DataColumn columnServingSize;
-            
             private global::System.Data.DataColumn columnValue;
             
             private global::System.Data.DataColumn columnNutritionName;
             
-            private global::System.Data.DataColumn columnProductID;
-            
             private global::System.Data.DataColumn columnProductType;
+            
+            private global::System.Data.DataColumn columnServingSize;
+            
+            private global::System.Data.DataColumn columnProductID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -5875,14 +5875,6 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ServingSizeColumn {
-                get {
-                    return this.columnServingSize;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn ValueColumn {
                 get {
                     return this.columnValue;
@@ -5899,17 +5891,25 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ProductIDColumn {
+            public global::System.Data.DataColumn ProductTypeColumn {
                 get {
-                    return this.columnProductID;
+                    return this.columnProductType;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ProductTypeColumn {
+            public global::System.Data.DataColumn ServingSizeColumn {
                 get {
-                    return this.columnProductType;
+                    return this.columnServingSize;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ProductIDColumn {
+                get {
+                    return this.columnProductID;
                 }
             }
             
@@ -5950,25 +5950,18 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NutritionInformationRow AddNutritionInformationRow(string ProductName, string ServingSize, decimal Value, string NutritionName, string ProductType) {
+            public NutritionInformationRow AddNutritionInformationRow(string ProductName, decimal Value, string NutritionName, string ProductType, string ServingSize) {
                 NutritionInformationRow rowNutritionInformationRow = ((NutritionInformationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ProductName,
-                        ServingSize,
                         Value,
                         NutritionName,
-                        null,
-                        ProductType};
+                        ProductType,
+                        ServingSize,
+                        null};
                 rowNutritionInformationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNutritionInformationRow);
                 return rowNutritionInformationRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NutritionInformationRow FindByProductID(short ProductID) {
-                return ((NutritionInformationRow)(this.Rows.Find(new object[] {
-                            ProductID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5989,11 +5982,11 @@ namespace AuntRosieApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnProductName = base.Columns["ProductName"];
-                this.columnServingSize = base.Columns["ServingSize"];
                 this.columnValue = base.Columns["Value"];
                 this.columnNutritionName = base.Columns["NutritionName"];
-                this.columnProductID = base.Columns["ProductID"];
                 this.columnProductType = base.Columns["ProductType"];
+                this.columnServingSize = base.Columns["ServingSize"];
+                this.columnProductID = base.Columns["ProductID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6001,31 +5994,29 @@ namespace AuntRosieApplication {
             private void InitClass() {
                 this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductName);
-                this.columnServingSize = new global::System.Data.DataColumn("ServingSize", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnServingSize);
                 this.columnValue = new global::System.Data.DataColumn("Value", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnValue);
                 this.columnNutritionName = new global::System.Data.DataColumn("NutritionName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNutritionName);
-                this.columnProductID = new global::System.Data.DataColumn("ProductID", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProductID);
                 this.columnProductType = new global::System.Data.DataColumn("ProductType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductType);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnProductID}, true));
+                this.columnServingSize = new global::System.Data.DataColumn("ServingSize", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnServingSize);
+                this.columnProductID = new global::System.Data.DataColumn("ProductID", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductID);
                 this.columnProductName.AllowDBNull = false;
                 this.columnProductName.MaxLength = 100;
+                this.columnNutritionName.AllowDBNull = false;
+                this.columnNutritionName.MaxLength = 50;
+                this.columnProductType.AllowDBNull = false;
+                this.columnProductType.MaxLength = 50;
                 this.columnServingSize.AllowDBNull = false;
                 this.columnServingSize.MaxLength = 20;
-                this.columnNutritionName.MaxLength = 50;
                 this.columnProductID.AutoIncrement = true;
                 this.columnProductID.AutoIncrementSeed = -1;
                 this.columnProductID.AutoIncrementStep = -1;
                 this.columnProductID.AllowDBNull = false;
                 this.columnProductID.ReadOnly = true;
-                this.columnProductID.Unique = true;
-                this.columnProductType.AllowDBNull = false;
-                this.columnProductType.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9722,17 +9713,6 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ServingSize {
-                get {
-                    return ((string)(this[this.tableNutritionInformation.ServingSizeColumn]));
-                }
-                set {
-                    this[this.tableNutritionInformation.ServingSizeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal Value {
                 get {
                     try {
@@ -9751,26 +9731,10 @@ namespace AuntRosieApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string NutritionName {
                 get {
-                    try {
-                        return ((string)(this[this.tableNutritionInformation.NutritionNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NutritionName\' in table \'NutritionInformation\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableNutritionInformation.NutritionNameColumn]));
                 }
                 set {
                     this[this.tableNutritionInformation.NutritionNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public short ProductID {
-                get {
-                    return ((short)(this[this.tableNutritionInformation.ProductIDColumn]));
-                }
-                set {
-                    this[this.tableNutritionInformation.ProductIDColumn] = value;
                 }
             }
             
@@ -9787,6 +9751,28 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ServingSize {
+                get {
+                    return ((string)(this[this.tableNutritionInformation.ServingSizeColumn]));
+                }
+                set {
+                    this[this.tableNutritionInformation.ServingSizeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public short ProductID {
+                get {
+                    return ((short)(this[this.tableNutritionInformation.ProductIDColumn]));
+                }
+                set {
+                    this[this.tableNutritionInformation.ProductIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsValueNull() {
                 return this.IsNull(this.tableNutritionInformation.ValueColumn);
             }
@@ -9795,18 +9781,6 @@ namespace AuntRosieApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetValueNull() {
                 this[this.tableNutritionInformation.ValueColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNutritionNameNull() {
-                return this.IsNull(this.tableNutritionInformation.NutritionNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNutritionNameNull() {
-                this[this.tableNutritionInformation.NutritionNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -14952,11 +14926,11 @@ ORDER BY tblEvent.EventDate";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "NutritionInformation";
             tableMapping.ColumnMappings.Add("ProductName", "ProductName");
-            tableMapping.ColumnMappings.Add("ServingSize", "ServingSize");
             tableMapping.ColumnMappings.Add("Value", "Value");
             tableMapping.ColumnMappings.Add("NutritionName", "NutritionName");
-            tableMapping.ColumnMappings.Add("ProductID", "ProductID");
             tableMapping.ColumnMappings.Add("ProductType", "ProductType");
+            tableMapping.ColumnMappings.Add("ServingSize", "ServingSize");
+            tableMapping.ColumnMappings.Add("ProductID", "ProductID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -14973,10 +14947,11 @@ ORDER BY tblEvent.EventDate";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        tblProduct.ProductName, tblProduct.ServingSize, tblProductNutrition.Value, tblNutrition.NutritionName, tblProduct.ProductID, tblProduct.ProductType
+            this._commandCollection[0].CommandText = @"SELECT        tblProduct.ProductName, tblProduct.ProductType, tblProductNutrition.Value, tblNutrition.NutritionName, tblProduct.ServingSize, tblProduct.ProductID
 FROM            tblNutrition INNER JOIN
-                         tblProductNutrition ON tblNutrition.NutritionID = tblProductNutrition.NutritionID RIGHT OUTER JOIN
-                         tblProduct ON tblProductNutrition.ProductID = tblProduct.ProductID";
+                         tblProductNutrition ON tblNutrition.NutritionID = tblProductNutrition.NutritionID INNER JOIN
+                         tblProductItem ON tblProductNutrition.ProductItemID = tblProductItem.ProductItemID INNER JOIN
+                         tblProduct ON tblProductItem.ProductID = tblProduct.ProductID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
