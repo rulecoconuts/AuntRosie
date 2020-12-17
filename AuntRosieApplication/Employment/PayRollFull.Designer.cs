@@ -69,11 +69,11 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radFirst = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClear = new System.Windows.Forms.Button();
             this.lblEmploymentDate = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tblFullTimePayrollTableAdapter = new AuntRosieApplication.ReportDataSetTableAdapters.tblFullTimePayrollTableAdapter();
-            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdPayroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblFullTimePayrollBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportDataSet)).BeginInit();
@@ -277,7 +277,7 @@
             this.pnlPaymentDate.Controls.Add(this.radExists);
             this.pnlPaymentDate.Controls.Add(this.radNew);
             this.pnlPaymentDate.Controls.Add(this.label14);
-            this.pnlPaymentDate.Location = new System.Drawing.Point(325, 11);
+            this.pnlPaymentDate.Location = new System.Drawing.Point(385, 35);
             this.pnlPaymentDate.Name = "pnlPaymentDate";
             this.pnlPaymentDate.Size = new System.Drawing.Size(359, 237);
             this.pnlPaymentDate.TabIndex = 128;
@@ -514,6 +514,20 @@
             this.panel1.TabIndex = 109;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.delete_sign1;
+            this.btnClear.Location = new System.Drawing.Point(464, 12);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(31, 35);
+            this.btnClear.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.btnClear, "Clear Expenses");
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // lblEmploymentDate
             // 
             this.lblEmploymentDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -548,20 +562,6 @@
             // tblFullTimePayrollTableAdapter
             // 
             this.tblFullTimePayrollTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.Transparent;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.delete_sign1;
-            this.btnClear.Location = new System.Drawing.Point(464, 12);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(31, 35);
-            this.btnClear.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.btnClear, "Clear Expenses");
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // PayRollFull
             // 

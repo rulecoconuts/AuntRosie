@@ -79,16 +79,23 @@ namespace AuntRosieApplication.Expenses
         {
             if (isValidExpense())
             {
-                AuntRosieEntities.Expense newExpenses = new AuntRosieEntities.Expense();
-                newExpenses.PaymentDate =  DateTime.Parse(dtpFormDate.Value.Date.ToShortDateString());
-                newExpenses.PayValue = double.Parse(txtVal.Text.Trim().ToString());
-                newExpenses.ThisPaymentMethod = DBMethod.GetSelectedItemID(cmbPaymentMethod);
-                newExpenses.PayType = DBMethod.GetSelectedItemID(cmbExpensesType);
-                newExpenses.Note = txtNote.Text.Trim().ToString();
-                DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
-                RosieEntity.Connector = conn;
-                newExpenses.Create();
-                ExpenseID = Expense.RetrieveMax();
+               
+                    AuntRosieEntities.Expense newExpenses = new AuntRosieEntities.Expense();
+                    newExpenses.PaymentDate = DateTime.Parse(dtpFormDate.Value.Date.ToShortDateString());
+                    newExpenses.PayValue = double.Parse(txtVal.Text.Trim().ToString());
+                    newExpenses.ThisPaymentMethod = DBMethod.GetSelectedItemID(cmbPaymentMethod);
+                    newExpenses.PayType = DBMethod.GetSelectedItemID(cmbExpensesType);
+                    newExpenses.Note = txtNote.Text.Trim().ToString();
+                    DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                    RosieEntity.Connector = conn;
+                   try
+                {  newExpenses.Create();
+                    ExpenseID = Expense.RetrieveMax();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 
                 if (chkIsEvent.Checked)
                 {
@@ -117,7 +124,7 @@ namespace AuntRosieApplication.Expenses
         private void fillExpenseGrid()
         {
             String sql = "SELECT        ExpenseID, ExpensePayDate, ExpenseValue, ExpenseNote, " +
-                         " CASE WHEN PaymentMethod = 'r' THEN 'Credit' ELSE CASE WHEN PaymentMethod = 'c' THEN 'Casht' ELSE CASE WHEN PaymentMethod = 'd' THEN 'Debit' END END END AS PaymentMethod, "+ 
+                         " CASE WHEN PaymentMethod = 'r' THEN 'Credit' ELSE CASE WHEN PaymentMethod = 'c' THEN 'Cash' ELSE CASE WHEN PaymentMethod = 'd' THEN 'Debit' END END END AS PaymentMethod, "+ 
                          " CASE WHEN ExpenseType = 'T' THEN 'Tansportation' ELSE CASE WHEN ExpenseType = 'U' THEN 'Utility Bill' ELSE CASE WHEN ExpenseType = 'M' THEN 'Maintenance Fee' ELSE CASE WHEN ExpenseType = 'O' THEN 'Maintenance Fee' "+
                           " END END END END AS ExpenseType "+
 " FROM tblMiscellaneousExpense" +

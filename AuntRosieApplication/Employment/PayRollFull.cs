@@ -366,8 +366,8 @@ namespace AuntRosieApplication.Employment
                 }
                 catch (Exception ex)
                 {
-                      MessageBox.Show(ex.Message);
-                   // MessageBox.Show("The Employee's has been pied for the selected  Bi-week" , "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                      //MessageBox.Show(ex.Message);
+                     MessageBox.Show("The Employee's has been pied for the selected  Bi-week" , "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
 
