@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * Author: Oghenefejiro Theodore Abohweyere
+ * Purpose: Assign employees to work at event
+ * Date: 2020-12-17
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +31,10 @@ namespace AuntRosieApplication.Event
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Load event into form
+        /// </summary>
+        /// <param name="ev"></param>
         private void loadEvent(RosieEvent ev)
         {
             if (ev != null)
@@ -54,12 +63,18 @@ namespace AuntRosieApplication.Event
             set {
                 if(value != null)
                 {
+                    // Load newly set event into form
                     rosieEvent = value;
                     loadEvent(value);
                 }
             }
         }
 
+        /// <summary>
+        /// Connect to database and load data into form controls
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmOrganizeEventStep2_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'auntRosieDBDataSet.tblEmployeeHours' table. You can move, or remove it, as needed.
@@ -78,6 +93,9 @@ namespace AuntRosieApplication.Event
             loadEmployeeHours();
         }
 
+        /// <summary>
+        /// Setup initial configuration of datagrid
+        /// </summary>
         private void prepareDataGrid()
         {
             dtgEmployeeHours.AutoGenerateColumns = true;
@@ -97,6 +115,9 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        /// <summary>
+        /// Load employees into the form combobox
+        /// </summary>
         private void loadEmployees()
         {
             cmbEmpName.Items.Clear();
@@ -125,6 +146,11 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        /// <summary>
+        /// Navigate to step 1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -132,6 +158,11 @@ namespace AuntRosieApplication.Event
             AuntRosieApp.frmHome.formStep1.Show();
         }
 
+        /// <summary>
+        /// Navigate to the next step of event organization i.e step 3
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNext_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -139,6 +170,11 @@ namespace AuntRosieApplication.Event
             AuntRosieApp.frmHome.formStep3.Show();
         }
 
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -164,6 +200,10 @@ namespace AuntRosieApplication.Event
 
         }
 
+        /// <summary>
+        /// Validate form input
+        /// </summary>
+        /// <returns></returns>
         private bool validate()
         {
             if(txtHours.Text.Length < 1)
@@ -175,6 +215,9 @@ namespace AuntRosieApplication.Event
             return true;
         }
 
+        /// <summary>
+        /// Load employee hours into datagrid
+        /// </summary>
         private void loadEmployeeHours()
         {
 
@@ -184,6 +227,11 @@ namespace AuntRosieApplication.Event
              
         }
 
+        /// <summary>
+        /// Add new employeehour record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddLocation_Click(object sender, EventArgs e)
         {
             if (validate())
@@ -215,6 +263,11 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        /// <summary>
+        /// Handle delete button clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dtgEmployeeHours_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.ColumnIndex == dtgEmployeeHours.Columns["dataGridDeleteButton"].Index)

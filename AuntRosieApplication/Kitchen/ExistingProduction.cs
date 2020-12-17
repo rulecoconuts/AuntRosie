@@ -273,7 +273,7 @@ namespace AuntRosieApplication.Kitchen
         /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             Event.frmOrganizeEventStep3 frm = new Event.frmOrganizeEventStep3(rosieEvent);
             frm.ShowDialog();
         }

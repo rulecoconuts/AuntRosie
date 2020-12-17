@@ -45,7 +45,11 @@ namespace AuntRosieApplication.Event
         }
         protected override void OnPaint(PaintEventArgs e) { }
 
-
+        /// <summary>
+        /// Load event into form
+        /// </summary>
+        /// <param name="curEvent"></param>
+        /// <param name="transaction"></param>
         public frmOrganizeEvent(RosieEvent curEvent, SqlTransaction transaction)
         {
             this.curEvent = curEvent;
@@ -90,6 +94,9 @@ namespace AuntRosieApplication.Event
             cmbTypes.DisplayMember = "Key";
         }
 
+        /// <summary>
+        /// Add delete button into datagrid
+        /// </summary>
         private void addDeleteButtonToGrid()
         {
             DataGridViewButtonColumn column = new DataGridViewButtonColumn();
@@ -103,6 +110,10 @@ namespace AuntRosieApplication.Event
 
         #region helper-functions
 
+        /// <summary>
+        /// Load event into form
+        /// </summary>
+        /// <param name="ev"></param>
         private void loadEvent(RosieEvent ev)
         {
             if (ev != null)
@@ -115,6 +126,12 @@ namespace AuntRosieApplication.Event
                 }
             }
         }
+
+        /// <summary>
+        /// Find equivalent location in the location combobox
+        /// </summary>
+        /// <param name="loc"></param>
+        /// <returns></returns>
 
         private EventLocation findEquivalentInCombobox(EventLocation loc)
         {
@@ -207,10 +224,20 @@ namespace AuntRosieApplication.Event
             return true;
         }
 
+        /// <summary>
+        /// Validate form input
+        /// </summary>
+        /// <returns></returns>
+
         private bool validateAddEventFrm()
         {
             return validateDate();
         }
+
+        /// <summary>
+        /// Validate date input
+        /// </summary>
+        /// <returns></returns>
 
         private bool validateDate()
         {
@@ -222,6 +249,11 @@ namespace AuntRosieApplication.Event
 
             return true;
         }
+
+        /// <summary>
+        /// Position panel properly
+        /// </summary>
+        /// <param name="pnl"></param>
 
         private void ViewPanel(Panel pnl)
         {
@@ -246,6 +278,12 @@ namespace AuntRosieApplication.Event
 
         }
 
+        /// <summary>
+        /// Enable general input and disable location adding panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void btnNewTypeClose_Click(object sender, EventArgs e)
         {
             grbNew.Enabled = true;
@@ -254,12 +292,23 @@ namespace AuntRosieApplication.Event
             pnlNewLoc.Visible = false;
         }
 
+        /// <summary>
+        /// Navigate onto the screen to perform the next step in event organization
+        /// </summary>
+        /// <param name="subject"></param>
         private void goToNextStepForEvent(RosieEvent subject)
         {
             this.Hide();
             AuntRosieApp.frmHome.formStep2.RosieEvent = subject;
             AuntRosieApp.frmHome.formStep2.Show();
         }
+
+        /// <summary>
+        /// Create new rosie event and navigate onto the screen to perform
+        /// the next step in event organization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -288,6 +337,12 @@ namespace AuntRosieApplication.Event
             }
 
         }
+
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -336,10 +391,21 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        /// <summary>
+        /// Open new location panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNewTypeCancel_Click(object sender, EventArgs e)
         {
             btnNewTypeClose_Click(sender, e);
         }
+
+        /// <summary>
+        /// Handle readiobutton behaviour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void radNew_CheckedChanged(object sender, EventArgs e)
         {
@@ -349,12 +415,16 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        /// <summary>
+        /// Handle radiobutton behaviour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void radExisting_CheckedChanged(object sender, EventArgs e)
         {
-            
-
             if (radExisting.Checked)
             {
+                // Get events that are scheduled to happen in the future
                 radNew.Checked = false;
                 eventSource.DataSource = RosieEvent.GetEvents(DateTime.Now);
             }
@@ -364,6 +434,12 @@ namespace AuntRosieApplication.Event
         {
             
         }
+
+        /// <summary>
+        /// Handle delete button click in datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void dgEvents_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

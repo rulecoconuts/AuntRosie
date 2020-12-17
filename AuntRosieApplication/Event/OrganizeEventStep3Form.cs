@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * Author: Oghenefejiro Theodore Abohweyere
+ * Purpose: Add production to event
+ * Date: 2020-12-17
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,6 +57,10 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        /// <summary>
+        /// Load event into form
+        /// </summary>
+        /// <param name="ev"></param>
         private void loadEvent(RosieEvent ev)
         {
             if (ev != null)
@@ -60,11 +69,17 @@ namespace AuntRosieApplication.Event
             }
         }
 
+
         private void txtEventName_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Navigate to previous step
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
            this.Hide();
@@ -72,6 +87,11 @@ namespace AuntRosieApplication.Event
             AuntRosieApp.frmHome.formStep2.Show();
         }
 
+        /// <summary>
+        /// Move onto the final step
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNext_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -79,16 +99,27 @@ namespace AuntRosieApplication.Event
             AuntRosieApp.frmHome.formStep4.Show();
         }
 
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Load data into datagrid
+        /// </summary>
         private void loadDataGrid()
         {
             bindingSource.DataSource = EventProduct.GetProductionsTable(rosieEvent.Id);
         }
 
+        /// <summary>
+        /// Display event as text in form
+        /// </summary>
         private void displayEvent()
         {
             if (rosieEvent != null)
@@ -97,6 +128,9 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        /// <summary>
+        /// Setup initial configuration of data grid
+        /// </summary>
         private void prepareGrid()
         {
             dtgProduction.DataSource = bindingSource;
@@ -116,6 +150,11 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        /// <summary>
+        /// Connect to the database and load data into form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmOrganizeEventStep3_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
@@ -136,6 +175,12 @@ namespace AuntRosieApplication.Event
 
         }
 
+        /// <summary>
+        /// Navigate to either a screen to pick existing productions or a screen to 
+        /// create new production records for this event. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddLocation_Click(object sender, EventArgs e)
         {
             if(rbNew.Checked)
@@ -152,6 +197,11 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        /// <summary>
+        /// Handle radiobutton behaviour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbNew_CheckedChanged(object sender, EventArgs e)
         {
             if (rbNew.Checked)
@@ -160,6 +210,11 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        /// <summary>
+        /// Handle radiobutton behaviour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbExisting_CheckedChanged(object sender, EventArgs e)
         {
             if(rbExisting.Checked)
@@ -168,6 +223,11 @@ namespace AuntRosieApplication.Event
             }
         }
 
+        /// <summary>
+        /// Handle delete button clicks in data grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dtgProduction_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dtgProduction.Columns["dataGridDeleteButton"].Index)
