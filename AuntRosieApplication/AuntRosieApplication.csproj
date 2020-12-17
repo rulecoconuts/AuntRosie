@@ -203,6 +203,12 @@
     <Compile Include="Employment\PayrollQueryForm.Designer.cs">
       <DependentUpon>PayrollQueryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Event\EstimateEventProfitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Event\EstimateEventProfitForm.Designer.cs">
+      <DependentUpon>EstimateEventProfitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Event\OrganizeEventStep3Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +250,12 @@
     </Compile>
     <Compile Include="Expenses\MnageExpensesForm.Designer.cs">
       <DependentUpon>MnageExpensesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses\ProfitQueriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses\ProfitQueriesForm.Designer.cs">
+      <DependentUpon>ProfitQueriesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
@@ -421,6 +433,9 @@
     <EmbeddedResource Include="Employment\PayrollQueryForm.resx">
       <DependentUpon>PayrollQueryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Event\EstimateEventProfitForm.resx">
+      <DependentUpon>EstimateEventProfitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Event\OrganizeEventForm.resx">
       <DependentUpon>OrganizeEventForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -441,6 +456,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Expenses\MnageExpensesForm.resx">
       <DependentUpon>MnageExpensesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses\ProfitQueriesForm.resx">
+      <DependentUpon>ProfitQueriesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -649,9 +667,6 @@
     <None Include="Resources\question-mark.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\receipt.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Report.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -732,12 +747,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AuntRosieDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\economic-improvement.png" />
+    <None Include="Resources\ok-message.png" />
+    <None Include="Resources\apple-calculator.png" />
+    <None Include="Resources\receipt.png" />
+    <None Include="Resources\estimate.png" />
     <None Include="Resources\sorting-answers.png" />
     <None Include="Resources\sales-performance--v5.png" />
     <None Include="Resources\return-purchase.png" />
     <None Include="Resources\profit-analysis.png" />
     <None Include="Resources\foreclosure.png" />
-    <None Include="Resources\economic-improvement.png" />
     <None Include="Resources\customer-insight.png" />
     <None Include="Resources\aud.png" />
     <None Include="Resources\used-product.png" />
@@ -746,7 +765,6 @@
     <None Include="Resources\delete-sign1.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\ledger.png" />
-    <None Include="Resources\estimate.png" />
     <None Include="Resources\time-1.png" />
     <None Include="Resources\FULL-job.png" />
     <None Include="Resources\more-than.png" />

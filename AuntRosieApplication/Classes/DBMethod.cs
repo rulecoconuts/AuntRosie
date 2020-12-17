@@ -10,7 +10,7 @@ namespace AuntRosieApplication.Classes
 {
     class DBMethod
     {
-
+        public static string UserType = null;
         public static string Reptype = null;
         public static string SaleID = null;
         public static ListItem selectedListItem = new ListItem();

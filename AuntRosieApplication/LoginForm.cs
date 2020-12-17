@@ -47,7 +47,7 @@ namespace AuntRosieApplication
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+            AuntRosieApplication.Classes.DBMethod.UserType = cmbType.SelectedItem.ToString();
             AuntRosieApp.frmHome form = new AuntRosieApp.frmHome();
             form.ShowDialog();
             this.Close();

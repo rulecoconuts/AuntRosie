@@ -4895,6 +4895,8 @@ namespace AuntRosieApplication {
             
             private global::System.Data.DataColumn columnTotalRevenue;
             
+            private global::System.Data.DataColumn columnProductName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TopProductMarketsDataTable() {
@@ -4962,6 +4964,14 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ProductNameColumn {
+                get {
+                    return this.columnProductName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4997,13 +5007,14 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TopProductMarketsRow AddTopProductMarketsRow(string ProductType, int TotalQuantity, decimal Price, decimal TotalRevenue) {
+            public TopProductMarketsRow AddTopProductMarketsRow(string ProductType, int TotalQuantity, decimal Price, decimal TotalRevenue, string ProductName) {
                 TopProductMarketsRow rowTopProductMarketsRow = ((TopProductMarketsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ProductType,
                         TotalQuantity,
                         Price,
-                        TotalRevenue};
+                        TotalRevenue,
+                        ProductName};
                 rowTopProductMarketsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTopProductMarketsRow);
                 return rowTopProductMarketsRow;
@@ -5030,6 +5041,7 @@ namespace AuntRosieApplication {
                 this.columnTotalQuantity = base.Columns["TotalQuantity"];
                 this.columnPrice = base.Columns["Price"];
                 this.columnTotalRevenue = base.Columns["TotalRevenue"];
+                this.columnProductName = base.Columns["ProductName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5043,10 +5055,14 @@ namespace AuntRosieApplication {
                 base.Columns.Add(this.columnPrice);
                 this.columnTotalRevenue = new global::System.Data.DataColumn("TotalRevenue", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalRevenue);
+                this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductName);
                 this.columnProductType.AllowDBNull = false;
                 this.columnProductType.MaxLength = 50;
                 this.columnTotalQuantity.ReadOnly = true;
                 this.columnTotalRevenue.ReadOnly = true;
+                this.columnProductName.AllowDBNull = false;
+                this.columnProductName.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5182,9 +5198,13 @@ namespace AuntRosieApplication {
             
             private global::System.Data.DataColumn columnProductName;
             
-            private global::System.Data.DataColumn columntotalQuantity;
+            private global::System.Data.DataColumn columnTotalQunatity;
             
-            private global::System.Data.DataColumn columnTotalSales;
+            private global::System.Data.DataColumn columnPrice;
+            
+            private global::System.Data.DataColumn columnSizeName;
+            
+            private global::System.Data.DataColumn columnProductType;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -5229,17 +5249,33 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn totalQuantityColumn {
+            public global::System.Data.DataColumn TotalQunatityColumn {
                 get {
-                    return this.columntotalQuantity;
+                    return this.columnTotalQunatity;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TotalSalesColumn {
+            public global::System.Data.DataColumn PriceColumn {
                 get {
-                    return this.columnTotalSales;
+                    return this.columnPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SizeNameColumn {
+                get {
+                    return this.columnSizeName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ProductTypeColumn {
+                get {
+                    return this.columnProductType;
                 }
             }
             
@@ -5280,12 +5316,14 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WorstSellingProductsRow AddWorstSellingProductsRow(string ProductName, int totalQuantity, decimal TotalSales) {
+            public WorstSellingProductsRow AddWorstSellingProductsRow(string ProductName, int TotalQunatity, decimal Price, string SizeName, string ProductType) {
                 WorstSellingProductsRow rowWorstSellingProductsRow = ((WorstSellingProductsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ProductName,
-                        totalQuantity,
-                        TotalSales};
+                        TotalQunatity,
+                        Price,
+                        SizeName,
+                        ProductType};
                 rowWorstSellingProductsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowWorstSellingProductsRow);
                 return rowWorstSellingProductsRow;
@@ -5309,8 +5347,10 @@ namespace AuntRosieApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnProductName = base.Columns["ProductName"];
-                this.columntotalQuantity = base.Columns["totalQuantity"];
-                this.columnTotalSales = base.Columns["TotalSales"];
+                this.columnTotalQunatity = base.Columns["TotalQunatity"];
+                this.columnPrice = base.Columns["Price"];
+                this.columnSizeName = base.Columns["SizeName"];
+                this.columnProductType = base.Columns["ProductType"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5318,14 +5358,21 @@ namespace AuntRosieApplication {
             private void InitClass() {
                 this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductName);
-                this.columntotalQuantity = new global::System.Data.DataColumn("totalQuantity", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotalQuantity);
-                this.columnTotalSales = new global::System.Data.DataColumn("TotalSales", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalSales);
+                this.columnTotalQunatity = new global::System.Data.DataColumn("TotalQunatity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalQunatity);
+                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrice);
+                this.columnSizeName = new global::System.Data.DataColumn("SizeName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSizeName);
+                this.columnProductType = new global::System.Data.DataColumn("ProductType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductType);
                 this.columnProductName.AllowDBNull = false;
                 this.columnProductName.MaxLength = 100;
-                this.columntotalQuantity.ReadOnly = true;
-                this.columnTotalSales.ReadOnly = true;
+                this.columnTotalQunatity.ReadOnly = true;
+                this.columnPrice.AllowDBNull = false;
+                this.columnSizeName.MaxLength = 50;
+                this.columnProductType.AllowDBNull = false;
+                this.columnProductType.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5459,19 +5506,15 @@ namespace AuntRosieApplication {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class TotalRevenueDataTable : global::System.Data.TypedTableBase<TotalRevenueRow> {
             
-            private global::System.Data.DataColumn columntotalSales;
+            private global::System.Data.DataColumn columnRevenue;
             
-            private global::System.Data.DataColumn columntotalSoldProducts;
+            private global::System.Data.DataColumn columnEventName;
             
-            private global::System.Data.DataColumn columnexistingCustomers;
+            private global::System.Data.DataColumn columnEventDate;
             
-            private global::System.Data.DataColumn columntotalCustomers;
+            private global::System.Data.DataColumn columnPaymentMethod;
             
-            private global::System.Data.DataColumn columntotalEvents;
-            
-            private global::System.Data.DataColumn columntotalLocations;
-            
-            private global::System.Data.DataColumn columnFinalRevenue;
+            private global::System.Data.DataColumn columnEventID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -5508,57 +5551,41 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn totalSalesColumn {
+            public global::System.Data.DataColumn RevenueColumn {
                 get {
-                    return this.columntotalSales;
+                    return this.columnRevenue;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn totalSoldProductsColumn {
+            public global::System.Data.DataColumn EventNameColumn {
                 get {
-                    return this.columntotalSoldProducts;
+                    return this.columnEventName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn existingCustomersColumn {
+            public global::System.Data.DataColumn EventDateColumn {
                 get {
-                    return this.columnexistingCustomers;
+                    return this.columnEventDate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn totalCustomersColumn {
+            public global::System.Data.DataColumn PaymentMethodColumn {
                 get {
-                    return this.columntotalCustomers;
+                    return this.columnPaymentMethod;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn totalEventsColumn {
+            public global::System.Data.DataColumn EventIDColumn {
                 get {
-                    return this.columntotalEvents;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn totalLocationsColumn {
-                get {
-                    return this.columntotalLocations;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn FinalRevenueColumn {
-                get {
-                    return this.columnFinalRevenue;
+                    return this.columnEventID;
                 }
             }
             
@@ -5599,19 +5626,24 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TotalRevenueRow AddTotalRevenueRow(decimal totalSales, int totalSoldProducts, int existingCustomers, int totalCustomers, int totalEvents, int totalLocations, decimal FinalRevenue) {
+            public TotalRevenueRow AddTotalRevenueRow(decimal Revenue, string EventName, System.DateTime EventDate, string PaymentMethod) {
                 TotalRevenueRow rowTotalRevenueRow = ((TotalRevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        totalSales,
-                        totalSoldProducts,
-                        existingCustomers,
-                        totalCustomers,
-                        totalEvents,
-                        totalLocations,
-                        FinalRevenue};
+                        Revenue,
+                        EventName,
+                        EventDate,
+                        PaymentMethod,
+                        null};
                 rowTotalRevenueRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTotalRevenueRow);
                 return rowTotalRevenueRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TotalRevenueRow FindByEventID(long EventID) {
+                return ((TotalRevenueRow)(this.Rows.Find(new object[] {
+                            EventID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5631,39 +5663,40 @@ namespace AuntRosieApplication {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columntotalSales = base.Columns["totalSales"];
-                this.columntotalSoldProducts = base.Columns["totalSoldProducts"];
-                this.columnexistingCustomers = base.Columns["existingCustomers"];
-                this.columntotalCustomers = base.Columns["totalCustomers"];
-                this.columntotalEvents = base.Columns["totalEvents"];
-                this.columntotalLocations = base.Columns["totalLocations"];
-                this.columnFinalRevenue = base.Columns["FinalRevenue"];
+                this.columnRevenue = base.Columns["Revenue"];
+                this.columnEventName = base.Columns["EventName"];
+                this.columnEventDate = base.Columns["EventDate"];
+                this.columnPaymentMethod = base.Columns["PaymentMethod"];
+                this.columnEventID = base.Columns["EventID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columntotalSales = new global::System.Data.DataColumn("totalSales", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotalSales);
-                this.columntotalSoldProducts = new global::System.Data.DataColumn("totalSoldProducts", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotalSoldProducts);
-                this.columnexistingCustomers = new global::System.Data.DataColumn("existingCustomers", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnexistingCustomers);
-                this.columntotalCustomers = new global::System.Data.DataColumn("totalCustomers", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotalCustomers);
-                this.columntotalEvents = new global::System.Data.DataColumn("totalEvents", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotalEvents);
-                this.columntotalLocations = new global::System.Data.DataColumn("totalLocations", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotalLocations);
-                this.columnFinalRevenue = new global::System.Data.DataColumn("FinalRevenue", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFinalRevenue);
-                this.columntotalSales.ReadOnly = true;
-                this.columntotalSoldProducts.ReadOnly = true;
-                this.columnexistingCustomers.ReadOnly = true;
-                this.columntotalCustomers.ReadOnly = true;
-                this.columntotalEvents.ReadOnly = true;
-                this.columntotalLocations.ReadOnly = true;
-                this.columnFinalRevenue.ReadOnly = true;
+                this.columnRevenue = new global::System.Data.DataColumn("Revenue", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRevenue);
+                this.columnEventName = new global::System.Data.DataColumn("EventName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEventName);
+                this.columnEventDate = new global::System.Data.DataColumn("EventDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEventDate);
+                this.columnPaymentMethod = new global::System.Data.DataColumn("PaymentMethod", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentMethod);
+                this.columnEventID = new global::System.Data.DataColumn("EventID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEventID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnEventID}, true));
+                this.columnRevenue.ReadOnly = true;
+                this.columnEventName.AllowDBNull = false;
+                this.columnEventName.MaxLength = 50;
+                this.columnEventDate.AllowDBNull = false;
+                this.columnPaymentMethod.ReadOnly = true;
+                this.columnPaymentMethod.MaxLength = 6;
+                this.columnEventID.AutoIncrement = true;
+                this.columnEventID.AutoIncrementSeed = -1;
+                this.columnEventID.AutoIncrementStep = -1;
+                this.columnEventID.AllowDBNull = false;
+                this.columnEventID.ReadOnly = true;
+                this.columnEventID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5801,9 +5834,13 @@ namespace AuntRosieApplication {
             
             private global::System.Data.DataColumn columnServingSize;
             
-            private global::System.Data.DataColumn columnValueType;
-            
             private global::System.Data.DataColumn columnValue;
+            
+            private global::System.Data.DataColumn columnNutritionName;
+            
+            private global::System.Data.DataColumn columnProductID;
+            
+            private global::System.Data.DataColumn columnProductType;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -5856,17 +5893,33 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ValueTypeColumn {
+            public global::System.Data.DataColumn ValueColumn {
                 get {
-                    return this.columnValueType;
+                    return this.columnValue;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ValueColumn {
+            public global::System.Data.DataColumn NutritionNameColumn {
                 get {
-                    return this.columnValue;
+                    return this.columnNutritionName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ProductIDColumn {
+                get {
+                    return this.columnProductID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ProductTypeColumn {
+                get {
+                    return this.columnProductType;
                 }
             }
             
@@ -5907,16 +5960,25 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NutritionInformationRow AddNutritionInformationRow(string ProductName, string ServingSize, string ValueType, decimal Value) {
+            public NutritionInformationRow AddNutritionInformationRow(string ProductName, string ServingSize, decimal Value, string NutritionName, string ProductType) {
                 NutritionInformationRow rowNutritionInformationRow = ((NutritionInformationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ProductName,
                         ServingSize,
-                        ValueType,
-                        Value};
+                        Value,
+                        NutritionName,
+                        null,
+                        ProductType};
                 rowNutritionInformationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNutritionInformationRow);
                 return rowNutritionInformationRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public NutritionInformationRow FindByProductID(short ProductID) {
+                return ((NutritionInformationRow)(this.Rows.Find(new object[] {
+                            ProductID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5938,8 +6000,10 @@ namespace AuntRosieApplication {
             internal void InitVars() {
                 this.columnProductName = base.Columns["ProductName"];
                 this.columnServingSize = base.Columns["ServingSize"];
-                this.columnValueType = base.Columns["ValueType"];
                 this.columnValue = base.Columns["Value"];
+                this.columnNutritionName = base.Columns["NutritionName"];
+                this.columnProductID = base.Columns["ProductID"];
+                this.columnProductType = base.Columns["ProductType"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5949,15 +6013,29 @@ namespace AuntRosieApplication {
                 base.Columns.Add(this.columnProductName);
                 this.columnServingSize = new global::System.Data.DataColumn("ServingSize", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnServingSize);
-                this.columnValueType = new global::System.Data.DataColumn("ValueType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnValueType);
                 this.columnValue = new global::System.Data.DataColumn("Value", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnValue);
+                this.columnNutritionName = new global::System.Data.DataColumn("NutritionName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNutritionName);
+                this.columnProductID = new global::System.Data.DataColumn("ProductID", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductID);
+                this.columnProductType = new global::System.Data.DataColumn("ProductType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductType);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnProductID}, true));
                 this.columnProductName.AllowDBNull = false;
                 this.columnProductName.MaxLength = 100;
                 this.columnServingSize.AllowDBNull = false;
                 this.columnServingSize.MaxLength = 20;
-                this.columnValueType.MaxLength = 1;
+                this.columnNutritionName.MaxLength = 50;
+                this.columnProductID.AutoIncrement = true;
+                this.columnProductID.AutoIncrementSeed = -1;
+                this.columnProductID.AutoIncrementStep = -1;
+                this.columnProductID.AllowDBNull = false;
+                this.columnProductID.ReadOnly = true;
+                this.columnProductID.Unique = true;
+                this.columnProductType.AllowDBNull = false;
+                this.columnProductType.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6699,15 +6777,11 @@ namespace AuntRosieApplication {
             
             private global::System.Data.DataColumn columnCustomerLastName;
             
-            private global::System.Data.DataColumn columnSaleID;
-            
-            private global::System.Data.DataColumn columnProductName;
+            private global::System.Data.DataColumn columnTotal;
             
             private global::System.Data.DataColumn columnQuantity;
             
-            private global::System.Data.DataColumn columnPrice;
-            
-            private global::System.Data.DataColumn columnTotal;
+            private global::System.Data.DataColumn columnCustomerID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -6760,17 +6834,9 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SaleIDColumn {
+            public global::System.Data.DataColumn TotalColumn {
                 get {
-                    return this.columnSaleID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ProductNameColumn {
-                get {
-                    return this.columnProductName;
+                    return this.columnTotal;
                 }
             }
             
@@ -6784,17 +6850,9 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PriceColumn {
+            public global::System.Data.DataColumn CustomerIDColumn {
                 get {
-                    return this.columnPrice;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TotalColumn {
-                get {
-                    return this.columnTotal;
+                    return this.columnCustomerID;
                 }
             }
             
@@ -6835,16 +6893,14 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CustomerNumberOfPurchasesRow AddCustomerNumberOfPurchasesRow(string CustomerFirstName, string CustomerLastName, string ProductName, byte Quantity, decimal Price, decimal Total) {
+            public CustomerNumberOfPurchasesRow AddCustomerNumberOfPurchasesRow(string CustomerFirstName, string CustomerLastName, decimal Total, int Quantity) {
                 CustomerNumberOfPurchasesRow rowCustomerNumberOfPurchasesRow = ((CustomerNumberOfPurchasesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CustomerFirstName,
                         CustomerLastName,
-                        null,
-                        ProductName,
+                        Total,
                         Quantity,
-                        Price,
-                        Total};
+                        null};
                 rowCustomerNumberOfPurchasesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCustomerNumberOfPurchasesRow);
                 return rowCustomerNumberOfPurchasesRow;
@@ -6852,9 +6908,9 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CustomerNumberOfPurchasesRow FindBySaleID(long SaleID) {
+            public CustomerNumberOfPurchasesRow FindByCustomerID(long CustomerID) {
                 return ((CustomerNumberOfPurchasesRow)(this.Rows.Find(new object[] {
-                            SaleID})));
+                            CustomerID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6876,11 +6932,9 @@ namespace AuntRosieApplication {
             internal void InitVars() {
                 this.columnCustomerFirstName = base.Columns["CustomerFirstName"];
                 this.columnCustomerLastName = base.Columns["CustomerLastName"];
-                this.columnSaleID = base.Columns["SaleID"];
-                this.columnProductName = base.Columns["ProductName"];
-                this.columnQuantity = base.Columns["Quantity"];
-                this.columnPrice = base.Columns["Price"];
                 this.columnTotal = base.Columns["Total"];
+                this.columnQuantity = base.Columns["Quantity"];
+                this.columnCustomerID = base.Columns["CustomerID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6890,32 +6944,25 @@ namespace AuntRosieApplication {
                 base.Columns.Add(this.columnCustomerFirstName);
                 this.columnCustomerLastName = new global::System.Data.DataColumn("CustomerLastName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomerLastName);
-                this.columnSaleID = new global::System.Data.DataColumn("SaleID", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSaleID);
-                this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProductName);
-                this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnQuantity);
-                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrice);
                 this.columnTotal = new global::System.Data.DataColumn("Total", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal);
+                this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQuantity);
+                this.columnCustomerID = new global::System.Data.DataColumn("CustomerID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomerID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnSaleID}, true));
+                                this.columnCustomerID}, true));
                 this.columnCustomerFirstName.AllowDBNull = false;
                 this.columnCustomerFirstName.MaxLength = 50;
                 this.columnCustomerLastName.MaxLength = 50;
-                this.columnSaleID.AutoIncrement = true;
-                this.columnSaleID.AutoIncrementSeed = -1;
-                this.columnSaleID.AutoIncrementStep = -1;
-                this.columnSaleID.AllowDBNull = false;
-                this.columnSaleID.ReadOnly = true;
-                this.columnSaleID.Unique = true;
-                this.columnProductName.AllowDBNull = false;
-                this.columnProductName.MaxLength = 100;
-                this.columnQuantity.AllowDBNull = false;
-                this.columnPrice.AllowDBNull = false;
                 this.columnTotal.ReadOnly = true;
+                this.columnQuantity.ReadOnly = true;
+                this.columnCustomerID.AutoIncrement = true;
+                this.columnCustomerID.AutoIncrementSeed = -1;
+                this.columnCustomerID.AutoIncrementStep = -1;
+                this.columnCustomerID.AllowDBNull = false;
+                this.columnCustomerID.ReadOnly = true;
+                this.columnCustomerID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7049,6 +7096,16 @@ namespace AuntRosieApplication {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class TopProductsDataTable : global::System.Data.TypedTableBase<TopProductsRow> {
             
+            private global::System.Data.DataColumn columnProductName;
+            
+            private global::System.Data.DataColumn columnPrice;
+            
+            private global::System.Data.DataColumn columnSizeName;
+            
+            private global::System.Data.DataColumn columnProductType;
+            
+            private global::System.Data.DataColumn columnTotalQunatity;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TopProductsDataTable() {
@@ -7080,6 +7137,46 @@ namespace AuntRosieApplication {
             protected TopProductsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ProductNameColumn {
+                get {
+                    return this.columnProductName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PriceColumn {
+                get {
+                    return this.columnPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SizeNameColumn {
+                get {
+                    return this.columnSizeName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ProductTypeColumn {
+                get {
+                    return this.columnProductType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TotalQunatityColumn {
+                get {
+                    return this.columnTotalQunatity;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7119,9 +7216,14 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TopProductsRow AddTopProductsRow() {
+            public TopProductsRow AddTopProductsRow(string ProductName, decimal Price, string SizeName, string ProductType, int TotalQunatity) {
                 TopProductsRow rowTopProductsRow = ((TopProductsRow)(this.NewRow()));
-                object[] columnValuesArray = new object[0];
+                object[] columnValuesArray = new object[] {
+                        ProductName,
+                        Price,
+                        SizeName,
+                        ProductType,
+                        TotalQunatity};
                 rowTopProductsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTopProductsRow);
                 return rowTopProductsRow;
@@ -7144,11 +7246,33 @@ namespace AuntRosieApplication {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
+                this.columnProductName = base.Columns["ProductName"];
+                this.columnPrice = base.Columns["Price"];
+                this.columnSizeName = base.Columns["SizeName"];
+                this.columnProductType = base.Columns["ProductType"];
+                this.columnTotalQunatity = base.Columns["TotalQunatity"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
+                this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductName);
+                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrice);
+                this.columnSizeName = new global::System.Data.DataColumn("SizeName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSizeName);
+                this.columnProductType = new global::System.Data.DataColumn("ProductType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductType);
+                this.columnTotalQunatity = new global::System.Data.DataColumn("TotalQunatity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalQunatity);
+                this.columnProductName.AllowDBNull = false;
+                this.columnProductName.MaxLength = 100;
+                this.columnPrice.AllowDBNull = false;
+                this.columnSizeName.MaxLength = 50;
+                this.columnProductType.AllowDBNull = false;
+                this.columnProductType.MaxLength = 50;
+                this.columnTotalQunatity.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9341,6 +9465,17 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ProductName {
+                get {
+                    return ((string)(this[this.tableTopProductMarkets.ProductNameColumn]));
+                }
+                set {
+                    this[this.tableTopProductMarkets.ProductNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTotalQuantityNull() {
                 return this.IsNull(this.tableTopProductMarkets.TotalQuantityColumn);
             }
@@ -9403,58 +9538,80 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int totalQuantity {
+            public int TotalQunatity {
                 get {
                     try {
-                        return ((int)(this[this.tableWorstSellingProducts.totalQuantityColumn]));
+                        return ((int)(this[this.tableWorstSellingProducts.TotalQunatityColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'totalQuantity\' in table \'WorstSellingProducts\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalQunatity\' in table \'WorstSellingProducts\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableWorstSellingProducts.totalQuantityColumn] = value;
+                    this[this.tableWorstSellingProducts.TotalQunatityColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal TotalSales {
+            public decimal Price {
+                get {
+                    return ((decimal)(this[this.tableWorstSellingProducts.PriceColumn]));
+                }
+                set {
+                    this[this.tableWorstSellingProducts.PriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string SizeName {
                 get {
                     try {
-                        return ((decimal)(this[this.tableWorstSellingProducts.TotalSalesColumn]));
+                        return ((string)(this[this.tableWorstSellingProducts.SizeNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalSales\' in table \'WorstSellingProducts\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SizeName\' in table \'WorstSellingProducts\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableWorstSellingProducts.TotalSalesColumn] = value;
+                    this[this.tableWorstSellingProducts.SizeNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstotalQuantityNull() {
-                return this.IsNull(this.tableWorstSellingProducts.totalQuantityColumn);
+            public string ProductType {
+                get {
+                    return ((string)(this[this.tableWorstSellingProducts.ProductTypeColumn]));
+                }
+                set {
+                    this[this.tableWorstSellingProducts.ProductTypeColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettotalQuantityNull() {
-                this[this.tableWorstSellingProducts.totalQuantityColumn] = global::System.Convert.DBNull;
+            public bool IsTotalQunatityNull() {
+                return this.IsNull(this.tableWorstSellingProducts.TotalQunatityColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotalSalesNull() {
-                return this.IsNull(this.tableWorstSellingProducts.TotalSalesColumn);
+            public void SetTotalQunatityNull() {
+                this[this.tableWorstSellingProducts.TotalQunatityColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotalSalesNull() {
-                this[this.tableWorstSellingProducts.TotalSalesColumn] = global::System.Convert.DBNull;
+            public bool IsSizeNameNull() {
+                return this.IsNull(this.tableWorstSellingProducts.SizeNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSizeNameNull() {
+                this[this.tableWorstSellingProducts.SizeNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9474,198 +9631,91 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal totalSales {
+            public decimal Revenue {
                 get {
                     try {
-                        return ((decimal)(this[this.tableTotalRevenue.totalSalesColumn]));
+                        return ((decimal)(this[this.tableTotalRevenue.RevenueColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'totalSales\' in table \'TotalRevenue\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Revenue\' in table \'TotalRevenue\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTotalRevenue.totalSalesColumn] = value;
+                    this[this.tableTotalRevenue.RevenueColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int totalSoldProducts {
+            public string EventName {
+                get {
+                    return ((string)(this[this.tableTotalRevenue.EventNameColumn]));
+                }
+                set {
+                    this[this.tableTotalRevenue.EventNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime EventDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableTotalRevenue.EventDateColumn]));
+                }
+                set {
+                    this[this.tableTotalRevenue.EventDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PaymentMethod {
                 get {
                     try {
-                        return ((int)(this[this.tableTotalRevenue.totalSoldProductsColumn]));
+                        return ((string)(this[this.tableTotalRevenue.PaymentMethodColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'totalSoldProducts\' in table \'TotalRevenue\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentMethod\' in table \'TotalRevenue\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTotalRevenue.totalSoldProductsColumn] = value;
+                    this[this.tableTotalRevenue.PaymentMethodColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int existingCustomers {
+            public long EventID {
                 get {
-                    try {
-                        return ((int)(this[this.tableTotalRevenue.existingCustomersColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'existingCustomers\' in table \'TotalRevenue\' is DBNull.", e);
-                    }
+                    return ((long)(this[this.tableTotalRevenue.EventIDColumn]));
                 }
                 set {
-                    this[this.tableTotalRevenue.existingCustomersColumn] = value;
+                    this[this.tableTotalRevenue.EventIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int totalCustomers {
-                get {
-                    try {
-                        return ((int)(this[this.tableTotalRevenue.totalCustomersColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'totalCustomers\' in table \'TotalRevenue\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTotalRevenue.totalCustomersColumn] = value;
-                }
+            public bool IsRevenueNull() {
+                return this.IsNull(this.tableTotalRevenue.RevenueColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int totalEvents {
-                get {
-                    try {
-                        return ((int)(this[this.tableTotalRevenue.totalEventsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'totalEvents\' in table \'TotalRevenue\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTotalRevenue.totalEventsColumn] = value;
-                }
+            public void SetRevenueNull() {
+                this[this.tableTotalRevenue.RevenueColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int totalLocations {
-                get {
-                    try {
-                        return ((int)(this[this.tableTotalRevenue.totalLocationsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'totalLocations\' in table \'TotalRevenue\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTotalRevenue.totalLocationsColumn] = value;
-                }
+            public bool IsPaymentMethodNull() {
+                return this.IsNull(this.tableTotalRevenue.PaymentMethodColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal FinalRevenue {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableTotalRevenue.FinalRevenueColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FinalRevenue\' in table \'TotalRevenue\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTotalRevenue.FinalRevenueColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstotalSalesNull() {
-                return this.IsNull(this.tableTotalRevenue.totalSalesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettotalSalesNull() {
-                this[this.tableTotalRevenue.totalSalesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstotalSoldProductsNull() {
-                return this.IsNull(this.tableTotalRevenue.totalSoldProductsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettotalSoldProductsNull() {
-                this[this.tableTotalRevenue.totalSoldProductsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsexistingCustomersNull() {
-                return this.IsNull(this.tableTotalRevenue.existingCustomersColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetexistingCustomersNull() {
-                this[this.tableTotalRevenue.existingCustomersColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstotalCustomersNull() {
-                return this.IsNull(this.tableTotalRevenue.totalCustomersColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettotalCustomersNull() {
-                this[this.tableTotalRevenue.totalCustomersColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstotalEventsNull() {
-                return this.IsNull(this.tableTotalRevenue.totalEventsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettotalEventsNull() {
-                this[this.tableTotalRevenue.totalEventsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstotalLocationsNull() {
-                return this.IsNull(this.tableTotalRevenue.totalLocationsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettotalLocationsNull() {
-                this[this.tableTotalRevenue.totalLocationsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsFinalRevenueNull() {
-                return this.IsNull(this.tableTotalRevenue.FinalRevenueColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetFinalRevenueNull() {
-                this[this.tableTotalRevenue.FinalRevenueColumn] = global::System.Convert.DBNull;
+            public void SetPaymentMethodNull() {
+                this[this.tableTotalRevenue.PaymentMethodColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9707,22 +9757,6 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ValueType {
-                get {
-                    try {
-                        return ((string)(this[this.tableNutritionInformation.ValueTypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ValueType\' in table \'NutritionInformation\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableNutritionInformation.ValueTypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal Value {
                 get {
                     try {
@@ -9739,14 +9773,40 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsValueTypeNull() {
-                return this.IsNull(this.tableNutritionInformation.ValueTypeColumn);
+            public string NutritionName {
+                get {
+                    try {
+                        return ((string)(this[this.tableNutritionInformation.NutritionNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NutritionName\' in table \'NutritionInformation\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNutritionInformation.NutritionNameColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetValueTypeNull() {
-                this[this.tableNutritionInformation.ValueTypeColumn] = global::System.Convert.DBNull;
+            public short ProductID {
+                get {
+                    return ((short)(this[this.tableNutritionInformation.ProductIDColumn]));
+                }
+                set {
+                    this[this.tableNutritionInformation.ProductIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ProductType {
+                get {
+                    return ((string)(this[this.tableNutritionInformation.ProductTypeColumn]));
+                }
+                set {
+                    this[this.tableNutritionInformation.ProductTypeColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9759,6 +9819,18 @@ namespace AuntRosieApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetValueNull() {
                 this[this.tableNutritionInformation.ValueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNutritionNameNull() {
+                return this.IsNull(this.tableNutritionInformation.NutritionNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNutritionNameNull() {
+                this[this.tableNutritionInformation.NutritionNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10040,50 +10112,6 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long SaleID {
-                get {
-                    return ((long)(this[this.tableCustomerNumberOfPurchases.SaleIDColumn]));
-                }
-                set {
-                    this[this.tableCustomerNumberOfPurchases.SaleIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ProductName {
-                get {
-                    return ((string)(this[this.tableCustomerNumberOfPurchases.ProductNameColumn]));
-                }
-                set {
-                    this[this.tableCustomerNumberOfPurchases.ProductNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public byte Quantity {
-                get {
-                    return ((byte)(this[this.tableCustomerNumberOfPurchases.QuantityColumn]));
-                }
-                set {
-                    this[this.tableCustomerNumberOfPurchases.QuantityColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal Price {
-                get {
-                    return ((decimal)(this[this.tableCustomerNumberOfPurchases.PriceColumn]));
-                }
-                set {
-                    this[this.tableCustomerNumberOfPurchases.PriceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal Total {
                 get {
                     try {
@@ -10095,6 +10123,33 @@ namespace AuntRosieApplication {
                 }
                 set {
                     this[this.tableCustomerNumberOfPurchases.TotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Quantity {
+                get {
+                    try {
+                        return ((int)(this[this.tableCustomerNumberOfPurchases.QuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'CustomerNumberOfPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomerNumberOfPurchases.QuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public long CustomerID {
+                get {
+                    return ((long)(this[this.tableCustomerNumberOfPurchases.CustomerIDColumn]));
+                }
+                set {
+                    this[this.tableCustomerNumberOfPurchases.CustomerIDColumn] = value;
                 }
             }
             
@@ -10121,6 +10176,18 @@ namespace AuntRosieApplication {
             public void SetTotalNull() {
                 this[this.tableCustomerNumberOfPurchases.TotalColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsQuantityNull() {
+                return this.IsNull(this.tableCustomerNumberOfPurchases.QuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetQuantityNull() {
+                this[this.tableCustomerNumberOfPurchases.QuantityColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -10135,6 +10202,95 @@ namespace AuntRosieApplication {
             internal TopProductsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableTopProducts = ((TopProductsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ProductName {
+                get {
+                    return ((string)(this[this.tableTopProducts.ProductNameColumn]));
+                }
+                set {
+                    this[this.tableTopProducts.ProductNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Price {
+                get {
+                    return ((decimal)(this[this.tableTopProducts.PriceColumn]));
+                }
+                set {
+                    this[this.tableTopProducts.PriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string SizeName {
+                get {
+                    try {
+                        return ((string)(this[this.tableTopProducts.SizeNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SizeName\' in table \'TopProducts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTopProducts.SizeNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ProductType {
+                get {
+                    return ((string)(this[this.tableTopProducts.ProductTypeColumn]));
+                }
+                set {
+                    this[this.tableTopProducts.ProductTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int TotalQunatity {
+                get {
+                    try {
+                        return ((int)(this[this.tableTopProducts.TotalQunatityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalQunatity\' in table \'TopProducts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTopProducts.TotalQunatityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSizeNameNull() {
+                return this.IsNull(this.tableTopProducts.SizeNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSizeNameNull() {
+                this[this.tableTopProducts.SizeNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotalQunatityNull() {
+                return this.IsNull(this.tableTopProducts.TotalQunatityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotalQunatityNull() {
+                this[this.tableTopProducts.TotalQunatityColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -14265,6 +14421,7 @@ ORDER BY PaymentDate";
             tableMapping.ColumnMappings.Add("TotalQuantity", "TotalQuantity");
             tableMapping.ColumnMappings.Add("Price", "Price");
             tableMapping.ColumnMappings.Add("TotalRevenue", "TotalRevenue");
+            tableMapping.ColumnMappings.Add("ProductName", "ProductName");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -14281,21 +14438,14 @@ ORDER BY PaymentDate";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ProductType,
-		SUM(SaleQuantity) AS TotalQuantity, 
-		dbo.tblProductItem.Price,
-		(SUM(SaleQuantity)*price) AS TotalRevenue
-FROM dbo.tblProduct
-LEFT JOIN dbo.tblProductItem
-	ON tblProductItem.ProductID = tblProduct.ProductID
-LEFT JOIN dbo.tblProduction
-	ON tblProduction.ProductItemID = tblProductItem.ProductItemID
-LEFT JOIN dbo.tblEventProduct
-	ON tblEventProduct.ProductionID = tblProduction.ProductionID
-JOIN dbo.tblSaleProducts -- Only the products with a sale
-	ON tblSaleProducts.EventProductID = tblEventProduct.EventProductID
-GROUP BY ProductType, Price
-";
+            this._commandCollection[0].CommandText = @"SELECT        TOP (5) tblProduct.ProductName, SUM(tblSaleProducts.SaleQuantity) AS TotalQuantity, tblProductItem.Price, SUM(tblSaleProducts.SaleQuantity) * tblProductItem.Price AS TotalRevenue, tblProduct.ProductType
+FROM            tblProduct LEFT OUTER JOIN
+                         tblProductItem ON tblProductItem.ProductID = tblProduct.ProductID LEFT OUTER JOIN
+                         tblProduction ON tblProduction.ProductItemID = tblProductItem.ProductItemID LEFT OUTER JOIN
+                         tblEventProduct ON tblEventProduct.ProductionID = tblProduction.ProductionID INNER JOIN
+                         tblSaleProducts ON tblSaleProducts.EventProductID = tblEventProduct.EventProductID
+GROUP BY tblProduct.ProductName, tblProductItem.Price, tblProduct.ProductType
+ORDER BY TotalRevenue DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -14446,8 +14596,10 @@ GROUP BY ProductType, Price
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "WorstSellingProducts";
             tableMapping.ColumnMappings.Add("ProductName", "ProductName");
-            tableMapping.ColumnMappings.Add("totalQuantity", "totalQuantity");
-            tableMapping.ColumnMappings.Add("TotalSales", "TotalSales");
+            tableMapping.ColumnMappings.Add("TotalQunatity", "TotalQunatity");
+            tableMapping.ColumnMappings.Add("Price", "Price");
+            tableMapping.ColumnMappings.Add("SizeName", "SizeName");
+            tableMapping.ColumnMappings.Add("ProductType", "ProductType");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -14464,25 +14616,15 @@ GROUP BY ProductType, Price
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ProductName,
-SUM(SaleQuantity) AS totalQuantity,
-		(SUM(SaleQuantity) * SalePrice) AS TotalSales
-
-FROM dbo.tblProduct
-JOIN dbo.tblProductItem
-	ON tblProductItem.ProductID = tblProduct.ProductID
-JOIN dbo.tblProduction
-	ON tblProduction.ProductItemID = tblProductItem.ProductItemID
-LEFT JOIN dbo.tblEventProduct
-	ON tblEventProduct.ProductionID = tblProduction.ProductionID
-LEFT JOIN dbo.tblSaleProducts
-	ON tblSaleProducts.EventProductID = tblEventProduct.EventProductID
-LEFT JOIN dbo.tblSale
-	ON tblSale.SaleID = tblSaleProducts.SaleID
-GROUP BY ProductName, SalePrice
-order by TotalSales asc
-
-";
+            this._commandCollection[0].CommandText = @"SELECT        TOP (5) tblProduct.ProductName, SUM(tblSaleProducts.SaleQuantity) AS TotalQunatity, tblProductItem.Price, tblProductSize.SizeName, tblProduct.ProductType
+FROM            tblEventProduct INNER JOIN
+                         tblProduction ON tblEventProduct.ProductionID = tblProduction.ProductionID INNER JOIN
+                         tblSaleProducts ON tblEventProduct.EventProductID = tblSaleProducts.EventProductID INNER JOIN
+                         tblProductItem ON tblProduction.ProductItemID = tblProductItem.ProductItemID INNER JOIN
+                         tblProduct ON tblProductItem.ProductID = tblProduct.ProductID INNER JOIN
+                         tblProductSize ON tblProductItem.SizeID = tblProductSize.SizeID
+GROUP BY tblProduct.ProductName, tblProductItem.Price, tblProductSize.SizeName, tblProduct.ProductType
+ORDER BY TotalQunatity";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -14632,13 +14774,11 @@ order by TotalSales asc
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "TotalRevenue";
-            tableMapping.ColumnMappings.Add("totalSales", "totalSales");
-            tableMapping.ColumnMappings.Add("totalSoldProducts", "totalSoldProducts");
-            tableMapping.ColumnMappings.Add("existingCustomers", "existingCustomers");
-            tableMapping.ColumnMappings.Add("totalCustomers", "totalCustomers");
-            tableMapping.ColumnMappings.Add("totalEvents", "totalEvents");
-            tableMapping.ColumnMappings.Add("totalLocations", "totalLocations");
-            tableMapping.ColumnMappings.Add("FinalRevenue", "FinalRevenue");
+            tableMapping.ColumnMappings.Add("Revenue", "Revenue");
+            tableMapping.ColumnMappings.Add("EventName", "EventName");
+            tableMapping.ColumnMappings.Add("EventDate", "EventDate");
+            tableMapping.ColumnMappings.Add("PaymentMethod", "PaymentMethod");
+            tableMapping.ColumnMappings.Add("EventID", "EventID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -14655,28 +14795,14 @@ order by TotalSales asc
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        tblProductItem.Price * COUNT(tblEventProduct.soldQuantity) AS total" +
-                "Sales, COUNT(tblEventProduct.soldQuantity) AS totalSoldProducts,\r\n              " +
-                "               (SELECT        COUNT(CustomerID) AS Expr1\r\n                      " +
-                "         FROM            tblCustomer\r\n                               WHERE      " +
-                "  (CustomerID <> 0)) AS existingCustomers,\r\n                             (SELECT" +
-                "        COUNT(CustomerID) AS Expr1\r\n                               FROM         " +
-                "   tblSale) AS totalCustomers,\r\n                             (SELECT        COUN" +
-                "T(EventID) AS Expr1\r\n                               FROM            tblEvent) AS" +
-                " totalEvents,\r\n                             (SELECT        COUNT(LocationID) AS " +
-                "Expr1\r\n                               FROM            tblEventLocation) AS total" +
-                "Locations, tblProductItem.Price * COUNT(tblEventProduct.soldQuantity) - tblMisce" +
-                "llaneousExpense.ExpenseValue AS FinalRevenue\r\nFROM            tblProduct INNER J" +
-                "OIN\r\n                         tblProductItem ON tblProductItem.ProductID = tblPr" +
-                "oduct.ProductID INNER JOIN\r\n                         tblProduction ON tblProduct" +
-                "ion.ProductItemID = tblProductItem.ProductItemID INNER JOIN\r\n                   " +
-                "      tblEventProduct ON tblEventProduct.ProductionID = tblProduction.Production" +
-                "ID INNER JOIN\r\n                         tblSaleProducts ON tblSaleProducts.Event" +
-                "ProductID = tblEventProduct.EventProductID INNER JOIN\r\n                         " +
-                "tblEventExpenses ON tblEventExpenses.EventID = tblEventProduct.EventID INNER JOI" +
-                "N\r\n                         tblMiscellaneousExpense ON tblMiscellaneousExpense.E" +
-                "xpenseID = tblEventExpenses.ExpenseID\r\nGROUP BY tblProduct.ProductType, tblProdu" +
-                "ctItem.Price, tblMiscellaneousExpense.ExpenseValue";
+            this._commandCollection[0].CommandText = @"SELECT        SUM(tblSaleProducts.SalePrice * tblSaleProducts.SaleQuantity) AS Revenue, tblEvent.EventName, tblEvent.EventDate, 
+                         CASE WHEN PaymentMethod = 'r' THEN 'Credit' ELSE CASE WHEN PaymentMethod = 'c' THEN 'Casht' ELSE CASE WHEN PaymentMethod = 'd' THEN 'debit' END END END AS PaymentMethod, tblEvent.EventID
+FROM            tblSale INNER JOIN
+                         tblSaleProducts ON tblSale.SaleID = tblSaleProducts.SaleID INNER JOIN
+                         tblEventProduct ON tblSaleProducts.EventProductID = tblEventProduct.EventProductID INNER JOIN
+                         tblEvent ON tblEventProduct.EventID = tblEvent.EventID
+GROUP BY tblEvent.EventName, tblEvent.EventDate, tblSale.PaymentMethod, tblEvent.EventID
+ORDER BY tblEvent.EventDate";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -14828,8 +14954,10 @@ order by TotalSales asc
             tableMapping.DataSetTable = "NutritionInformation";
             tableMapping.ColumnMappings.Add("ProductName", "ProductName");
             tableMapping.ColumnMappings.Add("ServingSize", "ServingSize");
-            tableMapping.ColumnMappings.Add("ValueType", "ValueType");
             tableMapping.ColumnMappings.Add("Value", "Value");
+            tableMapping.ColumnMappings.Add("NutritionName", "NutritionName");
+            tableMapping.ColumnMappings.Add("ProductID", "ProductID");
+            tableMapping.ColumnMappings.Add("ProductType", "ProductType");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -14846,9 +14974,10 @@ order by TotalSales asc
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ProductName, ServingSize, ValueType, Value \r\n\r\nFROM dbo.tblProduct\r\nLEFT J" +
-                "OIN dbo.tblProductNutrition\r\n\tON tblProductNutrition.ProductID = tblProduct.Prod" +
-                "uctID";
+            this._commandCollection[0].CommandText = @"SELECT        tblProduct.ProductName, tblProduct.ServingSize, tblProductNutrition.Value, tblNutrition.NutritionName, tblProduct.ProductID, tblProduct.ProductType
+FROM            tblNutrition INNER JOIN
+                         tblProductNutrition ON tblNutrition.NutritionID = tblProductNutrition.NutritionID RIGHT OUTER JOIN
+                         tblProduct ON tblProductNutrition.ProductID = tblProduct.ProductID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -15378,11 +15507,9 @@ ORDER BY Status, totalSales";
             tableMapping.DataSetTable = "CustomerNumberOfPurchases";
             tableMapping.ColumnMappings.Add("CustomerFirstName", "CustomerFirstName");
             tableMapping.ColumnMappings.Add("CustomerLastName", "CustomerLastName");
-            tableMapping.ColumnMappings.Add("SaleID", "SaleID");
-            tableMapping.ColumnMappings.Add("ProductName", "ProductName");
-            tableMapping.ColumnMappings.Add("Quantity", "Quantity");
-            tableMapping.ColumnMappings.Add("Price", "Price");
             tableMapping.ColumnMappings.Add("Total", "Total");
+            tableMapping.ColumnMappings.Add("Quantity", "Quantity");
+            tableMapping.ColumnMappings.Add("CustomerID", "CustomerID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -15399,30 +15526,17 @@ ORDER BY Status, totalSales";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT 
-	CustomerFirstName, 
-	CustomerLastName,
-	tblSale.SaleID,
-	ProductName, 
-	SaleQuantity AS 'Quantity',
-	SalePrice AS 'Price',
-	SaleQuantity*SalePrice AS 'Total'
-
-FROM tblSale
-JOIN tblCustomer 
-	ON tblCustomer.CustomerID = tblSale.CustomerID
-JOIN tblSaleProducts
-	ON tblSaleProducts.SaleID = tblSale.SaleID
-JOIN tblEventProduct
-	ON tblEventProduct.EventProductID = tblSaleProducts.EventProductID
-JOIN tblProduction
-	ON tblProduction.ProductionID = tblEventProduct.ProductionID
-JOIN tblProductItem
-	ON tblProductItem.ProductItemID = tblProduction.ProductItemID
-JOIN tblProduct
-	ON tblProduct.ProductID = tblProductItem.ProductID
-GROUP BY tblCustomer.CustomerFirstName, CustomerLastName, ProductName, tblSale.SaleID, SaleQuantity, SalePrice
-ORDER BY CustomerFirstName, tblSale.SaleID";
+            this._commandCollection[0].CommandText = @"SELECT        tblCustomer.CustomerFirstName, tblCustomer.CustomerLastName, SUM(tblSaleProducts.SaleQuantity) AS 'Quantity', SUM(tblSaleProducts.SaleQuantity * tblSaleProducts.SalePrice) AS 'Total', tblCustomer.CustomerID
+FROM            tblSale INNER JOIN
+                         tblCustomer ON tblCustomer.CustomerID = tblSale.CustomerID INNER JOIN
+                         tblSaleProducts ON tblSaleProducts.SaleID = tblSale.SaleID INNER JOIN
+                         tblEventProduct ON tblEventProduct.EventProductID = tblSaleProducts.EventProductID INNER JOIN
+                         tblProduction ON tblProduction.ProductionID = tblEventProduct.ProductionID INNER JOIN
+                         tblProductItem ON tblProductItem.ProductItemID = tblProduction.ProductItemID INNER JOIN
+                         tblProduct ON tblProduct.ProductID = tblProductItem.ProductID
+GROUP BY tblCustomer.CustomerFirstName, tblCustomer.CustomerLastName, tblCustomer.CustomerID
+HAVING        (tblCustomer.CustomerID > 0)
+ORDER BY 'Total' DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -15569,6 +15683,15 @@ ORDER BY CustomerFirstName, tblSale.SaleID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitAdapter() {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "TopProducts";
+            tableMapping.ColumnMappings.Add("ProductName", "ProductName");
+            tableMapping.ColumnMappings.Add("Price", "Price");
+            tableMapping.ColumnMappings.Add("SizeName", "SizeName");
+            tableMapping.ColumnMappings.Add("ProductType", "ProductType");
+            tableMapping.ColumnMappings.Add("TotalQunatity", "TotalQunatity");
+            this._adapter.TableMappings.Add(tableMapping);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15584,39 +15707,15 @@ ORDER BY CustomerFirstName, tblSale.SaleID";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        TOP 1 ProductName, ProductType, SizeValue, Unit, Price, \'Weekly\' AS" +
-                " Sort\r\nFROM            dbo.tblProduct LEFT JOIN\r\n                         dbo.tb" +
-                "lProductItem ON tblProductItem.ProductID = tblProduct.ProductID LEFT JOIN\r\n     " +
-                "                    dbo.tblProduction ON tblProduction.ProductItemID = tblProduc" +
-                "tItem.ProductItemID LEFT JOIN\r\n                         dbo.tblEventProduct ON t" +
-                "blEventProduct.ProductionID = tblProduction.ProductionID LEFT JOIN\r\n            " +
-                "             dbo.tblSaleProducts ON tblSaleProducts.EventProductID = tblEventPro" +
-                "duct.EventProductID LEFT JOIN\r\n                         dbo.tblSale ON tblSale.S" +
-                "aleID = tblSaleProducts.SaleID LEFT JOIN\r\n                         dbo.tblProduc" +
-                "tSize ON tblProductSize.SizeID = tblProductItem.SizeID\r\nWHERE        SaleDateTim" +
-                "e >= DATEPART(WEEK, GETDATE())\r\nUNION\r\nSELECT        TOP 1 ProductName, ProductT" +
-                "ype, SizeValue, Unit, Price, \'Monthly\' AS Sort\r\nFROM            dbo.tblProduct L" +
-                "EFT JOIN\r\n                         dbo.tblProductItem ON tblProductItem.ProductI" +
-                "D = tblProduct.ProductID LEFT JOIN\r\n                         dbo.tblProduction O" +
-                "N tblProduction.ProductItemID = tblProductItem.ProductItemID LEFT JOIN\r\n        " +
-                "                 dbo.tblEventProduct ON tblEventProduct.ProductionID = tblProduc" +
-                "tion.ProductionID LEFT JOIN\r\n                         dbo.tblSaleProducts ON tbl" +
-                "SaleProducts.EventProductID = tblEventProduct.EventProductID LEFT JOIN\r\n        " +
-                "                 dbo.tblSale ON tblSale.SaleID = tblSaleProducts.SaleID LEFT JOI" +
-                "N\r\n                         dbo.tblProductSize ON tblProductSize.SizeID = tblPro" +
-                "ductItem.SizeID\r\nWHERE        SaleDateTime >= DATEPART(MONTH, GETDATE())\r\nUNION\r" +
-                "\nSELECT        TOP 1 ProductName, ProductType, SizeValue, Unit, Price, \'Yearly\' " +
-                "AS Sort\r\nFROM            dbo.tblProduct LEFT JOIN\r\n                         dbo." +
-                "tblProductItem ON tblProductItem.ProductID = tblProduct.ProductID LEFT JOIN\r\n   " +
-                "                      dbo.tblProduction ON tblProduction.ProductItemID = tblProd" +
-                "uctItem.ProductItemID LEFT JOIN\r\n                         dbo.tblEventProduct ON" +
-                " tblEventProduct.ProductionID = tblProduction.ProductionID LEFT JOIN\r\n          " +
-                "               dbo.tblSaleProducts ON tblSaleProducts.EventProductID = tblEventP" +
-                "roduct.EventProductID LEFT JOIN\r\n                         dbo.tblSale ON tblSale" +
-                ".SaleID = tblSaleProducts.SaleID LEFT JOIN\r\n                         dbo.tblProd" +
-                "uctSize ON tblProductSize.SizeID = tblProductItem.SizeID\r\nWHERE        SaleDateT" +
-                "ime >= DATEPART(YEAR, GETDATE())\r\nGROUP BY dbo.tblProduct.ProductID, ProductName" +
-                ", ProductType, SizeValue, Unit, Price";
+            this._commandCollection[0].CommandText = @"SELECT        TOP (5) tblProduct.ProductName, SUM(tblSaleProducts.SaleQuantity) AS TotalQunatity, tblProductItem.Price, tblProductSize.SizeName, tblProduct.ProductType
+FROM            tblEventProduct INNER JOIN
+                         tblProduction ON tblEventProduct.ProductionID = tblProduction.ProductionID INNER JOIN
+                         tblSaleProducts ON tblEventProduct.EventProductID = tblSaleProducts.EventProductID INNER JOIN
+                         tblProductItem ON tblProduction.ProductItemID = tblProductItem.ProductItemID INNER JOIN
+                         tblProduct ON tblProductItem.ProductID = tblProduct.ProductID INNER JOIN
+                         tblProductSize ON tblProductItem.SizeID = tblProductSize.SizeID
+GROUP BY tblProduct.ProductName, tblProductItem.Price, tblProductSize.SizeName, tblProduct.ProductType
+ORDER BY TotalQunatity DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

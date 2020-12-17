@@ -116,6 +116,7 @@
             // 
             // cmbType
             // 
+            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.Font = new System.Drawing.Font("Arial Narrow", 14.25F);
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Items.AddRange(new object[] {
