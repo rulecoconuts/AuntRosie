@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * Author: Oghenefejiro Theodore Abohweyere
+ * Purpose: Add new product into the database
+ * Date: 2020-12-17
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +24,11 @@ namespace AuntRosieApplication.Kitchen
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Connect to the database and load comboboxes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmAddProduct_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
@@ -33,11 +43,19 @@ namespace AuntRosieApplication.Kitchen
             cmbType.DataSource = new string[] {"pie", "preserve"};
         }
 
+        /// <summary>
+        /// Validate form input
+        /// </summary>
+        /// <returns></returns>
         private bool validate()
         {
             return validateName() & validateSize();
         }
 
+        /// <summary>
+        /// Validate name input
+        /// </summary>
+        /// <returns></returns>
         private bool validateName()
         {
             if(txtName.Text.Length < 1)
@@ -50,6 +68,10 @@ namespace AuntRosieApplication.Kitchen
             return true;
         }
 
+        /// <summary>
+        /// Validate size input
+        /// </summary>
+        /// <returns></returns>
         private bool validateSize()
         {
             if (txtName.Text.Length < 1)
@@ -62,6 +84,11 @@ namespace AuntRosieApplication.Kitchen
             return true;
         }
 
+        /// <summary>
+        /// Attempt to create new product
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             if(validate())
@@ -89,11 +116,22 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Check for errors in the length of the name
+        /// whenever the text changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             if (txtName.Text.Length > 100)
@@ -107,6 +145,12 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Check for errors in the length of the size
+        /// whenever the text changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtSize_TextChanged(object sender, EventArgs e)
         {
             if (txtSize.Text.Length > 20)
@@ -120,6 +164,11 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Clear the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtName.Clear();

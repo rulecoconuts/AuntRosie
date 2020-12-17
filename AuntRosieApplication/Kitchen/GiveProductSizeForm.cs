@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * Author: Oghenefejiro Theodore Abohweyere
+ * Purpose: Create size varieties of products
+ * Date: 2020-12-17
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,6 +38,11 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Connect to database and load comboboxes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmGiveProductSize_Load(object sender, EventArgs e)
         {
             lblTitle.Left = (this.Width - lblTitle.Width) / 2;
@@ -54,6 +64,11 @@ namespace AuntRosieApplication.Kitchen
             cmbSizes.DataSource = sizes;
         }
 
+        /// <summary>
+        /// Create new product variety
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             Product selectedProduct = (Product)cmbProducts.SelectedItem;
@@ -77,6 +92,11 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Show error message
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="success"></param>
         private void showMsg(string msg, bool success)
         {
             if(success)
@@ -90,11 +110,21 @@ namespace AuntRosieApplication.Kitchen
             lblMsg.Text = msg;
         }
 
+        /// <summary>
+        /// Clear the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtPrice.Text = "";
         }
 
+        /// <summary>
+        /// Close the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * Author: Oghenefejiro Theodore Abohweyere
+ * Purpose: Provides navigation to various screens to manage products
+ * Date: 2020-12-17
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +25,11 @@ namespace AuntRosieApp.Kitchen
 
         }
 
+        /// <summary>
+        /// Load background
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmManageProduct_Load(object sender, EventArgs e)
         {
             lblTitle.Left = (this.Width - lblTitle.Width) / 2;
@@ -44,6 +54,11 @@ namespace AuntRosieApp.Kitchen
            
         }
 
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -59,6 +74,11 @@ namespace AuntRosieApp.Kitchen
 
         }
 
+        /// <summary>
+        /// Navigate to screen to add product
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNew_Click_1(object sender, EventArgs e)
         {
             AuntRosieApplication.Kitchen.frmAddProduct frm = new AuntRosieApplication.Kitchen.frmAddProduct();
@@ -72,6 +92,11 @@ namespace AuntRosieApp.Kitchen
             
         }
 
+        /// <summary>
+        /// Navigate to screen to add product size variety
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddProductSize_Click(object sender, EventArgs e)
         {
             AuntRosieApplication.Kitchen.frmGiveProductSize frm = new AuntRosieApplication.Kitchen.frmGiveProductSize();
@@ -83,6 +108,11 @@ namespace AuntRosieApp.Kitchen
             frm.ShowDialog();
         }
 
+        /// <summary>
+        /// Navigate to screen to edit product
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEdit_Click(object sender, EventArgs e)
         {
             AuntRosieApplication.Kitchen.frmUpdateProduct frm = new AuntRosieApplication.Kitchen.frmUpdateProduct();
@@ -94,6 +124,11 @@ namespace AuntRosieApp.Kitchen
             frm.ShowDialog();
         }
 
+        /// <summary>
+        /// Navigate to screen to manage product nutrition
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -102,6 +137,11 @@ namespace AuntRosieApp.Kitchen
             mpn.ShowDialog();
         }
 
+        /// <summary>
+        /// Navigate to screen to manage product ingredients
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnManageProductIngredients_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -110,6 +150,11 @@ namespace AuntRosieApp.Kitchen
             frm.ShowDialog();
         }
 
+        /// <summary>
+        /// Navigate to screen to view products
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();

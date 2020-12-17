@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * Author: Oghenefejiro Theodore Abohweyere
+ * Purpose: View existing production into the database
+ * Date: 2020-12-17
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,12 +21,19 @@ namespace AuntRosieApplication.Kitchen
         private RosieEvent rosieEvent;
         private List<DataGridViewRow> includedProductionRows = new List<DataGridViewRow>();
 
+        /// <summary>
+        /// Load constructor
+        /// </summary>
+        /// <param name="rosieEvent"></param>
         public frmExistingProduction(RosieEvent rosieEvent)
         {
             this.rosieEvent = rosieEvent;
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Updateable source for production datagrid
+        /// </summary>
         private BindingSource productionSource = new BindingSource();
 
         public RosieEvent RosieEvent { get => rosieEvent; set => rosieEvent = value; }
@@ -31,6 +43,9 @@ namespace AuntRosieApplication.Kitchen
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Display event in form
+        /// </summary>
         private void displayEvent()
         {
             if (rosieEvent != null)
@@ -124,6 +139,11 @@ namespace AuntRosieApplication.Kitchen
             
         }
 
+        /// <summary>
+        /// Check if the update button has been clicked
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
         private bool checkForUpdateClick(DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dtgExistingProduction.Columns["updateColumn"].Index)
@@ -133,6 +153,11 @@ namespace AuntRosieApplication.Kitchen
             return false;
         }
 
+        /// <summary>
+        /// Check if the include button has been clicked
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
         private bool checkForIncludeClick(DataGridViewCellEventArgs e)
         {
             int columnIndex = dtgExistingProduction.Columns["includeColumn"].Index;
@@ -204,6 +229,11 @@ namespace AuntRosieApplication.Kitchen
             new EventProduct(rosieEvent.Id, productionID, quantityToTake, true);
         }
 
+        /// <summary>
+        /// Include production in event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             for(int i = 0; i < includedProductionRows.Count; i++)
@@ -223,6 +253,11 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Handle update or delete button clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dtgExistingProduction_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (!checkForIncludeClick(e))
@@ -231,6 +266,11 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Go back to step3 of event organization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -238,6 +278,11 @@ namespace AuntRosieApplication.Kitchen
             frm.ShowDialog();
         }
 
+        /// <summary>
+        /// Move to step4 of the rosie event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNext_Click(object sender, EventArgs e)
         {
             this.Hide();

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * Author: Oghenefejiro Theodore Abohweyere
+ * Purpose: View products
+ * Date: 2020-12-17
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +24,11 @@ namespace AuntRosieApplication.Kitchen
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Connect to database and load data into form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ViewProducts_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'auntRosieDBDataSet.tblProduct' table. You can move, or remove it, as needed.
@@ -35,11 +45,18 @@ namespace AuntRosieApplication.Kitchen
             loadDataInitial();
         }
 
+        /// <summary>
+        /// Load initial data into comboboxes
+        /// </summary>
         private void loadDataInitial()
         {
             addDeleteButtonToGrid();
             productSource.DataSource = Product.GetProducts();
         }
+
+        /// <summary>
+        /// Add delete button to data grid
+        /// </summary>
 
         private void addDeleteButtonToGrid()
         {
@@ -52,10 +69,22 @@ namespace AuntRosieApplication.Kitchen
             dtgProductList.Columns.Add(column);
         }
 
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        /// <summary>
+        /// Handle delete button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void dtgProductList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

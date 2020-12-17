@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * Author: Oghenefejiro Theodore Abohweyere
+ * Purpose: Add new product ingredient into the database
+ * Date: 2020-12-17
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,20 +18,35 @@ namespace AuntRosieApplication.Kitchen
 {
     public partial class frmAddProductIngredients : Form
     {
+        /// <summary>
+        /// Default product item
+        /// </summary>
         ProductItem productItem = null;
         long ingredient = -1;
 
+        /// <summary>
+        /// Load form
+        /// </summary>
+        /// <param name="productItem"></param>
         public frmAddProductIngredients(ProductItem productItem)
         {
             this.productItem = productItem;
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Load form
+        /// </summary>
         public frmAddProductIngredients()
         {
             InitializeComponent();
         }
-
+        
+        /// <summary>
+        /// Load form with default productItem and ingredient ID
+        /// </summary>
+        /// <param name="productItem"></param>
+        /// <param name="ingredientID"></param>
         public frmAddProductIngredients(ProductItem productItem, long ingredientID)
         {
             this.productItem = productItem;
@@ -34,12 +54,21 @@ namespace AuntRosieApplication.Kitchen
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Select default product and ingredient in form
+        /// </summary>
+        /// <param name="productItem"></param>
+        /// <param name="ingredientID"></param>
         private void selectInForm(ProductItem productItem, long ingredientID)
         {
             selectProductInForm(productItem);
             selectIngredientInForm(ingredientID);
         }
 
+        /// <summary>
+        /// Select default product in form
+        /// </summary>
+        /// <param name="productItem"></param>
         private void selectProductInForm(ProductItem productItem)
         {
             if (productItem != null)
@@ -55,6 +84,10 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Select default ingredient in form
+        /// </summary>
+        /// <param name="ingredientID"></param>
         private void selectIngredientInForm(long ingredientID)
         {
             if (ingredient != -1)
@@ -70,6 +103,10 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Select unit in form
+        /// </summary>
+        /// <param name="unit"></param>
         private void selectUnitInForm(string unit)
         {
             if(unit != null)
@@ -78,6 +115,10 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Load selected product and ingredient combination
+        /// into form
+        /// </summary>
         private void loadIntoForm()
         {
             if (cmbIngredients.SelectedItem != null && cmbProductName.SelectedItem != null)
@@ -94,11 +135,19 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Validate form input
+        /// </summary>
+        /// <returns></returns>
         private bool validate()
         {
             return validateProducts() & validateQuantity();
         }
 
+        /// <summary>
+        /// Validate quantity input
+        /// </summary>
+        /// <returns></returns>
         private bool validateQuantity()
         {
             double quantity = 0;
@@ -119,6 +168,10 @@ namespace AuntRosieApplication.Kitchen
             return true;
         }
 
+        /// <summary>
+        /// Validate product input
+        /// </summary>
+        /// <returns></returns>
         private bool validateProducts()
         {
             if(cmbProductName.SelectedItem == null)
@@ -131,6 +184,11 @@ namespace AuntRosieApplication.Kitchen
             return true;
         }
 
+        /// <summary>
+        /// Save Product Ingredients
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             if(validate())
@@ -170,6 +228,11 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Connect to database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddProductIngredients_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
@@ -184,6 +247,9 @@ namespace AuntRosieApplication.Kitchen
             selectInForm(productItem, ingredient);
         }
 
+        /// <summary>
+        /// Load comboboxes into form
+        /// </summary>
         private void loadCmb()
         {
             cmbProductName.DataSource = ProductItem.GetProductItems();
@@ -191,6 +257,9 @@ namespace AuntRosieApplication.Kitchen
             cmbUnits.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Load ingredient comboboxes
+        /// </summary>
         private void loadIngredientCmbs()
         {
             List<Ingredient> lstIngredients = new List<Ingredient>();
@@ -217,6 +286,11 @@ namespace AuntRosieApplication.Kitchen
             loadIntoForm();
         }
 
+        /// <summary>
+        /// Go back to product ingredient screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();

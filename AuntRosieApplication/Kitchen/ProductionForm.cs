@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * Author: Oghenefejiro Theodore Abohweyere
+ * Purpose: Create new production records
+ * Date: 2020-12-17
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,6 +47,12 @@ namespace AuntRosieApplication.Kitchen
                 return cp;
             }
         }
+
+        /// <summary>
+        /// Connect to database, load background image and load data into form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmProduction_Load(object sender, EventArgs e)
         {
              lblTitle.Left = (this.Width - lblTitle.Width) / 2;
@@ -59,6 +70,9 @@ namespace AuntRosieApplication.Kitchen
             /*cmbEvent.DisplayMember = "ToString()";*/
         }
 
+        /// <summary>
+        /// Display event in form
+        /// </summary>
         private void displayEvent()
         {
             if(rosieEvent != null)
@@ -68,6 +82,9 @@ namespace AuntRosieApplication.Kitchen
         }
 
         #region helper-functions
+        /// <summary>
+        /// Load comboboxes
+        /// </summary>
         private void loadCmbs()
         {
             productItems = ProductItem.GetProductItems();
@@ -92,16 +109,28 @@ namespace AuntRosieApplication.Kitchen
             }*/
         }
 
+        /// <summary>
+        /// Validate form input
+        /// </summary>
+        /// <returns></returns>
         private bool validateForm()
         {
             return validateDates() & validateEvent() & validateQty();
         }
 
+        /// <summary>
+        /// Validate date inputs
+        /// </summary>
+        /// <returns></returns>
         private bool validateDates()
         {
             return validateProductionDateNTime() & validateExpiryDate();
         }
 
+        /// <summary>
+        /// Validate quantity input
+        /// </summary>
+        /// <returns></returns>
         private bool validateQty()
         {
             long quantity = 0;
@@ -137,6 +166,10 @@ namespace AuntRosieApplication.Kitchen
             return true;
         }
 
+        /// <summary>
+        /// Validate expiry date
+        /// </summary>
+        /// <returns></returns>
         private bool validateExpiryDate()
         {
             if (dtpExpiry.Value < DateTime.Now)
@@ -177,6 +210,11 @@ namespace AuntRosieApplication.Kitchen
 
         #endregion
 
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -250,6 +288,11 @@ namespace AuntRosieApplication.Kitchen
             //lblLoc.Text = $"Event Location: {(cmbEvent.SelectedItem as RosieEvent).EventLocation}";
         }
 
+        /// <summary>
+        /// Make expiry date automatically move in front of production date
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dtpProductionDate_ValueChanged(object sender, EventArgs e)
         {
             
@@ -259,6 +302,12 @@ namespace AuntRosieApplication.Kitchen
                 dtpExpiry.Value = dtpProductionDate.Value.AddDays(2);
             }
         }
+
+        /// <summary>
+        /// Make sure that length of quantity input is always valid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void txtQuantity_TextChanged(object sender, EventArgs e)
         {
@@ -274,6 +323,11 @@ namespace AuntRosieApplication.Kitchen
 
         }
 
+        /// <summary>
+        /// Navigate to step 3 of event organization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();

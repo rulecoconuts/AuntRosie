@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * Author: Oghenefejiro Theodore Abohweyere
+ * Purpose: View production records
+ * Date: 2020-12-17
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,6 +34,12 @@ namespace AuntRosieApplication.Kitchen
                 return cp;
             }
         }
+
+        /// <summary>
+        /// Connect to database, load background and load data into form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ViewProduction_Load(object sender, EventArgs e)
         {
              
@@ -54,6 +65,10 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Load production records into datagrid
+        /// </summary>
+        /// <param name="productions"></param>
         private void loadDTG(List<Production> productions)
         {
 
@@ -64,6 +79,11 @@ namespace AuntRosieApplication.Kitchen
             }*/
         }
 
+        /// <summary>
+        /// Filter by producttype
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!chkAllProducts.Checked)
@@ -72,6 +92,11 @@ namespace AuntRosieApplication.Kitchen
             }
         }
 
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -82,11 +107,21 @@ namespace AuntRosieApplication.Kitchen
 
         }
 
+        /// <summary>
+        /// Filter by datetime
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             loadDTG(Production.GetProductions(dtpFrom.Value, dtpTo.Value));
         }
 
+        /// <summary>
+        /// Filter by datatime
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             loadDTG(Production.GetProductions(dtpFrom.Value, dtpTo.Value));
