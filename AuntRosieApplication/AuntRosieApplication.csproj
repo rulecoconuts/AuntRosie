@@ -168,11 +168,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CustomerPromos.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="CustomerPurchases.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CustomerPurchases.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="EmpEventRep.cs">
       <AutoGen>True</AutoGen>
@@ -405,6 +407,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WorstSellingProducts.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="ChanagepriceRep.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
