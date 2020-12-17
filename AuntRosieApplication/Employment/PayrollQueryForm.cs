@@ -1,4 +1,10 @@
-﻿using System;
+﻿/**
+ * @author Mervat Mustafa
+ * @description This form used tor run some Queries about the epmployees payroll
+ * @since 2020-November
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

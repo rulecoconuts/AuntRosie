@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿/**
+ * @author Mervat Mustafa
+ * @description This form used to run some queries about  stock inventory and to rid out
+ * the expierd items
+ * @since 2020-December
+ */
+using System;
+ 
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+ 
 using System.Windows.Forms;
 using AuntRosieApplication.Classes;
-using System.Data.OleDb;
+ 
 using System.Data.SqlClient;
 using AuntRosieEntities;
 

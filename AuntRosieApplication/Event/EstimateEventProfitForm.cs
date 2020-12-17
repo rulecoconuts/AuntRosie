@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿/**
+ * @author Mervat Mustafa
+ * @description This form used to  run help the user to estmiate the event profit
+ * @since 2020-December
+ */
+using System;
+ 
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+ 
 using System.Windows.Forms;
 using AuntRosieApplication.Classes;
-using System.Data.OleDb;
+ 
 using System.Data.SqlClient;
 using AuntRosieEntities;
 
@@ -40,8 +42,8 @@ namespace AuntRosieApplication.Event
             this.BackgroundImage = global::AuntRosieApplication.Properties.Resources.background2;
 
             cmbEventName.Items.Clear();
-            FillCombBoxEvent(AuntRosieEntities.RosieEvent.GetAllEvent
-                   (Classes.DBMethod.GetConnectionString()), cmbEventName);
+            FillCombBoxEvent(AuntRosieEntities.RosieEvent.GetAllEventAfterDate
+                   (Classes.DBMethod.GetConnectionString(), DateTime.Today.Date.ToShortDateString()), cmbEventName);
         }
 
         private void FillCombBoxEvent(DataTable dt, ComboBox cmb)

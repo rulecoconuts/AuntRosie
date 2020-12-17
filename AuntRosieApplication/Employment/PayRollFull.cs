@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * @author Mervat Mustafa
+ * @description This form used to pay fro the FullTimer employee
+ * @since 2020-December
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

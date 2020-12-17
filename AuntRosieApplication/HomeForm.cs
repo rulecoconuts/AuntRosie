@@ -531,7 +531,18 @@ namespace AuntRosieApp
 
         private void btnProfitQuery_Click(object sender, EventArgs e)
         {
-            ShowForm(new AuntRosieApplication.Expenses.ProfitQueriesForm());
+                }
+
+        private void btnProfitQuery_Click_1(object sender, EventArgs e)
+        {
+       ShowForm(new AuntRosieApplication.Expenses.ProfitQueriesForm());
+   
+        }
+
+        private void tmnExpenses_MouseEnter(object sender, EventArgs e)
+        {
+            HidePanels();
+            pnlExpensses.Show();
         }
     }
 }

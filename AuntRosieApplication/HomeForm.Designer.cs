@@ -74,6 +74,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnCostQyuery = new System.Windows.Forms.Button();
             this.btnMiscellaneousExpenses = new System.Windows.Forms.Button();
+            this.btnProfitQuery = new System.Windows.Forms.Button();
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.tmnInventory = new System.Windows.Forms.ToolStripMenuItem();
             this.tmnInventoryStock = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,7 +102,6 @@
             this.tmnQueriesAndReports = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlPayroll = new System.Windows.Forms.Panel();
             this.pnlExpensses = new System.Windows.Forms.Panel();
-            this.btnProfitQuery = new System.Windows.Forms.Button();
             this.pnlInventory.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlKitchen.SuspendLayout();
@@ -787,6 +787,22 @@
             this.btnMiscellaneousExpenses.UseVisualStyleBackColor = true;
             this.btnMiscellaneousExpenses.Click += new System.EventHandler(this.btnMiscellaneousExpenses_Click);
             // 
+            // btnProfitQuery
+            // 
+            this.btnProfitQuery.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProfitQuery.BackgroundImage")));
+            this.btnProfitQuery.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnProfitQuery.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnProfitQuery.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.btnProfitQuery.Image = global::AuntRosieApplication.Properties.Resources.economic_improvement;
+            this.btnProfitQuery.Location = new System.Drawing.Point(391, 9);
+            this.btnProfitQuery.Name = "btnProfitQuery";
+            this.btnProfitQuery.Size = new System.Drawing.Size(184, 187);
+            this.btnProfitQuery.TabIndex = 3;
+            this.btnProfitQuery.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.btnProfitQuery, "Expenses and Costs Queries");
+            this.btnProfitQuery.UseVisualStyleBackColor = true;
+            this.btnProfitQuery.Click += new System.EventHandler(this.btnProfitQuery_Click_1);
+            // 
             // mnuMain
             // 
             this.mnuMain.BackColor = System.Drawing.Color.Transparent;
@@ -968,6 +984,7 @@
             this.tmnExpenses.Size = new System.Drawing.Size(274, 28);
             this.tmnExpenses.Text = "Expenses and Revnue";
             this.tmnExpenses.Click += new System.EventHandler(this.tmnExpenses_Click);
+            this.tmnExpenses.MouseEnter += new System.EventHandler(this.tmnExpenses_MouseEnter);
             // 
             // miscellaneousExpensesToolStripMenuItem
             // 
@@ -1067,21 +1084,6 @@
             this.pnlExpensses.Size = new System.Drawing.Size(771, 207);
             this.pnlExpensses.TabIndex = 11;
             this.pnlExpensses.Visible = false;
-            // 
-            // btnProfitQuery
-            // 
-            this.btnProfitQuery.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProfitQuery.BackgroundImage")));
-            this.btnProfitQuery.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnProfitQuery.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnProfitQuery.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.btnProfitQuery.Image = global::AuntRosieApplication.Properties.Resources.estimate;
-            this.btnProfitQuery.Location = new System.Drawing.Point(391, 9);
-            this.btnProfitQuery.Name = "btnProfitQuery";
-            this.btnProfitQuery.Size = new System.Drawing.Size(184, 187);
-            this.btnProfitQuery.TabIndex = 3;
-            this.btnProfitQuery.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolTip1.SetToolTip(this.btnProfitQuery, "Expenses and Costs Queries");
-            this.btnProfitQuery.UseVisualStyleBackColor = true;
             // 
             // frmHome
             // 
