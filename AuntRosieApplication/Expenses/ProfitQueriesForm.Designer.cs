@@ -54,9 +54,9 @@
             this.label20.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label20.Location = new System.Drawing.Point(62, 27);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(248, 30);
+            this.label20.Size = new System.Drawing.Size(230, 30);
             this.label20.TabIndex = 154;
-            this.label20.Text = "Peofit Quyeries";
+            this.label20.Text = "Profit Queries";
             // 
             // btnClose
             // 

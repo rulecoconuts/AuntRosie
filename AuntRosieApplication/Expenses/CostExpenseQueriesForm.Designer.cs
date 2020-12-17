@@ -256,9 +256,9 @@
             this.label20.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label20.Location = new System.Drawing.Point(46, 29);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(432, 30);
+            this.label20.Size = new System.Drawing.Size(414, 30);
             this.label20.TabIndex = 150;
-            this.label20.Text = "Cost and Expenses Quyeries";
+            this.label20.Text = "Cost and Expenses Queries";
             // 
             // btnClose
             // 
