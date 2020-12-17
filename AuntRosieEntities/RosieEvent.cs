@@ -258,7 +258,7 @@ namespace AuntRosieEntities
             RosieEvent reqEvent = null;
 
             //Prepare statement
-            if (retrieveIdPrepCmd is null)
+            if (retrieveDateLocationPrepCmd is null)
             {
                 retrieveDateLocationPrepCmd = new SqlCommand(null, Connector.Connection);
                 retrieveDateLocationPrepCmd.CommandText = "select [EventID], [EventName], [EventType] " +

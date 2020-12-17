@@ -332,6 +332,12 @@
     <Compile Include="Kitchen\ViewProduction.Designer.cs">
       <DependentUpon>ViewProduction.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kitchen\ViewProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\ViewProducts.Designer.cs">
+      <DependentUpon>ViewProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -460,6 +466,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Kitchen\ViewProduction.resx">
       <DependentUpon>ViewProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen\ViewProducts.resx">
+      <DependentUpon>ViewProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

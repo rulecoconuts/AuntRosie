@@ -23,7 +23,8 @@ namespace GenerateData
 
             //GenEventLocations(40);
             //GenEvents(2);
-            GenEmployment(27);
+            GenEmployment(30);
+            //GenSupplier(30);
             Console.ReadLine();
             conn.Disconnect();
         }
@@ -32,17 +33,36 @@ namespace GenerateData
         {
             for(int i = 0; i < nRecords; i++)
             {
-                Supplier insertSupplier = new Supplier();
-                insertSupplier.Name = Company.Name();
-                insertSupplier.ContactFirstName = Name.First();
-                insertSupplier.ContactLasttName = Name.Last();
-                insertSupplier.Phone = Phone.Number();
-                insertSupplier.Email = Internet.Email();
-                insertSupplier.City = Faker.Address.City();
-                insertSupplier.Province = "ON";
-                insertSupplier.Street = Faker.Address.StreetAddress();
-                //insertSupplier.PostalCode = txtPostalCode.Text.Trim();
+                try
+                {
+                    Supplier insertSupplier = new Supplier();
+                    insertSupplier.Name = Company.Name();
+                    insertSupplier.ContactFirstName = Name.First();
+                    insertSupplier.ContactLasttName = Name.Last();
+                    insertSupplier.Phone = GenPhone();
+                    insertSupplier.Email = Internet.Email();
+                    insertSupplier.City = Faker.Address.City();
+                    insertSupplier.Province = GetRandProvince();
+                    insertSupplier.Street = Faker.Address.StreetAddress();
+                    insertSupplier.PostalCode = GetPostalCode();
+                    insertSupplier.Create();
+                    //insertSupplier.PostalCode = txtPostalCode.Text.Trim();
+
+                }
+                catch
+                {
+
+                }
             }
+        }
+
+        /// <summary>
+        /// Generate random phone number
+        /// </summary>
+        /// <returns></returns>
+        private static string GenPhone()
+        {
+            return $"({RandomNumber.Next(100, 999)})-{RandomNumber.Next(100, 999)}-{RandomNumber.Next(1000, 9999)}";
         }
 
         private static void GenEmployment(int nRecords)
@@ -51,26 +71,26 @@ namespace GenerateData
             {
                 try
                 {
-                    Employee insertSupplier = new Employee();
-                    insertSupplier.FirstName = Name.First();
-                    insertSupplier.LastName = Name.Last();
-                    insertSupplier.Phone = Phone.Number();
-                    insertSupplier.Email = Internet.Email();
-                    insertSupplier.City = Faker.Address.City();
-                    insertSupplier.Province = GetRandProvince();
-                    insertSupplier.Street = Faker.Address.StreetAddress();
+                    Employee insertEmployee = new Employee();
+                    insertEmployee.FirstName = Name.First();
+                    insertEmployee.LastName = Name.Last();
+                    insertEmployee.Phone = GenPhone();
+                    insertEmployee.Email = Internet.Email();
+                    insertEmployee.City = Faker.Address.City();
+                    insertEmployee.Province = GetRandProvince();
+                    insertEmployee.Street = Faker.Address.StreetAddress();
 
-                    insertSupplier.PostalCode = GetPostalCode();
-                    insertSupplier.Role = SelectRandomFromString(new string[] { "kitchen assistant", "Helper" });
-                    insertSupplier.Type = "F";
+                    insertEmployee.PostalCode = GetPostalCode();
+                    insertEmployee.Role = SelectRandomFromString(new string[] { "kitchen assistant", "Helper" });
+                    insertEmployee.Type = "F";
 
-                    if (insertSupplier.Type == "F")
+                    if (insertEmployee.Type == "F")
                     {
-                        insertSupplier.Salary = RandomNumber.Next(500, 4000);
-                        insertSupplier.EmploymentDate = DateTime.Now.AddDays(RandomNumber.Next(-500, 0));
+                        insertEmployee.Salary = RandomNumber.Next(500, 4000);
+                        insertEmployee.EmploymentDate = DateTime.Now.AddDays(RandomNumber.Next(-500, 0));
                     }
 
-                    insertSupplier.Create();
+                    insertEmployee.Create();
                 }
                 catch
                 {
@@ -84,7 +104,7 @@ namespace GenerateData
             string[] alphabets = new string[] { "a", "b", "c", "d", "e", "f", "g", "h",
             "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
 
-            return $"{SelectRandomFromString(alphabets)}{RandomNumber.Next(1,9)}{SelectRandomFromString(alphabets)} " +
+            return $"{SelectRandomFromString(alphabets)}{RandomNumber.Next(1,9)}{SelectRandomFromString(alphabets)}" +
                 $"{RandomNumber.Next(1, 9)}{SelectRandomFromString(alphabets)}{RandomNumber.Next(1, 9)}";
         }
 

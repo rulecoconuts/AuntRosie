@@ -44,6 +44,7 @@
             this.pnlButton = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.pnlButton.SuspendLayout();
@@ -177,6 +178,7 @@
             // pnlButton
             // 
             this.pnlButton.BackColor = System.Drawing.Color.Transparent;
+            this.pnlButton.Controls.Add(this.btnDelete);
             this.pnlButton.Controls.Add(this.btnSave);
             this.pnlButton.Controls.Add(this.btnClear);
             this.pnlButton.Location = new System.Drawing.Point(239, 450);
@@ -189,7 +191,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Image = global::AuntRosieApplication.Properties.Resources.save;
-            this.btnSave.Location = new System.Drawing.Point(209, 5);
+            this.btnSave.Location = new System.Drawing.Point(257, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(97, 72);
             this.btnSave.TabIndex = 24;
@@ -201,12 +203,25 @@
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Image = global::AuntRosieApplication.Properties.Resources.eraser;
-            this.btnClear.Location = new System.Drawing.Point(69, 3);
+            this.btnClear.Location = new System.Drawing.Point(139, 3);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(97, 72);
             this.btnClear.TabIndex = 15;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Image = global::AuntRosieApplication.Properties.Resources.delete_sign;
+            this.btnDelete.Location = new System.Drawing.Point(26, 9);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(79, 61);
+            this.btnDelete.TabIndex = 25;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmUpdateProduct
             // 
@@ -253,5 +268,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

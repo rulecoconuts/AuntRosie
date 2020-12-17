@@ -67,7 +67,7 @@ namespace AuntRosieApp.Kitchen
             
             //frm.Top = (this.Height - frm.Height) / 2;
             //frm.Activate();
-            frm.Show();
+            frm.ShowDialog();
 
             
         }
@@ -80,7 +80,7 @@ namespace AuntRosieApp.Kitchen
 
             //frm.Top = (this.Height - frm.Height) / 2;
             //frm.Activate();
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -91,7 +91,7 @@ namespace AuntRosieApp.Kitchen
 
             //frm.Top = (this.Height - frm.Height) / 2;
             //frm.Activate();
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -107,6 +107,13 @@ namespace AuntRosieApp.Kitchen
             this.Close();
             AuntRosieApplication.Kitchen.frmManageProductIngredients frm =
                 new AuntRosieApplication.Kitchen.frmManageProductIngredients();
+            frm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AuntRosieApplication.Kitchen.frmViewProducts frm = new AuntRosieApplication.Kitchen.frmViewProducts();
             frm.ShowDialog();
         }
     }

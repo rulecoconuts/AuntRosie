@@ -233,9 +233,16 @@ namespace AuntRosieApplication.Kitchen
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             Event.frmOrganizeEventStep3 frm = new Event.frmOrganizeEventStep3(rosieEvent);
             frm.ShowDialog();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AuntRosieApp.frmHome.formStep4.RosieEvent = rosieEvent;
+            AuntRosieApp.frmHome.formStep4.Show();
         }
     }
 }

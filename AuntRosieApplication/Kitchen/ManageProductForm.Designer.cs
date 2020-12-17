@@ -37,6 +37,7 @@
             this.btnAddProductSize = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnManageProductIngredients = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -71,7 +72,7 @@
             this.btnNew.BackColor = System.Drawing.Color.Teal;
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnNew.Location = new System.Drawing.Point(156, 284);
+            this.btnNew.Location = new System.Drawing.Point(303, 237);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(145, 64);
             this.btnNew.TabIndex = 65;
@@ -84,7 +85,7 @@
             this.btnEdit.BackColor = System.Drawing.Color.Teal;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnEdit.Location = new System.Drawing.Point(320, 284);
+            this.btnEdit.Location = new System.Drawing.Point(467, 237);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(145, 64);
             this.btnEdit.TabIndex = 66;
@@ -97,7 +98,7 @@
             this.btnAddProductSize.BackColor = System.Drawing.Color.Teal;
             this.btnAddProductSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProductSize.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnAddProductSize.Location = new System.Drawing.Point(156, 372);
+            this.btnAddProductSize.Location = new System.Drawing.Point(303, 325);
             this.btnAddProductSize.Name = "btnAddProductSize";
             this.btnAddProductSize.Size = new System.Drawing.Size(145, 64);
             this.btnAddProductSize.TabIndex = 67;
@@ -110,7 +111,7 @@
             this.button1.BackColor = System.Drawing.Color.Teal;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(320, 372);
+            this.button1.Location = new System.Drawing.Point(467, 325);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 64);
             this.button1.TabIndex = 68;
@@ -123,13 +124,26 @@
             this.btnManageProductIngredients.BackColor = System.Drawing.Color.Teal;
             this.btnManageProductIngredients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageProductIngredients.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnManageProductIngredients.Location = new System.Drawing.Point(485, 284);
+            this.btnManageProductIngredients.Location = new System.Drawing.Point(467, 404);
             this.btnManageProductIngredients.Name = "btnManageProductIngredients";
             this.btnManageProductIngredients.Size = new System.Drawing.Size(145, 64);
             this.btnManageProductIngredients.TabIndex = 69;
             this.btnManageProductIngredients.Text = "Manage Product Ingredients";
             this.btnManageProductIngredients.UseVisualStyleBackColor = false;
             this.btnManageProductIngredients.Click += new System.EventHandler(this.btnManageProductIngredients_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Teal;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
+            this.button2.Location = new System.Drawing.Point(303, 404);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(145, 64);
+            this.button2.TabIndex = 70;
+            this.button2.Text = "View Products";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmManageProduct
             // 
@@ -138,6 +152,7 @@
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(967, 739);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnManageProductIngredients);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAddProductSize);
@@ -166,5 +181,6 @@
         private System.Windows.Forms.Button btnAddProductSize;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnManageProductIngredients;
+        private System.Windows.Forms.Button button2;
     }
 }

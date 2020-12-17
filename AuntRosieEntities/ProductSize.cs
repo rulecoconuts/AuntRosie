@@ -109,7 +109,7 @@ namespace AuntRosieEntities
                 reader.Read();
                 ProductSize = new ProductSize();
                 ProductSize.SetID(id);
-                ProductSize.Name = reader.GetString(0);
+                ProductSize.Name = reader.IsDBNull(0)? null : reader.GetString(0);
                 ProductSize.Unit = reader.GetString(1);
                 ProductSize.Value = reader.GetDecimal(2);
             }

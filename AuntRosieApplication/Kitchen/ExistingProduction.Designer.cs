@@ -127,6 +127,7 @@
             this.btnNext.Size = new System.Drawing.Size(62, 62);
             this.btnNext.TabIndex = 151;
             this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnClear
             // 

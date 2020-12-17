@@ -152,7 +152,7 @@ namespace AuntRosieEntities
                 createPrepCmd.Parameters["@city"].Value = City;
                 createPrepCmd.Parameters["@street"].Value = Street;
                 createPrepCmd.Parameters["@province"].Value = Province;
-                createPrepCmd.Parameters["@posal"].Value = postalCode;
+                createPrepCmd.Parameters["@postal"].Value = postalCode;
             }
 
             id = Convert.ToInt16(Connector.Insert(createPrepCmd, true, transaction));

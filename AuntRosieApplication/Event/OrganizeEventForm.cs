@@ -23,6 +23,7 @@ namespace AuntRosieApplication.Event
             {"Other", EventType.Other}
         };
 
+        BindingSource eventSource = new BindingSource();
         public frmOrganizeEvent()
         {
             InitializeComponent();
@@ -78,8 +79,21 @@ namespace AuntRosieApplication.Event
             {
                 cmbTypes.Items.Add(item);
             }
+            dgEvents.DataSource = eventSource;
+            addDeleteButtonToGrid();
             cmbTypes.SelectedIndex = 0;
             cmbTypes.DisplayMember = "Key";
+        }
+
+        private void addDeleteButtonToGrid()
+        {
+            DataGridViewButtonColumn column = new DataGridViewButtonColumn();
+            column.HeaderText = "Delete";
+            column.Name = "DeleteButton";
+            column.Text = "Delete";
+            column.UseColumnTextForButtonValue = true;
+            dgEvents.AutoGenerateColumns = true;
+            dgEvents.Columns.Add(column);
         }
 
         #region helper-functions
@@ -337,13 +351,31 @@ namespace AuntRosieApplication.Event
             if (radExisting.Checked)
             {
                 radNew.Checked = false;
-                dgEvents.DataSource = RosieEvent.GetEvents(DateTime.Now);
+                eventSource.DataSource = RosieEvent.GetEvents(DateTime.Now);
             }
         }
 
         private void dgEvents_SelectionChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void dgEvents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == dgEvents.Columns["DeleteButton"].Index)
+            {
+                try
+                {
+                    DataGridViewRow clickedRow = dgEvents.Rows[e.RowIndex];
+                    (clickedRow.DataBoundItem as RosieEvent).Delete();
+
+                    dgEvents.Rows.Remove(clickedRow);
+                }
+                catch
+                {
+
+                }
+            }
         }
     }
 }

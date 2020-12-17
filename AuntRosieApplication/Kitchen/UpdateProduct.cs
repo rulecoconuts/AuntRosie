@@ -224,5 +224,26 @@ namespace AuntRosieApplication.Kitchen
         {
             this.Close();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Product product = cmbName.SelectedItem as Product;
+
+                product.Delete();
+
+                cmbName.Items.Remove(product);
+                cmbName.SelectedIndex = 0;
+            }
+            catch(ArgumentOutOfRangeException aore)
+            {
+                
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong");
+            }
+        }
     }
 }
