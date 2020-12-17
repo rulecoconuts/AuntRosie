@@ -283,6 +283,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmViewProduction";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewProduction";
             this.Load += new System.EventHandler(this.ViewProduction_Load);
             this.panel1.ResumeLayout(false);

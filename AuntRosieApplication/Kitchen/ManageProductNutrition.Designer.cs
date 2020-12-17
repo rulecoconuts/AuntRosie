@@ -239,6 +239,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmManageProductNutrition";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageProductNutrition";
             this.Load += new System.EventHandler(this.ManageProductNutrition_Load);
             this.panel1.ResumeLayout(false);
