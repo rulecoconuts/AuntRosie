@@ -111,7 +111,16 @@ namespace AuntRosieEntities
                 typeParam.Value = Type;
                 createPrepCmd.Parameters.Add(typeParam);
 
-
+                createPrepCmd.Parameters.Add(fNameParam);
+                createPrepCmd.Parameters.Add(lNameParam);
+                createPrepCmd.Parameters.Add(phoneParam);
+                createPrepCmd.Parameters.Add(emailParam);
+                createPrepCmd.Parameters.Add(provinceParam);
+                createPrepCmd.Parameters.Add(cityParam);
+                createPrepCmd.Parameters.Add(streetParam);
+                createPrepCmd.Parameters.Add(postalParam);
+                createPrepCmd.Parameters.Add(roleParam);
+                createPrepCmd.Parameters.Add(typeParam);
 
                 createPrepCmd.Prepare();
             }
@@ -125,7 +134,7 @@ namespace AuntRosieEntities
                 createPrepCmd.Parameters["@city"].Value = City;
                 createPrepCmd.Parameters["@street"].Value = Street;
                 createPrepCmd.Parameters["@province"].Value = Province;
-                createPrepCmd.Parameters["@posal"].Value = PostalCode;
+                createPrepCmd.Parameters["@postal"].Value = PostalCode;
                 createPrepCmd.Parameters["@role"].Value = Role;
                 createPrepCmd.Parameters["@type"].Value = Type;
 
