@@ -5641,13 +5641,6 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TotalRevenueRow FindByEventID(long EventID) {
-                return ((TotalRevenueRow)(this.Rows.Find(new object[] {
-                            EventID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 TotalRevenueDataTable cln = ((TotalRevenueDataTable)(base.Clone()));
                 cln.InitVars();
@@ -5683,8 +5676,6 @@ namespace AuntRosieApplication {
                 base.Columns.Add(this.columnPaymentMethod);
                 this.columnEventID = new global::System.Data.DataColumn("EventID", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEventID);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnEventID}, true));
                 this.columnRevenue.ReadOnly = true;
                 this.columnEventName.AllowDBNull = false;
                 this.columnEventName.MaxLength = 50;
@@ -5696,7 +5687,6 @@ namespace AuntRosieApplication {
                 this.columnEventID.AutoIncrementStep = -1;
                 this.columnEventID.AllowDBNull = false;
                 this.columnEventID.ReadOnly = true;
-                this.columnEventID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6169,15 +6159,13 @@ namespace AuntRosieApplication {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class TotalExpensesDataTable : global::System.Data.TypedTableBase<TotalExpensesRow> {
             
-            private global::System.Data.DataColumn columnExpensePayDate;
+            private global::System.Data.DataColumn columnPaymentDate;
             
-            private global::System.Data.DataColumn columnExpenseValue;
+            private global::System.Data.DataColumn columnAmount;
             
-            private global::System.Data.DataColumn columnExpenseType;
+            private global::System.Data.DataColumn columnPaymentMethod;
             
-            private global::System.Data.DataColumn columnTotalExpired;
-            
-            private global::System.Data.DataColumn columnTotalIngredientsCost;
+            private global::System.Data.DataColumn columnType;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -6214,41 +6202,33 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ExpensePayDateColumn {
+            public global::System.Data.DataColumn PaymentDateColumn {
                 get {
-                    return this.columnExpensePayDate;
+                    return this.columnPaymentDate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ExpenseValueColumn {
+            public global::System.Data.DataColumn AmountColumn {
                 get {
-                    return this.columnExpenseValue;
+                    return this.columnAmount;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ExpenseTypeColumn {
+            public global::System.Data.DataColumn PaymentMethodColumn {
                 get {
-                    return this.columnExpenseType;
+                    return this.columnPaymentMethod;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TotalExpiredColumn {
+            public global::System.Data.DataColumn TypeColumn {
                 get {
-                    return this.columnTotalExpired;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TotalIngredientsCostColumn {
-                get {
-                    return this.columnTotalIngredientsCost;
+                    return this.columnType;
                 }
             }
             
@@ -6289,14 +6269,13 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TotalExpensesRow AddTotalExpensesRow(System.DateTime ExpensePayDate, decimal ExpenseValue, string ExpenseType, int TotalExpired, decimal TotalIngredientsCost) {
+            public TotalExpensesRow AddTotalExpensesRow(System.DateTime PaymentDate, decimal Amount, string PaymentMethod, string Type) {
                 TotalExpensesRow rowTotalExpensesRow = ((TotalExpensesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ExpensePayDate,
-                        ExpenseValue,
-                        ExpenseType,
-                        TotalExpired,
-                        TotalIngredientsCost};
+                        PaymentDate,
+                        Amount,
+                        PaymentMethod,
+                        Type};
                 rowTotalExpensesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTotalExpensesRow);
                 return rowTotalExpensesRow;
@@ -6319,32 +6298,29 @@ namespace AuntRosieApplication {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnExpensePayDate = base.Columns["ExpensePayDate"];
-                this.columnExpenseValue = base.Columns["ExpenseValue"];
-                this.columnExpenseType = base.Columns["ExpenseType"];
-                this.columnTotalExpired = base.Columns["TotalExpired"];
-                this.columnTotalIngredientsCost = base.Columns["TotalIngredientsCost"];
+                this.columnPaymentDate = base.Columns["PaymentDate"];
+                this.columnAmount = base.Columns["Amount"];
+                this.columnPaymentMethod = base.Columns["PaymentMethod"];
+                this.columnType = base.Columns["Type"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnExpensePayDate = new global::System.Data.DataColumn("ExpensePayDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpensePayDate);
-                this.columnExpenseValue = new global::System.Data.DataColumn("ExpenseValue", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpenseValue);
-                this.columnExpenseType = new global::System.Data.DataColumn("ExpenseType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpenseType);
-                this.columnTotalExpired = new global::System.Data.DataColumn("TotalExpired", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalExpired);
-                this.columnTotalIngredientsCost = new global::System.Data.DataColumn("TotalIngredientsCost", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalIngredientsCost);
-                this.columnExpensePayDate.AllowDBNull = false;
-                this.columnExpenseValue.AllowDBNull = false;
-                this.columnExpenseType.AllowDBNull = false;
-                this.columnExpenseType.MaxLength = 50;
-                this.columnTotalExpired.ReadOnly = true;
-                this.columnTotalIngredientsCost.ReadOnly = true;
+                this.columnPaymentDate = new global::System.Data.DataColumn("PaymentDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentDate);
+                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmount);
+                this.columnPaymentMethod = new global::System.Data.DataColumn("PaymentMethod", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentMethod);
+                this.columnType = new global::System.Data.DataColumn("Type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnType);
+                this.columnPaymentDate.ReadOnly = true;
+                this.columnAmount.ReadOnly = true;
+                this.columnPaymentMethod.ReadOnly = true;
+                this.columnPaymentMethod.MaxLength = 6;
+                this.columnType.ReadOnly = true;
+                this.columnType.MaxLength = 22;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9850,91 +9826,114 @@ namespace AuntRosieApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime ExpensePayDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tableTotalExpenses.ExpensePayDateColumn]));
-                }
-                set {
-                    this[this.tableTotalExpenses.ExpensePayDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal ExpenseValue {
-                get {
-                    return ((decimal)(this[this.tableTotalExpenses.ExpenseValueColumn]));
-                }
-                set {
-                    this[this.tableTotalExpenses.ExpenseValueColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ExpenseType {
-                get {
-                    return ((string)(this[this.tableTotalExpenses.ExpenseTypeColumn]));
-                }
-                set {
-                    this[this.tableTotalExpenses.ExpenseTypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int TotalExpired {
+            public System.DateTime PaymentDate {
                 get {
                     try {
-                        return ((int)(this[this.tableTotalExpenses.TotalExpiredColumn]));
+                        return ((global::System.DateTime)(this[this.tableTotalExpenses.PaymentDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalExpired\' in table \'TotalExpenses\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentDate\' in table \'TotalExpenses\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTotalExpenses.TotalExpiredColumn] = value;
+                    this[this.tableTotalExpenses.PaymentDateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal TotalIngredientsCost {
+            public decimal Amount {
                 get {
                     try {
-                        return ((decimal)(this[this.tableTotalExpenses.TotalIngredientsCostColumn]));
+                        return ((decimal)(this[this.tableTotalExpenses.AmountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalIngredientsCost\' in table \'TotalExpenses\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'TotalExpenses\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTotalExpenses.TotalIngredientsCostColumn] = value;
+                    this[this.tableTotalExpenses.AmountColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotalExpiredNull() {
-                return this.IsNull(this.tableTotalExpenses.TotalExpiredColumn);
+            public string PaymentMethod {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotalExpenses.PaymentMethodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentMethod\' in table \'TotalExpenses\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotalExpenses.PaymentMethodColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotalExpiredNull() {
-                this[this.tableTotalExpenses.TotalExpiredColumn] = global::System.Convert.DBNull;
+            public string Type {
+                get {
+                    try {
+                        return ((string)(this[this.tableTotalExpenses.TypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Type\' in table \'TotalExpenses\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTotalExpenses.TypeColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotalIngredientsCostNull() {
-                return this.IsNull(this.tableTotalExpenses.TotalIngredientsCostColumn);
+            public bool IsPaymentDateNull() {
+                return this.IsNull(this.tableTotalExpenses.PaymentDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotalIngredientsCostNull() {
-                this[this.tableTotalExpenses.TotalIngredientsCostColumn] = global::System.Convert.DBNull;
+            public void SetPaymentDateNull() {
+                this[this.tableTotalExpenses.PaymentDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAmountNull() {
+                return this.IsNull(this.tableTotalExpenses.AmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAmountNull() {
+                this[this.tableTotalExpenses.AmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPaymentMethodNull() {
+                return this.IsNull(this.tableTotalExpenses.PaymentMethodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPaymentMethodNull() {
+                this[this.tableTotalExpenses.PaymentMethodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTypeNull() {
+                return this.IsNull(this.tableTotalExpenses.TypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTypeNull() {
+                this[this.tableTotalExpenses.TypeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -15127,11 +15126,10 @@ FROM            tblNutrition INNER JOIN
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "TotalExpenses";
-            tableMapping.ColumnMappings.Add("ExpensePayDate", "ExpensePayDate");
-            tableMapping.ColumnMappings.Add("ExpenseValue", "ExpenseValue");
-            tableMapping.ColumnMappings.Add("ExpenseType", "ExpenseType");
-            tableMapping.ColumnMappings.Add("TotalExpired", "TotalExpired");
-            tableMapping.ColumnMappings.Add("TotalIngredientsCost", "TotalIngredientsCost");
+            tableMapping.ColumnMappings.Add("PaymentDate", "PaymentDate");
+            tableMapping.ColumnMappings.Add("Amount", "Amount");
+            tableMapping.ColumnMappings.Add("PaymentMethod", "PaymentMethod");
+            tableMapping.ColumnMappings.Add("Type", "Type");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -15148,15 +15146,20 @@ FROM            tblNutrition INNER JOIN
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ExpensePayDate, ExpenseValue, ExpenseType,
-	sum( case when ExpiryDate < GETDATE() then 1 else 0 end ) as TotalExpired,
-	sum(Quantity*UnitPrice) AS TotalIngredientsCost
-FROM dbo.tblMiscellaneousExpense
-JOIN dbo.tblEventExpenses
-	ON tblEventExpenses.ExpenseID = tblMiscellaneousExpense.ExpenseID
-LEFT JOIN dbo.tblIngredientInventory
-	ON tblIngredientInventory.PaymentMethod = tblMiscellaneousExpense.PaymentMethod
-GROUP BY ExpensePayDate, ExpenseValue, ExpenseType";
+            this._commandCollection[0].CommandText = @"SELECT        PaymentDate, Amount, CASE WHEN PaymentMethod = 'r' THEN 'Credit' ELSE CASE WHEN PaymentMethod = 'c' THEN 'Cash' ELSE CASE WHEN PaymentMethod = 'd' THEN 'Debit' END END END AS PaymentMethod, 
+                         Type
+FROM            (SELECT        PaymentDate, Amount, PaymentMethod, 'Full Timer Payroll' AS Type
+                          FROM            tblFullTimePayroll
+                          UNION ALL
+                          SELECT        PaymentDate, Amount, PaymentMethod, 'Part Timer Payroll' AS Type
+                          FROM            tblPayroll
+                          UNION ALL
+                          SELECT        ExpensePayDate, ExpenseValue, PaymentMethod, ' Miscellaneous Expense' AS Type
+                          FROM            tblMiscellaneousExpense
+                          UNION ALL
+                          SELECT        PurchaseDate, Cost, PaymentMethod, 'Inventory-in Stock' AS Type
+                          FROM            tblIngredientInventory) AS derivedtbl_1
+ORDER BY PaymentDate";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

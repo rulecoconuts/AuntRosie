@@ -158,6 +158,7 @@
             this.cmbEmpName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEmpName.FormattingEnabled = true;
             this.cmbEmpName.Location = new System.Drawing.Point(159, 33);
+            this.cmbEmpName.MaxLength = 10;
             this.cmbEmpName.Name = "cmbEmpName";
             this.cmbEmpName.Size = new System.Drawing.Size(281, 31);
             this.cmbEmpName.TabIndex = 108;

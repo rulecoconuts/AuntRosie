@@ -150,6 +150,7 @@
             this.radToday.TabStop = true;
             this.radToday.Text = "Tody Event";
             this.radToday.UseVisualStyleBackColor = true;
+            this.radToday.CheckedChanged += new System.EventHandler(this.radToday_CheckedChanged);
             // 
             // radLastMonth
             // 

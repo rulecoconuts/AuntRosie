@@ -147,11 +147,14 @@ namespace AuntRosieApplication.Expenses
         }
         private void cmbEventName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
-            RosieEntity.Connector = conn;
-            RosieEvent rosieEvent = RosieEvent.Retrieve(long.Parse(DBMethod.GetSelectedItemID(cmbEventName)));
-            EventLocation locEvent = EventLocation.Retrieve(rosieEvent.LocationId);
-            lblEventLocation.Text += locEvent.Address.ToString();
+            if (cmbEventName.SelectedItem != null)
+            {
+                DBConnector conn = new DBConnector(Classes.DBMethod.GetConnectionString());
+                RosieEntity.Connector = conn;
+                RosieEvent rosieEvent = RosieEvent.Retrieve(long.Parse(DBMethod.GetSelectedItemID(cmbEventName)));
+                EventLocation locEvent = EventLocation.Retrieve(rosieEvent.LocationId);
+                lblEventLocation.Text += locEvent.Address.ToString();
+            }
            
 
         }
@@ -172,9 +175,9 @@ namespace AuntRosieApplication.Expenses
 
             errExpense.Clear();
             bool isValid = true;
-            if (dtpFormDate.Value.Date < DateTime.Today.Date)
+            if (dtpFormDate.Value.Date > DateTime.Today.Date)
             {
-                errExpense.SetError(dtpFormDate, "Please check the Payment date, the date could not be before today");
+                errExpense.SetError(dtpFormDate, "Please check the Payment date, the date could not be after today date");
                 isValid = false;
 
             }
@@ -286,6 +289,14 @@ namespace AuntRosieApplication.Expenses
         private void btnClear_Click(object sender, EventArgs e)
         {
             clearData();
+        }
+
+        private void radToday_CheckedChanged(object sender, EventArgs e)
+        {
+            FillCombBoxEvent(AuntRosieEntities.RosieEvent.GetAllEventByDate
+                   (Classes.DBMethod.GetConnectionString(), DateTime.Today.Date.ToShortDateString()), cmbEventName);
+
+
         }
     }
 } 

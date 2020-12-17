@@ -133,6 +133,7 @@ namespace AuntRosieApp
             form.Activate();
             form.Focus();            
             mnuMain.Visible = false;
+            
             btnShowMain.Enabled = true;
         }
         private void ShowEventForm(Form form)

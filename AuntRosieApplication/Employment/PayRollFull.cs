@@ -184,6 +184,12 @@ namespace AuntRosieApplication.Employment
                 isValid = false;
 
             }
+            if (cmbYear.Text == "")
+            {
+                errPayroll.SetError(cmbYear, " SelectThe the Year , it could not be empty");
+                isValid = false;
+
+            }
 
             return isValid;
         }
@@ -264,7 +270,7 @@ namespace AuntRosieApplication.Employment
                     double sal = employee.Salary;
                     lblEmploymentDate.Text = employee.EmploymentDate.ToShortDateString();
                     btnAddFull.Enabled = true;
-                    
+                     if(isValidFullPayroll())
                     if ( employee.EmploymentDate.Year == int.Parse(cmbYear.SelectedItem.ToString()))
                     {
                         if (employee.EmploymentDate.Month > int.Parse(DBMethod.GetSelectedItemID(cmbMonth)))

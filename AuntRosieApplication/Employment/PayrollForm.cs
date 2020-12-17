@@ -370,7 +370,7 @@ namespace AuntRosieApplication.Employment
             }
             catch (Exception ex)
             {
-                MessageBox.Show("del" + ex.Message);
+               // MessageBox.Show("del->" + ex.Message);
             }
             finally
             {
